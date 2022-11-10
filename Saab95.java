@@ -9,7 +9,6 @@ public class Saab95 extends Car{
 	    this.turboOn = false;
     }
     
-
     public void setTurboOn(){
 	    turboOn = true;
     }
@@ -17,6 +16,7 @@ public class Saab95 extends Car{
     public void setTurboOff(){
 	    turboOn = false;
     }
+
     @Override
     public double speedFactor(){
         double turbo = 1;
@@ -24,21 +24,13 @@ public class Saab95 extends Car{
         return (this.getEnginePower() * 0.01 * turbo);
     }
 
+    @Override
     public void incrementSpeed(double amount){
         this.setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
+    @Override
     public void decrementSpeed(double amount){
         this.setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
-    }
-    
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
     }
 }

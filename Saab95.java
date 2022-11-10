@@ -36,7 +36,7 @@ public class Saab95{
     public void setColor(Color clr){
 	    color = clr;
     }
-
+//Hejhej
     public void startEngine(){
 	    currentSpeed = 0.1;
     }

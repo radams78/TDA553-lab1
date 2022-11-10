@@ -55,14 +55,12 @@ public abstract class Car implements Movable
         currentSpeed = 0;
     }
 
-    // TODO fix this method according to lab pm
     public void gas(double amount)
     {
         checkIfValidAmount(amount);
         incrementSpeed(amount);
     }
 
-    // TODO fix this method according to lab pm
     public void brake(double amount)
     {
         checkIfValidAmount(amount);

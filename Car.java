@@ -32,7 +32,7 @@ public class Car {
     }
 
 
-    System.out.println("hej");
+    // System.out.println("hej");
 
 
 

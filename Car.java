@@ -30,6 +30,8 @@ public abstract class Car {
 
     public abstract void decrementSpeed(double amount);
 
+    public abstract double speedFactor();
+
     public int getNrDoors() {
         return nrDoors;
     }

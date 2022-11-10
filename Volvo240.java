@@ -15,10 +15,10 @@ public class Volvo240 extends Car{
         color = Color.black;
         enginePower = 100;
         modelName = "Volvo240";*/
-        stopEngine();
+        //stopEngine();
     }
     
-    public int getNrDoors(){
+    /*public int getNrDoors(){
         return nrDoors;
     }
     public double getEnginePower(){
@@ -64,6 +64,6 @@ public class Volvo240 extends Car{
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        decrementSpeed(amount);
+        decrementSpeed(amount);*/
     }
 }

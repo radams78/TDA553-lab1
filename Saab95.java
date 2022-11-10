@@ -1,6 +1,8 @@
 import java.awt.*;
 
-public class Saab95{
+import javax.swing.plaf.synth.ColorType;
+
+public class Saab95 extends Vehicle{
 
     public boolean turboOn;
     public int nrDoors; // Number of doors on the car
@@ -9,12 +11,14 @@ public class Saab95{
     public Color color; // Color of the car
     public String modelName; // The car model name
     
-    public Saab95(){
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
-	    turboOn = false;
-        modelName = "Saab95";
+    public Saab95(int nrDoors, ColorType color, double enginePower, String modelName ){
+        super(nrDoors, color, enginePower, modelName);
+        turboOn = false;
+        this.nrDoors = 2;
+        this.color = Color.red;
+        this.enginePower = 125;
+	    this.turboOn = false;
+        this.modelName = "Saab95";
         stopEngine();
     }
     

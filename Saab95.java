@@ -21,6 +21,7 @@ public class Saab95{
     public int getNrDoors(){
         return nrDoors;
     }
+    //h
     public double getEnginePower(){
         return enginePower;
     }

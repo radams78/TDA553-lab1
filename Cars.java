@@ -7,7 +7,6 @@ public class Cars implements Movable{
     private double enginePower;
     private Color color;
 
-
     public Cars(String modelName, int nrDoors, double currentSpeed, double enginePower, Color color){
         this.modelName = modelName;
         this.nrDoors = nrDoors;
@@ -45,6 +44,9 @@ public class Cars implements Movable{
 
     }
     public void turnLeft(){
+        
+    }
+    public void turnRight(){
         
     }
 }

@@ -1,5 +1,8 @@
 import java.awt.*;
 
+import java.util.List;
+import static java.util.Arrays.asList;
+
 public abstract class Car implements Movable {
 
     private int nrDoors; // Number of doors on the car
@@ -9,8 +12,12 @@ public abstract class Car implements Movable {
     private String modelName; // The car model name
     private double x; // Car x-coordinate
     private double y; // Car y-coordinate
+    
+    private Direction direction;
+    private final List<Direction> directions;
 
-    public Car(int nrDoors, Color color, double enginePower, String modelName, double x, double y){
+
+    public Car(int nrDoors, Color color, double enginePower, String modelName, double x, double y, Direction direction){
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
@@ -19,15 +26,13 @@ public abstract class Car implements Movable {
         this.y = y;
         stopEngine();
 
-    }
+        this.directions = asList(Direction.UP, Direction.RIGHT, Direction.DOWN, Direction.LEFT);
+        this.direction = direction;
 
-    Direction[] directions = new Direction[]{
-        new Direction(0.0, -1.0),
-        new Direction(1.0, 0.0),
-        new Direction(0.0, 1.0),
-        new Direction(-1.0, 0.0)
-    };
+    }
     
+
+    // Setters
 
     public void setX(double x) {
         this.x = x;
@@ -36,8 +41,10 @@ public abstract class Car implements Movable {
     public void setY(double y) {
         this.y = y;
     }
-
     
+
+    // Getters
+
     public double getX() {
         return x;
     }
@@ -45,6 +52,9 @@ public abstract class Car implements Movable {
     public double getY() {
         return y;
     }
+
+
+    // Car methods
 
     protected int getNrDoors(){
         return nrDoors;
@@ -86,19 +96,39 @@ public abstract class Car implements Movable {
         decrementSpeed(amount);
     }
 
-    public void move(){
-        setX(getX() + getCurrentSpeed() );
-        setY(getX() + getCurrentSpeed() );
+    
+    public void move() {
+        double x = getX();
+        double y = getY();
+
+        switch (direction) {
+            case UP:
+                setY(y - currentSpeed);
+                break;
+
+            case RIGHT:
+                setX(x + currentSpeed);
+                break;
+
+            case DOWN:
+                setY(y + currentSpeed);
+                break;
+
+            case LEFT:
+                setX(x - currentSpeed);
+                break;
+        }
+    }
+    
+    public void turnLeft() {
+        direction = directions.get((directions.indexOf(direction) - 1 + directions.size()) % directions.size());
     }
 
-    public void turnLeft(){
-        
+    public void turnRight() {
+        direction = directions.get((directions.indexOf(direction) + 1 + directions.size()) % directions.size());
     }
-    
-    public void turnRight(){
-        
-    }
-    
+
+
     protected abstract double speedFactor();
     
     protected abstract void incrementSpeed(double amount);

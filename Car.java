@@ -114,14 +114,14 @@ public class Car implements Movable{
 
     @Override
     public void move(){
-        switch(this.direction) {
-            case NORTH:
+        switch(this.direction.getValue()) {
+            case 0:
                 this.y += this.currentSpeed;
-            case EAST:
+            case 1:
                 this.x += this.currentSpeed;
-            case SOUTH:
+            case 2:
                 this.y -= this.currentSpeed;
-            case WEST:
+            case 3:
                 this.x -= this.currentSpeed;
         }
         out.println(" " + this.x + " " + this.y);

@@ -1,0 +1,11 @@
+Task 5: Reflection
+
+1.Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+
+The Open-closed principle states that software entities should be open for extension, but closed for modification.
+To make the code open for extension but closed for modification we chose to make inheritance hierarchy by using
+subclassing. By using subclassing we could avoid code duplication. 
+
+
+
+2.Explain how you implemented each of the sanity checks in Task 4.

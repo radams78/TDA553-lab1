@@ -1,4 +1,5 @@
 import java.awt.*;
+import static java.lang.System.out;
 
 public class Car implements Movable{
     
@@ -21,7 +22,7 @@ public class Car implements Movable{
         private Direction(int value){
             this.value = value;
         }
-        public int getValue(int value){
+        public int getValue(){
             return this.value;
         }
     }
@@ -101,16 +102,28 @@ public class Car implements Movable{
 
     @Override
     public void turnLeft() {
-        this.direction
+        int dirValue = this.direction.getValue();
+        this.direction = Direction.values()[(dirValue - 1) % 4];
     }
 
     @Override
     public void turnRight() {
-
+        int dirValue = this.direction.getValue();
+        this.direction = Direction.values()[(dirValue + 1) % 4];
     }
 
     @Override
     public void move(){
-        this.y += this.currentSpeed;
+        switch(this.direction) {
+            case NORTH:
+                this.y += this.currentSpeed;
+            case EAST:
+                this.x += this.currentSpeed;
+            case SOUTH:
+                this.y -= this.currentSpeed;
+            case WEST:
+                this.x -= this.currentSpeed;
+        }
+        out.println(" " + this.x + " " + this.y);
     }
 }

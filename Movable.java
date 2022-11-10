@@ -1,10 +1,8 @@
 interface Movable {
-
-    void move(); 
+    
+    void move();
 
     void turnLeft();
 
     void turnRight();
-    
 }
-

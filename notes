@@ -1,0 +1,19 @@
+Notes:
+------
+
+- Volvo:
+
+# nrDoors = 4;
+# color = Color.black;
+# enginePower = 100;
+# modelName = "Volvo240";
+# stopEngine();
+
+- Saab:
+
+# nrDoors = 2;
+# color = Color.red;
+# enginePower = 125;
+# turboOn = false;
+# modelName = "Saab95";
+# stopEngine();

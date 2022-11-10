@@ -1,79 +1,53 @@
+// Module to hold the subclass Saab95
+// - Note that this subclass inherits from the superclass Car
+
+// --- Imports --- //
+
 import java.awt.*;
 
-public class Saab95{
 
-    public boolean turboOn;
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name BAJS
+// ---- Class ---- //
+
+public class Saab95 extends Car {
     
-    public Saab95(){
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
-	    turboOn = false;
-        modelName = "Saab95";
-        stopEngine();
-    }
+    boolean turboOn;
     
-    public int getNrDoors(){
-        return nrDoors;
-    }
-    public double getEnginePower(){
-        return enginePower;
-    }
-
-    public double getCurrentSpeed(){
-        return currentSpeed;
+    // Constructor for the class saab95
+    public Saab95(int nrDoors, Color color, int enginePower, String modelName){
+        super(nrDoors, color, enginePower, modelName);   
+        turboOn = false;
     }
 
-    public Color getColor(){
-        return color;
-    }
+    // --- Methods --- //
 
-    public void setColor(Color clr){
-	    color = clr;
-    }
-
-    public void startEngine(){
-	    currentSpeed = 0.1;
-    }
-
-    public void stopEngine(){
-	    currentSpeed = 0;
-    }
-
-    public void setTurboOn(){
-	    turboOn = true;
-    }
-
-    public void setTurboOff(){
-	    turboOn = false;
-    }
-    
+    // Updates vehicle's speedfactor depending on if turbo is on or off
+    @Override
     public double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return enginePower * 0.01 * turbo;
     }
+    
 
+    // Increments the speed of the vehicle depending on the speedfactor
+    @Override
     public void incrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
+    // Decrements the speed of the vehicle depending on the speedfactor
+    @Override
     public void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
-    
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
 
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
+    // Methods to set turbo values
+    public void setTurboOn(){
+	    turboOn = true;
     }
+    
+    public void setTurboOff(){
+	    turboOn = false;
+    }
+    
 }

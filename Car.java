@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.lang.Math;
 
 public abstract class Car {
     protected int nrDoors; // Number of doors on the car
@@ -6,6 +7,8 @@ public abstract class Car {
     protected Color color; // Color of the car
     protected double currentSpeed; // The current speed of the car
     protected String modelName; // The car model name
+    public double xPosition = 0, yPosition = 0;
+    public double facingDirection = 0;
 
     public Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;
@@ -53,4 +56,35 @@ public abstract class Car {
 
     // Temporär abstract tills vi vet om den ska vara abstract eller inte
     public abstract void brake(double amount);
+
+    public void move(){
+        updateXPosition();
+        updateYPosition();
+    }
+
+    protected void updateXPosition(){
+        xPosition += currentSpeed*getXComposant();
+    }
+
+    protected void updateYPosition(){
+        yPosition += currentSpeed*getYComposant();
+    }
+
+    protected double getXComposant(){
+        return Math.cos(facingDirection);
+    }
+
+    protected double getYComposant(){
+        return Math.sin(facingDirection);
+    }
+
+    public void turnLeft(){
+        facingDirection += Math.PI/60;
+        facingDirection = facingDirection %(2*Math.PI);
+    }
+
+    public void turnRight(){
+        facingDirection += -Math.PI/60;
+        facingDirection = facingDirection %(2*Math.PI);
+    }
 }

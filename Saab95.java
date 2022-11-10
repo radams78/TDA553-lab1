@@ -16,6 +16,7 @@ public class Saab95{
 	    turboOn = false;
         modelName = "Saab95";
         stopEngine();
+        System.out.println("hej");
     }
     
     public int getNrDoors(){

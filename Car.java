@@ -56,4 +56,8 @@ public class Car {
         return this.modelName;
     }
 
+    public double speedFactor(){
+        return (this.enginePower * 0.01);
+    }
+
 }

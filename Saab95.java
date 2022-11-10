@@ -52,7 +52,8 @@ public class Saab95{
     public void setTurboOff(){
 	    turboOn = false;
     }
-    
+
+    //Overriden
     public double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;

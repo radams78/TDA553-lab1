@@ -24,7 +24,6 @@ public abstract class Cars {
     public double getEnginePower(){
         return enginePower;
     }
-
     public double getCurrentSpeed(){
         return currentSpeed;
     }

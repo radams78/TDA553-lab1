@@ -3,19 +3,10 @@ import java.awt.*;
 public class Saab95 extends Car{
 
     public boolean turboOn;
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
     
-    public Saab95(){
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
-	    turboOn = false;
-        modelName = "Saab95";
-        stopEngine();
+    public Saab95(Color color){
+        super(2, color, 125, "Saab95");
+	    turboOn = false;  
     }
     
     public void setTurboOn(){
@@ -32,12 +23,5 @@ public class Saab95 extends Car{
         return enginePower * 0.01 * turbo;
     }
 
-    public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-    }
-
-    public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
     
 }

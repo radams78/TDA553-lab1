@@ -10,6 +10,7 @@ public class Saab95{
     public String modelName; // The car model name
     
     public Saab95(){
+        //test
         nrDoors = 2;
         color = Color.red;
         enginePower = 125;

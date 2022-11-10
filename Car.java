@@ -5,4 +5,5 @@ public abstract class Car {
         this.enginePower = enginePower;
         this.modelName = modelName;
     }
+    // Jag testar om jag har write access
 }

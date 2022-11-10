@@ -3,29 +3,21 @@ import java.awt.*;
 public class Volvo240 extends Cars{
 
     public final static double trimFactor = 1.25;
-    public static int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public static double currentSpeed; // The current speed of the car
-    public static Color color; // Color of the car
-    public static String modelName; // The car model name
+    
     
     public Volvo240(){
-        super(modelName, nrDoors, currentSpeed, currentSpeed, color);
-        nrDoors = 4;
-        color = Color.black;
-        enginePower = 100;
-        modelName = "Volvo240";
+        super("Volvo240", 4, 0, 100, Color.BLACK);
         stopEngine();
     }
     public double speedFactor(){
-        return enginePower * 0.01 * trimFactor;
+        return getEnginePower() * 0.01 * trimFactor;
     }
 
-    public void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    private void incrementSpeed(double amount){
+	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower());
     }
 
-    public void decrementSpeed(double amount){
+    private void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 

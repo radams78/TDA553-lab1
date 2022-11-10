@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Cars {
+public class Cars implements Movable{
     private final int nrDoors;
     private String modelName;
     private double currentSpeed;
@@ -40,5 +40,11 @@ public class Cars {
 
     public void stopEngine(){
 	    currentSpeed = 0;
+    }
+    public void move(){
+
+    }
+    public void turnLeft(){
+        
     }
 }

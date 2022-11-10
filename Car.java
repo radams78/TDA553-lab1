@@ -61,6 +61,9 @@ public abstract class Car {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
     
+    public abstract double speedFactor();
+
+    
 
     // Jag testar om jag har write access
 }

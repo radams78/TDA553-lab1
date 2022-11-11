@@ -1,19 +1,23 @@
 import java.awt.*;
 
-public abstract class Car {
+public abstract class Car implements Movable{
 
     private int nrDoors;
     private double enginePower;
     private Color color;
     private String modelName;
     private double currentSpeed;
+    private double x;
+    private double y;
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName) {
+    public Car(int nrDoors, double enginePower, Color color, String modelName, double x, double y) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
         this.currentSpeed = 1;
+        this.x = x;
+        this.y = y;
     }
 
     public int getNrDoors() {
@@ -40,6 +44,22 @@ public abstract class Car {
         color = clr;
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double amount) {
+        x += amount;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double amount) {
+        y += amount;
+    }
+
     public void startEngine() {
         currentSpeed = 0.1;
     }
@@ -62,5 +82,18 @@ public abstract class Car {
     // TODO fix this method according to lab pm
     public void brake(double amount) {
         decrementSpeed(amount);
+    }
+
+    public void move() {
+        double newPosition = getX() + getCurrentSpeed();
+        setX(newPosition);
+    }
+
+    public void turnLeft() {
+
+    }
+
+    public void turnRight() {
+
     }
 }

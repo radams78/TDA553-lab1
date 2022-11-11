@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Saab95 extends Car{
+public class Saab95 extends Car {
 
     public boolean turboOn;
     // public int nrDoors; // Number of doors on the car
@@ -9,8 +9,8 @@ public class Saab95 extends Car{
     // public Color color; // Color of the car
     // public String modelName; // The car model name
     
-    public Saab95(){
-        super(2, 125, Color.red, "Saab95");
+    public Saab95(int nrDoors, double enginePower, Color color, String modelName, double x, double y){
+        super(nrDoors, enginePower, color, modelName, x, y);
 	    turboOn = false;
         stopEngine();
     }
@@ -39,5 +39,4 @@ public class Saab95 extends Car{
         double speed = getCurrentSpeed() - speedFactor() * amount;
         setCurrentSpeed(speed);
     }
-    
 }

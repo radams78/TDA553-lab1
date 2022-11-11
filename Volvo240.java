@@ -9,9 +9,9 @@ public class Volvo240 extends Cars{
     public Color color; // Color of the car
     public String modelName; // The car model name
     
-    private Volvo240(int nrDoors, Color color, double enginePower, String modelName, double currentSpeed)
-    {super(nrDoors, color, enginePower, modelName, currentSpeed);}
-    {
+    private Volvo240(int nrDoors, Color color, double enginePower, String modelName, double currentSpeed) {
+        super(nrDoors, color, enginePower, modelName, currentSpeed);
+
         nrDoors = 4;
         color = Color.black;
         enginePower = 100;

@@ -1,5 +1,5 @@
 import java.awt.*;
-public abstract class Cars {
+public abstract class Cars implements Movable {
    
     protected int nrDoors;
     protected Color color;  
@@ -7,14 +7,30 @@ public abstract class Cars {
     protected String modelName; 
     protected double currentSpeed;
 
+    private int xCoord;
+
     protected Cars(int nrDoors, Color color, double enginePower, String modelName, double currentSpeed){
     this.nrDoors = nrDoors;
     this.color = color;
     this.enginePower = enginePower;
     this.modelName = modelName;
     this.currentSpeed = currentSpeed;
+    this.xCoord = 0;
     
 }
+
+
+public void turnRight(){
+
+}
+
+public void turnLeft(){
+}
+
+public void move(){
+    xCoord += currentSpeed;
+}
+
 
 protected int getNrDoors(){
     return nrDoors;

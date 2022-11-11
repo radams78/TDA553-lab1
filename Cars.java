@@ -1,58 +1,54 @@
 import java.awt.*;
-
 public abstract class Cars {
+   
+    protected int nrDoors;
+    protected Color color;  
+    protected double enginePower; 
+    protected String modelName; 
+    protected double currentSpeed;
 
-    public int nrDoors;
-    public Color color;
-    public double enginePower;
-    public String modelName;
-    public double currentSpeed;
-
-
-
-    public Cars(int nrDoors, Color color, double enginePower, String modelName, double currentSpeed){
-        this.nrDoors = nrDoors;
-        this.color = color;
-        this.enginePower = enginePower;
-        this.modelName = modelName;
-
-    }
-
-    public int getNrDoors(){
-        return nrDoors;
-    }
-    public double getEnginePower(){
-        return enginePower;
-    }
-    public double getCurrentSpeed(){
-        return currentSpeed;
-    }
-
-    public Color getColor(){
-        return color;
-    }
-
-    public void setColor(Color clr){
-        color = clr;
-    }
-
-    public void startEngine(){
-        currentSpeed = 0.1;
-
-    }
-
-    public void stopEngine(){
-        currentSpeed = 0;
-
-    }
-
-    public abstract double speedFactor();
-
-    public abstract void incrementSpeed();
-
-
-
-
-
-
+    protected Cars(int nrDoors, Color color, double enginePower, String modelName, double currentSpeed){
+    this.nrDoors = nrDoors;
+    this.color = color;
+    this.enginePower = enginePower;
+    this.modelName = modelName;
+    this.currentSpeed = currentSpeed;
+    
 }
+
+protected int getNrDoors(){
+    return nrDoors;
+}
+protected double getEnginePower(){
+    return enginePower;
+}
+
+protected double getCurrentSpeed(){
+    return currentSpeed;
+}
+
+protected Color getColor(){
+    return color;
+}
+
+protected void setColor(Color clr){
+    color = clr;
+}
+
+protected void startEngine(){
+   currentSpeed = 0.1;
+}
+
+protected void stopEngine(){
+    currentSpeed = 0;
+}
+
+protected abstract double speedFactor(double amount);
+
+protected abstract void incrementSpeed(double amount);
+
+protected abstract void decrementSpeed(double amount);
+
+    
+}
+

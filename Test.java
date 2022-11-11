@@ -8,10 +8,10 @@ public class Test{
         System.out.println("Saab" + saab.getNrDoors());
         System.out.println("Volvo" + volvo.getNrDoors());
 
-        testMove();
+        testMove(saab, volvo);
     }
 
-    public static void testMove(){
+    public static void testMove(Car saab, Car volvo){
         for (int i = 0; i < 6000; i++){
             saab.move();
             volvo.move();

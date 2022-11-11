@@ -21,5 +21,6 @@ public class Volvo240 extends Car{
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
+
     
 }

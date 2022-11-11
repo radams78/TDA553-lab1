@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements Movable {
     
     public double currentSpeed;
     public Color color;
@@ -32,6 +32,19 @@ public abstract class Vehicle {
     public void stopVehicle(){
 	    currentSpeed = 0;
     }
+
+    public void move(){
+        System.out.println("tjjena mittbena");
+    }
+
+    public void turnLeft(){
+        System.out.println("tjjena mittbena");
+    }
+
+    public void turnRight(){
+        System.out.println("tjjena mittbena");
+    }
+
 
     
     public abstract double speedFactor();

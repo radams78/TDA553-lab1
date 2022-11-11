@@ -26,9 +26,9 @@ public abstract class Car {
 
     
 
-    public abstract void incrementSpeed(double amount);
+    protected abstract void incrementSpeed(double amount);
 
-    public abstract void decrementSpeed(double amount);
+    protected abstract void decrementSpeed(double amount);
 
     public abstract double speedFactor();
 

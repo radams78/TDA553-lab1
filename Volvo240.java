@@ -11,7 +11,17 @@ public class Volvo240 extends Car{
     
     
     public double speedFactor(){
-        return enginePower * 0.01 * trimFactor;
+        return getEnginePower() * 0.01 * trimFactor;
+    }
+
+    @Override
+    protected void incrementSpeed(double amount) {
+       setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+    }
+
+    @Override
+    protected void decrementSpeed(double amount) {
+        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
 
     // TODO fix this method according to lab pm

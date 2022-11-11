@@ -17,18 +17,21 @@ public class Saab95  extends Car{
 	    turboOn = false;
     }
     
+    @Override
     public double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        return getEnginePower() * 0.01 * turbo;
     }
 
-    public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+    @Override
+    protected void incrementSpeed(double amount){
+       setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
-    public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+    @Override
+    protected void decrementSpeed(double amount){
+        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
    
     // TODO fix this method according to lab pm

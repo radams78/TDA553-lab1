@@ -3,8 +3,9 @@ public class Driver {
     
     Saab95 car2 = new Saab95();
 
-public static void main(String[] args) { // weird java
+public static void main(String[] args) { // Required to run the program
     new Driver().goCar1(); 
+    new Driver().goCar2(); 
 }
 
 public void goCar1() {
@@ -16,8 +17,17 @@ public void goCar1() {
     System.out.println(car1.speedFactor());
 }
 
-public void move(Car car1){
-    new Movable().incrementSpeed(1, car1);
+public void goCar2() {
+    Car car2 = new Saab95();
+    move(car2);
+    System.out.println(car2.color);
+    System.out.println(car2.modelName);
+    System.out.println(car2.currentSpeed);
+    System.out.println(car2.speedFactor());
+}
+
+public void move(Car theCar){
+    new Movable().incrementSpeed(1, theCar);
 }
 
 public void turnLeft(){

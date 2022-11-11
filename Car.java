@@ -43,18 +43,22 @@ public abstract class Car extends Movable {
         currentSpeed = 0;
     }
 
+    @Override
     public void move(){
 
     }
 
+    @Override
     public void turnLeft(){
 
     }
 
+    @Override
     public void turnRight(){
 
     }
 
+    @Override
     public void stop(){
         
     }

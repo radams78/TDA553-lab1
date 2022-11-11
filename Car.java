@@ -31,12 +31,14 @@ public class Car {
     public void startEngine(){
 	    currentSpeed = 0.1;
     }
-    
+
     public void stopEngine(){
 	    currentSpeed = 0;
     }
 
-
+    public double speedFactor(){
+        return 0.01;
+    }
     // System.out.println("hej");
 
 

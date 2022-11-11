@@ -1,17 +1,30 @@
 // import static java.lang.System.out;
 
 public class Movable {
-    Volvo240 car1 = new Volvo240();
-    Saab95 car2 = new Saab95();
-    
+    public double currentSpeed;
 
+    // private void go() { // method that actully does something callaed from java main
+    //     int a = car1.nrDoors;
+    //     System.out.println(a + car2.nrDoors);
+    // }
 
-    public static void main(String[] args) { // weird java
-        new Movable().go(); }
-    
-
-    private void go() { // method that actully does something callaed from java main
-        int a = car1.nrDoors;
-        System.out.println(a + car2.nrDoors);
+    public void incrementSpeed(double amount, Car currentCar){
+	    currentSpeed = Math.min(currentCar.getCurrentSpeed() + currentCar.speedFactor() * amount, currentCar.enginePower);
     }
+
+    public void decrementSpeed(double amount, Volvo240 currentCar){
+        currentSpeed = Math.max(currentCar.getCurrentSpeed() - currentCar.speedFactor() * amount, 0);
+    }
+
+    // TODO fix this method according to lab pm
+    public void gas(double amount, Volvo240 currentCar){
+        incrementSpeed(amount, currentCar);
+    }
+
+    // TODO fix this method according to lab pm
+    public void brake(double amount, Volvo240 currentCar){
+        decrementSpeed(amount, currentCar);
+
+    }
+
 }

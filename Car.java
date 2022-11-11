@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Car {
+public abstract class Car implements Movable {
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power
     private double currentSpeed; // Current speed
@@ -31,6 +31,18 @@ public abstract class Car {
     protected abstract void decrementSpeed(double amount);
 
     public abstract double speedFactor();
+
+    public void move() {
+        //TODO Add movement
+    }
+
+    public void turnLeft() {
+        //TODO Add turning left
+    }
+
+    public void turnRight() {
+        //TODO Add turning right
+    }
 
     public int getNrDoors() {
         return nrDoors;

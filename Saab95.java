@@ -1,4 +1,8 @@
+import static org.junit.Assert.assertEquals;
+
 import java.awt.*;
+
+import org.junit.jupiter.api.Test;
 
 public class Saab95 extends Car implements Movable {
 
@@ -72,5 +76,46 @@ public class Saab95 extends Car implements Movable {
     @Override
     public void turnRight() {
         cardinal += 90;
+    }
+
+    @Test
+    public void testMove() {
+        startEngine();
+        turnRight();
+        double exp = (x -= currentSpeed);
+        move(x, y);
+        assertEquals(x, exp, 0);
+        turnRight();
+        double nextExp = (y -= currentSpeed);
+        move(x, y);
+        assertEquals(y, nextExp, 0);
+    }
+
+    @Test
+    public void testGas() {
+        double expectedIncrementSpeed = getCurrentSpeed() + speedFactor() * 10.5;
+        gas(10.5);
+        assertEquals(currentSpeed, expectedIncrementSpeed, 0);
+        double expectedDecrementSpeed = getCurrentSpeed() - speedFactor() * 10.5;
+        brake(10.5);
+        assertEquals(currentSpeed, expectedDecrementSpeed, 0);
+    }
+
+    @Test
+    public void testSpeed() {
+        double expectedIncrementSpeed = getCurrentSpeed() + speedFactor() * 10.5;
+        incrementSpeed(10.5);
+        assertEquals(currentSpeed, expectedIncrementSpeed, 0);
+        double expectedDecrementSpeed = getCurrentSpeed() - speedFactor() * 10.5;
+        decrementSpeed(10.5);
+        assertEquals(currentSpeed, expectedDecrementSpeed, 0);
+    }
+
+    @Test
+    public void testSpeedFactor() {
+        setTurboOn();
+        assertEquals(speedFactor(), enginePower * 0.01 * 1.3, 0);
+        setTurboOff();
+        assertEquals(speedFactor(), enginePower * 0.01 * 1, 0);
     }
 }

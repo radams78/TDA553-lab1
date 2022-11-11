@@ -4,19 +4,24 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        Saab95 car1 = new Saab95(2, Color.red, 125,"Saab95");
-        Volvo240 car2 = new Volvo240(4, Color.black, 100, "Volvo240");
+        Saab95 car1 = new Saab95();
+        Volvo240 car2 = new Volvo240();
 
         List<Car> cars = new ArrayList();
 
-        cars.add(car1Saab95);
-        cars.add(car2Volvo240);
-
+        cars.add(car1);
+        cars.add(car2);
+        
         for (Car car : cars){
-            System.out.println(car.getName());
+            if (car.equals(car2)){
+                System.out.println(car2.getmodelName());
+            }else{
+                System.out.println(car1.getmodelName());
+            }
         }
+        
 
-    stopEngine();
+    //stopEngine();
 
         
 }}

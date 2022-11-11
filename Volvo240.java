@@ -8,41 +8,16 @@ public class Volvo240 extends Car{
     // public double currentSpeed; // The current speed of the car
     // public Color color; // Color of the car
     // public String modelName; // The car model name
+    boolean turnLeft,turnRight;
     
     public Volvo240(){
-        super(4,100,0,Color.black,"Volvo204");
+        super(4,100,0,Color.black,"Volvo204",0,0);
         // nrDoors = 4;
         // color = Color.black;
         // enginePower = 100;
         // modelName = "Volvo240";
         // stopEngine();
-    }
-    
-    int getNrDoors(){
-        return nrDoors;
-    }
-    double getEnginePower(){
-        return enginePower;
-    }
-
-    double getCurrentSpeed(){
-        return currentSpeed;
-    }
-
-    Color getColor(){
-        return color;
-    }
-
-    void setColor(Color clr){
-	    color = clr;
-    }
-
-    void startEngine(){
-	    currentSpeed = 0.1;
-    }
-
-    void stopEngine(){
-	    currentSpeed = 0;
+        
     }
     
     double speedFactor(){
@@ -65,5 +40,25 @@ public class Volvo240 extends Car{
     // TODO fix this method according to lab pm
     void brake(double amount){
         decrementSpeed(amount);
+    }
+    public void turnLeft(){
+        turnRight=false;
+        turnLeft=true;
+    }
+    public void turnRight(){
+        turnLeft=false;
+        turnRight=false;
+    }
+    public void move(){
+        if (turnLeft==true){
+            setX(getCurrentSpeed());
+            setY(getCurrentSpeed());
+
+        }else if(turnRight==true){
+            setX(-getCurrentSpeed());
+            setY(getCurrentSpeed());
+        }else{
+            setY(getCurrentSpeed());        
+        }
     }
 }

@@ -5,13 +5,19 @@ public abstract class Car {
     protected double currentSpeed; // The current speed of the car
     protected Color color; // Color of the car
     protected String modelName; // The car model name
-    public Car(int doors,double power,double speed, Color caColor, String name){
+    protected double x;
+    protected double y;
+    public Car(int doors,double power,double speed, Color caColor, String name, double x, double y){
         this.nrDoors=doors;
         this.enginePower=power; 
         this.currentSpeed=speed; 
         this.color=caColor; 
         this.modelName=name; 
+        this.x=x;
+        this.y=y;
     }
+
+    
 
     int getNrDoors(){
         return this.nrDoors;
@@ -23,6 +29,11 @@ public abstract class Car {
 
     double getCurrentSpeed(){
         return this.currentSpeed;
+    }
+
+    void setCurrentSpeed(double ammount){
+        this.currentSpeed=ammount;
+
     }
 
     Color getColor(){
@@ -40,6 +51,19 @@ public abstract class Car {
     void stopEngine(){
 	    this.currentSpeed = 0;
     }
+    double getX(){
+        return this.x;
+    }
+    double getY(){
+        return this.y;
+    }
+    void setX(double ammount){
+        this.x=ammount;
+    }
+    void setY(double ammount){
+        this.y=ammount;
+    }
+
        
     // abstract int getNrDoors();
     

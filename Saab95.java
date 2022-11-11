@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Saab95 extends Car{
+public class Saab95 extends Car implements Movable{
 
     // public boolean turboOn;
     // public int nrDoors; // Number of doors on the car
@@ -8,15 +8,18 @@ public class Saab95 extends Car{
     // public double currentSpeed; // The current speed of the car
     // public Color color; // Color of the car
     // public String modelName; // The car model name
-    boolean turboOn;
+    boolean turboOn,turnLeft,turnRight;
     public Saab95(){
-        super(2,125,0,Color.red,"Saab95");
+        super(2,125,0,Color.red,"Saab95",0,0);
         stopEngine();
+        
        
         // nrDoors = 2;
         // color = Color.red;
         // enginePower = 125;
 	    turboOn = false;
+        turnLeft=false;
+        turnRight=false;
         // modelName = "Saab95";
         // stopEngine();
         
@@ -37,11 +40,11 @@ public class Saab95 extends Car{
     }
 
     void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
     void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
     
     // TODO fix this method according to lab pm
@@ -52,5 +55,25 @@ public class Saab95 extends Car{
     // TODO fix this method according to lab pm
     void brake(double amount){
         decrementSpeed(amount);
+    }
+    public void turnLeft(){
+        turnRight=false;
+        turnLeft=true;
+    }
+    public void turnRight(){
+        turnLeft=false;
+        turnRight=false;
+    }
+    public void move(){
+        if (turnLeft==true){
+            setX(getCurrentSpeed());
+            setY(getCurrentSpeed());
+
+        }else if(turnRight==true){
+            setX(-getCurrentSpeed());
+            setY(getCurrentSpeed());
+        }else{
+            setY(getCurrentSpeed());        
+        }
     }
 }

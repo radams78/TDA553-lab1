@@ -1,5 +1,9 @@
 import java.awt.*;
+
+import org.junit.Test;
+
 import static java.lang.System.out;
+import static org.junit.Assert.assertEquals;
 
 public class Car implements Movable{
     
@@ -22,6 +26,10 @@ public class Car implements Movable{
         this.x = 0;
         this.y = 0;
         this.direction = Direction.NORTH;
+    }
+
+    public void startEngine(){
+	    this.setCurrentSpeed(0.1);
     }
 
     public void stopEngine(){
@@ -48,8 +56,12 @@ public class Car implements Movable{
         return this.currentSpeed;
     }
 
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    public void setCurrentSpeed(double amount) {
+        if (amount >= 0 && amount <= this.enginePower) {
+            this.currentSpeed = amount;
+        } else {
+            System.out.println("Warning! Current speed > Engine power!");
+        }
     }
 
     public Color getColor() {
@@ -76,14 +88,20 @@ public class Car implements Movable{
         this.setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount,0));
     }
     
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
+    public void gas(double var1) {
+        if (var1 >= 0 && var1 <= 1) {
+            this.incrementSpeed(var1);
+        } else {
+            System.out.println("Error! Gas outside interval!");
+        }
     }
 
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
+    public void brake(double var1) {
+        if (var1 >= 0 && var1 <= 1) {
+            this.decrementSpeed(var1);
+        } else {
+            System.out.println("Error! Brake outside interval!");
+        }
     }
 
     @Override
@@ -116,4 +134,15 @@ public class Car implements Movable{
         }
         out.println(" " + this.x + " " + this.y);
     }
+
+
+    // @Test
+    // public void testCar(){
+    //     Car myCar = new Car("VolvoXC60", Color.WHITE, 200, 1);
+    //     assertEquals("VolvoXC60", myCar.getModelName());
+    //     assertEquals(1, myCar.getNrDoors());
+    //     System.out.println(myCar.getModelName());
+    //     System.out.println(myCar.getNrDoors());
+
+    // }
 }

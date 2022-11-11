@@ -26,11 +26,11 @@ public class Saab95 extends Car{
 
     @Override
     public void incrementSpeed(double amount){
-        this.setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+        this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, this.getEnginePower()));
     }
 
     @Override
     public void decrementSpeed(double amount){
-        this.setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+        this.setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, this.getEnginePower()));
     }
 }

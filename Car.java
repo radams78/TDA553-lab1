@@ -1,5 +1,4 @@
 import java.awt.*;
-
 import javax.management.loading.PrivateClassLoader;
 
 public abstract class Car {

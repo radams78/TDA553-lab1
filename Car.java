@@ -5,13 +5,21 @@ public abstract class Car implements Movable {
     private Color color;
     protected int enginePower;
     private String modelName;
-    private double currentSpeed;
+    private double currentSpeedX;
+    private double currentSpeedY;
+    private int x;
+    private int y;
+    private double[] direction;
+
     
-    public Car(int nrDoors, Color color, int enginePower, String modelName){
+    public Car(int nrDoors, Color color, int enginePower, String modelName, int  x, int y, double[] direction) {
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
+        this.x = x;
+        this.y = y;
+        this.direction = direction;
         stopEngine();
     }
     
@@ -23,8 +31,11 @@ public abstract class Car implements Movable {
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
-        return currentSpeed;
+    public double getCurrentSpeedX(){
+        return currentSpeedX;
+    }
+    public double getCurrentSpeedY(){
+        return currentSpeedY;
     }
 
     public Color getColor(){
@@ -36,11 +47,12 @@ public abstract class Car implements Movable {
     }
 
     public void startEngine(){
-        currentSpeed = 0.1;
+        incrementSpeed(0.1);
     }
 
     public void stopEngine(){
-        currentSpeed = 0;
+        currentSpeedX = 0;
+        currentSpeedY = 0;
     }
 
     @Override
@@ -50,18 +62,15 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnLeft(){
-
+        direction[0]--;
     }
 
     @Override
     public void turnRight(){
+        direction[0]++;
 
     }
 
-    @Override
-    public void stop(){
-        
-    }
 
 
     // TODO fix this method according to lab pm
@@ -74,12 +83,16 @@ public abstract class Car implements Movable {
         decrementSpeed(amount);
     }
 
+
     public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        currentSpeedX = (getCurrentSpeedX() + speedFactor() * amount)*direction[0];
+        currentSpeedY = (getCurrentSpeedY() + speedFactor() * amount)*direction[1];
     }
+    
 
     public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        currentSpeedX = (getCurrentSpeedX() - speedFactor() * amount)*direction[0];
+        currentSpeedY = (getCurrentSpeedY() - speedFactor() * amount)*direction[1];
     }
     
     public abstract double speedFactor();

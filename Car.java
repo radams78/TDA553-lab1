@@ -121,6 +121,13 @@ public abstract class Car implements Movable {
     
     public abstract double speedFactor();
 
+    @Override
+    public String toString(){
+        String rgbPrint = this.getColor().toString().substring(14);
+        String printCar = "" + modelName + ": " + "Doors: " + this.getNrDoors() + ", Color: " + rgbPrint + ", Engine power: " + this.getEnginePower() + ", Position: (" + (int) x + "," + (int) y + ")" + ", Direction: (" + direction[0] + "," + direction[1] + ")";
+        return printCar;
+    }
+
     
 
     // Jag testar om jag har write access

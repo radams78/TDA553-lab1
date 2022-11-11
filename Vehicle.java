@@ -9,7 +9,8 @@ public class Vehicle {
     private double enginePower;
     private String modelName;
     private double direction;
-
+    private double x;
+    private double y;
    
 
     public Vehicle(int nrDoors, Color color, double enginePower, String modelName, double direction, double x, double y) {

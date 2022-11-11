@@ -1,4 +1,6 @@
 import java.awt.*;
+// To-Do
+// Add turning radius, a variable that change how fast the car turns
 
 public abstract class Car implements Movable {
     private int nrDoors;

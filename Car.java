@@ -14,7 +14,17 @@ public abstract class Car implements Movable {
         LEFT,
         UP,
         RIGHT,
-        DOWN
+        DOWN;
+
+        private static final Direction[] vals = values();
+
+        public Direction next() {
+            return vals[(Math.floorMod(this.ordinal() + 1, vals.length))];
+        }
+
+        public Direction prev() {
+            return vals[(Math.floorMod(this.ordinal() - 1, vals.length))];
+        }
     }
 
     protected Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
@@ -57,12 +67,12 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnLeft() {
-        // TODO Add turning left
+        currentDirection = currentDirection.prev();
     }
 
     @Override
     public void turnRight() {
-        // TODO Add turning right
+        currentDirection = currentDirection.next();
     }
 
     public int getNrDoors() {

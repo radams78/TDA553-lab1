@@ -9,7 +9,7 @@ public class Volvo240 extends Car{
     
     public Volvo240(){
 
-        super(4, 100, 0, Color.black, "Volvo240", 0, 0, "right");
+        super(4, 100, 0, Color.black, "Volvo240", 0, 0);
         
     }
     
@@ -26,24 +26,6 @@ public class Volvo240 extends Car{
     @Override
     public void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
-    }
-
-    // TODO fix this method according to lab pm
-    @Override
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    @Override
-    public void brake(double amount){
-        decrementSpeed(amount);
-    }
-
-    @Override
-    public void move() {
-        // TODO Auto-generated method stub
-        
     }
 
 }

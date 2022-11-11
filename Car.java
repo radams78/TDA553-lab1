@@ -14,9 +14,9 @@ public abstract class Car implements Movable{
     public String modelName; // The car model name
     public int y;
     public int x;
-    public String direction;
+    public int currentDirection;
 
-    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y, String direction) {
+    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y) {
       
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
@@ -25,7 +25,7 @@ public abstract class Car implements Movable{
         this.modelName = modelName;
         this.x = x;
         this.y = y;
-        this.direction = direction;
+        this.currentDirection = 3;
     }
 
     public int getNrDoors(){
@@ -69,12 +69,12 @@ public abstract class Car implements Movable{
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-
+        incrementSpeed(amount);
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-
+        decrementSpeed(amount);
     }
 
     public double getY() {
@@ -91,13 +91,43 @@ public abstract class Car implements Movable{
     public void setX(double x) {
     }
 
-    public void turnLeft(){
+    private void direction(){
+        switch(this.currentDirection){
+            case 0:
+                y += this.currentSpeed;
+                break;
+            case 1:
 
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                break;
+            
+        }
+    }
+
+    public void turnLeft(){
+        this.currentDirection -= 1;
+
+        if(this.currentDirection < 0){
+            this.currentDirection = 3;
+        }
+        
     }
 
     public void turnRight(){
+        this.currentDirection += 1;
+
+        if(this.currentDirection > 3){
+            this.currentDirection = 0;
+        }
+    }
+  
+    public void move() {
+        direction();    
         
     }
-    
-    
 }

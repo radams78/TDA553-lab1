@@ -43,6 +43,14 @@ public abstract class Car implements Movable {
     }
 
 
+    //temp
+    // public double getX(){
+    //     return x;
+    // }
+    // public double getY(){
+    //     return y;
+    // }
+
     public Color getColor(){
         return color;
     }
@@ -50,6 +58,7 @@ public abstract class Car implements Movable {
     public void setColor(Color clr){
         color = clr;
     }
+
 
 
     //Increases the speed by a little

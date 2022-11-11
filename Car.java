@@ -9,11 +9,11 @@ public abstract class Car implements Movable {
     private double posX;
     private double posY;
     protected Direction currentDirection;
-    
+
     protected enum Direction {
         LEFT,
-        RIGHT,
         UP,
+        RIGHT,
         DOWN
     }
 
@@ -71,7 +71,7 @@ public abstract class Car implements Movable {
 
     // Protected
     // protected void setNrDoors(int nrDoors) {
-    //     this.nrDoors = nrDoors;
+    // this.nrDoors = nrDoors;
     // }
 
     public double getEnginePower() {
@@ -80,7 +80,7 @@ public abstract class Car implements Movable {
 
     // Protected?
     // public void setEnginePower(double enginePower) {
-    //     this.enginePower = enginePower;
+    // this.enginePower = enginePower;
     // }
 
     public double getCurrentSpeed() {
@@ -106,7 +106,7 @@ public abstract class Car implements Movable {
     }
 
     // public void setModelName(String modelName) {
-    //     this.modelName = modelName;
+    // this.modelName = modelName;
     // }
 
 }

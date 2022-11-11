@@ -1,12 +1,15 @@
 import java.awt.*;
 
-abstract class Cars {
+abstract class Cars implements Movable{
 
     private int nrDoors;
     private double enginePower;
     private String modelName;
     private Color color;
-    public double currentSpeed;
+    private double currentSpeed;
+    private double direction;
+    private double x;
+    private double y;
 
     public Cars(int nrDoors, double enginePower, String modelName, Color color, double currentSpeed){
         this.nrDoors = nrDoors;
@@ -14,6 +17,9 @@ abstract class Cars {
         this.modelName = modelName;
         this.color = color;
         this.currentSpeed = currentSpeed;
+        this.direction = 0;
+        this.x = 0;
+        this.y = 0;
     }
 
     public int getNrDoors(){
@@ -25,6 +31,29 @@ abstract class Cars {
 
     public double getCurrentSpeed(){
         return currentSpeed;
+    }
+    public void setCurrentSpeed(double currentSpeed){
+        this.currentSpeed = currentSpeed;
+    }
+    public double getX(){
+        return x;
+    }
+    public void setX(double x){
+        this.x = x;
+    }
+
+    public double getDirection(){
+        return direction;
+    }
+    public void setDirection(double direction){
+        this.direction = direction;
+    }
+
+    public double getY(){
+        return y;
+    }
+    public void setY(double y){
+        this.y = y;
     }
 
     public void setColor(Color clr){
@@ -42,11 +71,12 @@ abstract class Cars {
     public void stopEngine(){
 	    currentSpeed = 0;
     }
+    
 
     @Override
     public String toString() {
-        return "Cars [nrDoors=" + nrDoors + ", enginePower=" + enginePower + ", modelName=" + modelName + ", color="
-                + color + ", currentSpeed=" + currentSpeed + "]";
+        return "Cars [nrDoors = " + nrDoors + ", enginePower = " + enginePower + ", modelName = " + modelName + ", color="
+                + color + ", currentSpeed = " + currentSpeed + ", X = " + x + ", Y = " + y + "]";
     }
     
 }

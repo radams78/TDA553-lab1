@@ -4,6 +4,12 @@ public class Run {
         System.out.println("\n" + volvo.toString());
         Saab95 saab = new Saab95();
         System.out.println("\n" + saab.toString());
-        System.out.println("changed");
+        volvo.incrementSpeed(10);
+        for (int i = 0; i < 10; i++){
+            volvo.move();
+            System.out.printf("%.2f, %.2f\n", volvo.getX(), volvo.getY());
+            volvo.turnLeft();
+        }
+
     }
 }

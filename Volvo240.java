@@ -4,6 +4,7 @@
 // --- Imports --- //
 
 import java.awt.*;
+import java.nio.channels.Pipe;
 
 
 // ---- Class ---- //
@@ -22,25 +23,27 @@ public class Volvo240 extends Car{
     
     // updates vehicles speedfactor depending on trimfactor
     @Override
-    public double speedFactor(){
+    protected double speedFactor(){
         return getEnginePower() * 0.01 * trimFactor;
         
     }
     
     // Increments the speed of the vehicle depending on the speedfactor
     @Override
-    public void incrementSpeed(double amount){
-        double currentSpeed = getCurrentSpeed();
+    protected void incrementSpeed(double amount){
+        double newSpeed;
         double enginePower = getEnginePower();
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+	    newSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+        setCurrentSpeed(newSpeed);
         
     }
 
     // Decrements the speed of the vehicle depending on the speedfactor
     @Override
-    public void decrementSpeed(double amount){
-        double currentSpeed = getCurrentSpeed();
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+    protected void decrementSpeed(double amount){
+        double  newSpeed;
+        newSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+        setCurrentSpeed(newSpeed);
     }
     
 }

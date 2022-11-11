@@ -22,31 +22,35 @@ public class Saab95 extends Car {
 
     // Updates vehicle's speedfactor depending on if turbo is on or off
     @Override
-    public double speedFactor(){
+    protected double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        return getEnginePower() * 0.01 * turbo;
     }
     
 
     // Increments the speed of the vehicle depending on the speedfactor
     @Override
-    public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+    protected void incrementSpeed(double amount){
+        double newSpeed;
+        newSpeed = getCurrentSpeed() + speedFactor() * amount;
+        setCurrentSpeed(newSpeed);
     }
 
     // Decrements the speed of the vehicle depending on the speedfactor
     @Override
-    public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+    protected void decrementSpeed(double amount){
+        double newSpeed;
+        newSpeed = getCurrentSpeed() - speedFactor() * amount;
+        setCurrentSpeed(newSpeed);
     }
 
     // Methods to set turbo values
-    public void setTurboOn(){
+    protected void setTurboOn(){
 	    turboOn = true;
     }
     
-    public void setTurboOff(){
+    protected void setTurboOff(){
 	    turboOn = false;
     }
     

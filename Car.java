@@ -7,13 +7,16 @@ import java.awt.*;
 
 // ---- Class ---- //
 
-public abstract class Car {
+public abstract class Car implements Movable {
 
-    private int nrDoors;         // Number of doors on the car
+    private int    nrDoors;      // Number of doors on the car
     private double enginePower;  // Engine power of the car
     private double currentSpeed; // The current speed of the car
-    private Color color;         // Color of the car
+    private Color  color;        // Color of the car
     private String modelName;    // The car model name
+    private double x;
+    private double y;
+    private double direction;
 
     public Car(int nrDoors, Color color, int enginePower, String modelName){
         this.nrDoors = nrDoors;
@@ -21,11 +24,19 @@ public abstract class Car {
         this.enginePower = enginePower;
         this.modelName = modelName;
         this.stopEngine();
+        
 
     }
     
     // --- Methods --- //
+    
+    public void turnRight(){
+        direction -= 20;
+    }
 
+    public void turnLeft(){
+        direction += 20;
+    }
     // Methods to get values
     public int getNrDoors(){
         return nrDoors;
@@ -41,14 +52,37 @@ public abstract class Car {
     public Color getColor(){
         return color;
     }
+    public double getX(){
+        return x;
+    }
+    
+    public double getY(){
+        return y;
+    }
+    
+    public double getDirection(){
+        return direction;
+    }
 
     // Methods to set values
-    public void setColor(Color clr){
+
+    public void move(){
+        double xSpeed = Math.cos(direction) * currentSpeed;
+        double ySpeed = Math.sin(direction) * currentSpeed;
+        x += xSpeed;
+        y += ySpeed;
+    }
+
+    protected void setColor(Color clr){
 	    color = clr;
     }
 
-    public void setCurrentSpeed(double speed){
+    protected void setCurrentSpeed(double speed){
         currentSpeed = speed;
+    }
+
+    protected void setEnginePower(int power){
+        enginePower = power;
     }
 
     public void startEngine(){
@@ -69,11 +103,11 @@ public abstract class Car {
     
     // --- Abstract Methods --- //
 
-    public abstract double speedFactor();
+    protected abstract double speedFactor();
     
-    public abstract void incrementSpeed(double amount);
+    protected abstract void incrementSpeed(double amount);
 
-    public abstract void decrementSpeed(double amount);
+    protected abstract void decrementSpeed(double amount);
 
 
 

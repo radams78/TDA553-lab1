@@ -4,5 +4,6 @@ public class Run {
         System.out.println("\n" + volvo.toString());
         Saab95 saab = new Saab95();
         System.out.println("\n" + saab.toString());
+        System.out.println("changed");
     }
 }

@@ -1,7 +1,5 @@
 import java.awt.*;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
-
 public class Saab95 extends Car{
     private Boolean turboOn;
 

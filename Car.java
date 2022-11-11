@@ -9,7 +9,7 @@ public class Car implements Movable{
     private Color color;
     private String modelName;
 
-    private int x, y; // Coordinates for car
+    private double x, y; // Coordinates for car
 
     private Direction direction; // Which direction is the car facing?
 

@@ -13,20 +13,6 @@ public class Car implements Movable{
 
     private Direction direction; // Which direction is the car facing?
 
-    public enum Direction {
-        NORTH(0),
-        EAST(1),
-        SOUTH(2),
-        WEST(3);
-        private int value;
-        private Direction(int value){
-            this.value = value;
-        }
-        public int getValue(){
-            return this.value;
-        }
-    }
-
     public Car(String modelName, Color color, double enginePower, int nrDoors){
         this.modelName = modelName;
         this.enginePower = enginePower;        

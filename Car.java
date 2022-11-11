@@ -9,13 +9,14 @@ public abstract class Car implements Movable{
     private double currentSpeed;
     private double x;
     private double y;
+    private boolean turnLeft, turnRight;
 
     public Car(int nrDoors, double enginePower, Color color, String modelName, double x, double y) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-        this.currentSpeed = 1;
+       // this.currentSpeed = 0;
         this.x = x;
         this.y = y;
     }
@@ -85,15 +86,28 @@ public abstract class Car implements Movable{
     }
 
     public void move() {
-        double newPosition = getX() + getCurrentSpeed();
-        setX(newPosition);
+        if(turnLeft){
+        double leftMovement =  -getCurrentSpeed();
+        setY(leftMovement);
+        } 
+        
+        else if(turnRight){
+            double rightMovement = getCurrentSpeed();
+            setY(rightMovement);
+        }
+        else {
+            setX(getCurrentSpeed());
+            setY(getCurrentSpeed());
+        }
     }
 
     public void turnLeft() {
-
+        turnLeft = true;
+        turnRight = false;
     }
 
     public void turnRight() {
-
+        turnRight = true;
+        turnLeft = false;
     }
 }

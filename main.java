@@ -21,9 +21,12 @@ public class main {
         System.out.println(saab.getCurrentSpeed());
 
         for(int i=0; i<10; i++) {
-            volvo.gas(2);
             volvo.move();
             System.out.println(volvo.getX() + " " + volvo.getY());
+            volvo.turnLeft();
+            volvo.move();
+            volvo.turnRight();
+            volvo.move();
         }
     }
 }

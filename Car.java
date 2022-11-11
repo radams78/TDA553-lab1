@@ -2,11 +2,11 @@ import java.awt.*;
 
 public abstract class Car {
 
-    public int nrDoors;
-    public double enginePower;
-    public Color color;
-    public String modelName;
-    public double currentSpeed;
+    private int nrDoors;
+    private double enginePower;
+    private Color color;
+    private String modelName;
+    private double currentSpeed;
 
     public Car(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;

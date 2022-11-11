@@ -5,7 +5,7 @@ public class main {
         Car saab = new Saab95();
 
         System.out.println(volvo.getEnginePower());
-        System.out.println(saab.modelName);
+        System.out.println(saab.getCurrentSpeed());
 
     
     }

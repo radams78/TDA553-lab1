@@ -126,7 +126,7 @@ public abstract class Car implements Movable {
         String rgbPrint = this.getColor().toString().substring(14);
         String printCar = "" + modelName + ": " + "Doors: " + this.getNrDoors() + ", Color: " + rgbPrint + ", Engine power: " + this.getEnginePower() + ", Position: (" + (int) x + "," + (int) y + ")" + ", Direction: (" + direction[0] + "," + direction[1] + ")";
         return printCar;
-    }
+    } //Car object as a visible car object
 
     
 

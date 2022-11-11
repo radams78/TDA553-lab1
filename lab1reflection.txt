@@ -1,0 +1,10 @@
+1. Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+Vi valde att göra en superklass Car eftersom Saab95 och Volvo 240 delade många metoder och attribut. 
+
+Vi vill göra en superklass Car för att för att vi vill att vårt program ska ge möjlighet att lägga till flera
+olika bilar. Vi gör detta i enhighet med Open-Closed Principle, då vi skapar möjlighet att vidareutveckla vårt program. 
+
+Vi tänker att det finns möjlighet att enkelt skapa interfaces för de metoder som finns i superklassen 
+Car om en skulle vilja använda de metoderna för något annat än en bil.
+
+2. Explain how you implemented each of the sanity checks in Task 4.

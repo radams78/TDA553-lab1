@@ -1,48 +1,24 @@
 import java.awt.*;
 
-public class Volvo240{
+import javax.swing.plaf.synth.ColorType;
+
+public class Volvo240 extends Vehicle{
 
     public final static double trimFactor = 1.25;
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
+   
     
-    public Volvo240(){
-        nrDoors = 4;
-        color = Color.black;
-        enginePower = 100;
-        modelName = "Volvo240";
+    public Volvo240(int nrDoors, Color color, double enginePower, String modelName )  {
+        super(4, Color. black, 100,"Volvo240");
+
+       // this.nrDoors = 4;
+       // this.color = Color.black;
+        //this.enginePower = 100;
+        //this.modelName = "Volvo240";
         stopEngine();
     }
     
-    public int getNrDoors(){
-        return nrDoors;
-    }
-    public double getEnginePower(){
-        return enginePower;
-    }
-
-    public double getCurrentSpeed(){
-        return currentSpeed;
-    }
-
-    public Color getColor(){
-        return color;
-    }
-
-    public void setColor(Color clr){
-	    color = clr;
-    }
-
-    public void startEngine(){
-	    currentSpeed = 0.1;
-    }
-
-    public void stopEngine(){
-	    currentSpeed = 0;
-    }
+   
+  
     
     public double speedFactor(){
         return enginePower * 0.01 * trimFactor;

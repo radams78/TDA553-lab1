@@ -15,39 +15,41 @@ public abstract class Car implements Movable {
         this.modelName = modelName;
     }
 
-
-    public void startEngine(){
-	    currentSpeed = 0.1;
+    public void startEngine() {
+        currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
-	    currentSpeed = 0;
+    public void stopEngine() {
+        currentSpeed = 0;
     }
 
-    
+    protected void incrementSpeed(double amount) {
+        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+    }
 
-    protected abstract void incrementSpeed(double amount);
-
-    protected abstract void decrementSpeed(double amount);
+    protected void decrementSpeed(double amount) {
+        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+    }
 
     public abstract double speedFactor();
 
     public void move() {
-        //TODO Add movement
+        // TODO Add movement
     }
 
     public void turnLeft() {
-        //TODO Add turning left
+        // TODO Add turning left
     }
 
     public void turnRight() {
-        //TODO Add turning right
+        // TODO Add turning right
     }
 
     public int getNrDoors() {
         return nrDoors;
     }
 
+    // Protected
     public void setNrDoors(int nrDoors) {
         this.nrDoors = nrDoors;
     }
@@ -56,6 +58,7 @@ public abstract class Car implements Movable {
         return enginePower;
     }
 
+    // Protected?
     public void setEnginePower(double enginePower) {
         this.enginePower = enginePower;
     }
@@ -64,6 +67,7 @@ public abstract class Car implements Movable {
         return currentSpeed;
     }
 
+    // Protected?
     public void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
@@ -72,6 +76,7 @@ public abstract class Car implements Movable {
         return color;
     }
 
+    // Protected?
     public void setColor(Color color) {
         this.color = color;
     }

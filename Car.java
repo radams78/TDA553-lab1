@@ -18,10 +18,18 @@ public abstract class Car implements Movable {
 
         private static final Direction[] vals = values();
 
+        // Returns the direction after the current one, and loops back to the first in
+        // case it overflows
         public Direction next() {
             return vals[(Math.floorMod(this.ordinal() + 1, vals.length))];
         }
 
+        // Returns the direction before the current one and loops to the last one in
+        // case it underflows
+        /*
+         * Note: Math.floorMod is used because Java built in modulo operator can
+         * return negative values
+         */
         public Direction prev() {
             return vals[(Math.floorMod(this.ordinal() - 1, vals.length))];
         }
@@ -46,6 +54,12 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
 
+    /*
+     * All cars use gas and brake the same way no?
+     * by either making a call to incrementSpeed,
+     * or to decrementSpeed. So I think we want to
+     * make them regular methods the sub-class then inherits.
+     */
     public abstract void gas(double amount);
 
     public abstract void brake(double amount);
@@ -63,6 +77,12 @@ public abstract class Car implements Movable {
     @Override
     public void move() {
         // TODO Add movement
+        /*
+         * My suggestion would be to use a switch depending on the
+         * state of the enum currentDirection and transforming the position of the car
+         * according to that.
+         */
+
     }
 
     @Override

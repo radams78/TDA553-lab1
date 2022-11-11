@@ -7,12 +7,12 @@ public abstract class Car implements Movable {
     private String modelName;
     private double currentSpeedX;
     private double currentSpeedY;
-    private int x;
-    private int y;
-    private double[] direction;
+    private double x;
+    private double y;
+    private double[] direction; // x and y list for the direction that  the car is supposed to move in
 
     
-    public Car(int nrDoors, Color color, int enginePower, String modelName, int  x, int y, double[] direction) {
+    public Car(int nrDoors, Color color, int enginePower, String modelName, double  x, double y, double[] direction) {
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
@@ -21,8 +21,10 @@ public abstract class Car implements Movable {
         this.y = y;
         this.direction = direction;
         stopEngine();
-    }
+    }//car
     
+
+    //getters
     public int getNrDoors(){
         return nrDoors;
     }
@@ -31,12 +33,15 @@ public abstract class Car implements Movable {
         return enginePower;
     }
 
+
+    //Gets the speed
     public double getCurrentSpeedX(){
         return currentSpeedX;
     }
     public double getCurrentSpeedY(){
         return currentSpeedY;
     }
+
 
     public Color getColor(){
         return color;
@@ -46,25 +51,33 @@ public abstract class Car implements Movable {
         color = clr;
     }
 
+
+    //Increases the speed by a little
     public void startEngine(){
         incrementSpeed(0.1);
     }
 
+    //sets speed in both directions to stop the car
     public void stopEngine(){
         currentSpeedX = 0;
         currentSpeedY = 0;
     }
 
+
+    //moves the cas by adding the speed to the car position
     @Override
     public void move(){
-
+        x+= currentSpeedX;
+        y+= currentSpeedY;
     }
 
+    // decrement the direction to change its turning
     @Override
     public void turnLeft(){
         direction[0]--;
     }
 
+    //Increments the x direction to turn the vehicle
     @Override
     public void turnRight(){
         direction[0]++;

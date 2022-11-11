@@ -6,6 +6,10 @@ public class main {
 
         System.out.println(volvo.getEnginePower());
         System.out.println(saab.getCurrentSpeed());
+        volvo.gas(2);
+        saab.gas(4);
+        System.out.println(volvo.getCurrentSpeed());
+        System.out.println(saab.getCurrentSpeed());
 
     
     }

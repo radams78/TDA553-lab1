@@ -5,7 +5,7 @@ public class Saab95 extends Car{
     public boolean turboOn;
     // public int nrDoors; // Number of doors on the car
     // public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
+    // public double currentSpeed; // The current speed of the car
     // public Color color; // Color of the car
     // public String modelName; // The car model name
     
@@ -29,12 +29,15 @@ public class Saab95 extends Car{
         return getEnginePower() * 0.01 * turbo;
     }
 
+    @Override
     public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        double speed = getCurrentSpeed() + speedFactor() * amount;
+        setCurrentSpeed(speed);
     }
 
     public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        double speed = getCurrentSpeed() - speedFactor() * amount;
+        setCurrentSpeed(speed);
     }
     
 }

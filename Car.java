@@ -13,7 +13,7 @@ public abstract class Car {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-        this.currentSpeed = 0;
+        this.currentSpeed = 1;
     }
 
     public int getNrDoors() {
@@ -26,6 +26,10 @@ public abstract class Car {
 
     public double getCurrentSpeed() {
         return this.currentSpeed;
+    }
+
+    public void setCurrentSpeed(double amount) {
+        currentSpeed = amount;
     }
 
     public Color getColor() {

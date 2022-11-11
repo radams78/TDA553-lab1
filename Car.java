@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Car {
+public abstract class Car extends Movable {
     private int nrDoors;
     private Color color;
     protected int enginePower;
@@ -42,6 +42,23 @@ public abstract class Car {
     public void stopEngine(){
         currentSpeed = 0;
     }
+
+    public void move(){
+
+    }
+
+    public void turnLeft(){
+
+    }
+
+    public void turnRight(){
+
+    }
+
+    public void stop(){
+        
+    }
+
 
     // TODO fix this method according to lab pm
     public void gas(double amount){

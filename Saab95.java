@@ -15,6 +15,7 @@ public class Saab95 extends Cars{
 	    turboOn = false;
         modelName = "Saab95";
         stopEngine();
+        startEngine();
     }
     
     

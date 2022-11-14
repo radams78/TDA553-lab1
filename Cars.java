@@ -52,6 +52,11 @@ public abstract class Cars implements Movable {
         return center;
     }
 
+    //protected double getCenter() {
+        return center;
+    }
+
+
 
     protected int getNrDoors(){
         return nrDoors;

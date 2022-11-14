@@ -18,10 +18,18 @@ public abstract class Car implements Movable {
 
         private static final Direction[] vals = values();
 
+        // Returns the direction after the current one, and loops back to the first in
+        // case it overflows
         public Direction next() {
             return vals[(Math.floorMod(this.ordinal() + 1, vals.length))];
         }
 
+        // Returns the direction before the current one and loops to the last one in
+        // case it underflows
+        /*
+         * Note: Math.floorMod is used because Java built in modulo operator can
+         * return negative values
+         */
         public Direction prev() {
             return vals[(Math.floorMod(this.ordinal() - 1, vals.length))];
         }

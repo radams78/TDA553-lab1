@@ -62,6 +62,7 @@ public abstract class Car implements Movable {
 
     // public abstract void brake(double amount);
     public void brake(double amount) {
+        if(amount < 0 || amount > 1) throw new IllegalArgumentException("Amount must be between 0 and 1");
         decrementSpeed(amount);
     }
 
@@ -125,7 +126,8 @@ public abstract class Car implements Movable {
 
     // Protected?
     protected void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+        if(currentSpeed > enginePower) this.currentSpeed = enginePower;
+        else this.currentSpeed = currentSpeed;
     }
 
     public Color getColor() {

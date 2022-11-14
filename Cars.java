@@ -34,7 +34,18 @@ public abstract class Cars implements Movable {
                 yVelocity = -1 * currentSpeed;
             }
         }
-        if ()
+        if (xVelocity == 0){
+            if (yVelocity < 0){
+                xVelocity = 1 * currentSpeed;
+                yVelocity = 0;
+            }
+            else if (yVelocity > 0){
+                xVelocity = -1 * currentSpeed;
+                yVelocity = 0;
+            }
+            
+        }
+        
     }
 
 
@@ -48,9 +59,21 @@ public abstract class Cars implements Movable {
                 else if (xVelocity<0){
                     xVelocity= 0;
                     xVelocity = 1 * currentSpeed;
+            }}
+            if (xVelocity == 0){
+                if (yVelocity < 0){
+                    xVelocity = -1 *currentSpeed;
+                    yVelocity = 0;
+                }
+                else if (yVelocity > 0){
+                    xVelocity = 1 * currentSpeed;
+                    yVelocity = 0;
+                }
+            }    
             }
-            }
-    }
+    
+    
+
 
     public void move(){
         xVelocity = currentSpeed;

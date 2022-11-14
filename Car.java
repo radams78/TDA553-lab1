@@ -1,10 +1,6 @@
 import java.awt.*;
 
 public abstract class Car implements Movable{
-
-    public static void main(String[] args) {
-        
-    }
     
     public boolean turboOn;
     public int nrDoors; // Number of doors on the car
@@ -12,8 +8,8 @@ public abstract class Car implements Movable{
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; // The car model name
-    public int y;
-    public int x;
+    public double y;
+    public double x;
     public int currentDirection;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y) {
@@ -68,13 +64,25 @@ public abstract class Car implements Movable{
     }
 
     // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
+    public void gas(double amount) throws Exception{
+
+        if (amount > 1 || amount < 0){
+            throw new Exception("Only accepts values of 1 and 0");
+        }
+           
+        else {
+            incrementSpeed(amount);
+        }
     }
 
     // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
+    public void brake(double amount) throws Exception{
+        if (amount > 1 || amount < 0){
+            throw new Exception("Only accepts values of 1 and 0");
+        }   
+        else {
+            decrementSpeed(amount);
+        }
     }
 
     public double getY() {
@@ -94,18 +102,20 @@ public abstract class Car implements Movable{
     private void direction(){
         switch(this.currentDirection){
             case 0:
-                y += this.currentSpeed;
+                this.y += this.currentSpeed;
                 break;
-            case 1:
 
+            case 1:
+                this.x += this.currentSpeed;
                 break;
+
             case 2:
+                this.y -= this.currentSpeed;
                 break;
+
             case 3:
+                this.x -= this.currentSpeed;
                 break;
-            default:
-                break;
-            
         }
     }
 
@@ -127,6 +137,7 @@ public abstract class Car implements Movable{
     }
   
     public void move() {
+        startEngine();
         direction();    
         
     }

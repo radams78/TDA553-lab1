@@ -8,7 +8,7 @@ public class Run {
         for (int i = 0; i < 10; i++){
             volvo.move();
             System.out.printf("%.2f, %.2f\n", volvo.getX(), volvo.getY());
-            volvo.turnLeft();
+            // volvo.turnLeft();
         }
 
     }

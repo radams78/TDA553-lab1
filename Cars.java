@@ -71,9 +71,23 @@ abstract class Cars implements Movable{
     public void stopEngine(){
 	    currentSpeed = 0;
     }
-    
-
     @Override
+    public void move() {
+        // TODO Auto-generated method stub
+        setX(getX() + (Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed()));
+        setY(getY() + (Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed()));
+    }
+
+    public void turnLeft() {
+        // TODO Auto-generated method stub
+        setDirection(getDirection() + 90);
+    }
+
+    public void turnRight() {
+        // TODO Auto-generated method stub
+        setDirection(getDirection() - 90);
+    }
+    
     public String toString() {
         return "Cars [nrDoors = " + nrDoors + ", enginePower = " + enginePower + ", modelName = " + modelName + ", color="
                 + color + ", currentSpeed = " + currentSpeed + ", X = " + x + ", Y = " + y + "]";

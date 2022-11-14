@@ -7,55 +7,62 @@ public abstract class Cars implements Movable {
     protected double enginePower; 
     protected String modelName; 
     protected double currentSpeed;
-    protected double xCoord_1;
-    protected double xCoord_2;
-    protected double yCoord_1;
-    protected double yCoord_2;
-    protected double center;
+    protected double xVelocity;
+    protected double yVelocity;
 
-    protected Cars(int nrDoors, Color color, double enginePower, String modelName, double currentSpeed, double xCoord_1, double xCoord_2, double yCoord_1, double yCoord_2, double center){
+
+    protected Cars(int nrDoors, Color color, double enginePower, String modelName, double currentSpeed, double xVelocity, double yVelocity){
     this.nrDoors = nrDoors;
     this.color = color;
     this.enginePower = enginePower;
     this.modelName = modelName;
-    this.currentSpeed = currentSpeed;
-    this.xCoord_1 = xCoord_1;
-    this.xCoord_2 = xCoord_2;
-    this.yCoord_1 = yCoord_1;
-    this.yCoord_2 = yCoord_2;
-    this.center = center;
+    this.currentSpeed = 0.1;
+    this.xVelocity = xVelocity;
+    this.yVelocity = yVelocity;
+
 
 }
 
     public void turnRight(){
+        if (yVelocity == 0) {
+            if (xVelocity > 0) {
+                xVelocity = 0;
+                yVelocity = 1 * currentSpeed;
+            }
+            else if (xVelocity < 0) {
+                xVelocity = 0;
+                yVelocity = -1 * currentSpeed;
+            }
+        }
+        if ()
     }
 
+
+
     public void turnLeft(){
+        if (yVelocity == 0){
+            if(xVelocity>0) {
+                xVelocity = 0;
+                yVelocity = -1 * currentSpeed;
+            }
+                else if (xVelocity<0){
+                    xVelocity= 0;
+                    xVelocity = 1 * currentSpeed;
+            }
+            }
     }
 
     public void move(){
+        xVelocity = currentSpeed;
+        yVelocity = 0;
     }
 
-    protected double getxCoord_1() {
-        return xCoord_1;
+    protected double getxVelocity() {
+        return xVelocity;
     }
-    protected double getxCoord_2() {
-        return xCoord_2;
+    protected double getyVelocity() {
+        return yVelocity;
     }
-    protected double getyCoord_1() {
-        return yCoord_1;
-    }
-    protected double getyCoord_2() {
-        return yCoord_2;
-    }
-    protected double getCenter() {
-        return center;
-    }
-
-    /*protected double getCenter() {
-        return center;
-    }*/
-
 
 
     protected int getNrDoors(){
@@ -85,6 +92,9 @@ public abstract class Cars implements Movable {
         currentSpeed = 0;
     }
 
+    protected void setxCoord_1() {
+
+    }
     protected abstract double speedFactor(double amount);
 
     protected abstract void incrementSpeed(double amount);
@@ -92,4 +102,7 @@ public abstract class Cars implements Movable {
     protected abstract void decrementSpeed(double amount);
 
 }
+
+
+
 

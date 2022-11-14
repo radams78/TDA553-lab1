@@ -46,9 +46,16 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
 
-    public abstract void gas(double amount);
+    // public abstract void gas(double amount);
+    public void gas(double amount) {
+        if(amount < 0 || amount > 1) throw new IllegalArgumentException("Amount must be between 0 and 1");
+        incrementSpeed(amount);
+    }
 
-    public abstract void brake(double amount);
+    // public abstract void brake(double amount);
+    public void brake(double amount) {
+        decrementSpeed(amount);
+    }
 
     protected void incrementSpeed(double amount) {
         setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
@@ -62,7 +69,18 @@ public abstract class Car implements Movable {
 
     @Override
     public void move() {
-        // TODO Add movement
+        if (currentDirection == Direction.LEFT) {
+            posX -= getCurrentSpeed();
+        }
+        else if (currentDirection == Direction.RIGHT) {
+            posX += getCurrentSpeed();
+        }
+        else if (currentDirection == Direction.UP) {
+            posY += getCurrentSpeed();
+        }
+        else if (currentDirection == Direction.DOWN) {
+            posY -= getCurrentSpeed();
+        }
     }
 
     @Override

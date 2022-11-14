@@ -14,12 +14,13 @@ public class Volvo240 extends Car {
     }
 
     // TODO fix this method according to lab pm
-    public void gas(double amount) {
-        incrementSpeed(amount);
-    }
+    // public void gas(double amount) {
+    //     if(amount < 0 || amount > 1) throw new IllegalArgumentException("Amount must be between 0 and 1");
+    //     incrementSpeed(amount);
+    // }
 
     // TODO fix this method according to lab pm
-    public void brake(double amount) {
-        decrementSpeed(amount);
-    }
+    // public void brake(double amount) {
+    //     decrementSpeed(amount);
+    // }
 }

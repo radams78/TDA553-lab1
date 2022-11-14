@@ -52,9 +52,9 @@ public abstract class Cars implements Movable {
         return center;
     }
 
-    //protected double getCenter() {
+    /*protected double getCenter() {
         return center;
-    }
+    }*/
 
 
 

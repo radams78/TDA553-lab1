@@ -1,15 +1,18 @@
 import java.awt.*;
 
-abstract class Car {
-    public int nrDoors;
-    public double enginePower;
-    public double currentSpeed;
-    public Color color;
-    public String modelName;
-    public int x;
-    public int y;
 
 
+abstract class Car implements Movable{
+    private int nrDoors;
+    private double enginePower;
+    private double currentSpeed;
+    private Color color;
+    private String modelName;
+    private int x;
+    private int y;
+
+    private int[][] directionList = {{0,1},{1,0},{0,-1},{-1,0}};
+    private int index = 0;
     
 
     public Car(int nrDoors, double enginePower, Color color, String modelName) {
@@ -27,7 +30,9 @@ abstract class Car {
     public double getEnginePower(){
         return enginePower;
     }
-
+    public String getModelName() {
+        return modelName;
+    }
     public double getCurrentSpeed(){
         return currentSpeed;
     }
@@ -62,12 +67,22 @@ abstract class Car {
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        incrementSpeed(amount);
+        if (amount <= 1 && amount <= 0){
+            incrementSpeed(amount);
+        }
+        else{
+            throw new IllegalArgumentException("Amount should be in the range 0-1.");
+        }
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        decrementSpeed(amount);
+        if (amount <= 1 && amount <= 0){
+            decrementSpeed(amount);
+        }
+        else{
+            throw new IllegalArgumentException("Amount should be in the range 0-1.");
+        }
     }
 
     public int getX() {
@@ -81,6 +96,26 @@ abstract class Car {
     }
     public void setY(int y) {
         this.y = y;
+    }
+
+
+    public void turnLeft(){
+        index -= 1;
+        if (index < 0){
+            index = 3;
+        }
+    }
+
+    public void turnRight(){
+        index += 1;
+        if (index > 3){
+            index = 0;
+        }
+    }
+
+    public void move(){
+        x += currentSpeed * directionList[index][0];
+        y += currentSpeed * directionList[index][1];
     }
 }
 

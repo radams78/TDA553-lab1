@@ -1,3 +1,5 @@
+package com.tda553;
+
 import java.awt.*;
 
 public abstract class Car implements Movable

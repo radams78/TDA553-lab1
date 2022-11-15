@@ -1,3 +1,5 @@
+package com.tda553;
+
 import java.awt.*;
 
 public class Volvo240 extends Car

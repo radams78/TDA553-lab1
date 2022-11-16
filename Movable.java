@@ -26,5 +26,22 @@ public class Movable {
         decrementSpeed(amount, currentCar);
 
     }
+    
+    public int direction = 0;
+
+    public void turnLeft(Car theCar){
+        if (direction == 0) 
+            direction = 3;
+        else 
+            direction = direction-1; 
+    }
+    
+    public void turnRight(Car theCar){
+        if (direction == 3) 
+            direction = 0;
+        else 
+            direction = direction+1; 
+    }
+        
 
 }

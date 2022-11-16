@@ -2,18 +2,20 @@ import java.awt.*;
 
 public abstract class Vehicle implements Movable {
     
-    public double currentSpeed;
-    public Color color;
-    public String vehicleType;
-    public int x;
-    public int y;
+    private double currentSpeed;
+    private Color color;
+    private final String vehicleType;
+    private int x;
+    private int y;
+    private int dir;
 
 
-    public Vehicle(String vehicleType, Color color, int x, int y){
+    public Vehicle(String vehicleType, Color color, int x, int y, int dir){
         this.vehicleType = vehicleType;
         this.color = color;
         this.x = x;
         this.y = y; 
+        this.dir = dir;
 
     }
 
@@ -30,7 +32,7 @@ public abstract class Vehicle implements Movable {
     }
 
     public void startVehicle(){
-	    currentSpeed = 0.1;
+	    currentSpeed = 0.1;        
     }
 
     public void stopVehicle(){
@@ -38,7 +40,24 @@ public abstract class Vehicle implements Movable {
     }
 
     public void move(){
-        System.out.println("tjjena mittbena");
+        this.x += currentSpeed;
+        this.y += currentSpeed;
+    }
+
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
+    public void setDir(int dir) {
+        this.dir = dir;
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public int getDir() {
+        return dir;
     }
 
     public void turnLeft(){
@@ -61,7 +80,7 @@ public abstract class Vehicle implements Movable {
         return this.x;
     }
 
-    public int gety(){
+    public int getY(){
         return this.y;
     }
 

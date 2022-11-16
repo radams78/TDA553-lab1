@@ -1,20 +1,23 @@
 import java.awt.*;
 
 public abstract class Car extends Vehicle{
-    public int nrDoors;
-    public double enginePower;
-    public String modelName;
+    private final int nrDoors;
+    private final double enginePower;
+    private final String modelName;
 
-    public Car(int nrDoors, Color color, double enginePower, String modelName, String vehicleType, int x, int y){
+    public Car(int nrDoors, Color color, double enginePower, String modelName, String vehicleType, int x, int y, int dir){
 
-        super(vehicleType, color, x, y);
+        super(vehicleType, color, x, y, dir);
         this.nrDoors = nrDoors;
-        this.color = color;
         this.enginePower = enginePower;
-        this.vehicleType = vehicleType;
+        this.modelName = modelName;
         stopVehicle();
     }
     
+    public String getModelName() {
+        return modelName;
+    }
+
     public int getNrDoors(){
         return nrDoors;
     }
@@ -31,4 +34,5 @@ public abstract class Car extends Vehicle{
     public void brake(double amount){
         decrementSpeed(amount);
     }
+
 }

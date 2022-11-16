@@ -8,6 +8,8 @@ public abstract class Car extends HasPosition implements Movable {
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
+    private double turnRightNegative = -1; //To turn right
+    private double turnLeftPositive = 1; //To turn left
 
 
 
@@ -43,12 +45,17 @@ public abstract class Car extends HasPosition implements Movable {
     public void stopEngine(){
 	    currentSpeed = 0;
     }
-    
-    public void move(int currentSpeed) {
-        while (currentSpeed > 0) {
-            this.xCoordinate += currentSpeed * currentDirectionX;
-            this.yCoordinate += currentSpeed * currentDirectionY;
-        }
+
+    @Override
+    public void turnLeft() {
+        setCurrentDirectionRadian(turnLeftPositive);
+    }
+    @Override
+    public void turnRight() {  
+        setCurrentDirectionRadian(turnRightNegative);
+    }
+    @Override
+    public void move() {
 
     }
 

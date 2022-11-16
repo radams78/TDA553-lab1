@@ -9,5 +9,4 @@ public class CarsTest {
     public void testing(){
         assertEquals(0, 0);
     }
-    
 }

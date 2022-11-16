@@ -1,14 +1,14 @@
 import java.awt.*;
+import java.math.*;
 
-public abstract class Car implements Movable {
+public abstract class Car extends HasPosition implements Movable {
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
-    private int xCoordinate; // initial x-coord
-    private int yCoordinate; // initial y-coord
+
 
 
     public String getModelName(){
@@ -44,7 +44,11 @@ public abstract class Car implements Movable {
 	    currentSpeed = 0;
     }
     
-    public void move() {
+    public void move(int currentSpeed) {
+        while (currentSpeed > 0) {
+            this.xCoordinate += currentSpeed * currentDirectionX;
+            this.yCoordinate += currentSpeed * currentDirectionY;
+        }
 
     }
 

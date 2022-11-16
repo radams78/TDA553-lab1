@@ -47,12 +47,12 @@ public abstract class Car implements Movable {
 
 
     //temp
-    // public double getX(){
-    //     return x;
-    // }
-    // public double getY(){
-    //     return y;
-    // }
+    public double getX(){
+        return x;
+    }
+    public double getY(){
+        return y;
+    }
 
     public Color getColor(){
         return color;

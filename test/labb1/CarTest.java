@@ -35,6 +35,23 @@ public class CarTest {
         assertEquals( 0.1*saab.speedFactor(), saab.getCurrentSpeedX(), 0); assertEquals(0.1*saab.speedFactor(), saab.getCurrentSpeedY(), 0); 
 
     }
+
+    @Test
+    public void car_moves_when_moving(){
+        double [] saabDir = {1,1};
+        
+        Saab95 saab = new Saab95(Color.red, 2, 3, saabDir);
+
+        saab.gas(0.1);
+
+        double prevX = saab.getX();
+        double prevY = saab.getY();
+
+        saab.move();
+
+        assert(saab.getX()> prevX && saab.getY()> prevY);
+    }
+
     @Test
     public void car_speed_doesnt_get_negative_when_breaking(){
         double [] saabDir = {1,1};

@@ -1,3 +1,4 @@
+package labb1;
 import java.awt.*;
 // To-Do
 // Add turning radius, a variable that change how fast the car turns

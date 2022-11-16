@@ -1,3 +1,5 @@
+package labb1;
+
 public interface Movable {
     //Interface that represent ay movable object
     void move(); //moves the object

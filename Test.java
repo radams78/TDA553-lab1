@@ -9,7 +9,9 @@ public class Test{
 
         System.out.println("Saab" + saab.getNrDoors());
         System.out.println("Volvo" + volvo.getNrDoors());
-
+        System.out.println("Test");
+        System.out.println(saab);
+        System.out.println(volvo);
         testMove(saab, volvo);
     }
 
@@ -21,6 +23,9 @@ public class Test{
             volvo.move();
 
         }
+        System.out.println(saab);
+        System.out.println(volvo);
+
             saab.turnLeft();
             volvo.turnRight();
 
@@ -28,5 +33,7 @@ public class Test{
             saab.move();
             volvo.move();
         }
+        System.out.println(saab);
+        System.out.println(volvo);
     }
 }

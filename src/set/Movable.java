@@ -1,3 +1,5 @@
+package set;
+
 interface Movable{
 
     void move();

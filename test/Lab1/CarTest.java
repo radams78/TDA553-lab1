@@ -1,6 +1,6 @@
 package Lab1;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.Color;
@@ -56,13 +56,19 @@ public class CarTest {
     }
 
     @Test
-    public void turning_four_times_returns_to_start() {
+    public void turning_four_times_left_returns_to_start() {
         Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
         Direction initialDirection = saab.getDirection();
         for (int i = 0; i < 4; i++) {
             saab.turnLeft();
         }
         assertEquals(initialDirection, saab.getDirection());
+    }
+
+    @Test
+    public void turning_four_times_right_returns_to_start() {
+        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
+        Direction initialDirection = saab.getDirection();
         for (int i = 0; i < 4; i++) {
             saab.turnRight();
         }

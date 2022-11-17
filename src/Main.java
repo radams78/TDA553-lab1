@@ -7,13 +7,18 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        Car volvo = new Volvo240(4, 100, Color.black, "Volvo240", 0, 0);
+        Car volvo = new Volvo240(4, 100, Color.black, "Volvo240", 3, 7);
         Car saab = new Saab95(2, 125, Color.red, "Saab95", 0, 0);
 
         List<Car> listOfCars = new ArrayList();
 
         listOfCars.add(volvo);
         listOfCars.add(saab);
+
+        volvo.setCurrentSpeed(3.85);
+        volvo.move();
+        System.out.println(volvo.getX());
+        System.out.println(volvo.getY());
 
         volvo.startEngine();
         volvo.incrementSpeed(3);

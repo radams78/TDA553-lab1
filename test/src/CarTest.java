@@ -1,5 +1,6 @@
 package src;
 import java.awt.*;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -53,4 +54,19 @@ public class CarTest {
         assertEquals(testVolvo.getCurrentSpeed(), 3.85, 3.85);
     }
 
+    // Ändrar hastigheten till 3.85 sedan rör sig bilen, listan borde bli [3.0, 10.85]
+    @Test
+    public void after_move_x_should_not_change_and_y_should_be_10_85() {
+        testVolvo.setCurrentSpeed(3.85);
+        testVolvo.move();
+        ArrayList testList = new ArrayList<>();
+        testList.add(testVolvo.getX()); 
+        testList.add(testVolvo.getY());
+        
+        ArrayList trueList = new ArrayList<>();
+        trueList.add(3.0); 
+        trueList.add(10.85);
+
+        assertEquals(testList, trueList);
+    }
 }

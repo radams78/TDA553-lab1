@@ -37,19 +37,19 @@ public class Saab95 extends Car implements Movable {
         double turbo = 1;
         if (turboOn)
             turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        return getEnginePower() * 0.01 * turbo;
     }
 
     void incrementSpeed(double amount) {
         try {
             if (getCurrentSpeed() >= getEnginePower()) {
-                throw new Exception("the car is at max speed");
+                throw new Exception();
             } else {
                 setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
             }
 
         } catch (Exception e) {
-            setCurrentSpeed(getEnginePower());
+            System.out.println("the car is already at max speed");
         }
 
     }
@@ -58,14 +58,14 @@ public class Saab95 extends Car implements Movable {
 
         try {
             if (getCurrentSpeed() <= 0) {
-                throw new Exception("the car is already still");
+                throw new Exception();
             } else {
                 setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
 
             }
 
         } catch (Exception e) {
-            setCurrentSpeed(0);
+            System.out.println("the car is already still");
         }
 
     }
@@ -74,14 +74,14 @@ public class Saab95 extends Car implements Movable {
     void gas(double amount) {
         try {
             if (amount < 0 || amount > 1) {
-                throw new Exception("impossible amount");
+                throw new Exception();
             } else {
                 incrementSpeed(amount);
 
             }
 
         } catch (Exception e) {
-            incrementSpeed(0);
+            System.out.println("impossible ammount");
 
         }
     }
@@ -90,13 +90,13 @@ public class Saab95 extends Car implements Movable {
     void brake(double amount) {
         try {
             if (amount < 0 || amount > 1) {
-                throw new Exception("impossible amount");
+                throw new Exception();
             } else {
-                incrementSpeed(amount);
+                decrementSpeed(amount);
 
             }
         } catch (Exception e) {
-            incrementSpeed(0);
+            System.out.println("impossible ammount");
 
         }
     }

@@ -7,7 +7,7 @@ import org.junit.Test;
 public class carTest {
     
     @Test
-    public void testCar(){
+    public void testCar(){ //Tests id the getters in the insance work
         Car myCar = new Car("VolvoXC60", Color.white, 200, 1);
         assertEquals("VolvoXC60", myCar.getModelName());
         assertEquals(1, myCar.getNrDoors());
@@ -16,7 +16,7 @@ public class carTest {
     }
 
     @Test
-    public void carRuns() {
+    public void carRuns() { //Tests if the movement system workes
         Car myCar = new Car("Volvo240", Color.black, 100, 4);
             myCar.startEngine();
             myCar.gas(0.5);

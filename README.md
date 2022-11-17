@@ -1,8 +1,8 @@
-#TDA553-LAB1 ( Laboration 1 )
+# TDA553-LAB1 ( Laboration 1 )
 
 
 see labb reflection [here](lab1reflection.txt)
 
-# Authors:
+## Authors:
    - Alessandro 
    - Ismail

@@ -72,6 +72,14 @@ public class Car implements Movable{
         this.color = color;
     }
 
+    public double getXPos() {
+        return this.x;
+    }
+
+    public double getYPos() {
+        return this.y;
+    }
+
     public String getModelName() {
         return this.modelName;
     }
@@ -136,13 +144,4 @@ public class Car implements Movable{
     }
 
 
-    // @Test
-    // public void testCar(){
-    //     Car myCar = new Car("VolvoXC60", Color.WHITE, 200, 1);
-    //     assertEquals("VolvoXC60", myCar.getModelName());
-    //     assertEquals(1, myCar.getNrDoors());
-    //     System.out.println(myCar.getModelName());
-    //     System.out.println(myCar.getNrDoors());
-
-    // }
 }

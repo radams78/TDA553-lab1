@@ -1,5 +1,6 @@
 import java.awt.*;
-public abstract class Car implements Movable{
+
+public abstract class Car implements Movable {
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
@@ -7,65 +8,69 @@ public abstract class Car implements Movable{
     protected String modelName; // The car model name
     protected double x;
     protected double y;
-    protected boolean turnLeft,turnRight;
-    public Car(int doors,double power,double speed, Color caColor, String name, double x, double y,boolean left,boolean right){
-        this.nrDoors=doors;
-        this.enginePower=power; 
-        this.currentSpeed=speed; 
-        this.color=caColor; 
-        this.modelName=name; 
-        this.x=x;
-        this.y=y;
-        this.turnLeft=left;
-        this.turnRight=right;
+    protected boolean turnLeft, turnRight;
+
+    public Car(int doors, double power, double speed, Color caColor, String name, double x, double y, boolean left,
+            boolean right) {
+        this.nrDoors = doors;
+        this.enginePower = power;
+        this.currentSpeed = speed;
+        this.color = caColor;
+        this.modelName = name;
+        this.x = x;
+        this.y = y;
+        this.turnLeft = left;
+        this.turnRight = right;
     }
 
-    
-
-    int getNrDoors(){
+    int getNrDoors() {
         return this.nrDoors;
     }
 
-    double getEnginePower(){
+    double getEnginePower() {
         return this.enginePower;
     }
 
-    double getCurrentSpeed(){
+    double getCurrentSpeed() {
         return this.currentSpeed;
     }
 
-    void setCurrentSpeed(double ammount){
-        this.currentSpeed=ammount;
-
+    void setCurrentSpeed(double ammount) {
+        this.currentSpeed = ammount;
     }
 
-    Color getColor(){
+    Color getColor() {
         return this.color;
     }
 
-    void setColor(Color clr){
-	    this.color = clr;
+    void setColor(Color clr) {
+        this.color = clr;
     }
 
-    void startEngine(){
-	    this.currentSpeed = 0.1;
+    void startEngine() {
+        this.currentSpeed = 0.1;
     }
 
-    void stopEngine(){
-	    this.currentSpeed = 0;
+    void stopEngine() {
+        this.currentSpeed = 0;
     }
-    double getX(){
+
+    double getX() {
         return this.x;
     }
-    double getY(){
+
+    double getY() {
         return this.y;
     }
-    void setX(double ammount){
-        this.x+=ammount;
+
+    void setX(double ammount) {
+        this.x += ammount;
     }
-    void setY(double ammount){
-        this.y+=ammount;
+
+    void setY(double ammount) {
+        this.y += ammount;
     }
+
     public void turnLeft() {
         this.turnRight = false;
         this.turnLeft = true;
@@ -88,6 +93,7 @@ public abstract class Car implements Movable{
             setY(getCurrentSpeed());
         }
     }
+
     void gas(double amount) {
         try {
             if (amount < 0 || amount > 1) {
@@ -98,7 +104,6 @@ public abstract class Car implements Movable{
 
         } catch (Exception e) {
             System.out.println("impossible ammount");
-
         }
     }
 
@@ -115,7 +120,8 @@ public abstract class Car implements Movable{
             System.out.println("impossible ammount");
 
         }
-    }    
+    }
+
     abstract double speedFactor();
 
     abstract void incrementSpeed(double amount);

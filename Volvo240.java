@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Volvo240 extends Car{
+public class Volvo240 extends Car {
 
     public final static double trimFactor = 1.25;
     // public int nrDoors; // Number of doors on the car
@@ -11,8 +11,7 @@ public class Volvo240 extends Car{
     boolean turnLeft, turnRight;
 
     private Volvo240() {
-        super(4, 100, 0, Color.black, "Volvo204", 0, 0,false,false);
-
+        super(4, 100, 0, Color.black, "Volvo204", 0, 0, false, false);
 
     }
 

@@ -1,5 +1,6 @@
 import java.awt.*;
-public class Saab95 extends Car{
+
+public class Saab95 extends Car {
 
     // public boolean turboOn;
     // public int nrDoors; // Number of doors on the car
@@ -10,7 +11,7 @@ public class Saab95 extends Car{
     boolean turboOn, turnLeft, turnRight;
 
     private Saab95() {
-        super(2, 125, 0, Color.red, "Saab95", 0, 0,false,false);
+        super(2, 125, 0, Color.red, "Saab95", 0, 0, false, false);
         startEngine();
         setTurboOn();
         stopEngine();
@@ -35,6 +36,7 @@ public class Saab95 extends Car{
             turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
+
     void incrementSpeed(double amount) {
         try {
             if (getCurrentSpeed() >= getEnginePower()) {
@@ -48,6 +50,7 @@ public class Saab95 extends Car{
         }
 
     }
+
     void decrementSpeed(double amount) {
         try {
             if (getCurrentSpeed() <= 0) {
@@ -64,10 +67,6 @@ public class Saab95 extends Car{
 
     // TODO fix this method according to lab pm
 
-    }
+}
 
-    // TODO fix this method according to lab pm
-    
-
-    
-
+// TODO fix this method according to lab pm

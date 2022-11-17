@@ -58,6 +58,5 @@ public class Saab95Test {
         Car test = new Saab95();
         test.brake(10);
         assertEquals(-12.5, test.getCurrentSpeed(), 0.1);
-    }
-    
+    }   
 }

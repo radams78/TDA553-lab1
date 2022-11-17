@@ -9,5 +9,7 @@ public class Volvo240Test {
         Volvo240 volvo240 = new Volvo240(4, 1000.0, 100.0, Color.BLUE);
         assertEquals(12.5, volvo240.speedFactor(), 0.05);
     }
+
+    
 }
 

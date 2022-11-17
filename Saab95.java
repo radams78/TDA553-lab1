@@ -10,18 +10,12 @@ public class Saab95 extends Car implements Movable {
     // public String modelName; // The car model name
     boolean turboOn, turnLeft, turnRight;
 
-    public Saab95() {
+    private Saab95() {
         super(2, 125, 0, Color.red, "Saab95", 0, 0);
         stopEngine();
-
-        // nrDoors = 2;
-        // color = Color.red;
-        // enginePower = 125;
         turboOn = false;
         turnLeft = false;
         turnRight = false;
-        // modelName = "Saab95";
-        // stopEngine();
 
     }
 

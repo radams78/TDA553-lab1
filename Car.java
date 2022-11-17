@@ -63,21 +63,10 @@ public abstract class Car {
     void setY(double ammount){
         this.y=ammount;
     }
+    
 
        
-    // abstract int getNrDoors();
-    
-    // abstract double getEnginePower();
 
-    // abstract double getCurrentSpeed();
-
-    // abstract Color getColor();
-
-    // abstract void setColor(Color clr);
-
-    // abstract void startEngine();
-
-    // abstract void stopEngine();
     
     abstract double speedFactor();
 

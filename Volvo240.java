@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Volvo240 extends Car {
+public class Volvo240 extends Car implements Movable{
 
     public final static double trimFactor = 1.25;
     // public int nrDoors; // Number of doors on the car
@@ -10,7 +10,7 @@ public class Volvo240 extends Car {
     // public String modelName; // The car model name
     boolean turnLeft, turnRight;
 
-    public Volvo240() {
+    private Volvo240() {
         super(4, 100, 0, Color.black, "Volvo204", 0, 0);
         // nrDoors = 4;
         // color = Color.black;

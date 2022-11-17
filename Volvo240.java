@@ -10,7 +10,7 @@ public class Volvo240 extends Car{
     public String modelName; // The car model name */
     
     public Volvo240(){
-        super(4, 100, 0 ,Color.black, "Volvo240");
+        super(4, 100, 0 ,Color.black, "Volvo240", 0, 0, direction.NORTH);
     }
     
     public double speedFactor(){

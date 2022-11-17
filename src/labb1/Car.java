@@ -109,25 +109,44 @@ public abstract class Car implements Movable {
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        incrementSpeed(amount);
+        if (amount <= 1 && amount >= 0){
+            incrementSpeed(amount);
+        }else{
+            throw new IllegalArgumentException("amount needs to be between 0 and 1");
+        }
+        
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        decrementSpeed(amount);
+        if (amount <= 1 && amount >= 0){
+            decrementSpeed(amount);
+        }else{
+            throw new IllegalArgumentException("amount needs to be between 0 and 1");
     }
 
 
     private void incrementSpeed(double amount){
-        System.out.println(direction[0]);
-        currentSpeedX = getCurrentSpeedX() + speedFactor() * amount*this.direction[0];
-        currentSpeedY = getCurrentSpeedY() + speedFactor() * amount*this.direction[1];
+        double incrementAmount = getCurrentSpeedX() + speedFactor() * amount*this.direction[0];
+        if(incrementAmount <= 0){
+            incrementAmount = 0;
+        }else if(incrementAmount >= enginePower){
+            incrementAmount = enginePower;
+        } 
+        currentSpeedX += incrementAmount;
+        currentSpeedY += incrementAmount;  
     }
     
 
     private void decrementSpeed(double amount){
-        currentSpeedX = getCurrentSpeedX() - speedFactor() * amount*this.direction[0];
-        currentSpeedY = getCurrentSpeedY() - speedFactor() * amount*this.direction[1];
+        double decrementAmount = getCurrentSpeedX() + speedFactor() * amount*this.direction[0];
+        if(decrementAmount <= 0){
+            decrementAmount = 0;
+        }else if(decrementAmount >= enginePower){
+            decrementAmount = enginePower;
+        } 
+        currentSpeedX -= decrementAmount;
+        currentSpeedY -= decrementAmount;  
     }
     
     public abstract double speedFactor();

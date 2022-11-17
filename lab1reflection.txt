@@ -1,0 +1,13 @@
+1.Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+The inheritance hierarchy in Task 1 was chosen by considering the Open-Closed Principle. The Open-Closed Principle states that a class should be open for extension but closed for modification.
+This means that the class should be able to be extended without having to modify the class itself. 
+
+2.Explain how you implemented each of the sanity checks in Task 4?
+
+First we created some test cases for each of the sanity checks that we wanted to implement. We then created a method for each of the sanity checks and used the test cases to check if the method was working correctly.
+
+Example of a test:
+If the user brakes the car, the speed should decrease by the brake argument. If the brake argument is equal to 1, the speed should be 0.
+
+Then we tested the code to see if the test cases passed. 
+Some of the test cases failed, so we modified the code to make the test cases pass.

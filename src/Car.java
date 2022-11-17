@@ -67,26 +67,16 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
 
-    // TODO fix this method according to lab pm
-    public void gas(double amount) {
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount) {
-        decrementSpeed(amount);
-    }
-
-    abstract void incrementSpeed(double amount9);
+    abstract void incrementSpeed(double amount);
 
     abstract void decrementSpeed(double amount);
 
     public void setDx() {
-        this.dx = this.getCurrentSpeed() * Math.cos(Math.toRadians(direction));
-        }
+        this.dx = this.getCurrentSpeed() * Math.cos(direction);
+    }
 
     public void setDy() {
-        this.dy = this.getCurrentSpeed() * Math.sin(Math.toRadians(direction));
+        this.dy = this.getCurrentSpeed() * Math.sin(direction);
     }
 
     @Override
@@ -114,5 +104,26 @@ public abstract class Car implements Movable {
     public double getDy() {
         return dy;
     }
+
+    /*
+     * The car classes' methods currently have no way of controlling by how much the
+     * speed can be increased or decreased. Rewrite the methods so that:
+     * 
+     * gas() and brake() only accept values in the interval [0,1],
+     * currentSpeed always lies in the interval [0 , enginePower],
+     * calls to gas() cannot result in the speed decreasing, and
+     * calls to brake() cannot result in the speed increasing.
+     */
+
+    public void gas(double gas){
+        if((0 >= gas) && (gas >= 1) && (this.currentSpeed <= this.enginePower)) { 
+            incrementSpeed(gas);
+        }
+    }
+    public void brake(double brake){
+        if((0 >= brake) && (brake >= 1) && (this.currentSpeed >= 0)){ 
+            decrementSpeed(brake);
+        }
+    }   
 
 }

@@ -123,6 +123,7 @@ public abstract class Car implements Movable {
             decrementSpeed(amount);
         }else{
             throw new IllegalArgumentException("amount needs to be between 0 and 1");
+        }
     }
 
 

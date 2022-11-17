@@ -33,11 +33,41 @@ public class CarTest {
         Car car = new Saab95(4, 100.0, 0.0, Color.RED);
         car.setCurrentSpeed(10);
         for (int i = 0; i < 45; i++) {
+          car.turnRight();
+        }
+        car.setDy();
+        assertEquals(-7.1, car.getDy(), 0.1);
+      }
+
+      @Test
+      public void changing_the_position_according_to_the_speed(){
+        Car car = new Saab95(4, 100.0, 0.0, Color.RED);
+        car.setCurrentSpeed(10);
+        for (int i = 0; i < 60; i++) {
           car.turnLeft();
         }
         car.setDy();
-        assertEquals(7.1, car.getDy(), 0.1);
+        car.setDx();
+        car.move();
+        assertEquals(8.7, car.getY(), 0.1);
+        assertEquals(5, car.getX(), 0.1);
       }
 
+      @Test
+      public void turning_right_works_over_360_degrees(){
+        Car car = new Saab95(4, 100.0, 0.0, Color.RED);
+        for (int i = 0; i < 390; i++) {
+          car.turnRight();
+        }
+        assertEquals(-30, car.getDirection(), 0);
+      }
 
+      @Test
+      public void turning_left_works_over_360_degrees(){
+        Car car = new Saab95(4, 100.0, 0.0, Color.RED);
+        for (int i = 0; i < 390; i++) {
+          car.turnLeft();
+        }
+        assertEquals(30, car.getDirection(), 0);
+      }
 }

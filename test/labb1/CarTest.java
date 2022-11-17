@@ -2,6 +2,7 @@ package labb1;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import org.hamcrest.core.IsInstanceOf;
@@ -97,12 +98,10 @@ public class CarTest {
         Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, 1, 1);
 
         saabToBeTurned.turnLeft();
-        
         saabToBeTurned.gas(0.4);
+        saabToBeTurned.move();
 
         saabStayingStraight.gas(0.4);
-
-        saabToBeTurned.move();
         saabStayingStraight.move();
 
         assert(saabToBeTurned.getX() < saabStayingStraight.getX());
@@ -123,9 +122,7 @@ public class CarTest {
         saabStayingStraight.gas(0.1);
         saabStayingStraight.move();
 
-        assert(saabToBeTurned.getX() < saabStayingStraight.getX());
-
-
+        assert(saabToBeTurned.getX() > saabStayingStraight.getX());
      }
 
      @Test
@@ -141,8 +138,42 @@ public class CarTest {
         saab.move();
 
         assert(volvo.getX() < saab.getX() && volvo.getY() < saab.getY());
+     }
 
+     @Test
+     public void gas_should_only_accept_values_from_0_to_1_as_argument_and_throw_error_if_below_that(){
+        Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
+        Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
 
+        assertThrows(IllegalArgumentException.class, () -> saab.gas(-1));
+        assertThrows(IllegalArgumentException.class, () -> volvo.gas(-1));
+     }
+
+     @Test
+     public void gas_should_only_accept_values_from_0_to_1_as_argument_and_throw_error_if_above_that(){
+        Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
+        Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
+
+        assertThrows(IllegalArgumentException.class, () -> saab.gas(2));
+        assertThrows(IllegalArgumentException.class, () -> volvo.gas(2));
+     }
+
+     @Test
+     public void brake_should_only_accept_values_from_0_to_1_as_argument_and_throw_error_if_below_that(){
+        Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
+        Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
+
+        assertThrows(IllegalArgumentException.class, () -> saab.brake(-1));
+        assertThrows(IllegalArgumentException.class, () -> volvo.brake(-1));
+     }
+
+     @Test
+     public void brake_should_only_accept_values_from_0_to_1_as_argument_and_throw_error_if_above_that(){
+        Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
+        Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
+
+        assertThrows(IllegalArgumentException.class, () -> saab.brake(2));
+        assertThrows(IllegalArgumentException.class, () -> volvo.brake(2));
      }
 }
 

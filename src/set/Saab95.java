@@ -27,31 +27,38 @@ public class Saab95 extends Cars{
     }
 
     public void incrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+        
+        if ((getCurrentSpeed() + speedFactor() * amount) < getEnginePower()) {
+            setCurrentSpeed((getCurrentSpeed() + speedFactor() * amount));
+        }else{
+            throw new IllegalArgumentException("Can not increase the speed any further due to enginepower");
+        }
     }
 
     public void decrementSpeed(double amount){
+        if ((getCurrentSpeed() + speedFactor() * amount) > 0) {
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+        }else{
+            throw new IllegalArgumentException("Can not decrease the speed any less than 0");
+        }
     }
     
     // TODO fix this method according to lab pm
-    public void gas(double amount) throws Exception{
-        if (amount < 0){
+    public void gas(double amount){
+        if (amount < 0 && amount > 1){
             incrementSpeed(amount);
         }else{
-            throw new IllegalArgumentException("Can not decrease speed with gas method");
+            throw new IllegalArgumentException("The gas method only accepts values in the interval [0, 1]");
         }
     } 
     
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        if (amount < 0){
+        if (amount > 0 && amount < 1){
             decrementSpeed(amount);
         }else{
-            throw new IllegalArgumentException("Can not increase speed with brake method");
+            throw new IllegalArgumentException("The brake method only accepts values in the interval [0, 1]");
         }
     }
-
-
 }

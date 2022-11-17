@@ -1,6 +1,6 @@
 
 import java.awt.*;
-import javax.management.loading.PrivateClassLoader;
+//import javax.management.loading.PrivateClassLoader;
 
 public abstract class Car implements Movable {
     private int nrDoors; // Number of doors on the car
@@ -81,11 +81,11 @@ public abstract class Car implements Movable {
 
     abstract void decrementSpeed(double amount);
 
-    public void setDx(double dx) {
+    public void setDx() {
         this.dx = this.getCurrentSpeed() * Math.cos(direction);
         }
 
-    public void setDy(double dy) {
+    public void setDy() {
         this.dy = this.getCurrentSpeed() * Math.sin(direction);
     }
 
@@ -105,6 +105,14 @@ public abstract class Car implements Movable {
     public void turnLeft() {
         this.direction += 1;
         this.direction %= 359;
+    }
+
+    public double getDx() {
+        return dx;
+    }
+
+    public double getDy() {
+        return dy;
     }
 
 }

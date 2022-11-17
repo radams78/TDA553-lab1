@@ -32,6 +32,12 @@ public class CarTest {
         assertEquals(testVolvo.getNrDoors(), 4);
     }
 
+    // Hämtar färgen på testVolvo som sattes till 'Black' i konstruktorn
+    @Test
+    public void color_should_be_black() {
+        assertEquals(testVolvo.getColor(), Color.black);
+    }
+
     // Hämtar färgen från testVolvo som sattes till 'Black' i konstruktorn och sedan ändras färgen med metoden setColor till 'Red' - borde ge Color.red som svar
     @Test
     public void color_should_be_red() {

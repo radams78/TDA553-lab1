@@ -15,15 +15,4 @@ public class Volvo240 extends Car {
         return getEnginePower() * 0.01 * trimFactor;
     }
 
-    // TODO fix this method according to lab pm
-    // public void gas(double amount) {
-    // if(amount < 0 || amount > 1) throw new IllegalArgumentException("Amount must
-    // be between 0 and 1");
-    // incrementSpeed(amount);
-    // }
-
-    // TODO fix this method according to lab pm
-    // public void brake(double amount) {
-    // decrementSpeed(amount);
-    // }
 }

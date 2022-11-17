@@ -1,0 +1,5 @@
+Task 5: Reflection
+Write a short text file named lab1reflection.txt that answers the following questions. You can write in Swedish or English.
+
+1. Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+2. Explain how you implemented each of the sanity checks in Task 4

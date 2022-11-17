@@ -28,14 +28,24 @@ public class Volvo240 extends Car{
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
-    // TODO fix this method according to lab pm
     public void gas(double amount) {
-        incrementSpeed(amount);
+        if (amount<=1 && amount >=0 ){
+            incrementSpeed(amount);
+        }
+        else
+        {
+            incrementSpeed(0);
+            System.out.print("Wrong value! Try between 0 and 1 ");
+        }
     }
-
-    // TODO fix this method according to lab pm
+        
     public void brake(double amount) {
-        decrementSpeed(amount);
+        if (amount<=1 && amount >=0 ){
+            decrementSpeed(amount);
+        }
+        else
+        {   decrementSpeed(0);
+            System.out.print("Wrong value! Try between 0 and 1 ");}
     }
     
     @Test

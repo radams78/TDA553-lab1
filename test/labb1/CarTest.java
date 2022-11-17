@@ -10,27 +10,27 @@ import java.awt.*;
 public class CarTest {
     @Test
     public void saab95_has_two_doors(){
-        double [] saabDir = {1,1};
         
-        Saab95 saab = new Saab95(Color.red, 2, 3, saabDir);
+        
+        Saab95 saab = new Saab95(Color.red, 2, 3, 1, 1);
 
         assertEquals(2, saab.getNrDoors());
     }
     
     @Test
     public void saab95_has_125_engine(){
-        double [] saabDir = {1,1};
         
-        Saab95 saab = new Saab95(Color.red, 2, 3, saabDir);
+        
+        Saab95 saab = new Saab95(Color.red, 2, 3, 1, 1);
 
         assertEquals(125, saab.getEnginePower(), 0);
     }
 
     @Test
     public void saab95_gasing_increases_speed_by_amount_times_direction_times_speedFactor(){
-        double [] saabDir = {1,1};
         
-        Saab95 saab = new Saab95(Color.red, 2, 3, saabDir);
+        
+        Saab95 saab = new Saab95(Color.red, 2, 3, 1, 1);
 
         saab.gas(0.1);
 
@@ -40,9 +40,9 @@ public class CarTest {
 
     @Test
     public void car_moves_when_moving(){
-        double [] saabDir = {1,1};
         
-        Saab95 saab = new Saab95(Color.red, 2, 3, saabDir);
+        
+        Saab95 saab = new Saab95(Color.red, 2, 3, 1, 1);
 
         saab.gas(0.1);
 
@@ -56,9 +56,9 @@ public class CarTest {
 
     @Test
     public void car_speed_doesnt_get_negative_when_breaking(){
-        double [] saabDir = {1,1};
         
-        Saab95 saab = new Saab95(Color.red, 2, 3, saabDir);
+        
+        Saab95 saab = new Saab95(Color.red, 2, 3, 1, 1);
 
         saab.brake(saab.getCurrentSpeedX() + 5);
 
@@ -67,41 +67,39 @@ public class CarTest {
 
      @Test
      public void car_that_turns_left_moves_less_in_the_x_direction_than_car_that_stays_straight(){
-        double [] saabDir = {1,1};
         
-        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, saabDir);
-        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, saabDir);
+        
+        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, 1, 1);
+        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, 1, 1);
 
         saabToBeTurned.turnLeft();
-        saabToBeTurned.gas(0.1);
+        
+        saabToBeTurned.gas(0.4);
+
+        saabStayingStraight.gas(0.4);
+
         saabToBeTurned.move();
-
-
-        saabToBeTurned.gas(0.1);
         saabStayingStraight.move();
 
-        System.out.println(saabToBeTurned.getX());
-
-        System.out.println(saabStayingStraight.getX());
-
-        assertTrue(saabToBeTurned.getX() < saabStayingStraight.getX());
+        assert(saabToBeTurned.getX() < saabStayingStraight.getX());
 
      }
 
      @Test
      public void car_that_turns_right_moves_more_in_the_x_direction_than_car_that_stays_straight(){
-        double [] saabDir = {1,1};
         
-        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, saabDir);
-        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, saabDir);
+        
+        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, 1, 1);
+        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, 1, 1);
 
         saabToBeTurned.turnRight();
         saabToBeTurned.gas( 0.1);
         saabToBeTurned.move();
 
-        saabToBeTurned.gas(0.1);
+        saabStayingStraight.gas(0.1);
         saabStayingStraight.move();
 
+        assert(saabToBeTurned.getX() > saabStayingStraight.getX());
 
      }
 }

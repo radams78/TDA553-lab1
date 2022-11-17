@@ -6,8 +6,8 @@ public class Saab95 extends Car{
 
     public boolean turboOn;
     
-    public Saab95(Color color,double x, double y, double[] direction){
-        super(2, color, 125, "Saab95", x, y, direction);
+    public Saab95(Color color,double x, double y, double dirX, double dirY){
+        super(2, color, 125, "Saab95", x, y, dirX, dirY);
 	    turboOn = false;  
     }
     

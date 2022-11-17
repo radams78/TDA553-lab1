@@ -47,33 +47,4 @@ public class Volvo240 extends Car{
         }
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
-
-    // TODO fix this method according to lab pm
-    void gas(double amount) {
-        try {
-            if (amount < 1 || amount > 1) {
-                throw new Exception();
-            } else {
-                incrementSpeed(amount);
-            }
-        } catch (Exception e) {
-            System.out.println("impossible ammount");
-        }
-        
-    }
-
-    // TODO fix this method according to lab pm
-    void brake(double amount) {
-        try {
-            if (amount < 0 || amount > 1) {
-                throw new Exception();
-            } else {
-                decrementSpeed(amount);
-
-            }
-        }catch (Exception e) {
-            System.out.println("impossible ammount");
-
-        }
-    }
 }

@@ -88,6 +88,34 @@ public abstract class Car implements Movable{
             setY(getCurrentSpeed());
         }
     }
+    void gas(double amount) {
+        try {
+            if (amount < 0 || amount > 1) {
+                throw new Exception();
+            } else {
+                incrementSpeed(amount);
+            }
+
+        } catch (Exception e) {
+            System.out.println("impossible ammount");
+
+        }
+    }
+
+    // TODO fix this method according to lab pm
+    void brake(double amount) {
+        try {
+            if (amount < 0 || amount > 1) {
+                throw new Exception();
+            } else {
+                decrementSpeed(amount);
+
+            }
+        } catch (Exception e) {
+            System.out.println("impossible ammount");
+
+        }
+    }    
     abstract double speedFactor();
 
     abstract void incrementSpeed(double amount);
@@ -95,9 +123,5 @@ public abstract class Car implements Movable{
     abstract void decrementSpeed(double amount);
 
     // TODO fix this method according to lab pm
-    abstract void gas(double amount);
 
-    // TODO fix this method according to lab pm
-    abstract void brake(double amount);
-    
 }

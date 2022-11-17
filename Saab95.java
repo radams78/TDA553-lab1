@@ -35,7 +35,6 @@ public class Saab95 extends Car{
             turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
-
     void incrementSpeed(double amount) {
         try {
             if (getCurrentSpeed() >= getEnginePower()) {
@@ -49,7 +48,6 @@ public class Saab95 extends Car{
         }
 
     }
-
     void decrementSpeed(double amount) {
         try {
             if (getCurrentSpeed() <= 0) {
@@ -65,34 +63,11 @@ public class Saab95 extends Car{
     }
 
     // TODO fix this method according to lab pm
-    void gas(double amount) {
-        try {
-            if (amount < 0 || amount > 1) {
-                throw new Exception();
-            } else {
-                incrementSpeed(amount);
-            }
 
-        } catch (Exception e) {
-            System.out.println("impossible ammount");
-
-        }
     }
 
     // TODO fix this method according to lab pm
-    void brake(double amount) {
-        try {
-            if (amount < 0 || amount > 1) {
-                throw new Exception();
-            } else {
-                decrementSpeed(amount);
-
-            }
-        } catch (Exception e) {
-            System.out.println("impossible ammount");
-
-        }
-    }
+    
 
     
-}
+

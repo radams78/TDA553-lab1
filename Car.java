@@ -6,7 +6,11 @@ public class Car {
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; // The car model name
-
+    private int dx;  // speed of the car in the direction on x-axel
+    private int dy; // speed of the car in the direction on y-axel
+    private int x; // current position of the car
+    private int y; // current position of the car on y-axel
+    private int direction;
 
     public int getNrDoors(){
         return nrDoors;
@@ -39,7 +43,31 @@ public class Car {
     public double speedFactor(){
         return 0.01;
     }
-    // System.out.println("hej");
+    public void setDx(int dx){
+        this.dx = dx;
+    }
+    public void setDy(int dy){
+        this.dy = dy;
+    }
+    public int getDx(){
+        return dx;
+    }
+    public int getDy(){
+        return dy;
+    }
+    public int getX(){
+        return x;
+    }
+    public int getY(){
+        return y;
+    }
+    public int getDirection(){
+        return direction;
+    }
+    public void setDirection(int dir){
+        this.direction = dir;
+    }
+
 
 
 

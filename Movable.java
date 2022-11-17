@@ -26,14 +26,31 @@ public class Movable {
         decrementSpeed(amount, currentCar);
 
     }
-    
-    public int direction = 0;
+    public void move(Car car){
+        //Straight forward is 0
+        if(car.getDirection() == 0) {
+            car.setDy(car.getY() + (int)car.getCurrentSpeed());
 
-    public void turnLeft(Car theCar){
-        if (direction == 0) 
-            direction = 3;
+        }
+        //"Right way from the start" is 1
+        else if(car.getDirection() == 1) {
+            car.setDx(car.getX() + (int)car.getCurrentSpeed());
+        }
+        //Back the way we came is 2 
+        else if(car.getDirection() == 2) {
+            car.setDy(car.getY() - (int)car.getCurrentSpeed());
+        }
+        //"Left" way from the starting point is 3
+        else if(car.getDirection() == 1) {
+            car.setDx(car.getX() - (int)car.getCurrentSpeed());
+        }
+    }
+
+    public void turnLeft(Car car){
+        if (car.getDirection() == 0) 
+            car.setDirection(3);
         else 
-            direction = direction-1; 
+            car.setDirection(-1); 
     }
     
     public void turnRight(Car theCar){

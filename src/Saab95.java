@@ -25,28 +25,6 @@ public class Saab95 extends Car{
         return enginePower * 0.01 * turbo;
     }
 
-    @Override
-    public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-    }
-
-    @Override
-    public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
-    
-    // TODO fix this method according to lab pm
-    @Override
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    @Override
-    public void brake(double amount){
-        decrementSpeed(amount);
-    }
-
     public boolean isTurboOn() {
         return turboOn;
     }

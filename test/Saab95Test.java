@@ -4,8 +4,6 @@ package test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.awt.Color;
-
 import org.junit.Test;
 import src.*;
 
@@ -49,15 +47,14 @@ public class Saab95Test {
     @Test
     public void testGas(){
         Car test = new Saab95();
-        test.gas(10);
-        assertEquals(12.5, test.getCurrentSpeed(), 0.1);
+        test.gas(1);
+        assertEquals(1.25, test.getCurrentSpeed(), 0.1);
     }
 
     @Test
     public void testBrake(){
         Car test = new Saab95();
-        test.brake(10);
-        assertEquals(-12.5, test.getCurrentSpeed(), 0.1);
+        test.brake(1);
+        assertEquals(0, test.getCurrentSpeed(), 0.1);
     }   
-    
 }

@@ -57,16 +57,16 @@ public abstract class Car {
     }
 
     public void gas(double amount){
-        if (0<amount || amount>1){
-            throw new IllegalArgumentException("amount outside of range [0,1]")
+        if (0>amount || amount>1){
+            throw new IllegalArgumentException("amount outside of range [0,1]");
         } else {
             incrementSpeed(amount);
         }
     }
     
     public void brake(double amount){
-        if (0<amount || amount>1){
-            throw new IllegalArgumentException("amount outside of range [0,1]")
+        if (0>amount || amount>1){
+            throw new IllegalArgumentException("amount outside of range [0,1]");
         } else {
             decrementSpeed(amount);
         }

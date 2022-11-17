@@ -4,10 +4,34 @@ package labb1;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.hamcrest.core.IsInstanceOf;
 import org.junit.Test;
 import java.awt.*;
 
 public class CarTest {
+    @Test
+    public void saab_is_subtype_of_car(){
+        Saab95 saab = new Saab95(Color.red, 2, 3, 1, 1);
+
+        assert(saab instanceof Car);
+    }
+
+    @Test
+    public void volvo_is_subtype_of_car(){
+        Volvo240 volvo = new Volvo240(Color.red, 2, 3, 1, 1);
+
+        assert(volvo instanceof Car);
+    }
+
+    @Test
+    public void car_types_are_subs_of_movable(){
+        Volvo240 volvo = new Volvo240(Color.red, 2, 3, 1, 1);
+
+        assert(volvo instanceof Movable);
+    }
+
+
+
     @Test
     public void saab95_has_two_doors(){
         

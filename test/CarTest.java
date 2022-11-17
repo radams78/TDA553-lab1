@@ -1,14 +1,19 @@
-package test;
-
 import static org.junit.Assert.*;
 
+import java.awt.*;
 
 import org.junit.jupiter.api.Test;
 
 
 public class CarTest {
     @Test
-    public void empty_set_should_have_size_zero() {
-        assertEquals(0, );
+    public void enginePower_setter_should_set_double() {
+        Car car = new Saab95(4, 100.0, 0.0, Color.RED);
+        car.setEnginePower(150);
+        assertEquals(150, car.getEnginePower(), 5);
+      }
+
+      public void CurrentSpeed_setter_should_set_double(){
+        Car car = new Saab95(4, 100.0, 0.0, Color.RED);
       }
 }

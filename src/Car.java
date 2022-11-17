@@ -97,13 +97,14 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnRight() {
-        this.direction -= 1 % 360;
-
+        this.direction -= 1;
+        this.direction %= 359;
     }
 
     @Override
     public void turnLeft() {
-        this.direction += 1 % 360;
+        this.direction += 1;
+        this.direction %= 359;
     }
 
     public double getDx() {

@@ -33,4 +33,8 @@ public class Saab95 extends Car{
         setCurrentSpeed(currentSpeed);
     }
     
+    public Boolean getTurboOn(){
+        return turboOn;
+    }
+
 }

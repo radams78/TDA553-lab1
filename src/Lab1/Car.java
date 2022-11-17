@@ -127,11 +127,13 @@ public abstract class Car implements Movable {
 
     // Protected?
     protected void setCurrentSpeed(double currentSpeed) {
-        if (currentSpeed > enginePower)
+        if (currentSpeed > enginePower) {
             this.currentSpeed = enginePower;
-        else if (currentSpeed < 0d)
+        } else if (currentSpeed < 0d) {
             this.currentSpeed = 0d;
-        this.currentSpeed = currentSpeed;
+        } else {
+            this.currentSpeed = currentSpeed;
+        }
     }
 
     public Color getColor() {

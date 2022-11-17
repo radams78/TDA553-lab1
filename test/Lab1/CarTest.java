@@ -82,6 +82,6 @@ public class CarTest {
         for (int i = 0; i < 100; i++) {
             saab.brake(1);
         }
-        assertEquals(true, 0 <= saab.getCurrentSpeed());
+        assertEquals(true, 0.0d <= saab.getCurrentSpeed());
     }
 }

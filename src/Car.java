@@ -88,12 +88,12 @@ public abstract class Car implements Movable{
     public void move() {
         if(turnLeft){
         double leftMovement =  -getCurrentSpeed();
-        setY(leftMovement);
+        setX(leftMovement);
         } 
         
         else if(turnRight){
             double rightMovement = getCurrentSpeed();
-            setY(rightMovement);
+            setX(rightMovement);
         }
         else {
             setX(getCurrentSpeed());

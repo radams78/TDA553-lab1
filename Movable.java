@@ -26,11 +26,11 @@ public class Movable {
         decrementSpeed(amount, currentCar);
 
     }
+    
     public void move(Car car){
         //Straight forward is 0
         if(car.getDirection() == 0) {
             car.setDy(car.getY() + (int)car.getCurrentSpeed());
-
         }
         //"Right way from the start" is 1
         else if(car.getDirection() == 1) {
@@ -47,18 +47,19 @@ public class Movable {
     }
 
     public void turnLeft(Car car){
-        int dir = car.getDirection();
-        if (dir == 0) 
+        if (car.getDirection() == 0) 
             car.setDirection(3);
         else 
-            car.setDirection(-1); 
+            car.setDirection(car.getDirection() - 1); 
     }
     
-    public void turnRight(Car theCar){
-        if (direction == 3) 
-            direction = 0;
-        else 
-            direction = direction+1; 
+    public void turnRight(Car car){
+        if (car.getDirection() == 3) {
+            car.setDirection(0);
+        }
+        else {
+            car.setDirection(car.getDirection() + 1);
+        }
     }
         
 

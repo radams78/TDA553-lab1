@@ -32,6 +32,6 @@ public class Saab95Test {
         double oldCurrentSpeed = saab95.getCurrentSpeed();
         saab95.incrementSpeed(2);
         double diffOlSpdNewSpd = saab95.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(140, diffOlSpdNewSpd);
+        assertEquals(40, diffOlSpdNewSpd);
     } 
 }

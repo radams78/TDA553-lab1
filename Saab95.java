@@ -14,7 +14,7 @@ public class Saab95 extends Car implements Movable {
     boolean turboOn, turnLeft, turnRight;
 
     private Saab95() {
-        super(2, 125, 0, Color.red, "Saab95", 0, 0);
+        super(2, 125, 0, Color.red, "Saab95", 0, 0,false,false);
         startEngine();
         setTurboOn();
         stopEngine();
@@ -75,7 +75,6 @@ public class Saab95 extends Car implements Movable {
                 throw new Exception();
             } else {
                 incrementSpeed(amount);
-
             }
 
         } catch (Exception e) {
@@ -99,26 +98,5 @@ public class Saab95 extends Car implements Movable {
         }
     }
 
-    public void turnLeft() {
-        turnRight = false;
-        turnLeft = true;
-    }
-
-    public void turnRight() {
-        turnLeft = false;
-        turnRight = false;
-    }
-
-    public void move() {
-        if (turnLeft == true) {
-            setX(getCurrentSpeed());
-            setY(getCurrentSpeed());
-
-        } else if (turnRight == true) {
-            setX(-getCurrentSpeed());
-            setY(getCurrentSpeed());
-        } else {
-            setY(getCurrentSpeed());
-        }
-    }
+    
 }

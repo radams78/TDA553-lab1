@@ -11,7 +11,7 @@ public class Volvo240 extends Car implements Movable{
     boolean turnLeft, turnRight;
 
     private Volvo240() {
-        super(4, 100, 0, Color.black, "Volvo204", 0, 0);
+        super(4, 100, 0, Color.black, "Volvo204", 0, 0,false,false);
         // nrDoors = 4;
         // color = Color.black;
         // enginePower = 100;
@@ -78,29 +78,6 @@ public class Volvo240 extends Car implements Movable{
         }catch (Exception e) {
             System.out.println("impossible ammount");
 
-        }
-    }
-
-    public void turnLeft() {
-        turnRight = false;
-        turnLeft = true;
-    }
-
-    public void turnRight() {
-        turnLeft = false;
-        turnRight = false;
-    }
-
-    public void move() {
-        if (turnLeft == true) {
-            setX(getCurrentSpeed());
-            setY(getCurrentSpeed());
-
-        } else if (turnRight == true) {
-            setX(-getCurrentSpeed());
-            setY(getCurrentSpeed());
-        } else {
-            setY(getCurrentSpeed());
         }
     }
 }

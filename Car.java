@@ -1,5 +1,5 @@
 import java.awt.*;
-public abstract class Car {
+public abstract class Car implements Movable{
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
@@ -7,7 +7,8 @@ public abstract class Car {
     protected String modelName; // The car model name
     protected double x;
     protected double y;
-    public Car(int doors,double power,double speed, Color caColor, String name, double x, double y){
+    protected boolean turnLeft,turnRight;
+    public Car(int doors,double power,double speed, Color caColor, String name, double x, double y,boolean left,boolean right){
         this.nrDoors=doors;
         this.enginePower=power; 
         this.currentSpeed=speed; 
@@ -15,6 +16,8 @@ public abstract class Car {
         this.modelName=name; 
         this.x=x;
         this.y=y;
+        this.turnLeft=left;
+        this.turnRight=right;
     }
 
     
@@ -58,10 +61,32 @@ public abstract class Car {
         return this.y;
     }
     void setX(double ammount){
-        this.x=ammount;
+        this.x+=ammount;
     }
     void setY(double ammount){
-        this.y=ammount;
+        this.y+=ammount;
+    }
+    public void turnLeft() {
+        this.turnRight = false;
+        this.turnLeft = true;
+    }
+
+    public void turnRight() {
+        this.turnLeft = false;
+        this.turnRight = false;
+    }
+
+    public void move() {
+        if (this.turnLeft == true) {
+            setX(-getCurrentSpeed());
+            setY(getCurrentSpeed());
+
+        } else if (this.turnRight == true) {
+            setX(getCurrentSpeed());
+            setY(getCurrentSpeed());
+        } else {
+            setY(getCurrentSpeed());
+        }
     }
     abstract double speedFactor();
 

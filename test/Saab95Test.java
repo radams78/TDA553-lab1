@@ -17,4 +17,10 @@ public class Saab95Test {
         saab95.setTurboOff();
         assertFalse(saab95.getTurboOn());
         }
+
+    @Test
+    public void speedFactor_Should_Be_20(){
+        Saab95 saab95 = new Saab95(4, 200.0, 100.0, Color.RED);
+        assertEquals(saab95.speedFactor(), 20, 0.05);
     }
+}

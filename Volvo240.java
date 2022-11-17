@@ -4,7 +4,7 @@ import java.awt.*;
 
 import org.junit.jupiter.api.Test;
 
-public class Volvo240 extends Car implements Movable {
+public class Volvo240 extends Car{
 
     private final static double trimFactor = 1.25;
 
@@ -37,36 +37,6 @@ public class Volvo240 extends Car implements Movable {
     public void brake(double amount) {
         decrementSpeed(amount);
     }
-
-    @Override
-    public void move(double x, double y) {
-        switch (cardinal % 360) {
-            case 0:
-                y += currentSpeed;
-                break;
-            case 90:
-                x += currentSpeed;
-                break;
-            case 180:
-                y -= currentSpeed;
-                break;
-            case 270:
-                x -= currentSpeed;
-                break;
-        }
-    }
-
-    @Override
-    public void turnLeft() {
-        cardinal -= 90;
-    }
-
-    @Override
-    public void turnRight() {
-        cardinal += 90;
-    }
-
-
     
     @Test
     public void testMove() {

@@ -1,4 +1,4 @@
-C:\Users\e\Documents\TDA553-lab1\Car.java
-C:\Users\e\Documents\TDA553-lab1\Movable.java
-C:\Users\e\Documents\TDA553-lab1\Saab95.java
-C:\Users\e\Documents\TDA553-lab1\Volvo240.java
+/home/elias/Documents/chalmers/TDA553-lab1/Car.java
+/home/elias/Documents/chalmers/TDA553-lab1/Movable.java
+/home/elias/Documents/chalmers/TDA553-lab1/Saab95.java
+/home/elias/Documents/chalmers/TDA553-lab1/Volvo240.java

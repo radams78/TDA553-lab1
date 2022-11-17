@@ -4,7 +4,7 @@ import java.awt.*;
 
 import org.junit.jupiter.api.Test;
 
-public class Saab95 extends Car implements Movable {
+public class Saab95 extends Car{
 
     private boolean turboOn;
 
@@ -48,34 +48,6 @@ public class Saab95 extends Car implements Movable {
     // TODO fix this method according to lab pm
     public void brake(double amount) {
         decrementSpeed(amount);
-    }
-
-    @Override
-    public void move(double x, double y) {
-        switch (cardinal % 360) {
-            case 0:
-                y += currentSpeed;
-                break;
-            case 90:
-                x += currentSpeed;
-                break;
-            case 180:
-                y -= currentSpeed;
-                break;
-            case 270:
-                x -= currentSpeed;
-                break;
-        }
-    }
-
-    @Override
-    public void turnLeft() {
-        cardinal -= 90;
-    }
-
-    @Override
-    public void turnRight() {
-        cardinal += 90;
     }
 
     @Test

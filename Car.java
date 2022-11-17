@@ -4,7 +4,7 @@ import java.awt.*;
 
 import org.junit.jupiter.api.Test;
 
-public class Car {
+public class Car implements Movable{
 
     public int cardinal; // Determines direction of the car
     public double x; // X value of the car
@@ -41,6 +41,34 @@ public class Car {
 
     public void stopEngine() {
         currentSpeed = 0;
+    }
+
+    @Override
+    public void move(double x, double y) {
+        switch (cardinal % 360) {
+            case 0:
+                y += currentSpeed;
+                break;
+            case 90:
+                x += currentSpeed;
+                break;
+            case 180:
+                y -= currentSpeed;
+                break;
+            case 270:
+                x -= currentSpeed;
+                break;
+        }
+    }
+
+    @Override
+    public void turnLeft() {
+        cardinal -= 90;
+    }
+
+    @Override
+    public void turnRight() {
+        cardinal += 90;
     }
 
     @Test

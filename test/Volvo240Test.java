@@ -39,18 +39,16 @@ public class Volvo240Test {
     @Test
     public void testGasOutOfRange(){
         Car test = new Volvo240();
-        try{
+        assertThrows(IllegalArgumentException.class, ()->{
             test.brake(10);
-        } catch {
-            
-        }
-        assertThrows(IllegalArgumentException.class, ()->{});
+        });
     }
 
     @Test
     public void testBrakeOutOfRange(){
         Car test = new Volvo240();
-        test.brake(10);
-        assertThrows(IllegalArgumentException.class, ()->{});
+        assertThrows(IllegalArgumentException.class, ()->{
+            test.brake(10);
+        });
     }
 }

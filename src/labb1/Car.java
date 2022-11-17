@@ -134,8 +134,8 @@ public abstract class Car implements Movable {
         }else if(incrementAmount >= enginePower){
             incrementAmount = enginePower;
         } 
-        currentSpeedX += incrementAmount;
-        currentSpeedY += incrementAmount;  
+        currentSpeedX = incrementAmount;
+        currentSpeedY  = incrementAmount;  
     }
     
 
@@ -146,8 +146,8 @@ public abstract class Car implements Movable {
         }else if(decrementAmount >= enginePower){
             decrementAmount = enginePower;
         } 
-        currentSpeedX -= decrementAmount;
-        currentSpeedY -= decrementAmount;  
+        currentSpeedX = decrementAmount;
+        currentSpeedY = decrementAmount;  
     }
     
     public abstract double speedFactor();

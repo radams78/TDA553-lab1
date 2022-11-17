@@ -20,7 +20,7 @@ public class Saab95Test {
 
     @Test
     public void speedFactor_Should_Be_20(){
-        Saab95 saab95 = new Saab95(4, 200.0, 100.0, Color.RED);
-        assertEquals(saab95.speedFactor(), 20, 0.05);
+        Saab95 saab95 = new Saab95(4, 2000.0, 100.0, Color.RED);
+        assertEquals(20, saab95.speedFactor(), 0.05);
     }
 }

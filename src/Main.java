@@ -1,8 +1,10 @@
+package src;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
 
         Car volvo = new Volvo240(4, 100, Color.black, "Volvo240", 0, 0);

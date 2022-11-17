@@ -27,14 +27,4 @@ public class Saab95 extends Car {
             turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
-
-    // TODO fix this method according to lab pm
-    public void gas(double amount) {
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount) {
-        decrementSpeed(amount);
-    }
 }

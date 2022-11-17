@@ -1,5 +1,6 @@
 package Lab1;
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.Color;
@@ -23,5 +24,48 @@ public class CarTest {
         assertEquals(Direction.UP, Direction.RIGHT.prev());
         assertEquals(Direction.RIGHT, Direction.DOWN.prev());
         assertEquals(Direction.DOWN, Direction.LEFT.prev());
+    }
+
+    @Test
+    public void gas_stays_within_expected_values() {
+        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
+        assertThrows(IllegalArgumentException.class, () -> {
+            saab.gas(2.0d);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            saab.gas(-1);
+        });
+    }
+
+    @Test
+    public void brake_stays_within_expected_values() {
+        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
+        assertThrows(IllegalArgumentException.class, () -> {
+            saab.brake(2.0d);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            saab.brake(-1);
+        });
+    }
+
+    @Test
+    public void engine_power_is_same_as_assigned() {
+        double enginePower = 10;
+        Saab95 saab = new Saab95(4, enginePower, 0, Color.BLACK, "95", false);
+        assertEquals(enginePower, saab.getEnginePower());
+    }
+
+    @Test
+    public void turning_four_times_returns_to_start() {
+        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
+        Direction initialDirection = saab.getDirection();
+        for (int i = 0; i < 4; i++) {
+            saab.turnLeft();
+        }
+        assertEquals(initialDirection, saab.getDirection());
+        for (int i = 0; i < 4; i++) {
+            saab.turnRight();
+        }
+        assertEquals(initialDirection, saab.getDirection());
     }
 }

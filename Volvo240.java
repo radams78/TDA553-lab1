@@ -1,5 +1,7 @@
 import java.awt.*;
 
+import hej.Cars;
+
 public class Volvo240 extends Cars{
 
     public final static double trimFactor = 1.25;

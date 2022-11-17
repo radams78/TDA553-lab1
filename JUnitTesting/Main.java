@@ -1,3 +1,5 @@
+package JUnitTesting;
+
 import java.awt.*;
 
 public class Main {

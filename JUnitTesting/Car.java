@@ -1,3 +1,5 @@
+package JUnitTesting;
+
 import java.awt.*;
 
 public class Car implements Movable { 
@@ -7,8 +9,8 @@ public class Car implements Movable {
     private Color color; // Color of the car
     private String modelName; // The car model name
     private int direction; // direction of car, 0: up, 1: right, 2: down, 3: left
-    private int xCord;
-    private int yCord;
+    private double xCord;
+    private double yCord;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
         this.nrDoors      = nrDoors;
@@ -16,6 +18,9 @@ public class Car implements Movable {
         this.currentSpeed = currentSpeed;
         this.color        = color;
         this.modelName    = modelName;
+        this.direction = 0;
+        this.xCord = 10.0;
+        this.yCord = 10.0;
     }
 
     public int getNrDoors(){
@@ -69,10 +74,22 @@ public class Car implements Movable {
     }
 
     public void turnLeft() {
-        direction = (direction - 1) % 4;
+        direction = (direction == 0 ? 3 : direction - 1);
     }
 
     public void turnRight() {
         direction = (direction + 1) % 4;
+    }
+
+    public int getDirection() {
+        return direction;
+    }
+
+    public double getXCord() {
+        return xCord;
+    }
+
+    public double getYCord() {
+        return yCord;
     }
 }

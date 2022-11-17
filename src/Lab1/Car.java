@@ -149,6 +149,7 @@ public abstract class Car implements Movable {
 
     public Direction getDirection() {
         return currentDirection;
+
     }
 
     // public void setModelName(String modelName) {

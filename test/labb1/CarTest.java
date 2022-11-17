@@ -175,6 +175,36 @@ public class CarTest {
         assertThrows(IllegalArgumentException.class, () -> {saab.brake(2);});
         assertThrows(IllegalArgumentException.class, () -> {volvo.brake(2);});
      }
+
+     @Test
+     public void calling_the_gas_method_results_in_the_speed_increasing(){
+        Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
+        double speedBeforeX = saab.getCurrentSpeedX();
+        double speedBeforeY = saab.getCurrentSpeedY();
+
+        saab.gas(0.5);
+
+        double speedAfterX = saab.getCurrentSpeedX();
+        double speedAfterY = saab.getCurrentSpeedY();
+
+        assertTrue(speedAfterX > speedBeforeX); assertTrue(speedAfterY > speedBeforeY);
+
+     }
+
+     @Test
+     public void calling_the_brake_method_results_in_the_speed_decreasing(){
+        Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
+        double speedBeforeX = saab.getCurrentSpeedX();
+        double speedBeforeY = saab.getCurrentSpeedY();
+
+        saab.brake(0.9);
+
+        double speedAfterX = saab.getCurrentSpeedX();
+        double speedAfterY = saab.getCurrentSpeedY();
+
+        assertTrue(speedAfterX == speedBeforeX); assertTrue(speedAfterY == speedBeforeY);
+
+     }
 }
 
 

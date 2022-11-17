@@ -126,7 +126,7 @@ public abstract class Car implements Movable {
         }
     }
 
-
+    //TODO? the current speeds are with this code only dependent on the speed in the X-axis
     private void incrementSpeed(double amount){
         double incrementAmount = getCurrentSpeedX() + speedFactor() * amount*this.direction[0];
         if(incrementAmount <= 0){
@@ -138,9 +138,9 @@ public abstract class Car implements Movable {
         currentSpeedY  = incrementAmount;  
     }
     
-
+    //TODO? the current speeds are with this code only dependent on the speed in the X-axis
     private void decrementSpeed(double amount){
-        double decrementAmount = getCurrentSpeedX() + speedFactor() * amount*this.direction[0];
+        double decrementAmount = getCurrentSpeedX() - speedFactor() * amount*this.direction[0];
         if(decrementAmount <= 0){
             decrementAmount = 0;
         }else if(decrementAmount >= enginePower){

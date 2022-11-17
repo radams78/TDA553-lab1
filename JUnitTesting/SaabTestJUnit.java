@@ -38,4 +38,11 @@ public class SaabTestJUnit {
     saab.move();
     assertEquals(9.8, saab.getYCord(), 0);
   }
+
+  @Test
+  public void testingBrake() {
+    Saab95 saab = new Saab95();
+    saab.brake(1);
+    assertEquals(0, saab.getCurrentSpeed(), 0);
+  }
 }

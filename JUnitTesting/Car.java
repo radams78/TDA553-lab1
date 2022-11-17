@@ -35,7 +35,9 @@ public class Car implements Movable {
     }
 
     public void setCurrentSpeed(double val) {
-        currentSpeed = val;
+        if(0 <= val && val <= enginePower) {
+            currentSpeed = val;
+        }
     }
 
     public Color getColor(){

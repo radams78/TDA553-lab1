@@ -32,4 +32,11 @@ public class VolvoTestJUnit {
     volvo.move();
     assertEquals(9.8, volvo.getYCord(), 0);
   }
+
+  @Test
+  public void testGas() {
+    Volvo240 volvo = new Volvo240();
+    volvo.gas(10);
+    assertEquals(0, volvo.getCurrentSpeed(), 0);
+  }
 }

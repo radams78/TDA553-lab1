@@ -84,7 +84,7 @@ public class CarTest {
         
         Saab95 saab = new Saab95(Color.red, 2, 3, 1, 1);
 
-        saab.brake(saab.getCurrentSpeedX() + 5);
+        saab.brake(saab.getCurrentSpeedX() +0.5);
 
         assertTrue(saab.getCurrentSpeedX()>=0); assert(saab.getCurrentSpeedY() >= 0);
     }

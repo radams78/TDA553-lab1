@@ -31,25 +31,5 @@ public class Volvo240 extends Cars{
     // TODO fix this method according to lab pm
     public void brake(double amount){
         decrementSpeed(amount);
-    }
-
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		setX(getX() + (Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed()));
-        setY(getY() + (Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed()));
-	}
-
-	@Override
-	public void turnLeft() {
-		// TODO Auto-generated method stub
-		setDirection(getDirection() + 90);
-	}
-
-	@Override
-	public void turnRight() {
-		// TODO Auto-generated method stub
-		setDirection(getDirection() - 90);
-	}
-    
+    } 
 }

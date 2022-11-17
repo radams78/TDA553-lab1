@@ -40,9 +40,6 @@ abstract class Cars implements Movable{
     public double getX(){
         return x;
     }
-    public void setX(double x){
-        this.x = x;
-    }
 
     public double getDirection(){
         return direction;
@@ -53,9 +50,6 @@ abstract class Cars implements Movable{
 
     public double getY(){
         return y;
-    }
-    public void setY(double y){
-        this.y = y;
     }
 
     public void setColor(Color clr){
@@ -75,18 +69,15 @@ abstract class Cars implements Movable{
     }
     @Override
     public void move() {
-        // TODO Auto-generated method stub
-        setX(getX() + (Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed()));
-        setY(getY() + (Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed()));
+        this.x = (getX() + (Math.cos(Math.toRadians(getDirection()))) * getCurrentSpeed());
+        this.y = (getY() + (Math.sin(Math.toRadians(getDirection()))) * getCurrentSpeed());
     }
 
     public void turnLeft() {
-        // TODO Auto-generated method stub
         setDirection(getDirection() + 90);
     }
 
     public void turnRight() {
-        // TODO Auto-generated method stub
         setDirection(getDirection() - 90);
     }
     

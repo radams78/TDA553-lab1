@@ -4,7 +4,12 @@ Task 5: Reflection
 
 The Open-closed principle states that software entities should be open for extension, but closed for modification.
 To make the code open for extension but closed for modification we chose to make inheritance hierarchy by using
-subclassing. By using subclassing we could avoid code duplication. 
+Hierarchical Inheritance. 
+By using a superclass Car we can make sure that code dublication dosen't appear and therefor we dosent have to modify
+our different cars everytime we want to change somethings about the cars.
+
+And by having a subclass we can extend our code by adding methods to the superclass and the subclasses can override the methods 
+if we want the subclass to have its own implementetion.
 
 
 

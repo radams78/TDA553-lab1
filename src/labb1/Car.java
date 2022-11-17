@@ -86,7 +86,7 @@ public abstract class Car implements Movable {
     // decrement the direction to change its turning
     @Override
     public void turnLeft(){
-        direction[0]+=0.1;
+        direction[0]-=0.1;
     }
 
     //Increments the x direction to turn the vehicle

@@ -80,6 +80,10 @@ public class Car implements Movable{
         return this.y;
     }
 
+    public Direction getDirection() {
+        return this.direction;
+    }
+
     public String getModelName() {
         return this.modelName;
     }
@@ -115,7 +119,7 @@ public class Car implements Movable{
     @Override
     public void turnLeft() {
         int dirValue = this.direction.getValue();
-        this.direction = Direction.values()[(dirValue - 1) % 4];
+        this.direction = Direction.values()[((dirValue - 1) % 4)];
     }
 
     @Override
@@ -140,7 +144,6 @@ public class Car implements Movable{
                 this.x -= this.currentSpeed;
                 break;
         }
-        out.println(" " + this.x + " " + this.y);
     }
 
 

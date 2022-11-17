@@ -5,9 +5,11 @@ public enum Direction {
     SOUTH(2),
     WEST(3);
     private int value;
+
     private Direction(int value){
         this.value = value;
     }
+    
     public int getValue(){
         return this.value;
     }

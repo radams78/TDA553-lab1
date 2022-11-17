@@ -1,0 +1,5 @@
+1. We chose to create a superclass that we call Car, contained in this class is all the things that are common for a car, such as 
+color, enginepower, current speed etc. The decision was made to avoid duplication of code. We keep most of these attributes as private 
+and use setters/getters for changing these attributes, though some attributes will remain unavailable for change, such as the modelname
+or the number of doors since these require significantly more work to change.  
+

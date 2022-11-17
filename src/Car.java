@@ -82,11 +82,11 @@ public abstract class Car implements Movable {
     abstract void decrementSpeed(double amount);
 
     public void setDx() {
-        this.dx = this.getCurrentSpeed() * Math.cos(direction);
+        this.dx = this.getCurrentSpeed() * Math.cos(Math.toRadians(direction));
         }
 
     public void setDy() {
-        this.dy = this.getCurrentSpeed() * Math.sin(direction);
+        this.dy = this.getCurrentSpeed() * Math.sin(Math.toRadians(direction));
     }
 
     @Override

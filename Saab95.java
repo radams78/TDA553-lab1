@@ -42,73 +42,64 @@ public class Saab95 extends Car implements Movable {
 
     void incrementSpeed(double amount) {
         try {
-            if (getCurrentSpeed() > getEnginePower()) {
+            if (getCurrentSpeed() >= getEnginePower()) {
                 throw new Exception("the car is at max speed");
-            }
-            else{
+            } else {
                 setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
             }
-            
+
         } catch (Exception e) {
             setCurrentSpeed(getEnginePower());
         }
 
     }
 
-    
-
     void decrementSpeed(double amount) {
+
         try {
-            if (getCurrentSpeed() < 0) {
+            if (getCurrentSpeed() <= 0) {
                 throw new Exception("the car is already still");
-            }
-            else{
+            } else {
                 setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
 
             }
-            
+
         } catch (Exception e) {
             setCurrentSpeed(0);
         }
 
-        
-        
     }
 
     // TODO fix this method according to lab pm
     void gas(double amount) {
         try {
-            if (amount<0 || amount>1){
-                throw new Exception("incorrect amount");
-            }else{
+            if (amount < 0 || amount > 1) {
+                throw new Exception("impossible amount");
+            } else {
                 incrementSpeed(amount);
 
-
             }
-            
-            
+
         } catch (Exception e) {
             incrementSpeed(0);
 
-                }
+        }
     }
 
     // TODO fix this method according to lab pm
     void brake(double amount) {
         try {
-            if (amount<0||amount>1){
-                throw new Exception("incorrect amount");
-            }else{
+            if (amount < 0 || amount > 1) {
+                throw new Exception("impossible amount");
+            } else {
                 incrementSpeed(amount);
 
-
             }
-            
-            
         } catch (Exception e) {
             incrementSpeed(0);
 
-                }    }
+        }
+    }
 
     public void turnLeft() {
         turnRight = false;

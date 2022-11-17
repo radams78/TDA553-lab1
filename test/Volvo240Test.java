@@ -8,13 +8,6 @@ import src.*;
 
 public class Volvo240Test {
     @Test
-    public void testSpeedFactor(){
-        Car test = new Volvo240();
-        double speedFactor = test.speedFactor();
-        assertEquals(1.25, speedFactor, 0.1);
-    }
-
-    @Test
     public void testIncrementSpeed(){
         Car test = new Volvo240();
         test.incrementSpeed(10);

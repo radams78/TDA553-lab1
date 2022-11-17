@@ -1,4 +1,5 @@
-package src;
+package Lab1;
+
 import java.awt.*;
 
 public abstract class Car implements Movable {
@@ -9,9 +10,9 @@ public abstract class Car implements Movable {
     private String modelName; // Name of the model
     private double posX;
     private double posY;
-    protected Direction currentDirection;
+    private Direction currentDirection;
 
-    protected enum Direction {
+    public enum Direction {
         LEFT,
         UP,
         RIGHT,
@@ -57,13 +58,15 @@ public abstract class Car implements Movable {
 
     // public abstract void gas(double amount);
     public void gas(double amount) {
-        if(amount < 0 || amount > 1) throw new IllegalArgumentException("Amount must be between 0 and 1");
+        if (amount < 0 || amount > 1)
+            throw new IllegalArgumentException("Amount must be between 0 and 1");
         incrementSpeed(amount);
     }
 
     // public abstract void brake(double amount);
     public void brake(double amount) {
-        if(amount < 0 || amount > 1) throw new IllegalArgumentException("Amount must be between 0 and 1");
+        if (amount < 0 || amount > 1)
+            throw new IllegalArgumentException("Amount must be between 0 and 1");
         decrementSpeed(amount);
     }
 
@@ -81,14 +84,11 @@ public abstract class Car implements Movable {
     public void move() {
         if (currentDirection == Direction.LEFT) {
             posX -= getCurrentSpeed();
-        }
-        else if (currentDirection == Direction.RIGHT) {
+        } else if (currentDirection == Direction.RIGHT) {
             posX += getCurrentSpeed();
-        }
-        else if (currentDirection == Direction.UP) {
+        } else if (currentDirection == Direction.UP) {
             posY += getCurrentSpeed();
-        }
-        else if (currentDirection == Direction.DOWN) {
+        } else if (currentDirection == Direction.DOWN) {
             posY -= getCurrentSpeed();
         }
     }
@@ -127,8 +127,10 @@ public abstract class Car implements Movable {
 
     // Protected?
     protected void setCurrentSpeed(double currentSpeed) {
-        if(currentSpeed > enginePower) this.currentSpeed = enginePower;
-        else if(currentSpeed < 0d) this.currentSpeed = 0d;
+        if (currentSpeed > enginePower)
+            this.currentSpeed = enginePower;
+        else if (currentSpeed < 0d)
+            this.currentSpeed = 0d;
         this.currentSpeed = currentSpeed;
     }
 
@@ -143,6 +145,10 @@ public abstract class Car implements Movable {
 
     public String getModelName() {
         return modelName;
+    }
+
+    public Direction getDirection() {
+        return currentDirection;
     }
 
     // public void setModelName(String modelName) {

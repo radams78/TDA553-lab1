@@ -1,6 +1,9 @@
-package src;
+package Lab1;
+
 public interface Movable {
     public void move();
+
     public void turnLeft();
+
     public void turnRight();
 }

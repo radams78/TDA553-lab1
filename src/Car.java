@@ -48,16 +48,29 @@ public abstract class Car {
     
     protected abstract double speedFactor();
 
-    public abstract void incrementSpeed(double amount);
+    public void incrementSpeed(double amount){
+	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    }
+    
+    public void decrementSpeed(double amount){
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+    }
 
-    public abstract void decrementSpeed(double amount);
-
-    // Temporär abstract tills vi vet om den ska vara abstract eller inte
-    public abstract void gas(double amount);
-
-    // Temporär abstract tills vi vet om den ska vara abstract eller inte
-    public abstract void brake(double amount);
-
+    public void gas(double amount){
+        if (0<amount || amount>1){
+            throw new IllegalArgumentException("amount outside of range [0,1]")
+        } else {
+            incrementSpeed(amount);
+        }
+    }
+    
+    public void brake(double amount){
+        if (0<amount || amount>1){
+            throw new IllegalArgumentException("amount outside of range [0,1]")
+        } else {
+            decrementSpeed(amount);
+        }
+    }
     public void move(){
         updateXPosition();
         updateYPosition();

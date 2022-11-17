@@ -12,7 +12,10 @@ public class Saab95 extends Car implements Movable {
 
     private Saab95() {
         super(2, 125, 0, Color.red, "Saab95", 0, 0);
+        startEngine();
+        setTurboOn();
         stopEngine();
+        setTurboOff();
         turboOn = false;
         turnLeft = false;
         turnRight = false;

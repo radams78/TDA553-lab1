@@ -145,8 +145,8 @@ public class CarTest {
         Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
         Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
 
-        assertThrows(IllegalArgumentException.class, () -> saab.gas(-1));
-        assertThrows(IllegalArgumentException.class, () -> volvo.gas(-1));
+        assertThrows(IllegalArgumentException.class, () -> {saab.gas(-1);});
+        assertThrows(IllegalArgumentException.class, () -> {volvo.gas(-1);});
      }
 
      @Test
@@ -154,8 +154,8 @@ public class CarTest {
         Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
         Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
 
-        assertThrows(IllegalArgumentException.class, () -> saab.gas(2));
-        assertThrows(IllegalArgumentException.class, () -> volvo.gas(2));
+        assertThrows(IllegalArgumentException.class, () -> {saab.gas(2);});
+        assertThrows(IllegalArgumentException.class, () -> {volvo.gas(2);});
      }
 
      @Test
@@ -163,8 +163,8 @@ public class CarTest {
         Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
         Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
 
-        assertThrows(IllegalArgumentException.class, () -> saab.brake(-1));
-        assertThrows(IllegalArgumentException.class, () -> volvo.brake(-1));
+        assertThrows(IllegalArgumentException.class, () -> {saab.brake(-1);});
+        assertThrows(IllegalArgumentException.class, () -> {volvo.brake(-1);});
      }
 
      @Test
@@ -172,8 +172,8 @@ public class CarTest {
         Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
         Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
 
-        assertThrows(IllegalArgumentException.class, () -> saab.brake(2));
-        assertThrows(IllegalArgumentException.class, () -> volvo.brake(2));
+        assertThrows(IllegalArgumentException.class, () -> {saab.brake(2);});
+        assertThrows(IllegalArgumentException.class, () -> {volvo.brake(2);});
      }
 }
 

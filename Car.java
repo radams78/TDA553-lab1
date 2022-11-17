@@ -8,8 +8,8 @@ public abstract class Car implements Movable{
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; // The car model name
-    public double y;
-    public double x;
+    public int y;
+    public int x;
     public int currentDirection;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y) {
@@ -45,7 +45,7 @@ public abstract class Car implements Movable{
     }
 
     public void startEngine(){
-	    currentSpeed = 0.1;
+	    currentSpeed = 1;
     }
 
     public void stopEngine(){
@@ -67,7 +67,7 @@ public abstract class Car implements Movable{
     public void gas(double amount) throws Exception{
 
         if (amount > 1 || amount < 0){
-            throw new Exception("Only accepts values of 1 and 0");
+            throw new IllegalArgumentException("Only accepts values of 1 and 0");
         }
            
         else {
@@ -78,19 +78,19 @@ public abstract class Car implements Movable{
     // TODO fix this method according to lab pm
     public void brake(double amount) throws Exception{
         if (amount > 1 || amount < 0){
-            throw new Exception("Only accepts values of 1 and 0");
+            throw new IllegalArgumentException("Only accepts values of 1 and 0");
         }   
         else {
             decrementSpeed(amount);
         }
     }
 
-    public double getY() {
-        return y;
+    public int getY() {
+        return this.y;
     }
 
-    public double getX() {
-        return x;
+    public int getX() {
+        return this.x;
     }
 
     public void setY(double y) {

@@ -89,14 +89,15 @@ public abstract class Car implements Movable{
         if(turnLeft){
         double leftMovement =  -getCurrentSpeed();
         setX(leftMovement);
+        setY(getCurrentSpeed());
         } 
         
         else if(turnRight){
             double rightMovement = getCurrentSpeed();
             setX(rightMovement);
+            setY(getCurrentSpeed());
         }
         else {
-            setX(getCurrentSpeed());
             setY(getCurrentSpeed());
         }
     }

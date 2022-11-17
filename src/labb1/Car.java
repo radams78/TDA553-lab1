@@ -6,7 +6,7 @@ import java.awt.*;
 public abstract class Car implements Movable {
     private int nrDoors;
     private Color color;
-    protected int enginePower;
+    protected double enginePower;
     private String modelName;
     private double currentSpeedX;
     private double currentSpeedY;
@@ -15,14 +15,14 @@ public abstract class Car implements Movable {
     private double[] direction; // x and y list for the direction that  the car is supposed to move in
 
     
-    public Car(int nrDoors, Color color, int enginePower, String modelName, double  x, double y, double[] direction) {
+    public Car(int nrDoors, Color color, int enginePower, String modelName, double  x, double y, double dirX, double dirY) {
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
         this.x = x;
         this.y = y;
-        this.direction = direction;
+        this.direction = new double[] {dirX, dirY} ;
         stopEngine();
     }//car
     
@@ -86,14 +86,23 @@ public abstract class Car implements Movable {
     // decrement the direction to change its turning
     @Override
     public void turnLeft(){
-        direction[0]-=0.1;
+        System.out.println("turning: " + this);
+        decreaseDirectionX(0.1);
     }
 
     //Increments the x direction to turn the vehicle
     @Override
     public void turnRight(){
-        direction[0]+= 0.1;
+        increaseDirectionX(0.1);
 
+    }
+
+    private void increaseDirectionX(double amount){
+        this.direction[0]+= amount;
+    }
+
+    private void decreaseDirectionX(double amount){
+        this.direction[0]-= amount;
     }
 
 
@@ -109,15 +118,16 @@ public abstract class Car implements Movable {
     }
 
 
-    public void incrementSpeed(double amount){
-        currentSpeedX = (getCurrentSpeedX() + speedFactor() * amount)*direction[0];
-        currentSpeedY = (getCurrentSpeedY() + speedFactor() * amount)*direction[1];
+    private void incrementSpeed(double amount){
+        System.out.println(direction[0]);
+        currentSpeedX = getCurrentSpeedX() + speedFactor() * amount*this.direction[0];
+        currentSpeedY = getCurrentSpeedY() + speedFactor() * amount*this.direction[1];
     }
     
 
-    public void decrementSpeed(double amount){
-        currentSpeedX = (getCurrentSpeedX() - speedFactor() * amount)*direction[0];
-        currentSpeedY = (getCurrentSpeedY() - speedFactor() * amount)*direction[1];
+    private void decrementSpeed(double amount){
+        currentSpeedX = getCurrentSpeedX() - speedFactor() * amount*this.direction[0];
+        currentSpeedY = getCurrentSpeedY() - speedFactor() * amount*this.direction[1];
     }
     
     public abstract double speedFactor();

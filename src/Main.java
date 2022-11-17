@@ -15,6 +15,10 @@ public class Main {
         listOfCars.add(volvo);
         listOfCars.add(saab);
 
+        volvo.startEngine();
+        volvo.incrementSpeed(3);
+        System.out.println(volvo.getCurrentSpeed());
+
         System.out.println(volvo.getEnginePower());
         System.out.println(saab.getCurrentSpeed());
         volvo.gas(2);

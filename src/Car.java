@@ -17,7 +17,6 @@ public abstract class Car implements Movable{
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-       // this.currentSpeed = 0;
         this.x = x;
         this.y = y;
     }

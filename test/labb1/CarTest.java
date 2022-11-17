@@ -2,6 +2,8 @@ package labb1;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import java.awt.*;
 
@@ -60,8 +62,49 @@ public class CarTest {
 
         saab.brake(saab.getCurrentSpeedX() + 5);
 
-        assert(saab.getCurrentSpeedX()>=0); assert(saab.getCurrentSpeedY() >= 0);
+        assertTrue(saab.getCurrentSpeedX()>=0); assert(saab.getCurrentSpeedY() >= 0);
     }
+
+     @Test
+     public void car_that_turns_left_moves_less_in_the_x_direction_than_car_that_stays_straight(){
+        double [] saabDir = {1,1};
+        
+        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, saabDir);
+        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, saabDir);
+
+        saabToBeTurned.turnLeft();
+        saabToBeTurned.gas(0.1);
+        saabToBeTurned.move();
+
+
+        saabToBeTurned.gas(0.1);
+        saabStayingStraight.move();
+
+        System.out.println(saabToBeTurned.getX());
+
+        System.out.println(saabStayingStraight.getX());
+
+        assertTrue(saabToBeTurned.getX() < saabStayingStraight.getX());
+
+     }
+
+     @Test
+     public void car_that_turns_right_moves_more_in_the_x_direction_than_car_that_stays_straight(){
+        double [] saabDir = {1,1};
+        
+        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, saabDir);
+        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, saabDir);
+
+        saabToBeTurned.turnRight();
+        saabToBeTurned.gas( 0.1);
+        saabToBeTurned.move();
+
+        saabToBeTurned.gas(0.1);
+        saabStayingStraight.move();
+
+
+     }
 }
+
 
 

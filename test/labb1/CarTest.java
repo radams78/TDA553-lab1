@@ -99,7 +99,25 @@ public class CarTest {
         saabStayingStraight.gas(0.1);
         saabStayingStraight.move();
 
-        assert(saabToBeTurned.getX() > saabStayingStraight.getX());
+        assert(saabToBeTurned.getX() < saabStayingStraight.getX());
+
+
+     }
+
+     @Test
+     public void saab_is_faster_than_volvo(){
+        Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
+        Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
+
+        saab.setTurboOn();
+        saab.gas(0.1);
+        volvo.gas(0.1);
+
+        volvo.move();
+        saab.move();
+
+        assert(volvo.getX() < saab.getX() && volvo.getY() < saab.getY());
+
 
      }
 }

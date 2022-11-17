@@ -35,13 +35,22 @@ public class Saab95 extends Cars{
     }
     
     // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
+    public void gas(double amount) throws Exception{
+        if (amount < 0){
+            incrementSpeed(amount);
+        }else{
+            throw new IllegalArgumentException("Can not decrease speed with gas method");
+        }
+    } 
+    
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        decrementSpeed(amount);
+        if (amount < 0){
+            decrementSpeed(amount);
+        }else{
+            throw new IllegalArgumentException("Can not increase speed with brake method");
+        }
     }
 
 

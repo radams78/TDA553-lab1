@@ -40,6 +40,9 @@ abstract class Cars implements Movable{
     public double getX(){
         return x;
     }
+    public String getModelName(){
+        return modelName;
+    }
 
     public double getDirection(){
         return direction;
@@ -80,10 +83,4 @@ abstract class Cars implements Movable{
     public void turnRight() {
         setDirection(getDirection() - 90);
     }
-    
-    public String toString() {
-        return "Cars [nrDoors = " + nrDoors + ", enginePower = " + enginePower + ", modelName = " + modelName + ", color="
-                + color + ", currentSpeed = " + currentSpeed + ", X = " + x + ", Y = " + y + "]";
-    }
-    
 }

@@ -25,15 +25,19 @@ public class CarTest {
         Car car = new Saab95(4, 100.0, 0.0, Color.RED);
         car.setCurrentSpeed(10);
         car.setDx();
-        assertEquals(10, car.getDx(), 5);
+        assertEquals(10, car.getDx(), 0.1);
       }
 
       @Test
       public void dy_setter_should_set(){
         Car car = new Saab95(4, 100.0, 0.0, Color.RED);
         car.setCurrentSpeed(10);
+        for (int i = 0; i < 45; i++) {
+          car.turnLeft();
+        }
         car.setDy();
-        car.turnLeft();
-        assertEquals(10, car.getDy(), 5);
+        assertEquals(7.1, car.getDy(), 0.1);
       }
+
+
 }

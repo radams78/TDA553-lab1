@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Saab95 extends Car {
 
-    public boolean turboOn;
+    private boolean turboOn;
     
     public Saab95(int nrDoors, double enginePower, Color color, String modelName, double x, double y){
         super(nrDoors, enginePower, color, modelName, x, y);
@@ -25,7 +25,6 @@ public class Saab95 extends Car {
         return getEnginePower() * 0.01 * turbo;
     }
 
-    @Override
     public void incrementSpeed(double amount){
         double speed = getCurrentSpeed() + speedFactor() * amount;
         setCurrentSpeed(speed);

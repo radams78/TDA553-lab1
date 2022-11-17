@@ -1,5 +1,8 @@
 import java.awt.*;
 
+import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Saab95 extends Car implements Movable {
 
     // public boolean turboOn;
@@ -52,13 +55,11 @@ public class Saab95 extends Car implements Movable {
     }
 
     void decrementSpeed(double amount) {
-
         try {
             if (getCurrentSpeed() <= 0) {
                 throw new Exception();
             } else {
                 setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
-
             }
 
         } catch (Exception e) {

@@ -63,11 +63,6 @@ public abstract class Car {
     void setY(double ammount){
         this.y=ammount;
     }
-    
-
-       
-
-    
     abstract double speedFactor();
 
     abstract void incrementSpeed(double amount);

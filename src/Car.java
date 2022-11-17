@@ -46,7 +46,7 @@ public abstract class Car {
 	    currentSpeed = 0;
     }
     
-    protected abstract double speedFactor();
+    public abstract double speedFactor();
 
     public abstract void incrementSpeed(double amount);
 

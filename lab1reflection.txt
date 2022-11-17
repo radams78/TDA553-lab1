@@ -1,0 +1,8 @@
+Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+Saab and volvo are both cars so therefore we inherit from Cars. Since cars can move cars will inherit from Moveable which also makes saab and volvo able to inherit moveable.
+
+
+Explain how you implemented each of the sanity checks in Task 4.
+In our gas/brake methods we make an if statements that checks the amount the method gets called with. 
+If that amount is lower than 0 or higher than 1 we return with 0 and raise error. 
+Which makes the car not brake or not gas depending on which method you called for.

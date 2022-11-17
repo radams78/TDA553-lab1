@@ -47,7 +47,8 @@ public class Movable {
     }
 
     public void turnLeft(Car car){
-        if (car.getDirection() == 0) 
+        int dir = car.getDirection();
+        if (dir == 0) 
             car.setDirection(3);
         else 
             car.setDirection(-1); 

@@ -1,9 +1,5 @@
 import java.awt.*;
-
-import org.junit.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-public class Saab95 extends Car implements Movable {
+public class Saab95 extends Car{
 
     // public boolean turboOn;
     // public int nrDoors; // Number of doors on the car

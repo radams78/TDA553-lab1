@@ -9,11 +9,11 @@ public class Volvo240 extends Car {
 
     }
 
-    double speedFactor() {
+    public double speedFactor() {
         return getEnginePower() * 0.01 * trimFactor;
     }
 
-    void incrementSpeed(double amount) {
+    public void incrementSpeed(double amount) {
         try {
             if (getCurrentSpeed() > getEnginePower()) {
                 throw new Exception();
@@ -29,7 +29,7 @@ public class Volvo240 extends Car {
 
     }
 
-    void decrementSpeed(double amount) {
+    public void decrementSpeed(double amount) {
         try {
             if (getCurrentSpeed() < 0) {
                 throw new Exception();

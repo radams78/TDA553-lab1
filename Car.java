@@ -45,7 +45,6 @@ public abstract class Car implements Movable {
 
     public String getName(){
         return this.modelName;
-
     }
 
     public Color getColor() {

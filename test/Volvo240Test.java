@@ -14,7 +14,8 @@ public class Volvo240Test {
 
     @Test
     public void incrementSpeed_Should_Be_25(){
-        Volvo240 volvo240 = new Volvo240(4, 1000.0, 100.0, Color.BLUE);
+        Volvo240 volvo240 = new Volvo240(4, 1000.0, 0, Color.BLUE);
+        volvo240.startEngine(); //This line will have no affect on the result => incrementSpeed() works with any oldCurrentSpeed. You can also use setCurrentSpeed() here.
         double oldCurrentSpeed = volvo240.getCurrentSpeed();
         volvo240.incrementSpeed(2);
         double diffOlSpdNewSpd = volvo240.getCurrentSpeed() - oldCurrentSpeed;
@@ -22,12 +23,13 @@ public class Volvo240Test {
     } 
 
     @Test
-    public void decrementSpeed_Should_Be_20(){
-        Volvo240 volvo240 = new Volvo240(4, 1000.0, 100.0, Color.BLUE);
+    public void decrementSpeed_Should_Be_Minus_25(){
+        Volvo240 volvo240 = new Volvo240(4, 1000.0, 0, Color.BLUE);
+        volvo240.setCurrentSpeed(100);
         double oldCurrentSpeed = volvo240.getCurrentSpeed();
-        volvo240.decrementSpeed(1);
+        volvo240.decrementSpeed(2);
         double diffOlSpdNewSpd = volvo240.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(0, diffOlSpdNewSpd);
+        assertEquals(-25, diffOlSpdNewSpd);
     } 
 }
 

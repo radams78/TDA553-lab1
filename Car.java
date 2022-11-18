@@ -1,4 +1,8 @@
+
+
 import java.awt.*;
+
+
 
 public abstract class Car implements Movable {
     protected int nrDoors; // Number of doors on the car
@@ -121,6 +125,7 @@ public abstract class Car implements Movable {
 
         }
     }
+
 
     abstract double speedFactor();
 

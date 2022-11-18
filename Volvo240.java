@@ -2,16 +2,10 @@ import java.awt.*;
 
 public class Volvo240 extends Car {
 
-    public final static double trimFactor = 1.25;
-    // public int nrDoors; // Number of doors on the car
-    // public double enginePower; // Engine power of the car
-    // public double currentSpeed; // The current speed of the car
-    // public Color color; // Color of the car
-    // public String modelName; // The car model name
-    boolean turnLeft, turnRight;
+    private final static double trimFactor = 1.25;
 
-    private Volvo240() {
-        super(4, 100, 0, Color.black, "Volvo204", 0, 0, false, false);
+    public Volvo240(int doors, int power, int speed, Color color, String name, int x, int y, boolean turnLeft, boolean turnRight) {
+        super(doors, power, speed, color, name, x, y, turnLeft, turnRight);
 
     }
 
@@ -21,7 +15,7 @@ public class Volvo240 extends Car {
 
     void incrementSpeed(double amount) {
         try {
-            if (getCurrentSpeed() >= getEnginePower()) {
+            if (getCurrentSpeed() > getEnginePower()) {
                 throw new Exception();
 
             } else {
@@ -30,19 +24,21 @@ public class Volvo240 extends Car {
 
         } catch (Exception e) {
             System.out.println("the car is already at max speed");
+            setCurrentSpeed(getEnginePower());
         }
 
     }
 
     void decrementSpeed(double amount) {
         try {
-            if (getCurrentSpeed() <= 0) {
+            if (getCurrentSpeed() < 0) {
                 throw new Exception();
             } else {
                 setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));
             }
         } catch (Exception e) {
             System.out.println("the car is already still");
+            setCurrentSpeed(0);
         }
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }

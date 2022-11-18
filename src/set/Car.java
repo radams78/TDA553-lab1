@@ -20,8 +20,9 @@ public abstract class Car implements Movable {
     private double direction;
 
     public Car(int nrDoors, Color color, int enginePower, String modelName){
-        this.nrDoors = nrDoors;
+        validate_arguments(nrDoors, enginePower);     
         this.color = color;
+        this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.modelName = modelName;
         this.stopEngine();
@@ -30,6 +31,11 @@ public abstract class Car implements Movable {
     }
     
     // --- Methods --- //
+    public void validate_arguments(int nrDoors, int enginePower){
+        if (nrDoors < 0 || enginePower < 0){
+            throw new IllegalArgumentException();
+        }
+    }
     
     public void turnRight(){
         direction -= 20;

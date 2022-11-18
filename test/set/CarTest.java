@@ -88,5 +88,18 @@ public class CarTest {
             volvo.brake(2);
         });
     }
+
+    @Test 
+    public void enginePower_should_not_be_negative(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            volvo = new Volvo240(0, Color.orange, -100, "wadswdasd");
+        });
+    }
+    @Test 
+    public void nrDoors_should_not_be_negative(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            volvo = new Volvo240(-10, Color.orange, 10, "wadswdasd");
+        });
+    }
 }
 

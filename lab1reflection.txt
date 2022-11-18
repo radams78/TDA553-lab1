@@ -1,6 +1,11 @@
 - Question 1: "Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle."
 
-
+Since you do not want to be able to create objects of the single type car, we decided to make 
+the car class abstract. Then we gathered all the methods that the different cars have in common 
+into the car class. After this we implemenented the specific behaviours and methods into different 
+subclasses when was necessary. Our abstract car class gives us and other programmers the option 
+create their own cars and inherit from car without having to know how car works. Which can be put
+in the following way: open for extension but closed for modification. 
 
 
 - Question 2: "Explain how you implemented each of the sanity checks in Task 4."
@@ -8,12 +13,17 @@
 There were four conditions that were supposed to be satisfied:
 
 - The method gas should only accept values between 0 and 1.
-- The method gas should never decrease a car's speed.
 - The method brake should only accept values between 0 and 1.
+- The method gas should never decrease a car's speed.
 - The method brake should never increase a car's speed.
 
-We chose to make a single sanity check for each method that satisfy all four conditions.
-Our solution simply made sure the multiplier which is returned by the gas and break function
-always remains within an interval of 0 and 1. It is obvious that this satisfies two of our
-conditions, however it also satisfies the other two conditions by making sure that we never
-get negative values as arguments. Naturally, this 
+For the first two sanity checks we simply implemented an if-statement in each method, which
+runs before they modify any speed. These if-statements are identical and throw an exception
+of type IllegalArgumentException should the value provided as an argument be outside the
+bounds of 0 to 1.
+
+For the other two sanity checks we made sure the multipliers that modify the result in the
+methods incrementSpeed and decrementSpeed cannot be negative. This ensures that we cannot
+get inverse values which may cause gas and brake to behave differently from what we expect.
+We achieved this by creating a method which is called inside the constructor for car, which
+throws an IllegalArgumentException if it is negative.

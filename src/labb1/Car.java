@@ -108,7 +108,7 @@ public abstract class Car implements Movable {
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        if (inBounds(1, 0, amount) == 0){
+        if (inBounds(1.0, 0.0, amount) == 0){
             incrementSpeed(amount);
         }else{
             throw new IllegalArgumentException("amount needs to be between 0 and 1");
@@ -128,7 +128,7 @@ public abstract class Car implements Movable {
     }
 
     public double calculateSpeed(double speedToChange, double amount){
-        if (inBounds(enginePower, 0, speedToChange) == -1){
+        if (inBounds(enginePower, 0.0, speedToChange) == -1){
             speedToChange = 0;
         }
         else if (inBounds(enginePower, 0, speedToChange) == 1){
@@ -139,11 +139,7 @@ public abstract class Car implements Movable {
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-<<<<<<< Updated upstream
-        if (inBounds(1.0, 0.0, amount)){
-=======
-        if (inBounds(1, 0, amount) == 0){
->>>>>>> Stashed changes
+        if (inBounds(1.0, 0.0, amount) == 0){
             decrementSpeed(amount);
         }else{
             throw new IllegalArgumentException("amount needs to be between 0 and 1");
@@ -171,8 +167,4 @@ public abstract class Car implements Movable {
         String printCar = "" + modelName + ": " + "Doors: " + this.getNrDoors() + ", Color: " + rgbPrint + ", Engine power: " + this.getEnginePower() + ", Position: (" + (int) x + "," + (int) y + ")" + ", Direction: (" + direction[0] + "," + direction[1] + ")";
         return printCar;
     } //Car object as a visible car object
-
-    
-
-    // Jag testar om jag har write access
 }

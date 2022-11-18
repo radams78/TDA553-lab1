@@ -63,7 +63,6 @@ public abstract class Car implements Movable {
     }
 
 
-
     //Increases the speed by a little
     public void startEngine(){
         incrementSpeed(0.1);
@@ -109,7 +108,7 @@ public abstract class Car implements Movable {
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        if (amount <= 1 && amount >= 0){
+        if (inBounds(1.0, 0.0, amount) == 0){
             incrementSpeed(amount);
         }else{
             throw new IllegalArgumentException("amount needs to be between 0 and 1");
@@ -117,37 +116,48 @@ public abstract class Car implements Movable {
         
     }
 
+    private int inBounds(double UpperLimit, double LowerLimit, double amount){
+        int result = 0;
+        if (amount > UpperLimit){
+            return result + 1;
+        }
+        else if (amount < LowerLimit) {
+            return result - 1;
+        }
+        return result;
+    }
+
+    public double calculateSpeed(double speedToChange, double amount){
+        if (inBounds(enginePower, 0.0, speedToChange) == -1){
+            speedToChange = 0;
+        }
+        else if (inBounds(enginePower, 0, speedToChange) == 1){
+            speedToChange = enginePower;
+        }
+        return speedToChange;
+    }
+    
+
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        if (amount <= 1 && amount >= 0){
+        if (inBounds(1.0, 0.0, amount) == 0){
             decrementSpeed(amount);
         }else{
             throw new IllegalArgumentException("amount needs to be between 0 and 1");
         }
     }
-
+ 
     //TODO? the updated speeds are with this code only dependent on the speed in the X-axis
     private void incrementSpeed(double amount){
-        double incrementAmount = getCurrentSpeedX() + speedFactor() * amount*this.direction[0];
-        if(incrementAmount <= 0){
-            incrementAmount = 0;
-        }else if(incrementAmount >= enginePower){
-            incrementAmount = enginePower;
-        } 
-        currentSpeedX = incrementAmount;
-        currentSpeedY  = incrementAmount;  
+        currentSpeedX = calculateSpeed(getCurrentSpeedX() + speedFactor()*amount*this.direction[0], amount);
+        currentSpeedY  = calculateSpeed(getCurrentSpeedY() + speedFactor()*amount*this.direction[1], amount);
     }
     
     //TODO? the updated speeds are with this code only dependent on the speed in the X-axis
     private void decrementSpeed(double amount){
-        double decrementAmount = getCurrentSpeedX() - speedFactor() * amount*this.direction[0];
-        if(decrementAmount <= 0){
-            decrementAmount = 0;
-        }else if(decrementAmount >= enginePower){
-            decrementAmount = enginePower;
-        } 
-        currentSpeedX = decrementAmount;
-        currentSpeedY = decrementAmount;  
+        
+        currentSpeedX = calculateSpeed(getCurrentSpeedX() - speedFactor()*amount*this.direction[0], amount);
+        currentSpeedY = calculateSpeed(getCurrentSpeedY() - speedFactor()*amount*this.direction[1], amount);  
     }
     
     public abstract double speedFactor();
@@ -158,8 +168,4 @@ public abstract class Car implements Movable {
         String printCar = "" + modelName + ": " + "Doors: " + this.getNrDoors() + ", Color: " + rgbPrint + ", Engine power: " + this.getEnginePower() + ", Position: (" + (int) x + "," + (int) y + ")" + ", Direction: (" + direction[0] + "," + direction[1] + ")";
         return printCar;
     } //Car object as a visible car object
-
-    
-
-    // Jag testar om jag har write access
 }

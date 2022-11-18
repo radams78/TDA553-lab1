@@ -47,6 +47,7 @@ public class Saab95 extends Car {
 
         } catch (Exception e) {
             System.out.println("the car is already at max speed");
+            setCurrentSpeed(getEnginePower());
         }
 
     }
@@ -61,6 +62,7 @@ public class Saab95 extends Car {
 
         } catch (Exception e) {
             System.out.println("the car is already still");
+            setCurrentSpeed(0);
         }
 
     }

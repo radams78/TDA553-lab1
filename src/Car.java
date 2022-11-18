@@ -8,6 +8,10 @@ abstract class Car implements Movable{
     private double currentSpeed;
     private Color color;
     private String modelName;
+   
+
+    private boolean isEngineOn;
+
     private double x;
     private double y;
 
@@ -15,14 +19,21 @@ abstract class Car implements Movable{
     private int index = 0;
     
 
+    public int getIndex() {
+        return index;
+    }
     public Car(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
-        this.currentSpeed = 120.0;
+        this.currentSpeed = 0;
         this.color = color;
         this.modelName = modelName;
+        this.isEngineOn = false;
         this.x = 0;
         this.y = 0;
+    }
+    public boolean isEngineOn() {
+        return isEngineOn;
     }
     public int getNrDoors(){
         return nrDoors;
@@ -44,26 +55,28 @@ abstract class Car implements Movable{
     public void setColor(Color clr){
 	    color = clr;
     }
-
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
     public double speedFactor(){
         return 0;
     }
     public void startEngine(){
-	    currentSpeed = 0.1;
+	    this.isEngineOn = true;
     }
-
     public void stopEngine(){
-	    currentSpeed = 0;
+        this.isEngineOn = false;
     }
+    
     public void incrementSpeed(double amount){
-        if (this.getCurrentSpeed() <= this.getEnginePower()){
-            currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        if (this.getCurrentSpeed() < this.getEnginePower()){
+            this.currentSpeed = this.getCurrentSpeed() + this.speedFactor() * amount;
         }
     }
 
     public void decrementSpeed(double amount){
         if (this.getCurrentSpeed() > 0){
-            currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+            this.currentSpeed = this.getCurrentSpeed() - this.speedFactor() * amount;
         }
     }
 
@@ -72,8 +85,8 @@ abstract class Car implements Movable{
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        if (amount <= 1 && amount <= 0){
-            incrementSpeed(amount);
+        if (amount <= 1 && amount >= 0){
+            this.incrementSpeed(amount);
         }
         else{
             throw new IllegalArgumentException("Amount should be in the range 0-1.");
@@ -82,8 +95,8 @@ abstract class Car implements Movable{
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        if (amount <= 1 && amount <= 0){
-            decrementSpeed(amount);
+        if (amount <= 1 && amount >= 0){
+            this.decrementSpeed(amount);
         }
         else{
             throw new IllegalArgumentException("Amount should be in the range 0-1.");
@@ -119,10 +132,12 @@ abstract class Car implements Movable{
     }
 
     public void move(){
+        if(this.isEngineOn() == true){
         double new_x = getX() + currentSpeed * directionList[index][0];
         this.setX(new_x);
         double new_y = getY() + currentSpeed * directionList[index][1];
-        this.setY( new_y);
+        this.setY(new_y);
+        }
     }
 }
 

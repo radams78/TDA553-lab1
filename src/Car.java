@@ -1,7 +1,8 @@
 package src;
+
 import java.awt.*;
 
-public abstract class Car implements Movable{
+public abstract class Car implements Movable {
 
     private int nrDoors;
     private double enginePower;
@@ -33,8 +34,14 @@ public abstract class Car implements Movable{
         return this.currentSpeed;
     }
 
-    public void setCurrentSpeed(double amount) {
-        currentSpeed = amount;
+    public void setCurrentSpeed(double speed) {
+        currentSpeed = speed;
+        if (currentSpeed > enginePower) {
+            currentSpeed = enginePower;
+        }
+        if (currentSpeed < 0) {
+            currentSpeed = 0;
+        }
     }
 
     public Color getColor() {
@@ -77,27 +84,39 @@ public abstract class Car implements Movable{
 
     // TODO fix this method according to lab pm
     public void gas(double amount) {
-        incrementSpeed(amount);
+        if ((amount > 0) || (amount < 1)) {
+            incrementSpeed(amount);
+        } else {
+            throw new IllegalArgumentException("Illegal amount");
+        }
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount) {
-        decrementSpeed(amount);
+        try {
+            if (amount < 0 || amount > 1) {
+                throw new Exception();
+            } else {
+                decrementSpeed(amount);
+
+            }
+        } catch (Exception e) {
+            System.out.println("impossible ammount");
+        }
     }
 
     public void move() {
-        if(turnLeft){
-        double leftMovement =  -getCurrentSpeed();
-        setX(leftMovement);
-        setY(getCurrentSpeed());
-        } 
-        
-        else if(turnRight){
+        if (turnLeft) {
+            double leftMovement = -getCurrentSpeed();
+            setX(leftMovement);
+            setY(getCurrentSpeed());
+        }
+
+        else if (turnRight) {
             double rightMovement = getCurrentSpeed();
             setX(rightMovement);
             setY(getCurrentSpeed());
-        }
-        else {
+        } else {
             setY(getCurrentSpeed());
         }
     }

@@ -15,29 +15,10 @@ public class Main {
         listOfCars.add(volvo);
         listOfCars.add(saab);
 
-        volvo.setCurrentSpeed(3.85);
-        volvo.move();
-        System.out.println(volvo.getX());
-        System.out.println(volvo.getY());
-
-        volvo.startEngine();
-        volvo.incrementSpeed(3);
-        System.out.println(volvo.getCurrentSpeed());
-
-        System.out.println(volvo.getEnginePower());
-        System.out.println(saab.getCurrentSpeed());
+        volvo.gas(1);
+        int x = -1;
         volvo.gas(2);
-        saab.gas(4);
-        System.out.println(volvo.getCurrentSpeed());
-        System.out.println(saab.getCurrentSpeed());
 
-        for(int i=0; i<10; i++) {
-            volvo.move();
-            System.out.println(volvo.getX() + " " + volvo.getY());
-            volvo.turnLeft();
-            volvo.move();
-            volvo.turnRight();
-            volvo.move();
-        }
+
     }
 }

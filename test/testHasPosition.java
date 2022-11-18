@@ -1,6 +1,5 @@
 package test;
 
-import static java.lang.Math.*;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 

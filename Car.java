@@ -1,3 +1,4 @@
+
 import java.awt.*;
 
 public abstract class Car implements Movable{
@@ -8,12 +9,12 @@ public abstract class Car implements Movable{
     private String modelName; // The car model name
     private int xPos; // startposition x värdet 
     private int yPos; // startposition y värdet
-    private direction cardirection;
+    private Direction cardirection;
 
 
   
 
-    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xPos, int yPos, direction cardirection){
+    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xPos, int yPos, Direction cardirection){
     this.nrDoors = nrDoors; // Number of doors on the car
     this.enginePower= enginePower; // Engine power of the car
     this.currentSpeed = currentSpeed; // The current speed of the car
@@ -81,7 +82,7 @@ public abstract class Car implements Movable{
     }
     public abstract void decrementSpeed(double amount);
 
-    public direction cardirection(){
+    public Direction cardirection(){
         return cardirection;
 
     }
@@ -92,37 +93,37 @@ public abstract class Car implements Movable{
    
     @Override
     public void move(){
-        if (cardirection== direction.NORTH) {
+        if (cardirection== Direction.NORTH) {
             yPos -=1;
-        }else if(cardirection== direction.SOUTH){
+        }else if(cardirection== Direction.SOUTH){
             yPos+=1;  ///Minskar/ ökar den? 
-        }else if(cardirection== direction.WEST){
+        }else if(cardirection== Direction.WEST){
             xPos+=1;
-        }else if(cardirection== direction.EAST){
+        }else if(cardirection== Direction.EAST){
             xPos-=1;
         }
         
     }
     public void turnLeft(){
-        if (cardirection == direction.NORTH){
-            cardirection = direction.WEST;
-        }else if (cardirection == direction.WEST){
-            cardirection = direction.SOUTH;
-        }else if (cardirection== direction.SOUTH){
-            cardirection= direction.EAST;
-        }else if (cardirection== direction.EAST){
-            cardirection= direction.NORTH;
+        if (cardirection == Direction.NORTH){
+            cardirection = Direction.WEST;
+        }else if (cardirection == Direction.WEST){
+            cardirection = Direction.SOUTH;
+        }else if (cardirection== Direction.SOUTH){
+            cardirection= Direction.EAST;
+        }else if (cardirection== Direction.EAST){
+            cardirection= Direction.NORTH;
         }
     }
     public void turnRight(){
-        if(cardirection== direction.NORTH){
-            cardirection=direction.EAST;
-        }else if(cardirection==direction.EAST){
-            cardirection=direction.SOUTH;
-        }else if (cardirection== direction.SOUTH){
-            cardirection= direction.WEST;
-        }else if (cardirection== direction.WEST){
-            cardirection= direction.NORTH;
+        if(cardirection== Direction.NORTH){
+            cardirection=Direction.EAST;
+        }else if(cardirection==Direction.EAST){
+            cardirection=Direction.SOUTH;
+        }else if (cardirection== Direction.SOUTH){
+            cardirection= Direction.WEST;
+        }else if (cardirection== Direction.WEST){
+            cardirection= Direction.NORTH;
         }
         
 

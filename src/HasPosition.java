@@ -8,6 +8,7 @@ public class HasPosition {
     private double dX;  // delta x
     private double dY;  // delta y
     private double currentDirectionRadian;  // which way the car is heading
+    
 
     public HasPosition() {
         this.xCoordinate = 5;

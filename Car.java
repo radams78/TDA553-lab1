@@ -27,51 +27,51 @@ public abstract class Car implements Movable {
         this.turnRight = right;
     }
 
-    int getNrDoors() {
+    public int getNrDoors() {
         return this.nrDoors;
     }
 
-    double getEnginePower() {
+    public double getEnginePower() {
         return this.enginePower;
     }
 
-    double getCurrentSpeed() {
+    public double getCurrentSpeed() {
         return this.currentSpeed;
     }
 
-    void setCurrentSpeed(double ammount) {
+    public void setCurrentSpeed(double ammount) {
         this.currentSpeed = ammount;
     }
 
-    Color getColor() {
+    public Color getColor() {
         return this.color;
     }
 
-    void setColor(Color clr) {
+    public void setColor(Color clr) {
         this.color = clr;
     }
 
-    void startEngine() {
+    public void startEngine() {
         this.currentSpeed = 0.1;
     }
 
-    void stopEngine() {
+    public void stopEngine() {
         this.currentSpeed = 0;
     }
 
-    double getX() {
+    public double getX() {
         return this.x;
     }
 
-    double getY() {
+    public double getY() {
         return this.y;
     }
 
-    void setX(double ammount) {
+    public void setX(double ammount) {
         this.x += ammount;
     }
 
-    void setY(double ammount) {
+    public void setY(double ammount) {
         this.y += ammount;
     }
 
@@ -98,7 +98,7 @@ public abstract class Car implements Movable {
         }
     }
 
-    void gas(double amount) {
+    public void gas(double amount) {
         try {
             if (amount <= 0 || amount >= 1) {
                 throw new Exception();
@@ -112,7 +112,7 @@ public abstract class Car implements Movable {
     }
 
     // TODO fix this method according to lab pm
-    void brake(double amount) {
+    public void brake(double amount) {
         try {
             if (amount <= 0 || amount >= 1) {
                 throw new Exception();

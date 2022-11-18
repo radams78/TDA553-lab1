@@ -1,3 +1,4 @@
+package set;
 // Module to hold the subclass Volvo24
 // - Note that this subclass inherits from the superclass Car
 
@@ -29,21 +30,6 @@ public class Volvo240 extends Car{
     }
     
     // Increments the speed of the vehicle depending on the speedfactor
-    @Override
-    protected void incrementSpeed(double amount){
-        double newSpeed;
-        double enginePower = getEnginePower();
-	    newSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
-        setCurrentSpeed(newSpeed);
-        
-    }
-
-    // Decrements the speed of the vehicle depending on the speedfactor
-    @Override
-    protected void decrementSpeed(double amount){
-        double  newSpeed;
-        newSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
-        setCurrentSpeed(newSpeed);
-    }
+    
     
 }

@@ -1,0 +1,19 @@
+- Question 1: "Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle."
+
+
+
+
+- Question 2: "Explain how you implemented each of the sanity checks in Task 4."
+
+There were four conditions that were supposed to be satisfied:
+
+- The method gas should only accept values between 0 and 1.
+- The method gas should never decrease a car's speed.
+- The method brake should only accept values between 0 and 1.
+- The method brake should never increase a car's speed.
+
+We chose to make a single sanity check for each method that satisfy all four conditions.
+Our solution simply made sure the multiplier which is returned by the gas and break function
+always remains within an interval of 0 and 1. It is obvious that this satisfies two of our
+conditions, however it also satisfies the other two conditions by making sure that we never
+get negative values as arguments. Naturally, this 

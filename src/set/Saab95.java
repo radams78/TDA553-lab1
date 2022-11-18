@@ -1,3 +1,4 @@
+package set;
 // Module to hold the subclass Saab95
 // - Note that this subclass inherits from the superclass Car
 
@@ -28,22 +29,6 @@ public class Saab95 extends Car {
         return getEnginePower() * 0.01 * turbo;
     }
     
-
-    // Increments the speed of the vehicle depending on the speedfactor
-    @Override
-    protected void incrementSpeed(double amount){
-        double newSpeed;
-        newSpeed = getCurrentSpeed() + speedFactor() * amount;
-        setCurrentSpeed(newSpeed);
-    }
-
-    // Decrements the speed of the vehicle depending on the speedfactor
-    @Override
-    protected void decrementSpeed(double amount){
-        double newSpeed;
-        newSpeed = getCurrentSpeed() - speedFactor() * amount;
-        setCurrentSpeed(newSpeed);
-    }
 
     // Methods to set turbo values
     protected void setTurboOn(){

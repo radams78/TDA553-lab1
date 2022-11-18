@@ -1,3 +1,4 @@
+package set;
 // This module contains the abstract superclass for all cars
 
 // --- Imports --- //
@@ -72,12 +73,32 @@ public abstract class Car implements Movable {
         x += xSpeed;
         y += ySpeed;
     }
+    
+    protected void incrementSpeed(double amount){
+        double newSpeed;
+        double enginePower = getEnginePower();
+	    newSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+        setCurrentSpeed(newSpeed);
+        
+    }
+
+    // Decrements the speed of the vehicle depending on the speedfactor
+    protected void decrementSpeed(double amount){
+        double  newSpeed;
+        newSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+        setCurrentSpeed(newSpeed);
+    }
 
     protected void setColor(Color clr){
 	    color = clr;
     }
 
     protected void setCurrentSpeed(double speed){
+        if (speed < 0 || speed > enginePower) {
+
+            throw new IllegalArgumentException();
+            
+        }
         currentSpeed = speed;
     }
 
@@ -94,10 +115,18 @@ public abstract class Car implements Movable {
     }
 
     public void gas(double amount){
+        if (amount < 0 || amount > 1)
+        {
+            throw new IllegalArgumentException();
+        } 
         incrementSpeed(amount);
     }
 
     public void brake(double amount){
+        if (amount < 0 || amount > 1)
+        {
+            throw new IllegalArgumentException();
+        } 
         decrementSpeed(amount);
     }
     
@@ -105,9 +134,7 @@ public abstract class Car implements Movable {
 
     protected abstract double speedFactor();
     
-    protected abstract void incrementSpeed(double amount);
-
-    protected abstract void decrementSpeed(double amount);
+    
 
 
 

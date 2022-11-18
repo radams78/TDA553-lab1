@@ -109,12 +109,20 @@ public abstract class Car implements Movable {
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        if (amount <= 1 && amount >= 0){
+        if (inBounds(1.0, 0.0, amount)){
             incrementSpeed(amount);
         }else{
             throw new IllegalArgumentException("amount needs to be between 0 and 1");
         }
         
+    }
+
+    private boolean inBounds(double UpperLimit, double LowerLimit, double amount){
+        if (amount <= UpperLimit && amount >= LowerLimit) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     // TODO fix this method according to lab pm

@@ -1,4 +1,4 @@
-package src;
+
 import java.awt.*;
 
 public class Saab95 extends Car{
@@ -8,9 +8,7 @@ public class Saab95 extends Car{
     public Saab95(){
         super(2, 125, 0 ,Color.red, "Saab95", 0, 0, Direction.NORTH);
         turboOn = false;
-        setTurboOn();
         speedFactor();
-        setTurboOff();
     }
 
 
@@ -22,7 +20,7 @@ public class Saab95 extends Car{
 	    turboOn = false;
     }
     
-    public double speedFactor(){
+    public double speedFactor(){ 
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;

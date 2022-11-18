@@ -91,5 +91,4 @@ public class testCar {
         assertFalse(testX == testCar.getX());
         assertFalse(testY == testCar.getY());
     }
-    
 }

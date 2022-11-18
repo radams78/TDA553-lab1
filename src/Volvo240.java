@@ -13,10 +13,10 @@ public class Volvo240 extends Car{
     }
 
     public void incrementSpeed(double amount){
-        if (getCurrentSpeed() <= getEnginePower()){
-	    setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));
-        }
-        else{
+        if(getCurrentSpeed() < getEnginePower()) {
+            setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));
+            }
+        else { 
             setCurrentSpeed(getEnginePower());
         }
     }
@@ -29,15 +29,4 @@ public class Volvo240 extends Car{
             setCurrentSpeed(0);
         }
     }   
- 
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
-    }
-
 }

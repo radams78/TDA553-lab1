@@ -33,4 +33,5 @@ public class testSaab95 {
 
         assertTrue(startSpeed > newSpeed);
     }
+
 }

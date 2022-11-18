@@ -198,7 +198,7 @@ public class CarTest {
         double speedBeforeX = saab.getCurrentSpeedX();
         double speedBeforeY = saab.getCurrentSpeedY();
         System.out.println(speedBeforeX+ " " + " " + speedBeforeY);
-        saab.brake(0.9);
+        saab.brake(0.1);
 
       
         double speedAfterX = saab.getCurrentSpeedX();

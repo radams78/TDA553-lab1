@@ -139,7 +139,11 @@ public abstract class Car implements Movable {
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
+<<<<<<< Updated upstream
         if (inBounds(1.0, 0.0, amount) == 0){
+=======
+        if (inBounds(1, 0, amount) == 0){
+>>>>>>> Stashed changes
             decrementSpeed(amount);
         }else{
             throw new IllegalArgumentException("amount needs to be between 0 and 1");

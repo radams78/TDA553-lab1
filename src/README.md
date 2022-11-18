@@ -1,3 +1,3 @@
-Andres Jonathan Storm
-Hugo Andreas Hammarlund
-Walter Werner Eklund
+Jonathan Storm
+Hugo Hammarlund
+Walter Eklund

@@ -100,7 +100,7 @@ public abstract class Car implements Movable {
 
     void gas(double amount) {
         try {
-            if (amount < 0 || amount > 1) {
+            if (amount <= 0 || amount >= 1) {
                 throw new Exception();
             } else {
                 incrementSpeed(amount);
@@ -114,7 +114,7 @@ public abstract class Car implements Movable {
     // TODO fix this method according to lab pm
     void brake(double amount) {
         try {
-            if (amount < 0 || amount > 1) {
+            if (amount <= 0 || amount >= 1) {
                 throw new Exception();
             } else {
                 decrementSpeed(amount);

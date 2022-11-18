@@ -1,0 +1,13 @@
+1, 
+We are using both because both of the subclasses share almost all of the methods and most of them have the same functions,
+hence it's easy to make a superclass that contains all of the functions and thus avoid code duplication. 
+Some of the methods differ between the subclasses and it is easier to use a interface to make sue that both subclasses 
+contains all of the necessary methods. By using both options we get more benefits.
+
+2, 
+For the Gas and Brake methods we implemented a try_catch block were it would throw an exeption if the amount that was sent in 
+was bigger than 1 or smaller than 0. This also made it so that gas couldn't decrese speed and brake increase it since it would need a negative number for
+that to happen.
+The exeption printed the line "Impossible ammount". For currentSpeed we implemented another try_catch on increment speed that
+would throw an exeption if the current speed was higher than engine power and then set it to enginepower. We did another one in decrement speed that would do
+the same but for less than 0 and set the speed to 0.

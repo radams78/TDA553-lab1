@@ -9,7 +9,7 @@ abstract class Car implements Movable{
     private Color color;
     private String modelName;
     private double x;
-    private int y;
+    private double y;
 
     private int[][] directionList = {{0,1},{1,0},{0,-1},{-1,0}};
     private int index = 0;
@@ -56,12 +56,17 @@ abstract class Car implements Movable{
 	    currentSpeed = 0;
     }
     public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        if (this.getCurrentSpeed() <= this.getEnginePower()){
+            currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        }
     }
 
     public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        if (this.getCurrentSpeed() > 0){
+            currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        }
     }
+
     
 
 
@@ -88,13 +93,13 @@ abstract class Car implements Movable{
     public double getX() {
         return x;
     }
-    public int getY() {
+    public double getY() {
         return y;
     }
     public void setX(double x) {
         this.x = x;
     }
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
@@ -114,9 +119,10 @@ abstract class Car implements Movable{
     }
 
     public void move(){
-        x += currentSpeed * directionList[index][0];
-        System.out.println(currentSpeed * directionList[index][0]);
-        y += currentSpeed * directionList[index][1];
+        double new_x = getX() + currentSpeed * directionList[index][0];
+        this.setX(new_x);
+        double new_y = getY() + currentSpeed * directionList[index][1];
+        this.setY( new_y);
     }
 }
 

@@ -1,4 +1,5 @@
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.*;
 
@@ -70,4 +71,30 @@ public class CarTest {
         }
         assertEquals(30, car.getDirection(), 0);
       }
+
+      @Test
+      public void incrementSpeed_only_if_gas_is_between_0_and_1() {
+        Car car = new Volvo240(4, 500.0, 0.0, Color.BLUE);
+        car.setCurrentSpeed(100);
+        double oldCurrentSpeed = car.getCurrentSpeed();
+        car.gas(2);
+        assertEquals(car.getCurrentSpeed(), oldCurrentSpeed);
+        oldCurrentSpeed = car.getCurrentSpeed();
+        car.gas(0.3);
+        double diffOlSpdNewSpd = car.getCurrentSpeed() - oldCurrentSpeed;
+        assertEquals(1.875, diffOlSpdNewSpd);
+      }
+
+      @Test
+      public void decrementSpeed_only_if_brake_is_between_0_and_1(){
+          Car car = new Volvo240(4, 1000.0, 0, Color.BLUE);
+          car.setCurrentSpeed(100);
+          double oldCurrentSpeed = car.getCurrentSpeed();
+          car.brake(2);
+          assertEquals(car.getCurrentSpeed(), oldCurrentSpeed);
+          oldCurrentSpeed = car.getCurrentSpeed();
+          car.brake(0.3);
+          double diffOlSpdNewSpd = car.getCurrentSpeed() - oldCurrentSpeed;
+          assertEquals(-3.75, diffOlSpdNewSpd);
+      } 
 }

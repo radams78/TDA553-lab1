@@ -127,12 +127,12 @@ public abstract class Car implements Movable {
      */
 
     public void gas(double gas){
-        if((0 >= gas) && (gas >= 1) && (this.currentSpeed <= this.enginePower)) { 
+        if((0 <= gas) && (gas <= 1) && (this.currentSpeed <= this.enginePower)) { 
             incrementSpeed(gas);
         }
     }
     public void brake(double brake){
-        if((0 >= brake) && (brake >= 1) && (this.currentSpeed >= 0)){ 
+        if((0 <= brake) && (brake <= 1) && (this.currentSpeed >= 0)){ 
             decrementSpeed(brake);
         }
     }   

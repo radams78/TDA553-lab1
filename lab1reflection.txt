@@ -2,6 +2,6 @@
     If we were ever to add another car, that would be as simple as creating a new subclass that inherates from car, change only what is nessecary
     within the subclass itself, in accordance with the Open-Closed Princpale.
 2.  For the gas and break methods, we have limited inputs to the inteval [0,1], by throwing an error whenever the input falls outside the the range
-    of the inteval.
+    of the interval.
     For currentspeed we used Math.max and Math.min to make sure it was in the interval [0, enginespeed]
     Break and gas will never result in an incorrect speed manipulation due to the limiting interval [0,1], implemented above.

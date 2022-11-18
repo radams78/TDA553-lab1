@@ -8,7 +8,7 @@ public class HasPosition {
     private double dX;  // delta x
     private double dY;  // delta y
     private double currentDirectionRadian;  // which way the car is heading
-    private double initialFactor;
+    
 
     public HasPosition() {
         this.xCoordinate = 5;
@@ -16,7 +16,6 @@ public class HasPosition {
         this.dX = 0;
         this.dY = 0;
         this.currentDirectionRadian = PI/2;
-        this.initialFactor = 1;
     }
     public void updateCoordinate(){
         
@@ -52,10 +51,6 @@ public class HasPosition {
 
     public double currentDY() {
         return dY;
-    }
-
-    public double getInitialFactor() {
-        return initialFactor;
     }
 
 }

@@ -3,6 +3,8 @@ import static org.junit.Assert.assertThrows;
 
 import org.junit.Test;
 
+import javafx.scene.media.VideoTrack;
+
 
 
 public class LabbTest {
@@ -55,6 +57,7 @@ public class LabbTest {
 
         assertEquals(0, saab.getCurrentSpeed(), 0.001);
         assertEquals(0, volvo.getCurrentSpeed(), 0.001);
+
        
     }
 
@@ -80,6 +83,5 @@ public class LabbTest {
         });
     }
 
-    
   
 }

@@ -1,0 +1,20 @@
+Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+
+Till att börja med så skapade vi en abstrakt superclass Car. I denna superclass så förde vi in alla metoder och attribut som volvo och saab
+har gemensamt, öven alla bilar har gemensamt. Detat gör det enklare att lägga till nya modeller av bilar, enligt OCP. I subclasserna 
+skillde sig några av attributen, dessa behöll vi som unika attribut för varje subclass. Det fanns även metoder med samma namn fast andvänding
+av dessa olika unika attribut i varje subclass. Så vi skapade dessa metoder i superclassen och sedan overridade och definerade som i subclasserna.
+
+De attribut som endast används inom dess respektive class gjorde vi privata för att följa OCP.
+
+Explain how you implemented each of the sanity checks in Task 4.
+
+För gas och brake så använde vi oss av ett If statement som kollar ifall inputen var något annat än 1 eller 0. Skulle detta ske
+så slänger ut en IllegalArgumentException som sedan kodaren får fixa själv.
+
+I gas metoden så kallas endast incrementspeed och i brake metoden kallas endast decrementspeed. Detta gör att gas inte kan sakta ner bilen
+och brake inte kan öka farten på bilen.
+
+För att Currentspeed endast skulle kunna va inom intervallet 0 till EnginPower så implementerades en math funktion som tog minimum värdet
+av beräkning för incrementspeed. Där funktionen valde mellan beräkningen och enginpower. Skulle beräkning överstiga engingpower så väljs
+då alltid EnginPower. Samma för decrementspeed fast max värdet istället så att det alldrig går under 0.

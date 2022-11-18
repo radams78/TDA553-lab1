@@ -8,9 +8,9 @@ public abstract class Car implements Movable{
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; // The car model name
-    public int y;
-    public int x;
-    public int currentDirection;
+    private int y;
+    private int x;
+    private int currentDirection;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y) {
       

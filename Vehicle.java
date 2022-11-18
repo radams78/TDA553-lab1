@@ -19,6 +19,10 @@ public abstract class Vehicle implements Movable {
 
     }
 
+    public void setCurrentSpeed(double currentSpeed){
+        this.currentSpeed = currentSpeed;
+    }
+
     public double getCurrentSpeed(){
         return currentSpeed;
     }
@@ -42,10 +46,6 @@ public abstract class Vehicle implements Movable {
     public void move(){
         this.x += currentSpeed;
         this.y += currentSpeed;
-    }
-
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
     }
 
     public void setDir(int dir) {
@@ -83,10 +83,6 @@ public abstract class Vehicle implements Movable {
     public int getY(){
         return this.y;
     }
-
-    
-    public abstract double speedFactor();
-    
 
 
     public abstract void incrementSpeed(double amount);

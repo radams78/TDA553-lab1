@@ -9,12 +9,9 @@ public class Volvo240 extends Car{
         stopVehicle();
     }
     
-    public static double getTrimfactor() {
-        return trimFactor;
-    }
 
-    public double speedFactor(){
-        return getEnginePower() * 0.01 * getTrimfactor();
+    private double speedFactor(){
+        return getEnginePower() * 0.01 * trimFactor;
     }
 
     public void incrementSpeed(double amount){

@@ -33,7 +33,13 @@ public class Saab95 extends Car{
     }
 
     public void decrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+        if(speedFactor() * amount < getCurrentSpeed()){
+            setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+        }
+        else{
+            System.out.println("You can't brake that much");
+        }
+        
     }
     
     

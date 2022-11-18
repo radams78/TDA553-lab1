@@ -37,8 +37,12 @@ public abstract class Car implements Movable{
         return currentSpeed;
     }
 
-    public void setCurrentSpeed(double currentSpeed){
-        this.currentSpeed = currentSpeed;
+    public void setCurrentSpeed(double currentSpeed) throws Exception{
+        if(currentSpeed >= 0 && currentSpeed <= enginePower){
+            this.currentSpeed = currentSpeed;
+        }else{
+        throw new Exception("the speed is not in the interval");
+        }
     }
 
     public Color getColor(){
@@ -69,23 +73,37 @@ public abstract class Car implements Movable{
     }
     
     // TODO fix this method according to lab pm
-    public void gas(double amount){
+    public void gas(double amount) throws Exception{
+    if (amount >=  0  && amount <= 1){
         incrementSpeed(amount);
+    }else{
+      throw new Exception("the amount is not in the interval");  
+    }
     }
 
-    public abstract void incrementSpeed(double amount);
+    public void incrementSpeed(double amount){
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower();
+    }
 
 
     // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
+    public void brake(double amount) throws Exception{
+        if (amount >=  0  && amount <= 1){
+            decrementSpeed(amount);
+        }else{
+          throw new Exception("the amount is not in the interval");
+        }
+        }
+    public void decrementSpeed(double amount){
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
-    public abstract void decrementSpeed(double amount);
 
     public Direction cardirection(){
         return cardirection;
 
     }
+
+    protected abstract double speedFactor();
 
     //public direction setdirection(){
      //   return user.direction; // user direction är något som behövs senare 

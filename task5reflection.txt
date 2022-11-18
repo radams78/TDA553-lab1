@@ -1,0 +1,17 @@
+1, 
+We are using both because both of the subclasses to Car share many methods and most of them also have the same functionality,
+hence why it is easy to make a superclass that contains all of the shared mtehods to avoid code duplication. 
+However, some of the methods differs between the subclasses and their functionalities are fundamental to Car. Therefore, to make sure 
+that every subclass of Car implement that method, we decided to make them abstract to ensure that every Car can increase/decrease their speed.
+The Open-closed principle states that we should make our program in such a way that it is easily extendible without having to modify the existing code as much as possible.
+When we put all of the shared functionalities of a Car in the superclass we can add however many new subclasses to Car that we want and ensure that all of them 
+has the necessary methods that all Cars should have. If we instead choose to make an interface it would be more difficult to implement new subclasses of Car because
+we would need to rewrite all of the methods every time. We still have some abstract methods because they are necessary for a Car to have but require different implementation, so when 
+we add a new subclass all we would need to do is implement the code for the abstract classes only, the rest is shared.
+
+2, 
+For the Gas and Brake methods we implemented a try-catch block were it would throw an exception if the amount that was sent in 
+was bigger than 1 or smaller than 0. This also made it so that gas() could not increase the speed and that break() could not decrease the speed,
+since it would need a negative number for that to happen. The exception will get caught and the line "Impossible ammount" will be printed if the amount is outside of the interval. 
+For currentSpeed we implemented another try-catch on increment speed that would throw an exeption if the current speed was higher than enginePower and then set it to enginePower. 
+We did another one in decrement speed that would do the same thing but for less than 0 and set the speed to 0.

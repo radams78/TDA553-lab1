@@ -24,7 +24,7 @@ public class HasPosition {
         this.yCoordinate += this.dY;
     }
 
-    public void setCurrentDirectionRadian(Double leftOrRight) {
+    public void setCurrentDirectionRadian(double leftOrRight) {
         this.currentDirectionRadian += (PI/180) * leftOrRight;
     }
     
@@ -32,6 +32,10 @@ public class HasPosition {
 
         this.dX = cos(currentDirectionRadian) * currentSpeed;
         this.dY = sin(currentDirectionRadian) * currentSpeed;
+    }
+
+    public double getCurrentDirectionRadian(){
+        return this.currentDirectionRadian;
     }
      
     public double getX() {

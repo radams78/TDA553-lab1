@@ -34,11 +34,14 @@ abstract class Cars implements Movable{
     public double getCurrentSpeed(){
         return currentSpeed;
     }
-    public void setCurrentSpeed(double currentSpeed){
+    protected void setCurrentSpeed(double currentSpeed){
         this.currentSpeed = currentSpeed;
     }
     public double getX(){
         return x;
+    }
+    public double getY(){
+        return y;
     }
     public String getModelName(){
         return modelName;
@@ -47,15 +50,10 @@ abstract class Cars implements Movable{
     public double getDirection(){
         return direction;
     }
-    public void setDirection(double direction){
+    protected void setDirection(double direction){
         this.direction = direction;
     }
-
-    public double getY(){
-        return y;
-    }
-
-    public void setColor(Color clr){
+    protected void setColor(Color clr){
 	    color = clr;
     }
 
@@ -72,8 +70,8 @@ abstract class Cars implements Movable{
     }
     @Override
     public void move() {
-        this.x = (getX() + (Math.cos(Math.toRadians(getDirection()))) * getCurrentSpeed());
-        this.y = (getY() + (Math.sin(Math.toRadians(getDirection()))) * getCurrentSpeed());
+        this.x = (getX() + Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed());
+        this.y = (getY() + Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed());
     }
 
     public void turnLeft() {

@@ -10,7 +10,7 @@ public class Volvo240 extends Car {
     }
 
     double speedFactor() {
-        return enginePower * 0.01 * trimFactor;
+        return getEnginePower() * 0.01 * trimFactor;
     }
 
     void incrementSpeed(double amount) {
@@ -19,7 +19,7 @@ public class Volvo240 extends Car {
                 throw new Exception();
 
             } else {
-                setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower));
+                setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()));
             }
 
         } catch (Exception e) {
@@ -40,6 +40,6 @@ public class Volvo240 extends Car {
             System.out.println("the car is already still");
             setCurrentSpeed(0);
         }
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+        setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));
     }
 }

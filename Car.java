@@ -5,14 +5,14 @@ import java.awt.*;
 
 
 public abstract class Car implements Movable {
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
-    protected double currentSpeed; // The current speed of the car
-    protected Color color; // Color of the car
-    protected String modelName; // The car model name
-    protected double x;
-    protected double y;
-    protected boolean turnLeft, turnRight;
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
+    private double currentSpeed; // The current speed of the car
+    private Color color; // Color of the car
+    private String modelName; // The car model name
+    private double x;
+    private double y;
+    private boolean turnLeft, turnRight;
 
     public Car(int doors, double power, double speed, Color caColor, String name, double x, double y, boolean left,
             boolean right) {
@@ -41,6 +41,11 @@ public abstract class Car implements Movable {
 
     public void setCurrentSpeed(double ammount) {
         this.currentSpeed = ammount;
+    }
+
+    public String getName(){
+        return this.modelName;
+
     }
 
     public Color getColor() {

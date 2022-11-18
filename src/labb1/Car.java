@@ -128,7 +128,10 @@ public abstract class Car implements Movable {
 
     //TODO? the updated speeds are with this code only dependent on the speed in the X-axis
     private void incrementSpeed(double amount){
-        double incrementAmount = getCurrentSpeedX() + speedFactor() * amount*this.direction[0];
+        double incrementAmountX; 
+        double incrementAmountY;
+
+        // getCurrentSpeedX() + speedFactor() * amount*this.direction[0];
         if(incrementAmount <= 0){
             incrementAmount = 0;
         }else if(incrementAmount >= enginePower){

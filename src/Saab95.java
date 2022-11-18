@@ -26,10 +26,10 @@ public class Saab95 extends Car{
 
     @Override
     public void incrementSpeed(double amount) {
-        if(getCurrentSpeed() < getEnginePower()){
-        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
-        }
-        else{
+        if(getCurrentSpeed() < getEnginePower()) {
+            setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+            }
+        else { 
             setCurrentSpeed(getEnginePower());
         }
     }

@@ -11,7 +11,7 @@ public abstract class Car implements Movable {
     private double currentSpeed;
     private double x;
     private double y;
-    private boolean turnLeft, turnRight;
+    public boolean turnLeft, turnRight;
 
     public Car(int nrDoors, double enginePower, Color color, String modelName, double x, double y) {
         this.nrDoors = nrDoors;
@@ -84,24 +84,30 @@ public abstract class Car implements Movable {
 
     // TODO fix this method according to lab pm
     public void gas(double amount) {
-        if ((amount > 0) || (amount < 1)) {
-            incrementSpeed(amount);
-        } else {
-            throw new IllegalArgumentException("Illegal amount");
+        try {
+            if (amount <= 0 || amount >= 1) {
+                throw new Exception();
+            } else {
+                incrementSpeed(amount);
+            }
+
+        } catch (Exception e) {
+            System.out.println("impossible amount");
         }
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount) {
         try {
-            if (amount < 0 || amount > 1) {
+            if (amount <= 0 || amount >= 1) {
                 throw new Exception();
             } else {
                 decrementSpeed(amount);
 
             }
         } catch (Exception e) {
-            System.out.println("impossible ammount");
+            System.out.println("impossible amount");
+
         }
     }
 
@@ -121,12 +127,12 @@ public abstract class Car implements Movable {
         }
     }
 
-    public void turnLeft() {
+    public void turnLeftMethod() {
         turnLeft = true;
         turnRight = false;
     }
 
-    public void turnRight() {
+    public void turnRightMethod() {
         turnRight = true;
         turnLeft = false;
     }

@@ -3,7 +3,7 @@ public interface Movable {
 
     public abstract void move();
 
-    public abstract void turnLeft();
+    public abstract void turnLeftMethod();
 
-    public abstract void turnRight();
+    public abstract void turnRightMethod();
 }

@@ -15,10 +15,8 @@ public class Main {
         listOfCars.add(volvo);
         listOfCars.add(saab);
 
-        volvo.gas(1);
-        int x = -1;
-        volvo.gas(2);
-
-
+        volvo.turnLeftMethod();
+        System.out.println(volvo.turnLeft);
+        System.out.println(saab.turnLeft);
     }
 }

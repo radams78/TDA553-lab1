@@ -126,7 +126,7 @@ public class CarTest {
      }
 
      @Test
-     public void saab_is_faster_than_volvo(){
+     public void saab_is_faster_than_volvo_when_turbo(){
         Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
         Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
 

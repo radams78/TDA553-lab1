@@ -111,7 +111,11 @@ public abstract class Car implements Movable {
             }
 
         } catch (Exception e) {
-            System.out.println("impossible ammount");
+<<<<<<< Updated upstream
+            System.out.println("impossible amount");
+=======
+            System.out.println("impossible amount");
+>>>>>>> Stashed changes
         }
     }
 
@@ -125,7 +129,11 @@ public abstract class Car implements Movable {
 
             }
         } catch (Exception e) {
+<<<<<<< Updated upstream
             System.out.println("impossible ammount");
+=======
+            System.out.println("impossible amount");
+>>>>>>> Stashed changes
 
         }
     }

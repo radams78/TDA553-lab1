@@ -1,1 +1,1 @@
-The group members are Simon Adamsson, David Lewis and Albin Skeppstedt
+The group members are David Lewis, Simon Adamsson and Albin Skeppstedt

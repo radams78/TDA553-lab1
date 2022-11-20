@@ -17,6 +17,6 @@ We implemented the methods so that gas() and brake() would throw an exception if
 such as -1 and 2. Exception thrown = Test passed. We also checked so that gas makes the speed increase and that brake makes the speed decrease, not vice versa.
 
 To make the currentSpeed to always lie between 0 and enginePower we first checked, using the inBounds() method, where in the interval the speed value would be after gasing or braking. If under 0,
- then set the speed to 0. If over enginePower, then set the speed to enginePower. Otherwise, set the speed to what we put in as argument. We test this by braking when the current speed already is 0.
- If the speed remains 0 after braking, then the test pass. We do the same to test if the current speed remains the same as enginePower when calling gas() when the speed already is close to the value
- of enginePower.
+then set the speed to 0. If over enginePower, then set the speed to enginePower. Otherwise, set the speed to what we put in as argument. We test this by braking when the current speed already is 0.
+If the speed remains 0 after braking, then the test pass. We do the same to test if the current speed remains the same as enginePower when calling gas() when the speed already is close to the value
+of enginePower.

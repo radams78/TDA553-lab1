@@ -1,13 +1,10 @@
-1.Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
-The inheritance hierarchy in Task 1 was chosen by considering the Open-Closed Principle. The Open-Closed Principle states that a class should be open for extension but closed for modification.
-This means that the class should be able to be extended without having to modify the class itself. 
+1. Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+The Open-Closed Principle states that a class should be open for extension but closed for modification, and the inheritance hierarchy in Task 1 was chosen with that in mind. Car-specific classes are extendable through a superclass "Car", and its subclasses can implement additional functionality without needing to modify the superclass itself. 
 
-2.Explain how you implemented each of the sanity checks in Task 4?
+2. Explain how you implemented each of the sanity checks in Task 4?
+For the first sanity check, we implemented a method checkAcceleration() which would throw an exception if the values were outside the acceptable rance. We added a call to this method in the code for gas() and brake().
+For the second, we implemented another new method checkNewSpeed() which calculates the new speed and returns the old speed if the new speed is outside the valid range.
+Finally, we satisfied the last two items on the list by extending our checkNewSpeed() method to accept a boolean value "isAccelerating", and making sure that the new speed was either higher or lower (or equal to) the current speed, depending on whether "isAccelerating" was true or false.
 
-First we created some test cases for each of the sanity checks that we wanted to implement. We then created a method for each of the sanity checks and used the test cases to check if the method was working correctly.
-
-Example of a test:
-If the user brakes the car, the speed should decrease by the brake argument. If the brake argument is equal to 1, the speed should be 0.
-
-Then we tested the code to see if the test cases passed. 
-Some of the test cases failed, so we modified the code to make the test cases pass.
+We also wrote a few generic test cases to check that the code was working correctly. For example: If the user brakes the car, the speed should decrease by the brake argument. If the brake argument is equal to 1, the speed should be 0.
+Afterwards, we tested the code to check whether the test cases passed. Since some of the test cases failed, we fixed the code so the test cases passed.

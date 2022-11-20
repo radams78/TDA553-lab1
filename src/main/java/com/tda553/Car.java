@@ -59,17 +59,17 @@ public abstract class Car implements Movable
 
     public void gas(double amount)
     {
-        checkIfValidAmount(amount);
+        checkAcceleration(amount);
         incrementSpeed(amount);
     }
 
     public void brake(double amount)
     {
-        checkIfValidAmount(amount);
+        checkAcceleration(amount);
         decrementSpeed(amount);
     }
 
-    private void checkIfValidAmount(double amount)
+    private void checkAcceleration(double amount)
     {
         if (amount < 0 || amount > 1)
         {
@@ -109,14 +109,27 @@ public abstract class Car implements Movable
 
     public abstract double speedFactor();
 
+    private double checkNewSpeed(double newSpeed, boolean isAccelerating)
+    {
+        if (newSpeed < 0 || newSpeed > enginePower)
+        {
+            return currentSpeed;
+        }
+        if (isAccelerating && newSpeed < currentSpeed || !isAccelerating && newSpeed > currentSpeed)
+        {
+            return currentSpeed;
+        }
+        return newSpeed;
+    }
+
     private void incrementSpeed(double amount)
     {
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        currentSpeed = checkNewSpeed(getCurrentSpeed() + speedFactor() * amount, true);
     }
 
     private void decrementSpeed(double amount)
     {
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        currentSpeed = checkNewSpeed(getCurrentSpeed() - speedFactor() * amount, false);
     }
 
 

@@ -149,14 +149,14 @@ public abstract class Car implements Movable {
  
     //TODO? the updated speeds are with this code only dependent on the speed in the X-axis
     private void incrementSpeed(double amount){
-        currentSpeedX = calculateSpeed(getCurrentSpeedX() + speedFactor()*amount*this.direction[0], amount);
+        currentSpeedX = getCurrentSpeedX() + speedFactor()*amount*this.direction[0], amount
         currentSpeedY  = calculateSpeed(getCurrentSpeedY() + speedFactor()*amount*this.direction[1], amount);
     }
     
     //TODO? the updated speeds are with this code only dependent on the speed in the X-axis
     private void decrementSpeed(double amount){
         
-        currentSpeedX = calculateSpeed(getCurrentSpeedX() - speedFactor()*amount*this.direction[0], amount);
+        currentSpeedX = getCurrentSpeedX() - speedFactor()*amount*this.direction[0], amount
         currentSpeedY = calculateSpeed(getCurrentSpeedY() - speedFactor()*amount*this.direction[1], amount);  
     }
     

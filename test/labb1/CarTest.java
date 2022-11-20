@@ -181,12 +181,10 @@ public class CarTest {
         double speedBeforeY = saab.getCurrentSpeedY();
         saab.gas(0.9);
         
-        saab.setCurrentSpeedX(120);
 
         double speedAfterX = saab.getCurrentSpeedX();
         double speedAfterY = saab.getCurrentSpeedY();
-        System.out.println(speedAfterX);
-        System.out.println(speedAfterY);
+
         assertTrue(speedAfterX > speedBeforeX); assertTrue(speedAfterY > speedBeforeY);
 
      }

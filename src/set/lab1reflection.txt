@@ -1,0 +1,19 @@
+Laboration Reflections 
+
+1. Vi valde att göra en abstrakt superklass "Cars" för alla bilar. Subklasser implementerades för vardera bil, i detta fall Volvo och Saab. 
+På detta sätt följer vi open-closed principle då programmet enkelt kan utökas genom att lägga till fler subklasser för fler bilar. 
+Enkelt sagt, kan vi lägga till fler rader kod utan att behöva ändra på våran grundkod. Superklassen "Cars" används som en "mall" för 
+alla bilar som skapas (metoder som alla bilar har). 
+
+De metoder som endast ska vara nårbara inom sin specifika klass ändrades om till private, medan andra metoder i superklassen Cars som 
+enbart behövdes för beräkningar ändrades till protected. Med den simpla förklaringen att det endast är superklassen Cars och dess subklasser 
+som behövde komma åt dem. 
+
+2. If-satser valdes för att gas och brake metoderna endast skulle köras inom ett visst intervall, 0 och 1. Om argumentet som metoden
+tar emot är inom det förangivna intervallet, dvs att villkoren uppfylls, körs programmet. Annars kastas ett IllegalArgumentException.
+
+För att få CurrentSpeed() inom intervallet 0 och enginePower, implementerades if-satser i både decrementSpeed och incrementSpeed på samma sätt 
+som gas() och brake(). Vi valde detta av den anledningen att det bara är inom dessa metoder som värdet på CurrentSpeed förändras. 
+
+Tillföljd av dessa två ändringar kan varken gas eller brake minska eller öka värdet på CurrentSpeed eftersom detta endast kan ske om metoderna 
+får negativa argument, vilket är omöjligt pga ändringarna.

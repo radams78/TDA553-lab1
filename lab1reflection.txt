@@ -2,7 +2,7 @@
 The Open-Closed Principle states that a class should be open for extension but closed for modification, and the inheritance hierarchy in Task 1 was chosen with that in mind. Car-specific classes are extendable through a superclass "Car", and its subclasses can implement additional functionality without needing to modify the superclass itself. 
 
 2. Explain how you implemented each of the sanity checks in Task 4?
-For the first sanity check, we implemented a method checkAcceleration() which would throw an exception if the values were outside the acceptable rance. We added a call to this method in the code for gas() and brake().
+For the first sanity check, we implemented a method checkAcceleration() which would throw an exception if the values were outside the acceptable range. We added a call to this method in the code for gas() and brake().
 For the second, we implemented another new method checkNewSpeed() which calculates the new speed and returns the old speed if the new speed is outside the valid range.
 Finally, we satisfied the last two items on the list by extending our checkNewSpeed() method to accept a boolean value "isAccelerating", and making sure that the new speed was either higher or lower (or equal to) the current speed, depending on whether "isAccelerating" was true or false.
 

@@ -120,7 +120,6 @@ public abstract class Car implements Movable {
 
 
 
-    // TODO fix this method according to lab pm
     public void gas(double amount){
         if (inBounds(1.0, 0.0, amount) == 0){
             incrementSpeed(amount);
@@ -152,7 +151,6 @@ public abstract class Car implements Movable {
     }
     
 
-    // TODO fix this method according to lab pm
     public void brake(double amount){
         if (inBounds(1.0, 0.0, amount) == 0){
             decrementSpeed(amount);
@@ -161,13 +159,11 @@ public abstract class Car implements Movable {
         }
     }
  
-    //TODO? the updated speeds are with this code only dependent on the speed in the X-axis
     private void incrementSpeed(double amount){
         currentSpeedX = calculateSpeed(getCurrentSpeedX() + speedFactor()*amount, amount)*this.direction[0];
         currentSpeedY  = calculateSpeed(getCurrentSpeedY() + speedFactor()*amount, amount)*this.direction[1];
     }
     
-    //TODO? the updated speeds are with this code only dependent on the speed in the X-axis
     private void decrementSpeed(double amount){
         
         currentSpeedX = calculateSpeed(getCurrentSpeedX() - speedFactor()*amount, amount)*this.direction[0];

@@ -180,12 +180,14 @@ public class CarTest {
         Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
         double speedBeforeX = saab.getCurrentSpeedX();
         double speedBeforeY = saab.getCurrentSpeedY();
-
-        saab.gas(0.5);
+        saab.gas(0.9);
+        
+        saab.setCurrentSpeedX(120);
 
         double speedAfterX = saab.getCurrentSpeedX();
         double speedAfterY = saab.getCurrentSpeedY();
-
+        System.out.println(speedAfterX);
+        System.out.println(speedAfterY);
         assertTrue(speedAfterX > speedBeforeX); assertTrue(speedAfterY > speedBeforeY);
 
      }
@@ -204,6 +206,35 @@ public class CarTest {
 
         assertTrue(speedAfterX < speedBeforeX); assertTrue(speedAfterY < speedBeforeY);
 
+     }
+
+     @Test
+     public void when_the_speed_is_zero_and_braking_the_speed_remains_zero(){
+       Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
+       saab.brake(0.9);
+       assertTrue(saab.getCurrentSpeedX() == 0 && saab.getCurrentSpeedY() == 0);
+     }
+
+     @Test
+     public void saab_when_the_speed_is_equal_to_enginepower_and_calling_gas_method_the_speed_remains_equal_to_engine_power(){
+       Saab95 saab = new Saab95(Color.red, 1, 1, 1, 1);
+       saab.setCurrentSpeedX(124);
+       saab.setCurrentSpeedY(124);
+       saab.gas(0.9);
+       saab.gas(0.9);
+
+       assertTrue(saab.getCurrentSpeedX() == saab.enginePower && saab.getCurrentSpeedY() == saab.enginePower);
+     }
+
+     @Test
+     public void volvo_when_the_speed_is_equal_to_enginepower_and_calling_gas_method_the_speed_remains_equal_to_engine_power(){
+       Volvo240 volvo = new Volvo240(Color.blue, 1, 1, 1, 1);
+       volvo.setCurrentSpeedX(99);
+       volvo.setCurrentSpeedY(99);
+       volvo.gas(0.9);
+       volvo.gas(0.9);
+
+       assertTrue(volvo.getCurrentSpeedX() == volvo.enginePower && volvo.getCurrentSpeedY() == volvo.enginePower);
      }
 }
 

@@ -1,0 +1,22 @@
+Task 5: Reflection
+Write a short text file named lab1reflection.txt that answers the following questions. You can write in Swedish or English.
+
+1. Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+
+We wanted the code to be expandable and therefore chose to put all of the comments aspects of a car, methods such as "gas" and "break" in a superclass which the different cars inherited. 
+If you wanted to expand the program by adding more and different cars you could do so without changing the core code of the program.
+
+
+2. Explain how you implemented each of the sanity checks in Task 4
+
+We first created a method called inBounds which has three parameters. One parameter for the upper bound of the interval, one for the lower
+and the last for the amount. If amount would be higher than the upper limit the method return 1. If amount would be less than the lower limit the method return -1. If inbetween the two
+limits the method return 0.
+
+We implemented the methods so that gas() and brake() would throw an exception if the argument would be outside of the interval between 0 and 1. We tested this by calling the methods with arguments
+such as -1 and 2. Exception thrown = Test passed. We also checked so that gas makes the speed increase and that brake makes the speed decrease, not vice versa.
+
+To make the currentSpeed to always lie between 0 and enginePower we first checked, using the inBounds() method, where in the interval the speed value would be after gasing or braking. If under 0,
+ then set the speed to 0. If over enginePower, then set the speed to enginePower. Otherwise, set the speed to what we put in as argument. We test this by braking when the current speed already is 0.
+ If the speed remains 0 after braking, then the test pass. We do the same to test if the current speed remains the same as enginePower when calling gas() when the speed already is close to the value
+ of enginePower.

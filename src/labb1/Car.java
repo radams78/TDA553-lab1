@@ -62,6 +62,13 @@ public abstract class Car implements Movable {
         color = clr;
     }
 
+    public void setCurrentSpeedX(double speed){
+        this.currentSpeedX = speed;
+    } //Used to set speed in sanity tests
+
+    public void setCurrentSpeedY(double speed){
+        this.currentSpeedY = speed;
+    }//Used to set speed in sanity tests
 
     //Increases the speed by a little
     public void startEngine(){

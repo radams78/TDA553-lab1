@@ -97,11 +97,16 @@ public abstract class Car implements Movable {
     }
 
     private void increaseDirectionX(double amount){
-        this.direction[0]+= amount;
+        double increment = this.direction[0]+ amount
+        if  increment > -1 and increment < 1 ;
+            this.direction[0] = increment;
+        
     }
 
     private void decreaseDirectionX(double amount){
-        this.direction[0]-= amount;
+        double increment this.direction[0]-= amount;
+        if  increment > -1 and increment < 1 ;
+            this.direction[0] = increment;
     }
 
 
@@ -149,15 +154,15 @@ public abstract class Car implements Movable {
  
     //TODO? the updated speeds are with this code only dependent on the speed in the X-axis
     private void incrementSpeed(double amount){
-        currentSpeedX = getCurrentSpeedX() + speedFactor()*amount*this.direction[0], amount
-        currentSpeedY  = calculateSpeed(getCurrentSpeedY() + speedFactor()*amount*this.direction[1], amount);
+        currentSpeedX = calculateSpeed(getCurrentSpeedX() + speedFactor()*amount, amount)*this.direction[0];
+        currentSpeedY  = calculateSpeed(getCurrentSpeedY() + speedFactor()*amount, amount)*this.direction[1];
     }
     
     //TODO? the updated speeds are with this code only dependent on the speed in the X-axis
     private void decrementSpeed(double amount){
         
-        currentSpeedX = getCurrentSpeedX() - speedFactor()*amount*this.direction[0], amount
-        currentSpeedY = calculateSpeed(getCurrentSpeedY() - speedFactor()*amount*this.direction[1], amount);  
+        currentSpeedX = calculateSpeed(getCurrentSpeedX() - speedFactor()*amount, amount)*this.direction[0];
+        currentSpeedY = calculateSpeed(getCurrentSpeedY() - speedFactor()*amount, amount)*this.direction[1];  
     }
     
     public abstract double speedFactor();

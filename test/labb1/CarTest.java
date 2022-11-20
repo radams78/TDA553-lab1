@@ -94,8 +94,8 @@ public class CarTest {
      public void car_that_turns_left_moves_less_in_the_x_direction_than_car_that_stays_straight(){
         
         
-        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, 1, 1);
-        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, 1, 1);
+        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, 0, 0);
+        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, 0, 0);
 
         saabToBeTurned.turnLeft();
         saabToBeTurned.gas(0.4);
@@ -112,8 +112,8 @@ public class CarTest {
      public void car_that_turns_right_moves_more_in_the_x_direction_than_car_that_stays_straight(){
         
         
-        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, 1, 1);
-        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, 1, 1);
+        Saab95 saabToBeTurned = new Saab95(Color.red, 2, 3, 0, 0);
+        Saab95 saabStayingStraight = new Saab95(Color.red, 2, 3, 0, 0);
 
         saabToBeTurned.turnRight();
         saabToBeTurned.gas( 0.1);
@@ -121,7 +121,7 @@ public class CarTest {
 
         saabStayingStraight.gas(0.1);
         saabStayingStraight.move();
-
+      
         assert(saabToBeTurned.getX() > saabStayingStraight.getX());
      }
 
@@ -133,7 +133,6 @@ public class CarTest {
         saab.setTurboOn();
         saab.gas(0.1);
         volvo.gas(0.1);
-
         volvo.move();
         saab.move();
 
@@ -197,13 +196,11 @@ public class CarTest {
         saab.gas(0.5);
         double speedBeforeX = saab.getCurrentSpeedX();
         double speedBeforeY = saab.getCurrentSpeedY();
-        System.out.println(speedBeforeX+ " " + " " + speedBeforeY);
         saab.brake(0.1);
 
       
         double speedAfterX = saab.getCurrentSpeedX();
         double speedAfterY = saab.getCurrentSpeedY();
-        System.out.println(speedAfterX+ " " + " " + speedAfterY);
 
         assertTrue(speedAfterX < speedBeforeX); assertTrue(speedAfterY < speedBeforeY);
 

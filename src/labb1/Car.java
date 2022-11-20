@@ -97,16 +97,18 @@ public abstract class Car implements Movable {
     }
 
     private void increaseDirectionX(double amount){
-        double increment = this.direction[0]+ amount
-        if  increment > -1 and increment < 1 ;
+        double increment = this.direction[0] + amount;
+        if  (increment > -1 && increment < 1) {
             this.direction[0] = increment;
-        
+        }
     }
 
     private void decreaseDirectionX(double amount){
-        double increment this.direction[0]-= amount;
-        if  increment > -1 and increment < 1 ;
+        double increment = this.direction[0] - amount;
+        if  (increment > -1 && increment < 1){
             this.direction[0] = increment;
+        }
+
     }
 
 

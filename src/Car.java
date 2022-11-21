@@ -74,7 +74,7 @@ public abstract class Car implements Movable{
     
     // TODO fix this method according to lab pm
     public void gas(double amount) throws Exception{
-    if (amount >=  0  && amount <= 1){
+     if (amount >=  0  && amount <= 1){
         incrementSpeed(amount);
     }else{
       throw new Exception("the amount is not in the interval");  
@@ -82,7 +82,7 @@ public abstract class Car implements Movable{
     }
 
     public void incrementSpeed(double amount){
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower();
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
     }
 
 
@@ -93,6 +93,7 @@ public abstract class Car implements Movable{
         }else{
           throw new Exception("the amount is not in the interval");
         }
+
         }
     public void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
@@ -100,7 +101,6 @@ public abstract class Car implements Movable{
 
     public Direction cardirection(){
         return cardirection;
-
     }
 
     protected abstract double speedFactor();

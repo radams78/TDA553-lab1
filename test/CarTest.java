@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -77,7 +78,7 @@ public class CarTest {
   @Test
   public void decrementspeedTestSaab() throws Exception{
     Saab95 car2 = new Saab95();
-    double expectedspeedsaab = -1.25; // ska vara 0, eller?
+    double expectedspeedsaab = 0;
     car2.brake(1);
     double actualspeedsaab = car2.getCurrentSpeed();
 
@@ -87,6 +88,7 @@ public class CarTest {
   public void gasbigamountTest() throws Exception{
     Car car1 = new Volvo240();
     assertThrows(Exception.class,()-> car1.gas(2));
+
   }
 
   @Test
@@ -111,15 +113,26 @@ public class CarTest {
   @Test
   public void compareSpeedafterBrake() throws Exception{
     Car car2 = new Saab95();
+    car2.gas(1);
     double speedbeforebreak = car2.getCurrentSpeed();
     car2.brake(1);
     double speedafterbreak = car2.getCurrentSpeed();
     assertNotEquals(speedbeforebreak, speedafterbreak);
   }
+
 @Test
-  public void currentSpeedrightamount(){
-    Saab95 car2 = new Saab95();
-    double cure
+  public void gastest() throws Exception{
+    Saab95 car = new Saab95();
+    double oldSpeed = car.getCurrentSpeed();
+    car.gas(0.5);
+    assertTrue(car.getCurrentSpeed() >= oldSpeed);
   }
 
+  @Test
+  public void braketest() throws Exception{
+    Volvo240 car = new Volvo240();
+    double oldSpeed = car.getCurrentSpeed();
+    car.brake(0.5);
+    assertTrue(car.getCurrentSpeed() <= oldSpeed);
+  }
 }

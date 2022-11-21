@@ -21,9 +21,6 @@ public class CarTest {
     Direction actualDirection2 = car2.cardirection();
 
     assertEquals(expectedDirection2, actualDirection2);
-  
-    //ARSet emptySet = new ARSet();
-    //assertEquals(0, emptySet.size());
   }
 
   @Test

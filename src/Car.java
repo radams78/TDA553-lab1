@@ -9,7 +9,7 @@ public abstract class Car implements Movable{
     private String modelName; // The car model name
     private int xPos; // startposition x värdet 
     private int yPos; // startposition y värdet
-    private Direction cardirection;
+    private Direction cardirection; //the car's current direction
 
 
   
@@ -20,8 +20,8 @@ public abstract class Car implements Movable{
     this.currentSpeed = currentSpeed; // The current speed of the car
     this.color = color; // Color of the car
     this.modelName = modelName; // The car model name
-    this.xPos=xPos;
-    this.yPos=yPos;
+    this.xPos=xPos;     //the car's x position
+    this.yPos=yPos;     //the car's y position
     this.cardirection=cardirection; //startvärdet
     }
 
@@ -38,11 +38,7 @@ public abstract class Car implements Movable{
     }
 
     public void setCurrentSpeed(double currentSpeed) throws Exception{
-        if(currentSpeed >= 0 && currentSpeed <= enginePower){
-            this.currentSpeed = currentSpeed;
-        }else{
-        throw new Exception("the speed is not in the interval");
-        }
+        this.currentSpeed = currentSpeed;
     }
 
     public Color getColor(){
@@ -72,30 +68,28 @@ public abstract class Car implements Movable{
         return yPos;
     }
     
-    // TODO fix this method according to lab pm
     public void gas(double amount) throws Exception{
-     if (amount >=  0  && amount <= 1){
+     if (amount >=  0  && amount <= 1){         //gas only accepts values in the interval [0,1]
         incrementSpeed(amount);
-    }else{
+    }else{                                      //else error message
       throw new Exception("the amount is not in the interval");  
     }
     }
 
-    public void incrementSpeed(double amount){
+    public void incrementSpeed(double amount){  //the min and max speed interval while gasing
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
     }
 
 
-    // TODO fix this method according to lab pm
     public void brake(double amount) throws Exception{
-        if (amount >=  0  && amount <= 1){
+        if (amount >=  0  && amount <= 1){          //brake only accepts values in the interval [0,1]
             decrementSpeed(amount);
-        }else{
+        }else{                                       //else error message
           throw new Exception("the amount is not in the interval");
         }
 
         }
-    public void decrementSpeed(double amount){
+    public void decrementSpeed(double amount){  //the max and min speed interval while braking
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
@@ -105,16 +99,12 @@ public abstract class Car implements Movable{
 
     protected abstract double speedFactor();
 
-    //public direction setdirection(){
-     //   return user.direction; // user direction är något som behövs senare 
-    //}
-   
     @Override
     public void move(){
         if (cardirection== Direction.NORTH) {
             yPos -=1;
         }else if(cardirection== Direction.SOUTH){
-            yPos+=1;  ///Minskar/ ökar den? 
+            yPos+=1; 
         }else if(cardirection== Direction.WEST){
             xPos+=1;
         }else if(cardirection== Direction.EAST){

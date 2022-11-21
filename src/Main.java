@@ -1,8 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
-import java.awt.*;
-
+    //just tesing nothing important
 public class Main {
     public static void main(String[] args) {
         Saab95 car1 = new Saab95();
@@ -20,9 +19,5 @@ public class Main {
                 System.out.println(car1.getmodelName());
             }
         }
-        
-
-    //stopEngine();
-
         
 }}

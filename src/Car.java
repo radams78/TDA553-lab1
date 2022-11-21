@@ -83,10 +83,10 @@ public abstract class Car implements Movable{
 
     public void brake(double amount) throws Exception{
         if (amount >=  0  && amount <= 1){          //brake only accepts values in the interval [0,1]
-            decrementSpeed(amount);
+        decrementSpeed(amount);
         }else{                                       //else error message
           throw new Exception("the amount is not in the interval");
-        }
+    }
 
         }
     public void decrementSpeed(double amount){  //the max and min speed interval while braking
@@ -98,7 +98,7 @@ public abstract class Car implements Movable{
     }
 
     protected abstract double speedFactor();
-
+   
     @Override
     public void move(){
         if (cardirection== Direction.NORTH) {

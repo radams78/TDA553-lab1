@@ -1,0 +1,7 @@
+We used subclassing and created a supertype that the subclasses inherited from. 
+We went through the common attributes of the cars and put it into a super class that we called in the code.
+
+Furthermore, we analyzed what specific characteristics the cars had that were not shared and those we did not include in the super class. 
+For example in Saab we had one specific characteristic: Turbo which Volvo did not have and therefore we chose to have Turbo in the Saab file.
+We took one method at a time and examined every case that could happen for each function. 
+For example in compareSpeedAfterBrake and compareSpeedAfterGas where we compared the speed before and after braking/acceleration.

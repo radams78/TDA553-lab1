@@ -20,17 +20,22 @@ public class Scania extends Car {
     }
 
     public void setPlatformAngle(double currentAngle){
-        if(currentAngle > maxAngle){
-            this.platformAngle = maxAngle;
-
-        } else if(currentAngle < lowestAngle){
-            this.platformAngle = lowestAngle;
-
-        } else{
-            this.platformAngle = currentAngle;
-    }
+        if(getCurrentSpeed() == 0){
+            if(currentAngle > maxAngle){
+                this.platformAngle = maxAngle;
+    
+            } else if(currentAngle < lowestAngle){
+                this.platformAngle = lowestAngle;
+    
+            } else{
+                this.platformAngle = currentAngle;
+            }
+        }
+        else{
+            throw new IllegalArgumentException("Cant set platform at that angle if car is moving");
+        }
+        
 }
-
 
     public void raisePlatform(double amount){
         setPlatformAngle(getPlatformAngle() + amount);

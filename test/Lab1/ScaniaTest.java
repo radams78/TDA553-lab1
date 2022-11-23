@@ -20,4 +20,18 @@ public class ScaniaTest {
         scania.lowerPlatform(100);
         assertEquals(scania.lowestAngle, scania.getPlatformAngle());
     }
+    @Test
+    public void currentSpeed_should_be_0_if_platformAngle_is_not_0(){
+        Scania scania = new Scania(2, 100, 0, Color.GREEN, "Scania", 0);
+        scania.setPlatformAngle(50);
+        assertEquals(0, scania.getCurrentSpeed());
+    }
+    @Test
+    public void scania_cant_raise_platform_while_driving(){
+        Scania scania = new Scania(2, 100, 0, Color.GREEN, "Scania", 0);
+        assertThrows(IllegalArgumentException.class, () -> {
+            scania.setCurrentSpeed(10);
+            scania.raisePlatform(10);
+        });
+    }
 }

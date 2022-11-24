@@ -1,22 +1,18 @@
 import java.awt.*;
 
-public class Car implements Movable {
+public class MotorisedVehicle implements Movable {
 
-    private int nrDoors; //How many doors the car have
-    private double enginePower;
+    private Engine engine;
+    private Body body;
     private double currentSpeed;
-    private Color color; // The cars color using awt package for Colors 
-    private String modelName;
 
-    private double x, y; // Coordinates for car
+    private double x, y; // Coordinates
 
-    private Direction direction; // Which direction is the car facing?
+    private Direction direction; // Current direction
 
-    public Car(String modelName, Color color, double enginePower, int nrDoors) {
-        this.modelName = modelName;
-        this.enginePower = enginePower;
-        this.color = color;
-        this.nrDoors = nrDoors;
+    public MotorisedVehicle(String modelName, Color color, double enginePower, int nrDoors) {
+        this.engine = new Engine(enginePower);
+        this.body = new Body(modelName, color, nrDoors);
         this.stopEngine();
         this.x = 0;
         this.y = 0;
@@ -34,15 +30,15 @@ public class Car implements Movable {
 
     //------------------------------------- Getters ----------------------------------------//
     public int getNrDoors() {
-        return this.nrDoors;
+        return this.body.getNrDoors();
     }
 
     public double getEnginePower() {
-        return this.enginePower;
+        return this.engine.getEnginePower();
     }
     
     public String getModelName() {
-        return this.modelName;
+        return this.body.getModelName();
     }
 
     public double getCurrentSpeed() {
@@ -50,7 +46,7 @@ public class Car implements Movable {
     }
 
     public Color getColor() {
-        return this.color;
+        return this.body.getColor();
     }
 
     public double getXPos() { 
@@ -66,8 +62,8 @@ public class Car implements Movable {
     }
 
    //------------------------------------- Setters----------------------------------------//
-    public void setEnginePower(double enginePower) {
-        this.enginePower = enginePower;
+    public void setEnginePower(double enginePower) { // Might be unnecessary
+        this.engine.setEnginePower(enginePower);
     }
 
     private void setCurrentSpeed(double amount) { // Input from increment- and decrementSpeed can't be outside range 0 - enginePower
@@ -76,19 +72,19 @@ public class Car implements Movable {
     }
 
     public void setColor(Color color) { 
-        this.color = color;
+        this.body.setColor(color);
     }
     
      //------------------------------------- Handle speed ----------------------------------------//
     public double speedFactor() {
-        return (this.enginePower * 0.01);
+        return (this.getEnginePower() * 0.01);
     }
 
-    private void incrementSpeed(double amount) { //Increse movementspeed of the car
+    private void incrementSpeed(double amount) { //Increse movementspeed of the vehicle
         this.setCurrentSpeed((Math.min(getCurrentSpeed() + speedFactor() * amount, this.getEnginePower())));
     }
 
-    private void decrementSpeed(double amount) { // Lowers the speed of the car, using the highest value when 
+    private void decrementSpeed(double amount) { // Lowers the speed of the vehicle, using the highest value when 
          this.setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0)); // comparing getCurrentSpeed() - speedFactor() * amount with 0
     }
 
@@ -124,7 +120,7 @@ public class Car implements Movable {
         this.direction = Direction.values()[(dirValue + 1) % 4];
     }
     
-    //Moves the car in the current direction
+    //Moves the vehicle in the current direction
     public void move() {
         switch (this.direction) {
             case NORTH:

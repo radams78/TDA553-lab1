@@ -1,12 +1,15 @@
 
 
 public class Engine {
-    private int power;
+    private double power;
 
-    public Engine(int enginePower){
+    public Engine(double enginePower){
         this.power = enginePower;
     }
-    public int getEnginePower(){
+    public double getEnginePower(){
         return this.power;
+    }
+    public void setEnginePower(double enginePower){
+        this.power = enginePower;
     }
 }

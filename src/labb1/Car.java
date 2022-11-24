@@ -5,7 +5,6 @@ public abstract class Car extends Vehicle {
     public Car(int nrDoors, Color color, int enginePower, String modelName, double  x, double y, double dirX, double dirY){
         super(nrDoors, color, enginePower, modelName,   x,  y, dirX,  dirY);
     }
-
     @Override 
     
     public abstract double speedFactor() ;

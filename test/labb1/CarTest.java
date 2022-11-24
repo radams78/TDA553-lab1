@@ -231,6 +231,13 @@ public class CarTest {
 
        assertTrue(volvo.getCurrentSpeedX() <= volvo.enginePower && volvo.getCurrentSpeedY() <= volvo.enginePower);
      }
+
+     @Test
+     public void CarTransporter_is_subtype_of_truck(){
+         CarTransporter carTransporter = new CarTransporter(Color.red, 1, 1, 1, 1, 2);
+
+         assert(carTransporter instanceof Truck);
+     }
 }
 
 

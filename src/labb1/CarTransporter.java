@@ -2,28 +2,25 @@ package labb1;
 import java.awt.*;
 
 public class CarTransporter extends Truck{
-    int nrDoors, Color color, int enginePower, String modelName, double  x, double y, double dirX, double dirY
+
+
     public CarTransporter(Color color, double  x, double y, double dirX, double dirY, int maxLoad){
-        super(color, 500, "SOME CAR TRANSPORTER," x, y, dirX, dirY, 2);
+        super(color, 500, "SOME CAR TRANSPORTER,", x, y, dirX, dirY, maxLoad);
     }//Constructor
      
-    int hej = "hej";
-    
-    public boolean isStationary(){
-
+    @Override
+    public void extendPlatform(){
+        if (this.getCurrentSpeedX() != 0 || this.getCurrentSpeedY() != 0){
+            throw new IllegalArgumentException("The truck is moving");
+        }
+        else{
+            super.extendPlatform();
+        }
     }
 
-    public boolean platformUp(){
-
-    }
 
     @Override
-    public void raisePlatform(){
-
-    }
-
-    @Override
-    public void lowerPlatform(){
-
+    public double speedFactor(){
+        return enginePower*0.01;
     }
 }

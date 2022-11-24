@@ -4,13 +4,13 @@ public abstract class Car implements Movable{
     
     public boolean turboOn;
     
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
-    private int y;
-    private int x;
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
+    private double currentSpeed; // The current speed of the car
+    private Color color; // Color of the car
+    private String modelName; // The car model name
+    private double y;
+    private double x;
     private int currentDirection;
     public int valle;
 
@@ -27,9 +27,25 @@ public abstract class Car implements Movable{
         
     }
 
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
     public int getNrDoors(){
         return nrDoors;
     }
+    public boolean isTurboOn() {
+        return turboOn;
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
+    public int getCurrentDirection() {
+        return currentDirection;
+    }
+
     public double getEnginePower(){
         return enginePower;
     }
@@ -88,36 +104,38 @@ public abstract class Car implements Movable{
         }
     }
 
-    public int getY() {
+    public double getY() {
         return this.y;
     }
 
-    public int getX() {
+    public double getX() {
         return this.x;
     }
 
-    public void setY(double y) {
+    public void setY(Double y) {
+        this.y += y;
     }
 
-    public void setX(double x) {
+    public void setX(Double x) {
+        this.x += x;
     }
 
     private void direction(){
         switch(this.currentDirection){
             case 0:
-                this.y += this.currentSpeed;
+                this.setY(currentSpeed);
                 break;
 
             case 1:
-                this.x += this.currentSpeed;
+                this.setX(currentSpeed);
                 break;
 
             case 2:
-                this.y -= this.currentSpeed;
+                this.setY(-currentSpeed);
                 break;
 
             case 3:
-                this.x -= this.currentSpeed;
+                this.setX(-currentSpeed);
                 break;
         }
     }

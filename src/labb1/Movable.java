@@ -5,4 +5,7 @@ public interface Movable {
     void move(); //moves the object
     void turnLeft(); //turns the object
     void turnRight(); //turns the object
+
+    double getX();
+    double getY();
 }

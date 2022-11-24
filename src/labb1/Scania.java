@@ -1,7 +1,7 @@
-package labb1;
+// package labb1;
 
-import java.awt.*;
+// import java.awt.*;
 
-public class Scania extends Car{
+// public class Scania extends Car{
 
-}
+// }

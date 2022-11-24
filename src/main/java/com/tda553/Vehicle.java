@@ -1,26 +1,28 @@
 package com.tda553;
 
-import java.awt.*;
+import java.awt.Color;
 
-public abstract class Car implements Movable
+import com.tda553.Interfaces.IVehicle;
+import com.tda553.Interfaces.Movable;
+
+public abstract class Vehicle implements Movable, IVehicle
 {
-
     protected int x, y;
     protected int direction = 1;
 
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
-    protected double currentSpeed; // The current speed of the car
-    protected Color color; // Color of the car
-    protected String modelName; // The car model name
-
+    protected int nrDoors; // Number of doors on the vehicle
+    protected double enginePower; // Engine power of the vehicle
+    protected double currentSpeed; // The current speed of the vehicle
+    protected Color color; // Color of the vehicle
+    protected String modelName; // The vehicle model name
+    
     private int[][] directionTable =
     {
-            {0, 1},
-            {1, 0},
-            {0, -1},
-            {-1, 0}};
-
+        {0, 1},
+        {1, 0},
+        {0, -1},
+        {-1, 0}
+    };
 
     public int getNrDoors()
     {
@@ -34,7 +36,7 @@ public abstract class Car implements Movable
 
     public double getCurrentSpeed()
     {
-        return currentSpeed;
+		return currentSpeed;
     }
 
     public Color getColor()
@@ -77,8 +79,6 @@ public abstract class Car implements Movable
         }
     }
 
-
-
     public void move()
     {
         x += directionTable[direction][0] * currentSpeed;
@@ -102,8 +102,7 @@ public abstract class Car implements Movable
 
     public int[] getPosition()
     {
-        int[] position =
-        {x, y};
+        int[] position = {x, y};
         return position;
     }
 
@@ -131,6 +130,4 @@ public abstract class Car implements Movable
     {
         currentSpeed = checkNewSpeed(getCurrentSpeed() - speedFactor() * amount, false);
     }
-
-
 }

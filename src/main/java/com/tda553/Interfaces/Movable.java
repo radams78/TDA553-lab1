@@ -1,4 +1,4 @@
-package com.tda553;
+package com.tda553.Interfaces;
 
 public interface Movable
 {

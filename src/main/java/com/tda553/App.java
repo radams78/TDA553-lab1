@@ -1,5 +1,6 @@
 package com.tda553;
 
+import com.tda553.Vehicles.*;
 
 public class App
 {

@@ -2,10 +2,12 @@ package com.tda553;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.tda553.Vehicles.Saab95;
+import com.tda553.Vehicles.Volvo240;
+
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.List;
 public class CarTest
 {
 
-    private static List<Car> cars = new ArrayList<>();
+    private static List<Vehicle> cars = new ArrayList<>();
 
     @Before
     public void setUp()
@@ -28,7 +30,7 @@ public class CarTest
     {
         System.out.println(
                 "Running test: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        for (Car car : cars)
+        for (Vehicle car : cars)
         {
             car.startEngine();
             car.gas(1);
@@ -45,7 +47,7 @@ public class CarTest
         int[] start_position =
         {0, 0};
 
-        for (Car car : cars)
+        for (Vehicle car : cars)
         {
             System.out.println(car.toString());
             assertArrayEquals(start_position, car.getPosition());
@@ -60,5 +62,4 @@ public class CarTest
 
 
     }
-
 }

@@ -1,8 +1,9 @@
-package com.tda553;
+package com.tda553.Vehicles;
 
-import java.awt.*;
+import java.awt.Color;
+import com.tda553.Vehicle;
 
-public class Saab95 extends Car
+public class Saab95 extends Vehicle
 {
 
     public boolean turboOn;

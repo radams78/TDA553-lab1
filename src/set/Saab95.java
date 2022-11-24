@@ -1,6 +1,10 @@
-package set;
 // Module to hold the subclass Saab95
 // - Note that this subclass inherits from the superclass Car
+
+// --- Packages --- //
+
+package set;
+
 
 // --- Imports --- //
 
@@ -13,11 +17,13 @@ public class Saab95 extends Car {
     
     boolean turboOn;
     
-    // Constructor for the class saab95
+    // --- Constructor --- //
+
     public Saab95(int nrDoors, Color color, int enginePower, String modelName){
         super(nrDoors, color, enginePower, modelName);   
         turboOn = false;
     }
+
 
     // --- Methods --- //
 
@@ -28,13 +34,13 @@ public class Saab95 extends Car {
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
-    
 
-    // Methods to set turbo values
+    // Method to set turbo to true
     protected void setTurboOn(){
 	    turboOn = true;
     }
     
+    // Method to set turbo to false
     protected void setTurboOff(){
 	    turboOn = false;
     }

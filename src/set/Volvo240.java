@@ -1,6 +1,10 @@
-package set;
 // Module to hold the subclass Volvo24
 // - Note that this subclass inherits from the superclass Car
+
+// --- Packages --- //
+
+package set;
+
 
 // --- Imports --- //
 
@@ -14,7 +18,9 @@ public class Volvo240 extends Car{
     
     public final static double trimFactor = 1.25;
     
-    // Constructor for the class volvo240
+    
+    // --- Constructor --- //
+
     public Volvo240(int nrDoors, Color color, int enginePower, String modelName) {
         super(nrDoors, color, enginePower, modelName);
     }
@@ -22,13 +28,10 @@ public class Volvo240 extends Car{
 
     // --- Methods --- //
     
-    // updates vehicles speedfactor depending on trimfactor
+    // Updates vehicles speedfactor depending on trimfactor
     @Override
     protected double speedFactor(){
         return getEnginePower() * 0.01 * trimFactor;
     }
-    
-    // Increments the speed of the vehicle depending on the speedfactor
-    
-    
+ 
 }

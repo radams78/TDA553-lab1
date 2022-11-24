@@ -1,7 +1,12 @@
+// --- Packages --- //
+
 package set;
+
+
+// ---- Imports ---- //
+
 import org.junit.Before;
 import org.junit.Test;
-import set.Car;
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,10 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.awt.*;
 import java.nio.channels.Pipe;
 
-public class CarTest {
+
+// --- Tests --- //
+
+public class VehiclesTest {
     private Volvo240 volvo = new Volvo240(2, Color.BLUE, 100, "Volvo");
     @Before
-    public void reset_car(){
+    public void reset_vehicle(){
         volvo = new Volvo240(2, Color.BLUE, 100, "Volvo");
     }
     
@@ -25,7 +33,6 @@ public class CarTest {
     
     }
 
-    // Testing the change in the y-
     @Test
     public void test_if_move_method_moves_correctly_y(){
         volvo.incrementSpeed(10);

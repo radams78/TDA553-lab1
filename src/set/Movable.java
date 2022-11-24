@@ -3,7 +3,6 @@ package set;
 
 public interface Movable {
     
-    
     // --- Methods --- //
     
     public void move();

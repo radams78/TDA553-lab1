@@ -1,0 +1,43 @@
+// --- Packages --- //
+
+package set;
+
+// --- Imports --- //
+
+import org.junit.Before;
+import org.junit.Test;
+import set.AngleRamp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.awt.*;
+
+
+// --- Tests --- //
+
+public class AngleRampTest {
+    
+    private AngleRamp angleRamp = new AngleRamp();
+    
+    @Before
+    public void reset_ramp(){
+        angleRamp = new AngleRamp();
+    }
+
+    @Test
+    public void rampAngle_should_not_exceed_70_degrees() {
+        angleRamp.raiseRamp();
+        angleRamp.raiseRamp();
+        angleRamp.raiseRamp();
+        angleRamp.raiseRamp();
+        angleRamp.raiseRamp();
+        assertEquals(angleRamp.getAngle(), 70, 0.00001);
+    }
+
+    @Test
+    public void rampAngle_should_not_be_less_than_0_degrees() {
+        angleRamp.lowerRamp();
+        assertEquals(angleRamp.getAngle(), 0, 0.00001);
+    }
+}

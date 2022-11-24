@@ -16,8 +16,12 @@ abstract class Car implements Movable {
         this.color = color;
         this.modelName = modelName;
         this.direction = Direction.RIGHT;
+        this.position.setLocation(0, 0);
         stopEngine();
     }
+
+    // This comment should not go on the master
+    // This comment should go on the Sne branch
 
     public int getNrDoors() {
         return nrDoors;

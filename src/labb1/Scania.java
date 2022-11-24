@@ -7,7 +7,7 @@ public class Scania extends Truck{
     private final int MIN_ANGLE = 0; //Minimum angle extention
     private int platformAngle;
 
-    public Scania(Color color, int enginePower, String modelName, double x, double y, double dirX, double dirY, int maxLoad){
+    public Scania(Color color, double enginePower, String modelName, double x, double y, double dirX, double dirY, int maxLoad){
         super(color, enginePower, modelName, x, y, dirX,  dirY, maxLoad);
         this.platformAngle = 0;
     }

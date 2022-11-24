@@ -47,9 +47,11 @@ public abstract class Car implements Movable {
 
 
     //temp
+    @Override
     public double getX(){
         return x;
     }
+    @Override
     public double getY(){
         return y;
     }

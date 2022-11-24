@@ -4,7 +4,7 @@
   - Things
 
 - Scania
-  - Things
+  - should extend truck?
 
 - CarTransporter
   - Things

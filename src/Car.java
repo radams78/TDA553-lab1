@@ -8,14 +8,17 @@ public abstract class Car {
     protected Color color; // Color of the car
     protected double currentSpeed; // The current speed of the car
     protected String modelName; // The car model name
-    public double xPosition = 0, yPosition = 0;
     public double facingDirection = 0;
+    public Position position;
+    private boolean isLoaded = false;
+    
 
     public Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.position = new Position(0, 0);
         stopEngine();
     }
 
@@ -71,17 +74,23 @@ public abstract class Car {
             decrementSpeed(amount);
         }
     }
+
+    public void setIsLoaded(boolean loadedStatus) {
+        isLoaded = loadedStatus;
+    }
     public void move(){
+        if (!isLoaded) { 
         updateXPosition();
         updateYPosition();
+        }
     }
 
     protected void updateXPosition(){
-        xPosition += currentSpeed*getXComposant();
+        position.setxPosition(position.getxPosition() + currentSpeed*getXComposant());
     }
 
     protected void updateYPosition(){
-        yPosition += currentSpeed*getYComposant();
+        position.setyPosition(position.getyPosition() + currentSpeed*getYComposant());
     }
 
     protected double getXComposant(){

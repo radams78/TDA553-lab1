@@ -1,13 +1,12 @@
 package src;
 import java.awt.*;
 
-public class Saab95 extends Car{
-
-    private boolean turboOn;
+public class Saab95 extends CarWithTurbo{
     
+    private static boolean turboOn = false;
+
     public Saab95(){
-        super(2, 125, Color.red, "Saab95");
-	    turboOn = false;
+        super(2, 125, Color.red, "Saab95", turboOn);
     }
 
     public void setTurboOn(){
@@ -18,12 +17,6 @@ public class Saab95 extends Car{
 	    turboOn = false;
     }
     
-    @Override
-    public double speedFactor(){
-        double turbo = 1;
-        if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
-    }
 
     public boolean isTurboOn() {
         return turboOn;

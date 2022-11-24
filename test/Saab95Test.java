@@ -47,7 +47,7 @@ public class Saab95Test {
     }
 
     @Test
-    public void testGasInRange(){
+    public void testGasInRangeWithTurboOff(){
         Car test = new Saab95();
         test.gas(0.5);
         assertEquals(0.625, test.getCurrentSpeed(), 0.1);

@@ -62,11 +62,11 @@ public abstract class Car implements Movable {
         color = clr;
     }
 
-    public void setCurrentSpeedX(double speed){
+    private void setCurrentSpeedX(double speed){
         this.currentSpeedX = speed;
     } //Used to set speed in sanity tests
 
-    public void setCurrentSpeedY(double speed){
+    private void setCurrentSpeedY(double speed){
         this.currentSpeedY = speed;
     }//Used to set speed in sanity tests
 
@@ -140,7 +140,7 @@ public abstract class Car implements Movable {
         return result;
     }
 
-    public double calculateSpeed(double speedToChange, double amount){
+    private double calculateSpeed(double speedToChange, double amount){
         if (inBounds(enginePower, 0.0, speedToChange) == -1){
             speedToChange = 0;
         }

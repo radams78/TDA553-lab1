@@ -5,8 +5,8 @@ import java.awt.*;
 //*Abstract class for any truck. Truck must have a max load . */
 public abstract class Truck extends Vehicle{
     private int maxLoad;
-    public Truck(int nrDoors, Color color, int enginePower, String modelName, double  x, double y, double dirX, double dirY, int maxLoad){
-        super(nrDoors, color, enginePower, modelName,   x,  y, dirX,  dirY);
+    public Truck(Color color, int enginePower, String modelName, double  x, double y, double dirX, double dirY, int maxLoad){
+        super(2, color, enginePower, modelName,   x,  y, dirX,  dirY);
         this.maxLoad = maxLoad;
     }
 

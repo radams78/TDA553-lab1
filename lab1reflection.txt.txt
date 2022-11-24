@@ -17,4 +17,4 @@ och brake inte kan öka farten på bilen.
 
 För att Currentspeed endast skulle kunna va inom intervallet 0 till EnginPower så implementerades en math funktion som tog minimum värdet
 av beräkning för incrementspeed. Där funktionen valde mellan beräkningen och enginpower. Skulle beräkning överstiga engingpower så väljs
-då alltid EnginPower. Samma för decrementspeed fast max värdet istället så att det alldrig går under 0.
+då alltid EnginPower. Samma för decrementspeed fast max värdet istället så att det alldrig går under 0..

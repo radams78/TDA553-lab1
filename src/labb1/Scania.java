@@ -8,7 +8,6 @@ public class Scania extends Truck{
     private int platformAngle;
 
 // }
-=======
     public Scania(Color color, double enginePower, String modelName, double x, double y, double dirX, double dirY, int maxLoad){
         super(color, enginePower, modelName, x, y, dirX,  dirY, maxLoad);
         this.platformAngle = 0;

@@ -12,6 +12,7 @@ public abstract class Car implements Movable{
     private int y;
     private int x;
     private int currentDirection;
+    public int valle;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y) {
       
@@ -23,6 +24,7 @@ public abstract class Car implements Movable{
         this.x = x;
         this.y = y;
         this.currentDirection = 3;
+        
     }
 
     public int getNrDoors(){

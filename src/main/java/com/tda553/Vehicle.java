@@ -4,8 +4,9 @@ import java.awt.Color;
 
 import com.tda553.Interfaces.IVehicle;
 import com.tda553.Interfaces.Movable;
+import com.tda553.Interfaces.Transportable;
 
-public abstract class Vehicle implements Movable, IVehicle
+public abstract class Vehicle implements Movable, IVehicle, Transportable
 {
     protected int x, y;
     protected int direction = 1;
@@ -15,7 +16,10 @@ public abstract class Vehicle implements Movable, IVehicle
     protected double currentSpeed; // The current speed of the vehicle
     protected Color color; // Color of the vehicle
     protected String modelName; // The vehicle model name
-    
+    protected boolean beingTransported = false;
+    protected int vehicleWeight;
+
+
     private int[][] directionTable =
     {
         {0, 1},
@@ -34,6 +38,19 @@ public abstract class Vehicle implements Movable, IVehicle
         return enginePower;
     }
 
+    public boolean isBeingTransported(){
+        return beingTransported;
+    }
+
+    public void setBeingTransported(boolean bt){
+        beingTransported = bt;
+    }
+
+    public int getVehicleWeight(){
+        return vehicleWeight;
+    }
+
+    
     public double getCurrentSpeed()
     {
 		return currentSpeed;

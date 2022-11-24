@@ -10,7 +10,7 @@ public class CarTest {
 
   // @Test
   // public void can_not_create_object_from_car(){
-  //   Car test_car = new Car();
+  //   Car testCar = new Car();
   //   assertThrows(InstantiationError.class, () -> {
   //   });
 
@@ -18,8 +18,8 @@ public class CarTest {
 
   @Test
   public void can_create_volvo() {
-    Car test_volvo = new Volvo240();
-    assertEquals(test_volvo, test_volvo);
+    Car testVolvo = new Volvo240();
+    assertEquals(testVolvo, testVolvo);
 
   }
   @Test

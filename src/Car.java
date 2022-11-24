@@ -1,7 +1,6 @@
 import java.awt.*;
 
 
-
 abstract class Car implements Movable{
     private int nrDoors;
     private double enginePower;
@@ -59,7 +58,7 @@ abstract class Car implements Movable{
         this.currentSpeed = currentSpeed;
     }
     public double speedFactor(){
-        return 0;
+        return enginePower * 0.01;
     }
     public void startEngine(){
 	    this.isEngineOn = true;

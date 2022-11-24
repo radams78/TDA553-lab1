@@ -1,4 +1,3 @@
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
@@ -6,12 +5,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class Volvo240Test {
-  Volvo240 testCar = new Volvo240();
+public class ScaniaTest {
+Scania testCar = new Scania();
 
   @Before
   public void reset_car(){
-    testCar = new Volvo240();
+    testCar = new Scania();
   }
   @Test
   public void gas_increases_speed() {
@@ -112,11 +111,49 @@ public class Volvo240Test {
       assertEquals(true, speed_before_brake == speed_after_brake);
 }
     @Test
-    public void speedfactor_gives_expected_speed_from_1_movement_increment(){
-      double expected_output = 1.25;
-      testCar.incrementSpeed(1);
-      assertEquals(true, expected_output == testCar.getCurrentSpeed());
+    public void can_move_while_flatbed_not_fastened(){
+    testCar.setFlatbedFastened(true);
+    testCar.startEngine();
+    testCar.gas(1);
+    testCar.move();
+    assertEquals(true, testCar.getY() != 0 || testCar.getX() != 0);
     }
- 
-    
+
+    @Test
+    public void can_not_move_while_flatbed_not_fastened(){
+    testCar.setFlatbedFastened(false);
+    testCar.startEngine();
+    testCar.gas(1);
+    testCar.move();
+    assertEquals(true, testCar.getY() == 0 && testCar.getX() == 0);
+    }
+
+    @Test
+    public void can_not_move_while_having_raised_flathead(){
+    testCar.raiseFlatbed();
+    testCar.startEngine();
+    testCar.gas(1);
+    testCar.move();
+    assertEquals(true, testCar.getY() == 0 && testCar.getX() == 0);
+    }
+ @Test
+    public void can_not_lower_flathead_below_0_degrees(){
+    testCar.lowerFlatbed();
+    testCar.startEngine();
+    testCar.gas(1);
+    testCar.move();
+    assertEquals(true, testCar.getFlatbedAngle() == 0);
+    }
+@Test
+    public void can_not_raise_flathead_while_moving(){
+        testCar.startEngine();
+        testCar.gas(1);
+        testCar.move();
+        testCar.raiseFlatbed();
+        assertEquals(true, testCar.getFlatbedAngle() == 0);
+    }
+
+
+
+
 }

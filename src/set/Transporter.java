@@ -74,6 +74,7 @@ public class Transporter extends Truck{
     // Method to unload cars
     public void unloadCar(Car car){
         if (loadedCars.size() > 0){
+            
             loadedCars.remove(loadedCars.size() - 1);
         }
     }

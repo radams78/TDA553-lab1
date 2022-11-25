@@ -1,0 +1,14 @@
+TJO!
+
+Nästa gång ska vi kika in lite goa grejer:
+
+
+1. Intersectfunktionen ska följa med objektet när move() kallas på. 
+
+2. Intersekt ska implementeras för alla klasser som complements ICanLoadCar.
+
+3. Lasta på/in och av bilar.
+
+4. Eventuellt dela på ICanLoadCar så att metoden loabableVehiclesInCloseVicinity ligger i CarTransporter klassen istället för TransporterPlatform.
+
+5. 

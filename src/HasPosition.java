@@ -53,4 +53,10 @@ public class HasPosition {
         return dY;
     }
 
+    public Vehicle loadableVehiclesInCloseVicinity(ArrayList<Vehicle> listOfVehicles){
+        for(Vehicle vehicle: listOfVehicles){
+            vehicle.
+        }
+    }
+
 }

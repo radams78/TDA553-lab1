@@ -28,9 +28,7 @@ public abstract class Truck extends Vehicle{
         else{
             platformExtended = true;
         }
-    }
-
-        
+    }      
     }
 
     public void retractPlatform(){

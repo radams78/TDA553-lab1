@@ -20,15 +20,6 @@ public class Scania extends Truck{
 
     public void raisePlatform(int angle){
         if (this.platformAngle <= MAX_ANGLE){
-        this.platformAngle += angle;
-        this.extendPlatform();
-        }else{
-            this.platformAngle = MAX_ANGLE;
-        }
-    }
-
-    private void increasePlatformAngle(int angle){
-        if (this.platformAngle <= MAX_ANGLE){
             this.platformAngle += angle;
             this.extendPlatform();
             }else{
@@ -44,5 +35,4 @@ public class Scania extends Truck{
                 this.rectractPlatform();
             }
     }
-
 }

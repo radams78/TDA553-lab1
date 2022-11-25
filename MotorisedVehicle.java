@@ -121,7 +121,7 @@ public class MotorisedVehicle implements Movable {
 
     public void turnLeft() {
         int dirValue = this.direction.getValue();
-        this.direction = Direction.values()[((dirValue - 1) % 4)];
+        this.direction = Direction.values()[(((dirValue - 1) + 4) % 4)];
     }
 
     public void turnRight() {

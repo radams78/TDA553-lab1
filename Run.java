@@ -5,5 +5,6 @@ public class Run {
         myVolvo.startEngine();
         myVolvo.gas(10);
         myVolvo.move();
+        System.out.println((-1)%4);
     }
 }

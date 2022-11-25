@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class CarTransporter extends MotorisedVehicle{
-    
+
     private CarPlatform carPlatform;
     private ArrayList<MotorisedVehicle> loadedVehicles;
     private int maxCapacity;
@@ -11,6 +11,12 @@ public class CarTransporter extends MotorisedVehicle{
         super("Temporary", Color.black, 120, 2);
         this.carPlatform = new CarPlatform();
         this.maxCapacity = maxCapacity;
+    }
+
+    public void load(MotorisedVehicle car) {
+        if (car != this) {
+            this.loadedVehicles.add(car);
+        }
     }
 
     public void raisePlatform() {

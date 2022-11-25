@@ -1,4 +1,4 @@
-public class TipPlatform extends MotorisedVehicle {
+public class TipPlatform {
 
     // ------------------------------------- Variables
     // ----------------------------------------//
@@ -11,7 +11,7 @@ public class TipPlatform extends MotorisedVehicle {
     // ----------------------------------------//
 
     public TipPlatform() {
-        super.
+        
     }
 
     // ------------------------------------- Getters
@@ -22,7 +22,7 @@ public class TipPlatform extends MotorisedVehicle {
     }
 
     public double getCurrentSpeed() {
-
+        
     }
 
     // ------------------------------------- Misc platformAngle

@@ -9,17 +9,6 @@ public class CarTransporter extends Truck{
     }//Constructor
      
     @Override
-    public void extendPlatform(){
-        if (this.getCurrentSpeedX() != 0 || this.getCurrentSpeedY() != 0){
-            throw new IllegalArgumentException("The truck is moving");
-        }
-        else{
-            super.extendPlatform();
-        }
-    }
-
-
-    @Override
     public double speedFactor(){
         return enginePower*0.01;
     }

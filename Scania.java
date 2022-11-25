@@ -1,6 +1,13 @@
-public class Scania {
+import java.awt.*;
+
+public class Scania extends MotorisedVehicle{
     
-   public Scania() {}
+   CarPlatform platform = new CarPlatform();
+   
+   public Scania() {
+      super("Scania", Color.WHITE, 150.0, 3);
+
+   }
 
 
 }

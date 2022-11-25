@@ -1,13 +1,16 @@
 import java.awt.*;
-import java.util.List;
+import java.util.ArrayList;
 
 public class CarTransporter extends MotorisedVehicle{
-    private CarPlatform carPlatform;
-    private List<MotorisedVehicle> loadedVehicles;
     
-    public CarTransporter() {
+    private CarPlatform carPlatform;
+    private ArrayList<MotorisedVehicle> loadedVehicles;
+    private int maxCapacity;
+    
+    public CarTransporter(int maxCapacity) {
         super("Temporary", Color.black, 120, 2);
         this.carPlatform = new CarPlatform();
+        this.maxCapacity = maxCapacity;
     }
 
     public void raisePlatform() {

@@ -1,5 +1,6 @@
 package src;
 import java.awt.*;
+import javax.swing.*;
 
 public abstract class Car extends HasPosition implements Movable {
 
@@ -10,6 +11,7 @@ public abstract class Car extends HasPosition implements Movable {
     private String modelName; // The car model name
     private double turnRightNegative = -1; // To turn right
     private double turnLeftPositive = 1; // To turn left
+    private Rectangle pickupRectangle;
 
     public Car(int nrDoors, double enginePower, Color color, String modelName, int xCoordinate, int yCoordinate) {
         super();
@@ -17,6 +19,10 @@ public abstract class Car extends HasPosition implements Movable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.pickupRectangle.x = xCoordinate;
+        this.pickupRectangle.y = yCoordinate;
+        this.pickupRectangle.height = 20;
+        this.pickupRectangle.width = 10;
     }
 
     @Override

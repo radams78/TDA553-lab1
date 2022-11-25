@@ -13,9 +13,6 @@ public class Scania extends Car{
         flatbed.raise();
     }
 
-
-    
-
     public double speedFactor(){
         return 1.0;
     }

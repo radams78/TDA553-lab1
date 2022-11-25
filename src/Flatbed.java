@@ -23,14 +23,14 @@ abstract class Flatbed extends Car {
 
     public void lowerFlatbed() {
         if (this.getCurrentSpeed() == 0) {
-            flatbedFastened = false;
+            flatbedFastened = true;
         }
 
     }
 
     public void raiseFlatbed() {
         if (this.getCurrentSpeed() == 0) {
-            flatbedFastened = true;
+            flatbedFastened = false;
         }
 
     }

@@ -22,7 +22,15 @@ public abstract class Truck extends Vehicle{
     }
 
     public void extendPlatform(){
-        platformExtended = true;
+        if (this.getCurrentSpeedX() != 0 || this.getCurrentSpeedY() != 0){
+            throw new IllegalArgumentException("The truck is moving");
+        }
+        else{
+            platformExtended = true;
+        }
+    }
+
+        
     }
 
     public void retractPlatform(){

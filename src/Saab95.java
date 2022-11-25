@@ -1,3 +1,4 @@
+package src;
 import java.awt.*;
 
 public class Saab95 extends Car{
@@ -24,20 +25,12 @@ public class Saab95 extends Car{
     }
 
     public void incrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+        double newSpeed = getCurrentSpeed() + speedFactor() * amount;
+        if (newSpeed > getCurrentSpeed()) {setCurrentSpeed(newSpeed);}
     }
 
     public void decrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
-    }
-    
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
+        double newSpeed = getCurrentSpeed() - speedFactor() * amount;
+        if (newSpeed < getCurrentSpeed()) {setCurrentSpeed(newSpeed);}
     }
 }

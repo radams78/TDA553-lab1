@@ -1,0 +1,1 @@
+Tänka och fixa speedFactor och canGas så att det funkar utan duplicate code och ifall vi vill ha flera delegationer på en "bil"

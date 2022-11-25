@@ -34,4 +34,6 @@ public class LiftRamp {
     public void lowerRamp(){
         rampPositionDown = true;
     }
+
+    
 }

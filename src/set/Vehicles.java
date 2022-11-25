@@ -73,6 +73,12 @@ public abstract class Vehicles implements Movable {
 
     // Methods to set values
 
+    // Method to set x and y values for a vehicle
+    public void setCoordinates(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
     // Method to set the current speed of a vehicle, only allows positive values
     // - Otherwise, we throw an exception
     protected void setCurrentSpeed(double speed){

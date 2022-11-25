@@ -8,7 +8,7 @@ package set;
 // ---- Imports ---- //
 
 import java.awt.*;
-import java.util.List;
+import java.util.ArrayList;
 import java.math.*;
 
 // ----- Class ----- //
@@ -16,7 +16,7 @@ import java.math.*;
 public class Transporter extends Truck{
 
     private LiftRamp ramp;
-    private List<Car> loadedCars;
+    private ArrayList<Car> loadedCars;
     private static final int carCapacity = 8;
 
     
@@ -25,6 +25,7 @@ public class Transporter extends Truck{
     public Transporter(int nrDoors, Color color, int enginePower, String modelName){
         super(nrDoors, color, enginePower, modelName);
         this.ramp = new LiftRamp();    
+        loadedCars = new ArrayList<Car>();
     }
 
     // ----- Methods ----- //
@@ -65,17 +66,39 @@ public class Transporter extends Truck{
         double yDistance = Math.pow(Math.abs(car.getY() - this.getY()), 2);
         double distanceToTransporter =  Math.sqrt(xDistance + yDistance);
         
-        if (loadedCars.size() < carCapacity && ramp.rampDown() == true && distanceToTransporter < 15){
+        if (amountOfCarsLoaded() < carCapacity && ramp.rampDown() == true && distanceToTransporter < 15){
+            car.setCoordinates(this.getX(),this.getY());
             loadedCars.add(car);
-            
         }
     }
     
     // Method to unload cars
-    public void unloadCar(Car car){
+    public void unloadCar(){
         if (loadedCars.size() > 0){
             
             loadedCars.remove(loadedCars.size() - 1);
         }
     }
+    
+    // Method overloaded to include moving loaded cars coordinates as well
+    @Override
+    public void move() {
+        super.move();
+        for (Car car: loadedCars){
+            car.setCoordinates(this.getX(), this.getY());
+        }
+    }
+    public int amountOfCarsLoaded(){
+        if (loadedCars.isEmpty()){
+            return 0;
+        } else{
+            return loadedCars.size();
+        }
+        
+    }
+    public boolean getRampPosition(){
+        return ramp.rampDown();
+    }
+    
+        
 }

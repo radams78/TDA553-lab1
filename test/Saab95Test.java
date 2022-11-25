@@ -27,7 +27,7 @@ public class Saab95Test {
     }
 
     @Test
-    public void incrementSpeed_Should_Be_20(){
+    public void incrementSpeed_Difference_Should_Be_20(){
         Saab95 saab95 = new Saab95(4, 2000.0, 0, Color.RED);
         saab95.startEngine(); //This line will have no affect on the result => incrementSpeed() works with any oldCurrentSpeed. You can also use setCurrentSpeed() here.
         double oldCurrentSpeed = saab95.getCurrentSpeed();
@@ -37,7 +37,7 @@ public class Saab95Test {
     }
 
     @Test
-    public void decrementSpeed_Should_Be_Minus_20(){
+    public void decrementSpeed_Difference_Should_Be_Minus_20(){
         Saab95 saab95 = new Saab95(4, 1000.0, 0, Color.BLUE);
         saab95.setCurrentSpeed(100);
         double oldCurrentSpeed = saab95.getCurrentSpeed();

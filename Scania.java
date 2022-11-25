@@ -1,29 +1,45 @@
 import java.awt.Color;
 
-public class Scania extends Car {
+public class Scania extends Truck {
 
-    private double plattformAngle;
-
-    public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName, x, y);
-        
-    }
     
-    public void raisePlattform(){
+    private final static int plattformAngle = 70;
+
+    public Scania() {
+        super(2, 100, 0, Color.BLACK, "Scania Interlink", 0, 0);
         
     }
 
-    public void lowerPlattform(){
-
+    @Override
+    public void incrementSpeed(double amount) {
+        // TODO Auto-generated method stub
+        
     }
 
-    public double getPlattformAngle() {
-        return plattformAngle;
+    @Override
+    public void decrementSpeed(double amount) {
+        // TODO Auto-generated method stub
+        
     }
 
-    public void setPlattformAngle(double plattformAngle) {
-        this.plattformAngle = plattformAngle;
+
+    @Override
+    double speedFactor() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
+    @Override
+    public void plattformUp(int state){
+       
+        this.setPlattformState(Math.min(this.getPlattformState() + state, plattformAngle));
+    }
+
+    @Override
+    public void plattfromDown(int state) {
+       
+        this.setPlattformState(Math.max(this.getPlattformState() - state, 0));
+        
+    }
 
 }

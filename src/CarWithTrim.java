@@ -13,6 +13,5 @@ public class CarWithTrim extends Car {
     @Override
     public double speedFactor(){
         return enginePower * 0.01 * trimFactor;
-    }
-    
+    }   
 }

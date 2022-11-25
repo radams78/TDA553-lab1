@@ -19,5 +19,4 @@ public abstract class CarWithPlatform extends Car {
     }
 
     protected abstract boolean canGas();
-
 }

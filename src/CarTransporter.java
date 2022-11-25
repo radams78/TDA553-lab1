@@ -45,6 +45,4 @@ public class CarTransporter extends CarWithPlatform {
     public boolean isPlatformUp() {
         return platformIsUp;
     }
-
-    
 }

@@ -9,8 +9,4 @@ public class Volvo240 extends CarWithTrim{
         super(4, 100, Color.black, "Volvo240", trimFactor);
 
     }
-
-    //starting to differ
-    
-
 }

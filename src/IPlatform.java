@@ -1,4 +1,5 @@
 package src;
+
 public interface IPlatform {
 
     void raise();

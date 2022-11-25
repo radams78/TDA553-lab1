@@ -4,20 +4,22 @@ import java.util.ArrayList;
 
 public class CarRepairShop implements ICanLoadCar {
 
-    private ArrayList<Car> carsInRepairShop;
+    private ArrayList<Vehicle> carsInRepairShop;
     private int maximumCapacity;
 
+    // Constructor CarRepairShop
     public void CarRepairShop(int maximumCapacity){
         this.maximumCapacity = maximumCapacity;
     }
 
-    public void loadCar(Car car){
+    // Call to load a car in CarRepairShop
+    public void loadCar(Vehicle car){
         if(carsInRepairShop.size() < maximumCapacity){
             carsInRepairShop.add(car);
         }
     }
-
-    public void unloadCar(Car car){
+    // Call 
+    public void unloadCar(Vehicle car){
 
     }
 

@@ -2,7 +2,7 @@ package src;
 import java.awt.*;
 import javax.swing.*;
 
-public abstract class Car extends HasPosition implements Movable {
+public abstract class Vehicle extends HasPosition implements Movable {
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
@@ -11,9 +11,9 @@ public abstract class Car extends HasPosition implements Movable {
     private String modelName; // The car model name
     private double turnRightNegative = -1; // To turn right
     private double turnLeftPositive = 1; // To turn left
-    private Rectangle pickupRectangle;
+    private Rectangle pickupRectangle; // "hitbox" to decide wether vehicles are in the vicinity to be picked up
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName, int xCoordinate, int yCoordinate) {
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int xCoordinate, int yCoordinate) {
         super();
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
@@ -35,9 +35,14 @@ public abstract class Car extends HasPosition implements Movable {
         setCurrentDirectionRadian(turnRightNegative);
     }
 
+
+    // Move-method updates to coordinates for the vehicle and its "hitbox"
     @Override
     public void move() {
         updateCoordinate();
+        this.pickupRectangle.x = (int)getX();
+        this.pickupRectangle.y = (int)getY();
+
     }
 
     public abstract void incrementSpeed(double amount);
@@ -75,6 +80,14 @@ public abstract class Car extends HasPosition implements Movable {
         if(0 <= amount && amount <= 1){
             decrementSpeed(amount);
         }
+    }
+
+    public boolean isVehicleCurrentSpeedZero(){
+        if(this.currentSpeed == 0.0){
+            return true;
+        }
+        else return false;
+
     }
 
     // framtidens bekymmer nedan

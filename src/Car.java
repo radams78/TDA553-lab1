@@ -1,6 +1,5 @@
 package src;
 import java.awt.*;
-import static java.lang.Math.round;
 
 abstract class Car implements Movable {
     private int nrDoors; // Number of doors on the car
@@ -30,13 +29,12 @@ abstract class Car implements Movable {
     }
 
     public void move() {
-        int speed = (int)round(currentSpeed);
 
         switch(direction) {
-            case UP: posy += speed; break;
-            case LEFT: posx -= speed; break;
-            case DOWN: posy -= speed; break;
-            case RIGHT: posx += speed; break;
+            case UP: posy += currentSpeed; break;
+            case LEFT: posx -= currentSpeed; break;
+            case DOWN: posy -= currentSpeed; break;
+            case RIGHT: posx += currentSpeed; break;
         }
     }
 

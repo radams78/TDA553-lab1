@@ -35,13 +35,6 @@ public class CarTransporter extends CarWithPlatform {
         return 1;
     }
 
-    @Override
-    public void gas(double amount) {
-        if(canGas()) {
-            super.gas(amount);
-        }
-    }
-
     public boolean isPlatformUp() {
         return platformIsUp;
     }

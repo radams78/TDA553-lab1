@@ -12,7 +12,6 @@ public abstract class Car {
     public Position position;
     private boolean isLoaded = false;
     
-
     public Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;

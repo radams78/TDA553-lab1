@@ -1,19 +1,29 @@
 package src;
 import java.awt.*;
 
-public abstract class CarWithTurbo extends Car{
+public class CarWithTurbo{
 
     protected boolean turboOn;
 
-    public CarWithTurbo(int nrDoors, double enginePower, Color color, String modelName, boolean turboOn) {
-        super(nrDoors, enginePower, color, modelName);
+    public CarWithTurbo(boolean turboOn){
         this.turboOn = turboOn;
     }
 
-    @Override
-    public double speedFactor(){
+    public double speedFactor(double enginePower){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return enginePower * 0.01 * turbo;
+    }
+
+    public void setTurboOn(){
+	    turboOn = true;
+    }
+
+    public void setTurboOff(){
+	    turboOn = false;
+    }
+    
+    public boolean isTurboOn() {
+        return turboOn;
     }
 }

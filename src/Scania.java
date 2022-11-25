@@ -32,13 +32,6 @@ public class Scania extends CarWithPlatform {
         return platformAngle == 0;
     }
 
-    @Override
-    public void gas(double amount) {
-        if(canGas()) {
-            super.gas(amount);
-        }
-    }
-
     public double getPlatformAngle() {
         return platformAngle;
     }

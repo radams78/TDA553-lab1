@@ -1,37 +1,25 @@
 import java.awt.Color;
 
-public abstract class Truck extends Vehicle {
+public abstract class Truck extends Vehicle{
 
-    private int plattformState;
+    private Plattform plattform;
+    private boolean ableToMove;
 
-    public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y) {
+    public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y, Plattform 
+    plattformType) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, x, y);
+        
+        plattform = plattformType;
 
-        this.plattformState = 0;
     }
 
-    abstract void plattformUp(int state);
-
-    abstract void plattfromDown(int state);
-
-    public int getPlattformState() {
-        return plattformState;
-    }
-
-    public void setPlattformState(int plattformState){
-
-
-        if (this.getCurrentSpeed() > 0){
-            System.out.println("Cant change plattformstate while moving");
-        }
-        else{
-        this.plattformState = plattformState;
-        }
+    public void setAbleToMove(Boolean ableToMove) {
+        this.ableToMove = ableToMove;
     }
 
     public void move() {
-        if (this.getPlattformState() > 0){
-            System.out.println("Cant drive while plattform i raised");
+        if (!ableToMove){
+            System.out.println("Cant drive with the current state of the plattform");
         }
         else{
         startEngine();

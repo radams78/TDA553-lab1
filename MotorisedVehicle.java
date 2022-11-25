@@ -74,6 +74,15 @@ public class MotorisedVehicle implements Movable {
     public void setColor(Color color) { 
         this.body.setColor(color);
     }
+
+    public void setXPos(double x) {
+        this.x = x;
+    }
+
+    public void setYPos(double y) {
+        this.y = y;
+    }
+
     
      //------------------------------------- Handle speed ----------------------------------------//
     public double speedFactor() {

@@ -1,0 +1,7 @@
+1. Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+
+During Task 1 there was a few ways to go about choosing what superclasses and subclasses to use. The main idea was to have one superclass that our cars Volvo240 and Saab95 could inherit from. We chose that naming the class Car was appropriate as both Volvo and Saab are type of cars. After that there was the idea of adding additional subclasses for trimmable cars or cars that had turbo. But we couldn't find a good way of making a Car have both of those features and after checking with classmates we decided to just make individual changes for both Saab and Volvo. The methods and attributes equal to Volvo and Saab were put in the class Car. The reason for that is to reduce code duplication and make it simple to add new Cars. Every attribute of Car is private and can only be retrieved with getters and modified with setters.
+
+2. Explain how you implemented each of the sanity checks in Task 4.
+
+All the sanity checks were added with if-statements. The gas() and brake() methods first run an if statement to check if the argument is between [0, 1], if it's not the method throws an error. Almost the same goes for currentSpeed except that there's not an error thrown, instead setCurrentSpeed(speed) is just not run if speed > currentSpeed. Gas and Break may never cause the speed to decrease respectively increase as the newSpeed needs to be appropriate for it to get set to the new speed. 

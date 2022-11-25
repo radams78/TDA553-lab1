@@ -17,6 +17,7 @@ public abstract class Truck extends Vehicle{
         this.ableToMove = ableToMove;
     }
 
+    @Override
     public void move() {
         if (!ableToMove){
             System.out.println("Cant drive with the current state of the plattform");

@@ -70,6 +70,8 @@ public abstract class Vehicle implements Movable{
 	    currentSpeed = 0;
     }
 
+    abstract void move();
+
     abstract double speedFactor();
 
     abstract void incrementSpeed(double amount);
@@ -151,7 +153,6 @@ public abstract class Vehicle implements Movable{
             this.currentDirection = 0;
         }
     }
-  
 
 }
 

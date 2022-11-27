@@ -1,5 +1,3 @@
-
-
 public class CarRepairShop{
 
     private Car[] cars;

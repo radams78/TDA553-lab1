@@ -1,11 +1,14 @@
-public interface Plattform {
+public abstract class Plattform {
     
-    public void plattformUp(int state);
+    public int plattformState;
 
-    public void plattfromDown(int state);
+    abstract void plattformUp(int state);
 
-    public void setPlattformState(int plattformState);
+    abstract void plattfromDown(int state);
 
-    public int getPlattformState();
+    abstract void setPlattformState(int plattformState);
 
+    public int getPlattformState() {
+        return plattformState;
+    }
 }

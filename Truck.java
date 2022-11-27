@@ -2,7 +2,8 @@ import java.awt.Color;
 
 public abstract class Truck extends Vehicle{
 
-    private Plattform plattform;
+    
+    static Plattform plattform;
     private boolean ableToMove;
 
     public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y, Plattform 

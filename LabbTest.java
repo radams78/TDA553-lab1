@@ -1,3 +1,4 @@
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
@@ -76,6 +77,8 @@ public class LabbTest {
             volvo.gas(-1);
         });
     }
+
+    
 
   
 }

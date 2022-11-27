@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class CarTransportPlattform implements Plattform{
+public class CarTransportPlattform extends Plattform{
 
     private Boolean ableToLoad;
     private int capacity;
@@ -13,26 +13,39 @@ public class CarTransportPlattform implements Plattform{
 
     @Override
     public void plattformUp(int state) {
-        // TODO Auto-generated method stub
-        
+
+        this.setPlattformState(1);
+        this.ableToLoad = false;
     }
 
     @Override
     public void plattfromDown(int state) {
-        // TODO Auto-generated method stub
-        
+
+        this.setPlattformState(0);
+        this.ableToLoad = true;
+    }
+
+    public Boolean getAbleToLoad() {
+        return ableToLoad;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public LinkedList<Car> getCars() {
+        return cars;
     }
 
     @Override
-    public void setPlattformState(int plattformState) {
-        // TODO Auto-generated method stub
+    void setPlattformState(int plattformState) {
+        if (plattformState > 1 || plattformState < 0){
+            System.out.println("Only accepts values between 1 or 0");;
+        }
+        else {
+            this.plattformState = plattformState;
+        }
         
-    }
-
-    @Override
-    public int getPlattformState() {
-        // TODO Auto-generated method stub
-        return 0;
     }
 
 }

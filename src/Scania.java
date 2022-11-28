@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Scania extends Flatbed{
+public class Scania extends Truck{
     int flatbedAngle;
     final int max_flatbed_angle;
     
@@ -8,6 +8,7 @@ public class Scania extends Flatbed{
         super(2,70, Color.orange, "Scania");
         flatbedAngle = 0;
         max_flatbed_angle = 70;
+        FlatbedWithAngle flatbed = new Flatbed();
     }
     
     @Override

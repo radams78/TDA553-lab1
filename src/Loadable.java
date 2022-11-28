@@ -17,6 +17,7 @@ public class Loadable {
             loadedCars.add(car);
             }
         }
+        
 
     public void unloadLatestCar(Car other){
         Car carToUnload = loadedCars.get(loadedCars.size() - 1);

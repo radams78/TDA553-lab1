@@ -1,11 +1,8 @@
-import java.awt.*;
-
-public class Cartransporter extends Flatbed{
-
+public class CarRepairShop{
     Loadable loadedCars;
-    public Cartransporter(){
-        super(2,70, Color.yellow, "Cartransporter");
-            flatbedFastened = true;
+    public CarRepairShop(){
+            int x = x;
+            int y = y;
             loadedCars = new Loadable(6);
             
         }

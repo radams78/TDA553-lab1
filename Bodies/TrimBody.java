@@ -9,4 +9,8 @@ public class TrimBody extends Body{
     public double getTrimFactor(){
         return this.trimFactor;
     }
+    @Override
+    public String toString() {
+        return "TrimBody [modelName=" + this.getModelName() + ", color=" + this.getColor() + "trimFactor=" + trimFactor + "]";
+    }
 }

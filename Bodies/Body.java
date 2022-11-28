@@ -49,5 +49,10 @@ public class Body {
         this.nrDoors = nrDoors;
     }
 
+    @Override
+    public String toString() {
+        return "Body [modelName=" + modelName + ", color=" + color + "]";
+    }
+
 
 }

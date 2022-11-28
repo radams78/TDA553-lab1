@@ -49,11 +49,11 @@ public class MotorisedVehicle implements Movable {
         return this.body.getColor();
     }
 
-    public double getXPos() { 
+    public double getX() { 
         return this.x;
     }
 
-    public double getYPos() {
+    public double getY() {
         return this.y;
     }
 
@@ -147,4 +147,10 @@ public class MotorisedVehicle implements Movable {
         }
     }
 
+    @Override
+    public String toString() {
+        return "MotorisedVehicle [engine=" + engine + ", body=" + body + ", currentSpeed=" + currentSpeed + ", x=" + x
+                + ", y=" + y + "]";
+    }
+    
 }

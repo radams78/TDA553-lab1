@@ -38,8 +38,8 @@ public class CarTransporter extends MotorisedVehicle{
         if (!this.carPlatform.isPlatformDown()) {
             super.move();
             for (int i = 0; i < loadedVehicles.size() - 1; i++) { // Update positions of loaded vehicles
-                loadedVehicles.get(i).setXPos(this.getXPos());
-                loadedVehicles.get(i).setYPos(this.getYPos());
+                loadedVehicles.get(i).setXPos(this.getX());
+                loadedVehicles.get(i).setYPos(this.getY());
             }
         }
     }

@@ -11,4 +11,8 @@ public class Engine {
     public void setEnginePower(double enginePower){
         this.power = enginePower;
     }
+    @Override
+    public String toString() {
+        return "Engine : " + power;
+    }
 }

@@ -134,7 +134,7 @@ Cartransporter testCar = new Cartransporter();
     testCar.startEngine();
     testCar.gas(1);
     testCar.move();
-    assertEquals(true, testCar.getY() != 0 || testCar.getX() != 0);
+    assertEquals(true, testCar.getY() == 0 && testCar.getX() == 0);
     }
     @Test
     public void can_load_car_when_load_is_empty_and_is_in_range(){

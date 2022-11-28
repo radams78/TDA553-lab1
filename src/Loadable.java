@@ -12,14 +12,14 @@ public class Loadable {
         return loadedCars.size();
     }
 
-    public void loadCar(Car car, Car other){
+    public void loadCar(Car car, Vehicle other){
         if(loadedCars.size() < capacity && distanceToCar(car, other) < 15){
             loadedCars.add(car);
             }
         }
         
 
-    public void unloadLatestCar(Car other){
+    public void unloadLatestCar(Vehicle other){
         Car carToUnload = loadedCars.get(loadedCars.size() - 1);
         int index = loadedCars.size() - 1;
         loadedCars.remove(index);
@@ -27,7 +27,7 @@ public class Loadable {
         carToUnload.setX(other.getX()+5);
     }
 
-    public double distanceToCar(Car car, Car other){
+    public double distanceToCar(Car car, Vehicle other){
         double yDiff = Math.pow(Math.abs(other.getY() - car.getY()),2);
         double xDiff = Math.pow(Math.abs(other.getX() - car.getX()),2);
         double dist = Math.sqrt(xDiff+yDiff);

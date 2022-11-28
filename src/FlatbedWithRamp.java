@@ -1,27 +1,14 @@
-import java.awt.*;
-
 public class FlatbedWithRamp {
-    boolean flatbedFastened;
 
-    public FlatbedWithRamp() {
-        flatbedFastened = true;
-    }
-
-    public void setFlatbedFastened(boolean status) {
-            flatbedFastened = status;
-    }
-
-    public void lowerFlatbed() {
-        if (this.getCurrentSpeed() == 0) {
-            flatbedFastened = true;
+    public void lowerFlatbed(TruckWithFlatbed other) {
+        if (other.getCurrentSpeed() == 0) {
+            other.flatbedFastened = true;
         }
-
     }
 
-    public void raiseFlatbed() {
-        if (this.getCurrentSpeed() == 0) {
-            flatbedFastened = false;
+    public void raiseFlatbed(TruckWithFlatbed other) {
+        if (other.getCurrentSpeed() == 0) {
+            other.flatbedFastened = false;
         }
-
     }
 }

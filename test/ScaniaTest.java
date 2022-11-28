@@ -142,7 +142,7 @@ Scania testCar = new Scania();
     testCar.startEngine();
     testCar.gas(1);
     testCar.move();
-    assertEquals(true, testCar.getFlatbedAngle() == 0);
+    assertEquals(true, testCar.scaniaFlatbed.getFlatbedAngle() == 0);
     }
 @Test
     public void can_not_raise_flathead_while_moving(){
@@ -150,10 +150,6 @@ Scania testCar = new Scania();
         testCar.gas(1);
         testCar.move();
         testCar.raiseFlatbed();
-        assertEquals(true, testCar.getFlatbedAngle() == 0);
+        assertEquals(true, testCar.scaniaFlatbed.getFlatbedAngle() == 0);
     }
-
-
-
-
 }

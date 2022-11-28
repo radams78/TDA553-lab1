@@ -6,14 +6,15 @@ public class AnglePlatform implements IPlatform {
     public int platformCapacity;
     public int loadOnPlatform;
 
-    /*  Constructor AnglePlatform.
-        Expects platformCapacity argument. */
+    /** Constructor AnglePlatform.
+        platformCapacity will be set to received argument.
+        Argument must be positive. */
     public AnglePlatform(int platformCapacity){ 
         this.platformAngle = 0.0;
         this.platformCapacity = platformCapacity;
     }
 
-    /*  Call this method to raise platformAngle.
+    /** Call this method to raise platformAngle.
         Platform can not be raised more than 70 degrees. */
     public void raise(){
         if (this.platformAngle < 70.0){
@@ -24,7 +25,7 @@ public class AnglePlatform implements IPlatform {
         }
 
     }
-    /*  Call this method to lower the platformAngle.
+    /** Call this method to lower the platformAngle.
         Platform can not be lowered more than 0 degrees */
     public void lower(){
         if (this.platformAngle > 0.0){

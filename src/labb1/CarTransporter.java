@@ -5,8 +5,8 @@ import java.awt.*;
 public class CarTransporter extends Truck{
 
 
-    public CarTransporter(Color color, double  x, double y, double dirX, double dirY, int maxLoad){
-        super(color, 500, "SOME CAR TRANSPORTER,", x, y, dirX, dirY, maxLoad);
+    public CarTransporter(Color color, int enginePower, String modelName, double x, double y, double dirX, double dirY, int maxLoad, int maxNrOfCars){
+        super(color, 500, "Ford", x, y, dirX,  dirY, "flatbed", 100, maxNrOfCars);
     }//Constructor
      
     @Override

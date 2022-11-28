@@ -1,6 +1,5 @@
 package labb1;
 
-
 public class Dumper extends Trailer{
     private int platformAngle;
     private final int MIN_EXTENSION_ANGLE;

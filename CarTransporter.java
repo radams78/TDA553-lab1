@@ -6,26 +6,19 @@ public class CarTransporter extends Truck {
 
     public CarTransporter() {
         super(2, 100, 0, Color.BLACK, "Car Transporter", 0, 0,
-         new CarTransportPlattform(10));
+         new CarTransportPlattform());
     }
 
 
     @Override
-    public void incrementSpeed(double amount) {
-        // TODO Auto-generated method stub
+    public Boolean isAbleToMove() {
+        if (plattform.getPlattformState() == 1){
+            return false;
+        }
+        else {
+            return true;
+        }
         
-    }
-
-    @Override
-    public void decrementSpeed(double amount) {
-        
-    }
-
-    
-    @Override
-    public double speedFactor() {
-        // TODO Auto-generated method stub
-        return 0;
     }
 
 

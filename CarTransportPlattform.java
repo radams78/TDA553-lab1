@@ -1,14 +1,15 @@
-import java.util.LinkedList;
 
-public class CarTransportPlattform extends Plattform{
+
+public class CarTransportPlattform implements Plattform{
 
     private Boolean ableToLoad;
-    private int capacity;
-    private LinkedList<Car> cars;
+    private int plattformState;
+    private LoadFunktion load;
     
-    public CarTransportPlattform(int capacity){
-
-        this.capacity = capacity;
+    public CarTransportPlattform(){
+        load = new LoadFunktion(10);
+        this.plattformState = 0;
+        this.ableToLoad = true;
     }
 
     @Override
@@ -23,22 +24,15 @@ public class CarTransportPlattform extends Plattform{
 
         this.setPlattformState(0);
         this.ableToLoad = true;
+        
     }
 
     public Boolean getAbleToLoad() {
         return ableToLoad;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public LinkedList<Car> getCars() {
-        return cars;
-    }
-
     @Override
-    void setPlattformState(int plattformState) {
+    public void setPlattformState(int plattformState) {
         if (plattformState > 1 || plattformState < 0){
             System.out.println("Only accepts values between 1 or 0");;
         }
@@ -46,6 +40,11 @@ public class CarTransportPlattform extends Plattform{
             this.plattformState = plattformState;
         }
         
+    }
+
+    @Override
+    public int getPlattformState() {
+        return plattformState;
     }
 
 }

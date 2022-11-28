@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class Scania extends Truck {
+public class Scania extends Truck{
 
 
 
@@ -10,22 +10,15 @@ public class Scania extends Truck {
         
     }
 
-    @Override
-    double speedFactor() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
 
     @Override
-    void incrementSpeed(double amount) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    void decrementSpeed(double amount) {
-        // TODO Auto-generated method stub
-        
+    public Boolean isAbleToMove() {
+        if (plattform.getPlattformState() == 0){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 

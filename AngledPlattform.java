@@ -1,6 +1,8 @@
-public class AngledPlattform extends Plattform{
+
+public class AngledPlattform implements Plattform{
 
     private int maxPlattformAngle;
+    private int plattformState;
 
     public AngledPlattform(int maxPlattformAngle){
 
@@ -22,7 +24,7 @@ public class AngledPlattform extends Plattform{
     }
 
     @Override
-    void setPlattformState(int plattformState) {
+    public void setPlattformState(int plattformState) {
         if ((plattformState > maxPlattformAngle) || (plattformState < maxPlattformAngle)){
             System.out.println("Only accepts value between 0 and " + maxPlattformAngle);
         }
@@ -30,6 +32,12 @@ public class AngledPlattform extends Plattform{
         else {
             this.plattformState = plattformState;
         }
+    }
+
+    @Override
+    public int getPlattformState() {
+        
+        return plattformState;
     }    
 
 }

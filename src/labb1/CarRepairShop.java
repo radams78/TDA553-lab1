@@ -17,4 +17,8 @@ public class CarRepairShop {
     public Movable unload(Car car){
         return loadable.unload(car);
     }
+
+    public String getName(){
+        return name;
+    }
 }

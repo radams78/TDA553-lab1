@@ -9,8 +9,8 @@ public class Scania extends Truck{
     private int platformAngle;
 
 // }
-    public Scania(Color color, double x, double y, double dirX, double dirY, int maxLoad){
-        super(color, 770, "Scania", x, y, dirX, dirY, maxLoad);
+    public Scania(Color color, double x, double y, double dirX, double dirY){
+        super(color, 770, "Scania", x, y, dirX, dirY, 300);
         this.platformAngle = 0;
     }//Constructor
 

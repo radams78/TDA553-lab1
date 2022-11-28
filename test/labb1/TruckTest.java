@@ -11,7 +11,7 @@ import java.awt.*;
 public class TruckTest {
     @Test
     public void scania_is_subtype_of_truck(){
-        Scania scania = new Scania(Color.yellow, 2, 3, 1, 1, 300);
+        Scania scania = new Scania(Color.yellow, 2, 3, 1, 1);
 
         assert(scania instanceof Truck);
 

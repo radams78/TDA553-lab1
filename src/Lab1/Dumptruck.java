@@ -1,11 +1,11 @@
 package Lab1;
 
-public class Flatbed implements Trailer {
+public class Dumptruck implements Trailer {
     private double currAngle = 0d;
     private double maxAngle = 70d;
     private double minAngle = 0d;
 
-    public Flatbed(double maxAngle, double minAngle) {
+    public Dumptruck(double maxAngle, double minAngle) {
         this.maxAngle = maxAngle;
         this.minAngle = minAngle;
     }
@@ -33,14 +33,6 @@ public class Flatbed implements Trailer {
 
     public void decreaseAngle(double amount) {
         setCurrAngle(getcurrAngle() - amount);
-    }
-
-    public double getMaxAngle() {
-        return maxAngle;
-    }
-
-    public double getminAngle() {
-        return minAngle;
     }
 
     public Boolean allowDriving() {

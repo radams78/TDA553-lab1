@@ -1,47 +1,29 @@
 package labb1;
-
 import java.awt.*;
 
 //*Abstract class for any truck. Truck must have a max load . */
 public abstract class Truck extends Vehicle{
-    private int maxLoad;
-    private Boolean platformExtended;
-    public Truck(Color color, double enginePower, String modelName, double  x, double y, double dirX, double dirY, int maxLoad){
-        super(2, color, enginePower, modelName,   x,  y, dirX,  dirY);
-        this.maxLoad = maxLoad;
-        this.platformExtended = false;
-    }
+    private Trailer trailer;
+    private Dumper dumper;
+    //private flatbed flatbed;
 
-    // Returns max load 
-    public int getMaxLoad(){
-        return maxLoad;
-    }
+    public Truck(Color color, int enginePower, String modelName, double  x, double y, double dirX, double dirY, String trailerType, int maxLoad, int minExtensionAngle, int maxExtensionAngle){
+        super(2, color, enginePower, modelName, x, y, dirX, dirY);
+        if (trailerType.equals("dumper")){
+            dumper = new Dumper(maxLoad, minExtensionAngle, maxExtensionAngle);
+            trailer = dumper;
 
-    // Returns true if the platsform is extended 
-    public Boolean isPlatformExtended(){
-        return platformExtended;
-    }
-
-    // Sets the platsform to extended
-    public void extendPlatform(){
-        if (this.getCurrentSpeedX() != 0 || this.getCurrentSpeedY() != 0){
-            throw new IllegalArgumentException("The truck is moving");
+        } /*else if (trailerType.equals("flatbed")){
+            flatbed = new flatbed(maxLoad);
+            trailer = flatbed;
         }
-        else{
-            platformExtended = true;
-        }
-    }//extendPlatform()
-    
-
-    //sets platasform extended to false
-    public void retractPlatform(){
-        platformExtended = false;
+        */
     }
     
     @Override
-    //Overrides th evehicle gas method to do a check for if the platform is extended
+    //Overrides the evehicle gas method to do a check for if the platform is extended
     public void gas(double amount){
-        if (platformExtended){
+        if (trailer.getPlatformExtended()){
             throw new IllegalArgumentException("Hey stop");
         }else{
             super.gas(amount);

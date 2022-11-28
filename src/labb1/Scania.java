@@ -8,8 +8,8 @@ public class Scania extends Truck{
     private int platformAngle;
 
 // }
-    public Scania(Color color, int enginePower, String modelName, double x, double y, double dirX, double dirY, int maxLoad){
-        super(color, enginePower, modelName, x, y, dirX, dirY, maxLoad);
+    public Scania(Color color, double x, double y, double dirX, double dirY, int maxLoad){
+        super(color, 770, "Scania", x, y, dirX, dirY, maxLoad);
         this.platformAngle = 0;
     }
 
@@ -18,13 +18,14 @@ public class Scania extends Truck{
         return enginePower * 0.01;
     }
 
-    public void raisePlatform(int angle){
-        if (this.platformAngle <= MAX_ANGLE){
+    public void raisePlatform(int angle){ //extendPlatform tests if the truck is moving, if it isn't then extend platform otherwise do nothing(Truck will trow exception). 
+        this.extendPlatform(); 
+        if (this.platformAngle <= MAX_ANGLE && this.isPlatformExtended()){
             this.platformAngle += angle;
-            this.extendPlatform();
             }else{
                 this.platformAngle = MAX_ANGLE;
             }
+
     }
 
     public void lowerPlatform(int angle){
@@ -32,7 +33,7 @@ public class Scania extends Truck{
             this.platformAngle -= angle;
             }else{
                 this.platformAngle = MIN_ANGLE;
-                this.rectractPlatform();
+                this.retractPlatform();
             }
     }
 }

@@ -1,6 +1,6 @@
 package Lab1;
 
-public interface Trailer {
-    public Boolean allowDriving();
+public abstract class Trailer {
+    public abstract Boolean allowDriving();
 
 }

@@ -10,8 +10,9 @@ import org.junit.jupiter.api.*;
 public class ScaniaTest {
     @Test
     public void raising_platform_should_not_be_more_than_maxAngle() {
-        Scania scania = new Scania(2, 100, 0, Color.GREEN, "Scania", 0);
-        scania.raisePlatform(100);
+        Scania scania = new Scania(2, 100, 0, Color.GREEN, "Scania", 8);
+        scania.setTrailer(new Dumptruck(70, 0));
+        scania.trailer.increaseAngle(100);
         assertEquals(scania.getMaxAngle(), scania.getPlatformAngle());
 
     }

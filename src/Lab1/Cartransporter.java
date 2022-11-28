@@ -1,6 +1,6 @@
 package Lab1;
 
-public class Cartransporter implements Trailer {
+public class Cartransporter extends Trailer {
     private Boolean extendedRamp;
 
     public Cartransporter(Boolean extendedRamp) {

@@ -7,5 +7,14 @@ public class CarRepairShop {
         this.loadable = new Loadable(max_capacity, x, y);
         this.name = name; 
     }
-}
 
+    public void load(Car car){
+        loadable.load(car);
+    }   
+
+
+    //Todo fix this
+    public Movable unload(Car car){
+        return loadable.unload(car);
+    }
+}

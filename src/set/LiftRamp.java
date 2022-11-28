@@ -21,7 +21,7 @@ public class LiftRamp {
     // ----- Methods ----- //
 
     // Method to get the position of the ramp
-    public boolean rampDown(){
+    public boolean getRampPositionDown(){
         return rampPositionDown;
     }
 

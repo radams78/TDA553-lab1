@@ -20,17 +20,14 @@ public class Scania extends Truck{
 
     // --- Constructor --- //
 
-    public Scania(int nrDoors, Color color, int enginePower, String modelName){
+    public Scania(int nrDoors, Color color, int enginePower, String modelName, int maxAngle){
         super(nrDoors, color, enginePower, modelName);
-        this.ramp = new AngleRamp();
+        this.ramp = new AngleRamp(maxAngle);
     }
 
     // ---- Methods ---- //
 
-    @Override
-    protected double speedFactor() {
-        return getEnginePower() * 0.01;
-    }        
+    
 
     // Method to raise Scania object's ramp
     // - Note that this is only allowed while current speed is 0
@@ -48,9 +45,12 @@ public class Scania extends Truck{
         }
     }
 
+    public int getRampPosition() {
+        return ramp.getAngle();
+    }
+
     @Override
     public void gas(double amount) {
         if (ramp.getAngle() == 0) super.gas(amount);
-        
     }
 }

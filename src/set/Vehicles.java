@@ -33,8 +33,6 @@ public abstract class Vehicles implements Movable {
         this.enginePower = enginePower;
         this.modelName = modelName;
         this.stopEngine();
-        
-
     }
     
     // --- Methods --- //

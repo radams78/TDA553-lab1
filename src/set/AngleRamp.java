@@ -11,11 +11,13 @@ package set;
 public class AngleRamp {
     private int rampAngle;
     private static final int angleSpeed = 15;
+    private int maxAngle;
     
     // --- Constructor --- //
 
-    public AngleRamp(){
+    public AngleRamp(int maxAngle){
         rampAngle = 0;
+        this.maxAngle = maxAngle;
     }
 
 
@@ -29,8 +31,8 @@ public class AngleRamp {
     // Method to raise the ramp's angle based on angleSpeed 
     public void raiseRamp(){
         rampAngle +=  angleSpeed;
-        if (rampAngle > 70){
-            rampAngle = 70;
+        if (rampAngle > maxAngle){
+            rampAngle = maxAngle;
         }
     }
 

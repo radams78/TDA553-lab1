@@ -10,30 +10,27 @@ package set;
 import java.awt.*;
 import java.util.ArrayList;
 import java.math.*;
+import set.Loadable;
 
 // ----- Class ----- //
 
 public class Transporter extends Truck{
 
     private LiftRamp ramp;
-    private ArrayList<Car> loadedCars;
-    private static final int carCapacity = 8;
+    private Loadable loadingSpace;
 
     
     // --- Constructor --- //
     
-    public Transporter(int nrDoors, Color color, int enginePower, String modelName){
+    public Transporter(int nrDoors, Color color, int enginePower, String modelName, int carCapacity){
         super(nrDoors, color, enginePower, modelName);
         this.ramp = new LiftRamp();    
-        loadedCars = new ArrayList<Car>();
+        loadingSpace = new Loadable(carCapacity);
     }
 
     // ----- Methods ----- //
 
-    @Override
-    protected double speedFactor() {
-        return getEnginePower() * 0.01;
-    }
+    
 
     // Method to raise Transporter object's ramp
     // - Note that this is only allowed while current speed is 0
@@ -53,7 +50,7 @@ public class Transporter extends Truck{
 
     @Override
     public void gas(double amount) {
-        if (ramp.rampDown() == false) super.gas(amount);
+        if (ramp.getRampPositionDown() == false) super.gas(amount);
     }        
 
     // Method to load cars
@@ -62,42 +59,34 @@ public class Transporter extends Truck{
     //   > Transporter's ramp is down
     //   > Distance to transporter is below 15m
     public void loadCar(Car car){
-        double xDistance = Math.pow(Math.abs(car.getX() - this.getX()), 2);
-        double yDistance = Math.pow(Math.abs(car.getY() - this.getY()), 2);
-        double distanceToTransporter =  Math.sqrt(xDistance + yDistance);
-        
-        if (amountOfCarsLoaded() < carCapacity && ramp.rampDown() == true && distanceToTransporter < 15){
+        if (ramp.getRampPositionDown() == true){
             car.setCoordinates(this.getX(),this.getY());
-            loadedCars.add(car);
+            loadingSpace.loadCar(car, this.getX(), this.getY());
         }
     }
     
     // Method to unload cars
     public void unloadCar(){
-        if (loadedCars.size() > 0){
-            
-            loadedCars.remove(loadedCars.size() - 1);
-        }
+        loadingSpace.unloadCar();
     }
     
     // Method overloaded to include moving loaded cars coordinates as well
     @Override
     public void move() {
         super.move();
-        for (Car car: loadedCars){
+        for (Car car: loadingSpace.getListOfCars()){
             car.setCoordinates(this.getX(), this.getY());
         }
     }
-    public int amountOfCarsLoaded(){
-        if (loadedCars.isEmpty()){
-            return 0;
-        } else{
-            return loadedCars.size();
-        }
-        
-    }
+    
+    // Method to get ramp position
     public boolean getRampPosition(){
-        return ramp.rampDown();
+        return ramp.getRampPositionDown();
+    }
+
+    // Method to get amount of cars loaded
+    public int getAmountOfCarsLoaded(){
+        return loadingSpace.getAmountOfCarsLoaded();
     }
     
         

@@ -29,13 +29,13 @@ public class LiftRampTest {
     @Test
     public void rampPositionDown_should_be_false_after_raiseRamp() {
         liftRamp.raiseRamp();
-        assertTrue(liftRamp.rampDown() == false);
+        assertTrue(liftRamp.getRampPositionDown() == false);
     }
 
     @Test
     public void rampPositionDown_should_be_true_after_lowerRamp() {
         liftRamp.lowerRamp();
-        assertTrue(liftRamp.rampDown() == true);
+        assertTrue(liftRamp.getRampPositionDown() == true);
     }
 
 }

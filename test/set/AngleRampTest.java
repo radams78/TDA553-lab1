@@ -18,11 +18,11 @@ import java.awt.*;
 
 public class AngleRampTest {
     
-    private AngleRamp angleRamp = new AngleRamp();
+    private AngleRamp angleRamp = new AngleRamp(70);
     
     @Before
     public void reset_ramp(){
-        angleRamp = new AngleRamp();
+        angleRamp = new AngleRamp(70);
     }
 
     @Test

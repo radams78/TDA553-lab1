@@ -42,7 +42,14 @@ public class Scania extends Car {
 
     public void lowerPlatform(double amount) {
         setPlatformAngle(getPlatformAngle() - amount);
+    }
 
+    public double getMaxangle() {
+        return maxAngle;
+    }
+
+    public double getLowestAngle() {
+        return lowestAngle;
     }
 
     @Override

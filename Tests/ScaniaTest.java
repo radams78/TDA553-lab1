@@ -34,9 +34,9 @@ public class ScaniaTest {
         testScania.raisePlatform(20);
         assertEquals(0, testScania.getPlatformAngle());
         testScania.move();
-        assertEquals(1.05, testScania.getYPos(), 0.001);
+        assertEquals(1.05, testScania.getY(), 0.001);
         testScania.turnLeft();
         testScania.move();
-        assertEquals(-1.05, testScania.getXPos(), 0.001);
+        assertEquals(-1.05, testScania.getX(), 0.001);
     }
 }

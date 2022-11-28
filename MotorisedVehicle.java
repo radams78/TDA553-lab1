@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.lang.Math;
 
 public class MotorisedVehicle implements Movable {
 
@@ -12,6 +13,15 @@ public class MotorisedVehicle implements Movable {
 
     public MotorisedVehicle(String modelName, Color color, double enginePower, int nrDoors) {
         this.engine = new Engine(enginePower);
+        this.body = new Body(modelName, color, nrDoors);
+        this.stopEngine();
+        this.x = 0;
+        this.y = 0;
+        this.direction = Direction.NORTH;
+    }
+
+    public MotorisedVehicle(String modelName, Color color, Engine engine, int nrDoors){
+        this.engine = engine;
         this.body = new Body(modelName, color, nrDoors);
         this.stopEngine();
         this.x = 0;
@@ -61,6 +71,10 @@ public class MotorisedVehicle implements Movable {
         return this.direction;
     }
 
+    public double getDistance(double x, double y) {
+        return Math.sqrt((Math.pow((x - this.x), 2)) + Math.pow((y - this.y), 2));
+    }
+
    //------------------------------------- Setters----------------------------------------//
     public void setEnginePower(double enginePower) { // Might be unnecessary
         this.engine.setEnginePower(enginePower);
@@ -68,18 +82,17 @@ public class MotorisedVehicle implements Movable {
 
     private void setCurrentSpeed(double amount) { // Input from increment- and decrementSpeed can't be outside range 0 - enginePower
         this.currentSpeed = amount;
-
     }
 
     public void setColor(Color color) { 
         this.body.setColor(color);
     }
 
-    public void setXPos(double x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public void setYPos(double y) {
+    public void setY(double y) {
         this.y = y;
     }
 
@@ -98,7 +111,7 @@ public class MotorisedVehicle implements Movable {
     }
 
     public void gas(double var1) {
-        if (var1 >= 0 && var1 <= 1) { // Check that the input is between [0..1]. If > 1 then 1, if < 0 then 0 
+        if (var1 >= 0 && var1 <= 1) { // Check input is between [0..1]. If > 1 then 1, if < 0 then 0 
             this.incrementSpeed(var1);
         } else if (var1 > 1) {
             this.incrementSpeed(1);
@@ -107,7 +120,7 @@ public class MotorisedVehicle implements Movable {
         }
     }
 
-    public void brake(double var1) { // Check that the input is between [0..1]. If > 1 then 1, if < 0 then 0 
+    public void brake(double var1) { // Check input is between [0..1]. If > 1 then 1, if < 0 then 0 
         if (var1 >= 0 && var1 <= 1) {
             this.decrementSpeed(var1);
         } else if (var1 > 1) {

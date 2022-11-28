@@ -1,7 +1,7 @@
 
 public class TurboEngine extends Engine{
     private boolean turboOn;
-    public TurboEngine(int enginePower){
+    public TurboEngine(Double enginePower){
         super(enginePower);
         this.turboOn = false;
     }

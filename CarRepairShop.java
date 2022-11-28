@@ -6,6 +6,8 @@ public class CarRepairShop {
 
     private int maxCapacity;
 
+    private final double LOAD_RANGE = 5.0;
+
     private ArrayList<MotorisedVehicle> repairshopGarage;
 
     public CarRepairShop(double x, double y, int maxCapacity) { 
@@ -38,27 +40,55 @@ public class CarRepairShop {
         this.y = y;
     }
 
-    // TODO add logic for loading from ground to carRepairShop and unload from CarTransporter to ground?
-    public void load(MotorisedVehicle car) {
+    //-------------------Repairshop misc-------------------------
+
+
+    public void load(MotorisedVehicle car) { // TODO Ask TA/Föreläsare how to implement this distance check
+        if (car.getDistance(this.x, this.y) > this.LOAD_RANGE){
+            throw new IllegalArgumentException("Too far away from repair shop to transfer.");
+        }
         this.tryToLoad(car);
     }
 
     public void carTransfer(CarTransporter transCar, int amountToLoad) {
         if (amountToLoad > this.maxCapacity - this.repairshopGarage.size()) {
-            throw new IllegalArgumentException("Can't unload that many vechiles into garage.");
+            throw new IllegalArgumentException("Can't unload that many vehicles into garage."); // TODO hantera om de vill lasta av mer än möjligt
         }
+        
+        if (transCar.getDistance(this.x, this.y) > this.LOAD_RANGE){
+            throw new IllegalArgumentException("Too far away from repair shop to transfer.");
+        }
+
+        this.isOutsideRange(transCar);
+
+        this.inRange();
 
         for (int i = 0; i < amountToLoad; i++) {
             this.repairshopGarage.add(transCar.unload());
         }
     }
 
+    public void isOutsideRange(CarTransporter transCar){
+        if (transCar.getDistance(this.x, this.y) > this.LOAD_RANGE){
+            throw new IllegalArgumentException("Too far away from repair shop to transfer.");
+        }
+    }
+
     public void carTransfer(CarTransporter transCar) {
+        if (transCar.getDistance(this.x, this.y) > this.LOAD_RANGE) {
+            throw new IllegalArgumentException("Too far away from repair shop to transfer.");
+        }
+        
         if (!this.isFull()) {
             this.repairshopGarage.add(transCar.unload());
         } else {
             throw new IllegalArgumentException("Car Repair Shop already at full capacity");
         }
+    }
+
+    public void unload(MotorisedVehicle car) {
+        this.repairshopGarage.remove(car);
+        this.carToRepairShopPos(car);
     }
 
     private void tryToLoad(MotorisedVehicle car) {
@@ -78,7 +108,7 @@ public class CarRepairShop {
         return "CarRepairShop [repairshopGarage=" + repairshopGarage + "]";
     }
 
-    public void carToRepairShopPos(MotorisedVehicle car) {
+    private void carToRepairShopPos(MotorisedVehicle car) {
         car.setX(this.x);
         car.setY(this.y);
     }

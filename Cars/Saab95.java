@@ -1,20 +1,21 @@
 import java.awt.*;
 
-public class Saab95 extends MotorisedVehicle{
+public class Saab95 extends MotorisedVehicle {
 
     private boolean turboOn;
     
     public Saab95(){
-        super("Saab95", Color.red, 125, 2);
+        super("Saab95", Color.red, new Engine(125.0), 2);
 	    this.turboOn = false;
+        this.engine = new TurboEngine(125.0);
     }
     
     public void setTurboOn(){
-	    turboOn = true;
+	    this.engine.turnOnTurbo();
     }
 
     public void setTurboOff(){
-	    turboOn = false;
+	    this.engine.turnOffTurbo();
     }
 
     @Override

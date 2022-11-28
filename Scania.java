@@ -1,10 +1,12 @@
 import java.awt.*;
 
 public class Scania extends Car{
+
     private static double platAngle;
     private final static double platMax = 70;
     private final static double platMin = 0;
     private final static double platAngleamount = 5;
+
     private Scania() {
         nrDoors = 2;
         color = Color.black; 
@@ -21,7 +23,7 @@ public class Scania extends Car{
             if(currentValue > platMax){
                 platAngle = platMax;
             
-            }else platAngle = currentValue;
+            } else platAngle = currentValue;
         }
     }
     public void lower(){
@@ -31,7 +33,7 @@ public class Scania extends Car{
             if(currentValue < platMin){
                 platAngle = platMin;
             
-            }else platAngle = currentValue; 
+            } else platAngle = currentValue; 
         }
 
     }

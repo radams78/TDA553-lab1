@@ -5,7 +5,7 @@ import java.awt.*;
 //Class for scanias
 public class Scania extends Truck{
 
-    public Scania(Color color, int enginePower, String modelName, double x, double y, double dirX, double dirY, int maxLoad){
+    public Scania(Color color, double x, double y, double dirX, double dirY){
         super(color, 770, "Scania", x, y, dirX,  dirY, "dumper", 300, 0, 70);
     }//Constructor
 

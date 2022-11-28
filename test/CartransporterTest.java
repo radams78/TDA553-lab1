@@ -140,7 +140,7 @@ Cartransporter testCar = new Cartransporter();
     public void can_load_car_when_load_is_empty_and_is_in_range(){
      Car newtestCar = new Saab95();
      testCar.loadCar(newtestCar);
-    assertEquals(true, testCar.getAmountOfLoadedCars() == 1);
+    assertEquals(true, testCar.loadedCars.getAmountOfLoadedCars() == 1);
     }
 
     @Test
@@ -151,7 +151,7 @@ Cartransporter testCar = new Cartransporter();
       }
     Car newTestCar = new Saab95();
     testCar.loadCar(newTestCar);
-    assertEquals(true, testCar.getAmountOfLoadedCars() == 6);
+    assertEquals(true, testCar.loadedCars.getAmountOfLoadedCars() == 6);
     }
 
     @Test
@@ -159,8 +159,7 @@ Cartransporter testCar = new Cartransporter();
      Car newTestCar = new Saab95();
      newTestCar.setY(20);
      testCar.loadCar(newTestCar);
-    assertEquals(true, testCar.getAmountOfLoadedCars() == 0);
+    assertEquals(true, testCar.loadedCars.getAmountOfLoadedCars() == 0);
     }
-
 
   }

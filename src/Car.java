@@ -86,6 +86,8 @@ public abstract class Car implements Movable {
 
     @Override
     public void move() {
+        this.calculateDx();
+        this.calculateDy();
         this.x += this.dx;
         this.y += this.dy;
     }
@@ -94,16 +96,12 @@ public abstract class Car implements Movable {
     public void turnRight() {
         this.direction -= 1;
         this.direction %= 360;
-        this.calculateDx();
-        this.calculateDy();
     }
 
     @Override
     public void turnLeft() {
         this.direction += 1;
         this.direction %= 360;
-        this.calculateDx();
-        this.calculateDy();
     }
 
     public double getX() {

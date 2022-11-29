@@ -31,21 +31,21 @@ public class CarTest {
       }
 
       @Test
-      public void dx_setter_should_set(){
+      public void move_should_calculate_dx(){
         Car car = new Saab95(4, 100.0, 0.0, Color.RED);
         car.gas(1);
-        car.setDx();
+        car.move();
         assertEquals(1, car.getDx());
       }
 
       @Test
-      public void dy_setter_should_set(){
+      public void move_should_calculate_dy(){
         Car car = new Saab95(4, 100.0, 0.0, Color.RED);
         car.gas(1);
         for (int i = 0; i < 45; i++) {
           car.turnRight();
         }
-        car.setDy();
+        car.move();
         assertEquals(-0.71, car.getDy(), 0.1);
       }
 
@@ -56,8 +56,6 @@ public class CarTest {
         for (int i = 0; i < 60; i++) {
           car.turnLeft();
         }
-        car.setDy();
-        car.setDx();
         car.move();
         assertEquals(0.87, car.getY(), 0.1);
         assertEquals(0.5, car.getX(), 0.1);

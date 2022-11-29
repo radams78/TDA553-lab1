@@ -73,30 +73,40 @@ public class CarTest {
       }
 
       @Test
-      public void incrementSpeed_only_if_gas_is_between_0_and_1() {
+      public void should_not_incrementSpeed_because_gas_is_greater_than_1() {
         Car car = new Volvo240(4, 500.0, 0.0, Color.BLUE);
         car.setCurrentSpeed(100);
         double oldCurrentSpeed = car.getCurrentSpeed();
         car.gas(2);
         assertEquals(car.getCurrentSpeed(), oldCurrentSpeed);
-        oldCurrentSpeed = car.getCurrentSpeed();
-        car.gas(0.3);
-        double diffOlSpdNewSpd = car.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(1.875, diffOlSpdNewSpd);
       }
 
       @Test
-      public void decrementSpeed_only_if_brake_is_between_0_and_1(){
+      public void should_not_incrementSpeed_because_gas_is_less_than_0() {
+        Car car = new Volvo240(4, 500.0, 0.0, Color.BLUE);
+        car.setCurrentSpeed(100);
+        double oldCurrentSpeed = car.getCurrentSpeed();
+        car.gas(-0.2);
+        assertEquals(car.getCurrentSpeed(), oldCurrentSpeed);
+      }
+
+      @Test
+      public void should_not_decrementSpeed_because_brake_is_greater_than_1(){
           Car car = new Volvo240(4, 1000.0, 0, Color.BLUE);
           car.setCurrentSpeed(100);
           double oldCurrentSpeed = car.getCurrentSpeed();
           car.brake(2);
           assertEquals(car.getCurrentSpeed(), oldCurrentSpeed);
-          oldCurrentSpeed = car.getCurrentSpeed();
-          car.brake(0.3);
-          double diffOlSpdNewSpd = car.getCurrentSpeed() - oldCurrentSpeed;
-          assertEquals(-3.75, diffOlSpdNewSpd);
-      } 
+      }
+
+      @Test
+      public void should_not_decrementSpeed_because_brake_is_less_than_0() {
+        Car car = new Volvo240(4, 500.0, 0.0, Color.BLUE);
+        car.setCurrentSpeed(100);
+        double oldCurrentSpeed = car.getCurrentSpeed();
+        car.brake(-0.2);
+        assertEquals(car.getCurrentSpeed(), oldCurrentSpeed);
+      }
 
       @Test
       public void currentSpeed_should_not_be_negative(){

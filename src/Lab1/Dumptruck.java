@@ -1,6 +1,6 @@
 package Lab1;
 
-public class Dumptruck extends Trailer {
+public class Dumptruck implements ITrailer {
     private double currAngle = 0d;
     private double maxAngle = 70d;
     private double minAngle = 0d;
@@ -10,7 +10,7 @@ public class Dumptruck extends Trailer {
         this.minAngle = minAngle;
     }
 
-    public double getcurrAngle() {
+    public double getCurrAngle() {
         return currAngle;
     }
 
@@ -27,15 +27,23 @@ public class Dumptruck extends Trailer {
         // TODO Add check if vehicle is moving in truck
     }
 
-    public void increaseAngle(double amount) {
-        setCurrAngle(getcurrAngle() + amount);
+    public void raiseRamp(double amount) {
+        setCurrAngle(getCurrAngle() + amount);
     }
 
-    public void decreaseAngle(double amount) {
-        setCurrAngle(getcurrAngle() - amount);
+    public void lowerRamp(double amount) {
+        setCurrAngle(getCurrAngle() - amount);
     }
 
     public Boolean allowDriving() {
         return currAngle == 0d;
+    }
+
+    public double getMaxAngle() {
+        return maxAngle;
+    }
+
+    public double getMinAngle() {
+        return minAngle;
     }
 }

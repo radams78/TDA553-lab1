@@ -4,9 +4,15 @@ import java.awt.*;
 
 public class Scania extends Truck {
 
-    public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int nrWheels) {
+    public Scania(
+            int nrDoors,
+            double enginePower,
+            double currentSpeed, Color color,
+            String modelName,
+            int nrWheels) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, nrWheels);
         stopEngine();
+        this.trailer = new Dumptruck(70, 0);
     }
 
     @Override
@@ -16,6 +22,5 @@ public class Scania extends Truck {
         } else {
             return getEnginePower() * 0.01;
         }
-
     }
 }

@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Saab95 extends Car{
-    private Boolean turboOn;
+    private boolean turboOn;
 
     public Saab95(int nrDoors, double enginePower, double currentSpeed, Color color){
         super(nrDoors, enginePower, currentSpeed, color);
@@ -24,7 +24,7 @@ public class Saab95 extends Car{
     }
 
     
-    public Boolean getTurboOn(){
+    public boolean getTurboOn(){
         return turboOn;
     }
 

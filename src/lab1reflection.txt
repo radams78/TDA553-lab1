@@ -2,7 +2,9 @@
 Vi valde att göra en superklass Car eftersom Saab95 och Volvo 240 delade många metoder och attribut. 
 
 Vi vill göra en superklass Car för att för att vi vill att vårt program ska ge möjlighet att lägga till flera
-olika bilar. Vi gör detta i enhighet med Open-Closed Principle, då vi skapar möjlighet att vidareutveckla vårt program. 
+olika bilar. Vi gör detta i enhighet med Open-Closed Principle, då vi skapar möjlighet att vidareutveckla vårt program och skyddar
+det för modifiering. Då kan vi lägga till nya bilar enkelt utan att behöva ändra i de existerande klasserna.
+
 
 Vi tänker att det finns möjlighet att enkelt skapa interfaces för de metoder som finns i superklassen 
 Car om en skulle vilja använda de metoderna för något annat än en bil.

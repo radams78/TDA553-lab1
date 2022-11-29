@@ -33,7 +33,7 @@ public abstract class Car implements Movable {
     }
 
     public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+        this.currentSpeed = Math.max(currentSpeed, 0);
     }
 
     public void setnrDoors(int nrDoors) {

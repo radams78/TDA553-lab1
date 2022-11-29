@@ -28,6 +28,13 @@ public class CarTest {
       }
 
       @Test
+      public void CurrentSpeed_should_not_be_negative(){
+        Car car = new Saab95(4, 100.0, 0.0, Color.RED);
+        car.setCurrentSpeed(-150);
+        assertEquals(0, car.getCurrentSpeed());
+      }
+
+      @Test
       public void dx_setter_should_set(){
         Car car = new Saab95(4, 100.0, 0.0, Color.RED);
         car.setCurrentSpeed(10);

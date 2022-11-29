@@ -2,6 +2,8 @@ package Lab1;
 
 import java.awt.*;
 
+import Lab1.truckextensions.Dumptruck;
+
 public class Scania extends Truck {
 
     public Scania(

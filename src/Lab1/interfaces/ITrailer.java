@@ -1,4 +1,4 @@
-package Lab1;
+package Lab1.interfaces;
 
 public interface ITrailer {
     public abstract Boolean allowDriving();

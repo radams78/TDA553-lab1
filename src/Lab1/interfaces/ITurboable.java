@@ -1,4 +1,4 @@
-package Lab1;
+package Lab1.interfaces;
 
 public interface ITurboable {
     public abstract void setTurboOn();

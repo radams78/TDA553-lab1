@@ -2,6 +2,8 @@ package Lab1;
 
 import java.awt.*;
 
+import Lab1.interfaces.ITrailer;
+
 public abstract class Truck extends Car {
     int nrWheels;
     ITrailer trailer;

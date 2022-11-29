@@ -1,4 +1,6 @@
-package Lab1;
+package Lab1.truckextensions;
+
+import Lab1.interfaces.ITrailer;
 
 public class Dumptruck implements ITrailer {
     private double currAngle = 0d;

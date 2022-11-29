@@ -2,6 +2,8 @@ package Lab1;
 
 import java.awt.*;
 
+import Lab1.interfaces.ITurboable;
+
 public class Saab95 extends Car implements ITurboable {
     private Boolean turboOn;
 

@@ -7,8 +7,6 @@ import java.awt.Color;
 
 import org.junit.jupiter.api.*;
 
-import Lab1.implementations.Scania;
-
 public class ScaniaTest {
     @Test
     public void raising_platform_should_not_be_more_than_maxAngle() {

@@ -12,24 +12,5 @@ public class Volvo240Test {
         assertEquals(12.5, volvo240.speedFactor());
     }
 
-    @Test
-    public void incrementSpeed_Should_Be_25(){
-        Volvo240 volvo240 = new Volvo240(4, 1000.0, 0, Color.BLUE);
-        volvo240.startEngine(); //This line will have no affect on the result => incrementSpeed() works with any oldCurrentSpeed. You can also use setCurrentSpeed() here.
-        double oldCurrentSpeed = volvo240.getCurrentSpeed();
-        volvo240.incrementSpeed(2);
-        double differenceOldSpeedNewSpeed = volvo240.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(25, differenceOldSpeedNewSpeed);
-    } 
-
-    @Test
-    public void decrementSpeed_Should_Be_Minus_25(){
-        Volvo240 volvo240 = new Volvo240(4, 1000.0, 0, Color.BLUE);
-        volvo240.setCurrentSpeed(100);
-        double oldCurrentSpeed = volvo240.getCurrentSpeed();
-        volvo240.decrementSpeed(2);
-        double differenceOldSpeedNewSpeed = volvo240.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(-25, differenceOldSpeedNewSpeed);
-    } 
 }
 

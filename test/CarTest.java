@@ -114,7 +114,7 @@ public class CarTest {
   @Test
   public void currentSpeed_should_not_be_negative() {
     Car car = new Volvo240(4, 1000.0, 0, Color.BLUE);
-    car.decrementSpeed(1000);
+    car.brake(1);
     assertTrue(car.getCurrentSpeed() >= 0);
   }
 
@@ -124,17 +124,17 @@ public class CarTest {
     saab95.startEngine(); // This line will have no affect on the result => incrementSpeed() works with
                           // any oldCurrentSpeed. You can also use setCurrentSpeed() here.
     double oldCurrentSpeed = saab95.getCurrentSpeed();
-    saab95.incrementSpeed(2);
+    saab95.gas(1);
     double differenceOldSpeedNewSpeed = saab95.getCurrentSpeed() - oldCurrentSpeed;
-    assertEquals(40, differenceOldSpeedNewSpeed);
+    assertEquals(20, differenceOldSpeedNewSpeed);
   }
 
   @Test
-  public void decrementSpeed_Should_Be_Minus_20() {
+  public void decrementSpeed_Should_Be_Minus_one() {
     Saab95 saab95 = new Saab95(4, 100.0, 0, Color.BLUE);
     saab95.gas(1);
     double oldCurrentSpeed = saab95.getCurrentSpeed();
-    saab95.decrementSpeed(2);
+    saab95.brake(1);
     double differenceOldSpeedNewSpeed = saab95.getCurrentSpeed() - oldCurrentSpeed;
     assertEquals(-1, differenceOldSpeedNewSpeed);
   }

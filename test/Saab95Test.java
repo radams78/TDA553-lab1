@@ -32,8 +32,8 @@ public class Saab95Test {
         saab95.startEngine(); //This line will have no affect on the result => incrementSpeed() works with any oldCurrentSpeed. You can also use setCurrentSpeed() here.
         double oldCurrentSpeed = saab95.getCurrentSpeed();
         saab95.incrementSpeed(2);
-        double diffOlSpdNewSpd = saab95.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(40, diffOlSpdNewSpd);
+        double differenceOldSpeedNewSpeed = saab95.getCurrentSpeed() - oldCurrentSpeed;
+        assertEquals(40, differenceOldSpeedNewSpeed);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class Saab95Test {
         saab95.setCurrentSpeed(100);
         double oldCurrentSpeed = saab95.getCurrentSpeed();
         saab95.decrementSpeed(2);
-        double diffOlSpdNewSpd = saab95.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(-20, diffOlSpdNewSpd);
+        double differenceOldSpeedNewSpeed = saab95.getCurrentSpeed() - oldCurrentSpeed;
+        assertEquals(-20, differenceOldSpeedNewSpeed);
     } 
 }

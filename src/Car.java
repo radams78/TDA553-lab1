@@ -52,8 +52,8 @@ public abstract class Car implements Movable {
         return color;
     }
 
-    public void setColor(Color clr) {
-        color = clr;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public void startEngine() {

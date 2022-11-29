@@ -18,8 +18,8 @@ public class Volvo240Test {
         volvo240.startEngine(); //This line will have no affect on the result => incrementSpeed() works with any oldCurrentSpeed. You can also use setCurrentSpeed() here.
         double oldCurrentSpeed = volvo240.getCurrentSpeed();
         volvo240.incrementSpeed(2);
-        double diffOlSpdNewSpd = volvo240.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(25, diffOlSpdNewSpd);
+        double differenceOldSpeedNewSpeed = volvo240.getCurrentSpeed() - oldCurrentSpeed;
+        assertEquals(25, differenceOldSpeedNewSpeed);
     } 
 
     @Test
@@ -28,8 +28,8 @@ public class Volvo240Test {
         volvo240.setCurrentSpeed(100);
         double oldCurrentSpeed = volvo240.getCurrentSpeed();
         volvo240.decrementSpeed(2);
-        double diffOlSpdNewSpd = volvo240.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(-25, diffOlSpdNewSpd);
+        double differenceOldSpeedNewSpeed = volvo240.getCurrentSpeed() - oldCurrentSpeed;
+        assertEquals(-25, differenceOldSpeedNewSpeed);
     } 
 }
 

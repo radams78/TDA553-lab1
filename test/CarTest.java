@@ -97,4 +97,11 @@ public class CarTest {
           double diffOlSpdNewSpd = car.getCurrentSpeed() - oldCurrentSpeed;
           assertEquals(-3.75, diffOlSpdNewSpd);
       } 
+
+      @Test
+      public void currentSpeed_should_not_be_negative(){
+        Car car = new Volvo240(4, 1000.0, 0, Color.BLUE);
+        car.decrementSpeed(1000);
+        assertTrue(car.getCurrentSpeed() >= 0);
+      }
 }

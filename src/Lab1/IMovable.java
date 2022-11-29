@@ -1,6 +1,6 @@
 package Lab1;
 
-public interface Movable {
+public interface IMovable {
     public void move();
 
     public void turnLeft();

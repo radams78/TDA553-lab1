@@ -2,8 +2,8 @@ package Lab1;
 
 import java.awt.*;
 
-public class Saab95 extends Car {
-    private boolean turboOn;
+public class Saab95 extends Car implements ITurboable {
+    private Boolean turboOn;
 
     public Saab95(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName,
             boolean turboOn) {
@@ -18,6 +18,10 @@ public class Saab95 extends Car {
 
     public void setTurboOff() {
         turboOn = false;
+    }
+
+    public Boolean getTurboOn() {
+        return turboOn;
     }
 
     @Override

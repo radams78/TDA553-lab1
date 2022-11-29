@@ -14,7 +14,7 @@ public abstract class Car implements Movable {
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color) {
         this.nrDoors = nrDoors;
-        this.enginePower = enginePower;
+        this.enginePower = Math.max(enginePower, 0);
         this.currentSpeed = currentSpeed;
         this.color = color;
         this.direction = 0;
@@ -28,11 +28,11 @@ public abstract class Car implements Movable {
         return nrDoors;
     }
 
-    public void setEnginePower(double enginePower) {
+    private void setEnginePower(double enginePower) {
         this.enginePower = Math.max(enginePower, 0);
     }
 
-    public void setCurrentSpeed(double currentSpeed) {
+    private void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = Math.max(currentSpeed, 0);
     }
 

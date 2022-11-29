@@ -13,6 +13,12 @@ public class CarTest {
         car.setEnginePower(150);
         assertEquals(150, car.getEnginePower(), 5);
       }
+      @Test
+      public void enginePower_should_not_be_negative() {
+          Car car = new Saab95(4, 100.0, 0.0, Color.RED);
+          car.setEnginePower(-150);
+          assertEquals(0, car.getEnginePower());
+        }
 
       @Test
       public void CurrentSpeed_setter_should_set_double(){

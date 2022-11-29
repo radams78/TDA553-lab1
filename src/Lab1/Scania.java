@@ -17,7 +17,6 @@ public class Scania extends Truck {
         this.trailer = new Dumptruck(70, 0);
     }
 
-    @Override
     public double speedFactor() {
         if (!trailer.allowDriving()) {
             return 0;

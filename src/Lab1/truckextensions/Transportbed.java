@@ -2,11 +2,11 @@ package Lab1.truckextensions;
 
 import Lab1.interfaces.ITrailer;
 
-public class Cartransporter implements ITrailer {
+public class Transportbed implements ITrailer {
     private Boolean extendedRamp;
 
-    public Cartransporter(Boolean extendedRamp) {
-        this.extendedRamp = extendedRamp;
+    public Transportbed() {
+        this.extendedRamp = false;
     }
 
     public Boolean getExtendedRamp() {

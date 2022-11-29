@@ -13,9 +13,9 @@ public abstract class Car implements Movable {
     private double dy;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color) {
-        this.nrDoors = nrDoors;
+        this.nrDoors = Math.max(nrDoors, 0);
         this.enginePower = enginePower;
-        this.currentSpeed = currentSpeed;
+        this.currentSpeed = Math.max(currentSpeed, 0);
         this.color = color;
         this.direction = 0;
         this.x = 0;

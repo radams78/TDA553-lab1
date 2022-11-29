@@ -67,9 +67,17 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
 
-    abstract void incrementSpeed(double amount);
+    abstract double speedFactor();
 
-    abstract void decrementSpeed(double amount);
+    public void incrementSpeed(double amount){
+	    double currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
+        setCurrentSpeed(currentSpeed);
+    }
+
+    public void decrementSpeed(double amount){
+        double currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+        setCurrentSpeed(currentSpeed);
+    }
 
     public void setDx() {
         this.dx = this.getCurrentSpeed() * Math.cos(Math.toRadians(direction));

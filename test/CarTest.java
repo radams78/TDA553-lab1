@@ -11,7 +11,7 @@ public class CarTest {
     public void enginePower_setter_should_set_double() {
         Car car = new Saab95(4, 100.0, 0.0, Color.RED);
         car.setEnginePower(150);
-        assertEquals(150, car.getEnginePower(), 5);
+        assertEquals(150, car.getEnginePower());
       }
       @Test
       public void enginePower_should_not_be_negative() {
@@ -24,7 +24,7 @@ public class CarTest {
       public void CurrentSpeed_setter_should_set_double(){
         Car car = new Saab95(4, 100.0, 0.0, Color.RED);
         car.setCurrentSpeed(150);
-        assertEquals(150, car.getCurrentSpeed(), 5);
+        assertEquals(150, car.getCurrentSpeed());
       }
 
       @Test
@@ -32,7 +32,7 @@ public class CarTest {
         Car car = new Saab95(4, 100.0, 0.0, Color.RED);
         car.setCurrentSpeed(10);
         car.setDx();
-        assertEquals(10, car.getDx(), 0.1);
+        assertEquals(10, car.getDx());
       }
 
       @Test
@@ -66,7 +66,7 @@ public class CarTest {
         for (int i = 0; i < 390; i++) {
           car.turnRight();
         }
-        assertEquals(-30, car.getDirection(), 0);
+        assertEquals(-30, car.getDirection());
       }
 
       @Test
@@ -75,7 +75,7 @@ public class CarTest {
         for (int i = 0; i < 390; i++) {
           car.turnLeft();
         }
-        assertEquals(30, car.getDirection(), 0);
+        assertEquals(30, car.getDirection());
       }
 
       @Test

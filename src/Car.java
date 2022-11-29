@@ -1,6 +1,5 @@
 
 import java.awt.*;
-//import javax.management.loading.PrivateClassLoader;
 
 public abstract class Car implements Movable {
     private int nrDoors; // Number of doors on the car
@@ -12,7 +11,6 @@ public abstract class Car implements Movable {
     private double y;
     private double dx;
     private double dy;
-    // private String modelName; // The car model name
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color) {
         this.nrDoors = nrDoors;
@@ -24,7 +22,6 @@ public abstract class Car implements Movable {
         this.y = 0;
         this.dx = 0;
         this.dy = 0;
-        // this.modelName = modelName;
     }
 
     public int getNrDoors() {

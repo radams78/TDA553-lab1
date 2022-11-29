@@ -2,17 +2,17 @@ package labb1;
 public class Flatbed extends Trailer{
     private final int MAX_NUMBER_OF_CARS;
     private int loadedCars;
-    private int proximityToTransporter; //distans in whole meters from the transporter to the car that will be transported
+    private int winchCableLength;
     
     public Flatbed(int maxLoad, int MAX_NUMBER_OF_CARS){
     super(maxLoad);
     this.MAX_NUMBER_OF_CARS = MAX_NUMBER_OF_CARS;
     this.loadedCars = 0;
-    this.proximityToTransporter = 0;
+    this.winchCableLength = 5;
     }
 
     //Specific method for raising the platsform of the truck
-    //Increases platsform angle if its not at the max angle
+    //Puts the platform down so cars can get onto the flatbed
     public void extendPlatform(double currentSpeedX, double currentSpeedY){
         if (currentSpeedX != 0 || currentSpeedY != 0){
             throw new IllegalArgumentException("The truck is moving");
@@ -22,7 +22,7 @@ public class Flatbed extends Trailer{
     }
     
     //Specific method for lowering platsform
-    //Decreases thje platsform angle if itn not at the min angle of zero
+    //Puts the platform up so the truck can drive
     public void retractPlatform(){
         if (super.getPlatformExtended()){
             super.setPlatformExtended(false);
@@ -31,9 +31,10 @@ public class Flatbed extends Trailer{
         }
     }
     
+    //When Platform is down and a car is close enough the car an be loaded
     public void loadCar(int proximityToTransporter){
         // If proximity is <= 5 meters load car else throw exception
-        if (super.getPlatformExtended().equals(true) && proximityToTransporter >= 0 && proximityToTransporter <= 5){
+        if (super.getPlatformExtended().equals(true) && proximityToTransporter >= 0 && proximityToTransporter <= winchCableLength){
             if (this.loadedCars < this.MAX_NUMBER_OF_CARS){
                 this.loadedCars += 1;
             } else {
@@ -44,6 +45,7 @@ public class Flatbed extends Trailer{
         }
     }
 
+    //When platform is extended and there is a car on the flatbed it can be unloaded
     public void unLoadCar(int proximityToTransporter){
         if (super.getPlatformExtended().equals(true)){
             if (this.loadedCars > 0){

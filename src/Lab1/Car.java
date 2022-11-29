@@ -2,6 +2,8 @@ package Lab1;
 
 import java.awt.*;
 
+import Lab1.interfaces.IMovable;
+
 public abstract class Car implements IMovable {
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power

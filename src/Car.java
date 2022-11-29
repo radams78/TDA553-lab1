@@ -28,10 +28,6 @@ public abstract class Car implements Movable {
         return nrDoors;
     }
 
-    private void setEnginePower(double enginePower) {
-        this.enginePower = Math.max(enginePower, 0);
-    }
-
     private void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = Math.max(currentSpeed, 0);
     }

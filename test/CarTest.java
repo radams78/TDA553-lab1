@@ -7,21 +7,9 @@ import org.junit.jupiter.api.Test;
 
 public class CarTest {
   @Test
-  public void enginePower_setter_should_set_double() {
-    Car car = new Saab95(4, 150.0, 0.0, Color.RED);
-    assertEquals(150, car.getEnginePower());
-  }
-
-  @Test
   public void enginePower_should_not_be_negative() {
     Car car = new Saab95(4, -150.0, 0.0, Color.RED);
     assertEquals(0, car.getEnginePower());
-  }
-
-  @Test
-  public void CurrentSpeed_setter_should_set_double() {
-    Car car = new Saab95(4, 100.0, 0.0, Color.RED);
-    assertEquals(0, car.getCurrentSpeed());
   }
 
   @Test

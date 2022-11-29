@@ -76,11 +76,11 @@ public abstract class Car implements Movable {
         setCurrentSpeed(currentSpeed);
     }
 
-    public void setDx() {
+    private void calculateDx() {
         this.dx = this.getCurrentSpeed() * Math.cos(Math.toRadians(direction));
     }
 
-    public void setDy() {
+    private void calculateDy() {
         this.dy = this.getCurrentSpeed() * Math.sin(Math.toRadians(direction));
     }
 
@@ -94,12 +94,16 @@ public abstract class Car implements Movable {
     public void turnRight() {
         this.direction -= 1;
         this.direction %= 360;
+        this.calculateDx();
+        this.calculateDy();
     }
 
     @Override
     public void turnLeft() {
         this.direction += 1;
         this.direction %= 360;
+        this.calculateDx();
+        this.calculateDy();
     }
 
     public double getX() {

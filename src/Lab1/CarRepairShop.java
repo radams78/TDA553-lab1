@@ -17,13 +17,13 @@ public class CarRepairShop {
         this.capacity = capacity;
     }
 
-    private double checkDistanceToCar(Car car) {
+    private double distanceToCar(Car car) {
         return Math.sqrt(Math.pow(car.getPosX() - this.x, 2) + Math.pow(car.getPosY() - this.y, 2));
     }
 
     public void loadCar(Car car) {
         if (carsInShop.size() < capacity) {
-            if (checkDistanceToCar(car) <= radius) {
+            if (distanceToCar(car) <= radius) {
                 if (!carsInShop.add(car)) {
                     throw new IllegalArgumentException("Car already in shop");
                 }

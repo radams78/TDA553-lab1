@@ -13,28 +13,23 @@ public abstract class Vehicle implements Movable{
     // private String modelName; // The car model name
 
     public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color) {
-        this.nrDoors = nrDoors;
-        this.enginePower = enginePower;
-        this.currentSpeed = currentSpeed;
+        this.nrDoors = Math.max(nrDoors, 0);;
+        this.enginePower = Math.max(enginePower, 0);
+        this.currentSpeed = Math.max(currentSpeed, 0);
         this.color = color;
         this.direction = 0;
         this.x = 0;
         this.y = 0;
         this.dx = 0;
         this.dy = 0;
-        // this.modelName = modelName;
     }
 
     public int getNrDoors() {
         return nrDoors;
     }
 
-    public void setEnginePower(double enginePower) {
-        this.enginePower = enginePower;
-    }
-
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    private void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = Math.max(currentSpeed, 0);
     }
 
     public void setnrDoors(int nrDoors) {

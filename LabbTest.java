@@ -111,7 +111,7 @@ public class LabbTest {
         carTransporter.load(volvo);
         carTransporter.load(saab);
 
-        carTransporter.unload();
+        carTransporter.load(volvo);
 
     }   
   

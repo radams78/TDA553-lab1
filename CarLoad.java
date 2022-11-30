@@ -1,6 +1,6 @@
 import java.util.ArrayDeque;
 
-public class CarLoad implements LoadFunction{
+public class CarLoad{
     
     private ArrayDeque<Car> cars;
     private int capacity;
@@ -16,15 +16,13 @@ public class CarLoad implements LoadFunction{
         return cars;
     }
 
-    @Override
+    
     public int getCapacity() {
         return capacity;
     }
 
-    @Override
-    public void load(double x, double y, Object o) {
-
-        Car c = (Car) o;
+    
+    public void load(double x, double y, Car c) {
         
         if(x <= c.getX() && c.getX() <= (x+2) && y <= c.getY() && c.getY() <= (y+2)
         && cars.size() < capacity){
@@ -38,7 +36,7 @@ public class CarLoad implements LoadFunction{
         }
     }
 
-    @Override
+    
     public void unload(double x, double y) {
         Car c = cars.pop();
         c.setX((x+1));

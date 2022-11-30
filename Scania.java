@@ -6,7 +6,7 @@ public class Scania extends Truck{
 
     public Scania() {
         super(2, 100, 0, Color.BLACK, "Scania Interlink", 0, 0 ,
-         new AngledPlatform(70), new LoadObjects(100));
+         new AngledPlatform(70));
         
     }
     

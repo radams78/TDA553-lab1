@@ -4,18 +4,17 @@ import java.awt.Color;
 public abstract class Truck extends Vehicle{
     
     private Platform platform;
-    private LoadFunction load;
     private final static double slowFactor = 0.8;
 
     public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y, Platform 
-    plattformType, LoadFunction loadType) {
+    platformType) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, x, y);
         
-        platform = plattformType;
-        load = loadType;
+        platform = platformType;
+      
     }
        
-    
+
     @Override
     public double speedFactor(){
 
@@ -26,14 +25,14 @@ public abstract class Truck extends Vehicle{
     @Override
     public void incrementSpeed(double amount){
 
-	    this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,this.getEnginePower()));
+	    this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, this.getEnginePower()));
     }
 
 
     @Override
     public void decrementSpeed(double amount){
 
-        this.setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount,0));;
+        this.setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));;
     }
 
 
@@ -76,24 +75,5 @@ public abstract class Truck extends Vehicle{
 
         platform.platfromDown(state);
     }
-
-    
-    public void load(Object o) {
-        if (getPlatformState() == 0){
-            load.load(getX(), getY(), o);
-        }
-    }
-
-    
-    public void unload() {
-        if(getPlatformState() == 0){
-           load.unload(getX(), getY());
-        }        
-    }
-
-
-    public int getCapacity(){
-
-        return load.getCapacity();
-    }
+  
 }

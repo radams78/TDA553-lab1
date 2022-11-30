@@ -6,17 +6,18 @@ package set;
 
 import java.awt.*;
 import java.nio.channels.Pipe;
-
+import set.Trim;
 
 // ---- Class ---- //
 
 public class Volvo240 extends Car{
     
-    private final static double trimFactor = 1.25;
     
+    private Trim trimCar;
     // Constructor for the class volvo240
     public Volvo240(int nrDoors, Color color, int enginePower, String modelName) {
         super(nrDoors, color, enginePower, modelName);
+        trimCar = new Trim(1.25);
     }
 
 
@@ -25,7 +26,7 @@ public class Volvo240 extends Car{
     // updates vehicles speedfactor depending on trimfactor
     @Override
     public double speedFactor(){
-        return getEnginePower() * 0.01 * trimFactor;
+        return getEnginePower() * 0.01 * trimCar.getTrimFactor();
     }
     
     

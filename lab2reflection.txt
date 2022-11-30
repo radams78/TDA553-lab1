@@ -20,3 +20,5 @@ We used composition and delegation for the trailer. That is because we know that
 
 
 3.Did you need to modify the design from lab 1 in order to make these extensions? If so, how could you have noticed that your design from Lab 1 did not follow the Open-Closed Principle before you started working on Lab 2?
+No we did not had to, but we wanted to make changes to the code. 
+We did not brake the Open closed principle. We could implement new cars in lab 1 but for our desing to also follow other SOLID principle and good design we changed a couple different things.

@@ -26,23 +26,4 @@ public class Saab95Test {
         assertEquals(20, saab95.speedFactor());
     }
 
-    @Test
-    public void incrementSpeed_Difference_Should_Be_20(){
-        Saab95 saab95 = new Saab95(4, 2000.0, 0, Color.RED);
-        saab95.startEngine(); //This line will have no affect on the result => incrementSpeed() works with any oldCurrentSpeed. You can also use setCurrentSpeed() here.
-        double oldCurrentSpeed = saab95.getCurrentSpeed();
-        saab95.incrementSpeed(2);
-        double diffOlSpdNewSpd = saab95.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(40, diffOlSpdNewSpd);
-    }
-
-    @Test
-    public void decrementSpeed_Difference_Should_Be_Minus_20(){
-        Saab95 saab95 = new Saab95(4, 1000.0, 0, Color.BLUE);
-        saab95.setCurrentSpeed(100);
-        double oldCurrentSpeed = saab95.getCurrentSpeed();
-        saab95.decrementSpeed(2);
-        double diffOlSpdNewSpd = saab95.getCurrentSpeed() - oldCurrentSpeed;
-        assertEquals(-20, diffOlSpdNewSpd);
-    } 
 }

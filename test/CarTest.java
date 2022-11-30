@@ -12,12 +12,12 @@ public class CarTest {
   public void start_direction_test() {
     Car car1 = new Volvo240();
     Direction expectedDirection1 = Direction.NORTH;
-    Direction actualDirection1 = car1.cardirection();
+    Direction actualDirection1 = car1.getcurrentcardirection();
     assertEquals(expectedDirection1, actualDirection1);
 
     Car car2 = new Saab95();
     Direction expectedDirection2 = Direction.NORTH;
-    Direction actualDirection2 = car2.cardirection();
+    Direction actualDirection2 = car2.getcurrentcardirection();
 
     assertEquals(expectedDirection2, actualDirection2);
   }
@@ -32,7 +32,7 @@ public class CarTest {
   @Test
    public void move_SOUTH_test(){
     Car car1=new Volvo240();
-    while(car1.cardirection() != Direction.SOUTH){
+    while(car1.getcurrentcardirection() != Direction.SOUTH){
       car1.turnLeft();
     }
     car1.move();
@@ -41,7 +41,7 @@ public class CarTest {
   @Test
   public void move_WEST_test(){
    Car car1=new Volvo240();
-   while(car1.cardirection() != Direction.WEST){
+   while(car1.getcurrentcardirection() != Direction.WEST){
      car1.turnLeft();
    }
    car1.move();
@@ -51,7 +51,7 @@ public class CarTest {
  @Test
  public void move_EAST_test(){
   Car car1=new Volvo240();
-  while(car1.cardirection() != Direction.EAST){
+  while(car1.getcurrentcardirection() != Direction.EAST){
     car1.turnLeft();
   }
   car1.move();
@@ -62,7 +62,7 @@ public class CarTest {
     Car car1 = new Volvo240();
     Direction expectedDirection1 = Direction.WEST;
     car1.turnLeft();
-    Direction actualDirection1 = car1.cardirection();
+    Direction actualDirection1 = car1.getcurrentcardirection();
 
     assertEquals(expectedDirection1, actualDirection1);
   }
@@ -71,7 +71,7 @@ public class CarTest {
     Car car1 = new Volvo240();
     Direction expectedDirection1 = Direction.EAST;
     car1.turnRight();
-    Direction actualDirection1 = car1.cardirection();
+    Direction actualDirection1 = car1.getcurrentcardirection();
 
     assertEquals(expectedDirection1, actualDirection1);
   }

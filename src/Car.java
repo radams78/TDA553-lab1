@@ -12,7 +12,7 @@ public abstract class Car implements Movable {
     private Direction currentcardirection; // the car's current direction
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xPos, int yPos,
-            Direction cardirection) {
+            Direction currentcardirection) {
         this.nrDoors = nrDoors; // Number of doors on the car
         this.enginePower = enginePower; // Engine power of the car
         this.currentSpeed = currentSpeed; // The current speed of the car
@@ -20,7 +20,7 @@ public abstract class Car implements Movable {
         this.modelName = modelName; // The car model name
         this.xPos = xPos; // the car's x position
         this.yPos = yPos; // the car's y position
-        this.currentcardirection = cardirection; // startvärdet
+        this.currentcardirection = currentcardirection; // startvärdet
     }
 
     public int getNrDoors() {
@@ -91,6 +91,10 @@ public abstract class Car implements Movable {
     private void decrementSpeed(double amount) { // the max and min speed interval while braking
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
+
+    /*public void setcurrentdirection(Direction currentcarDirection){
+        this.currentcardirection = currentcardirection;
+    }*/
 
     public Direction getcurrentcardirection() {
         return currentcardirection;

@@ -9,7 +9,7 @@ public class CarRepairShop {
     private double y;
     int capacity;
 
-    public CarRepairShop(int x, int y, int capacity) {
+    public CarRepairShop(double x, double y, int capacity) {
         this.x = x;
         this.y = y;
         this.capacity = capacity;

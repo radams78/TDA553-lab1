@@ -2,6 +2,8 @@ package Lab1.vehicles;
 
 import java.awt.*;
 
+import Lab1.Location;
+
 public abstract class Vehicle implements IMovable {
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power
@@ -148,5 +150,10 @@ public abstract class Vehicle implements IMovable {
     @Override
     public void turnRight() {
         currentDirection = currentDirection.next();
+    }
+
+    public void moveToLocation(Location location) {
+        posX = location.getPosX();
+        posY = location.getPosY();
     }
 }

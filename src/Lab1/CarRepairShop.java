@@ -3,7 +3,7 @@ package Lab1;
 import java.util.Set;
 import Lab1.vehicles.Car;
 
-public class CarRepairShop {
+public class CarRepairShop implements Location {
     Set<Car> carsInShop;
     private double x;
     private double y;
@@ -21,11 +21,17 @@ public class CarRepairShop {
         return Math.sqrt(Math.pow(car.getPosX() - this.x, 2) + Math.pow(car.getPosY() - this.y, 2));
     }
 
+    public void moveCarHere(Car car) {
+        car.moveToLocation(this);
+    }
+
     public void loadCar(Car car) {
         if (carsInShop.size() < capacity) {
             if (distanceToCar(car) <= radius) {
                 if (!carsInShop.add(car)) {
                     throw new IllegalArgumentException("Car already in shop");
+                } else {
+                    moveCarHere(car);
                 }
             } else {
                 throw new IllegalArgumentException("Car is too far away from the shop");
@@ -37,5 +43,13 @@ public class CarRepairShop {
 
     public void unloadCar(Car car) {
         carsInShop.remove(car);
+    }
+
+    public double getPosX() {
+        return x;
+    }
+
+    public double getPosY() {
+        return y;
     }
 }

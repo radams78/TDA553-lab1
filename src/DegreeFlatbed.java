@@ -11,7 +11,7 @@ public class DegreeFlatbed extends Flatbed{
         flatbedAngle = Math.min(flatbedAngle += 1, 70);
     }
 
-    public void lowered(){
+    public void lower(){
         flatbedAngle = Math.max(flatbedAngle -= 1, 0);
     }
 

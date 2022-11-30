@@ -48,10 +48,6 @@ public abstract class Vehicle implements Movable{
         return color;
     }
 
-    public void setColor(Color clr) {
-        color = clr;
-    }
-
     public void startEngine() {
         currentSpeed = 0.1;
     }

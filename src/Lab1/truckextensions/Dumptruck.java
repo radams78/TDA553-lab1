@@ -1,8 +1,6 @@
 package Lab1.truckextensions;
 
-import Lab1.interfaces.ITrailer;
-
-public class Dumptruck implements ITrailer {
+public class Dumptruck extends Trailer {
     private double currAngle = 0d;
     private double maxAngle = 70d;
     private double minAngle = 0d;

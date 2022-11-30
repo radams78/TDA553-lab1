@@ -1,8 +1,6 @@
 package Lab1.truckextensions;
 
-import Lab1.interfaces.ITrailer;
-
-public class Transportbed implements ITrailer {
+public class Transportbed extends Trailer {
     private Boolean extendedRamp;
 
     public Transportbed() {
@@ -13,11 +11,11 @@ public class Transportbed implements ITrailer {
         return extendedRamp;
     }
 
-    public void lowerRamp(double percentage) {
+    public void lowerRamp(double amount) {
         this.extendedRamp = true;
     }
 
-    public void raiseRamp(double percentage) {
+    public void raiseRamp(double amount) {
         this.extendedRamp = false;
     }
 

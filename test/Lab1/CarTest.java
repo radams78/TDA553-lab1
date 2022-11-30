@@ -7,7 +7,7 @@ import java.awt.Color;
 
 import org.junit.jupiter.api.*;
 
-import Lab1.Car.Direction;
+import Lab1.Vehicle.Direction;
 
 public class CarTest {
     @Test

@@ -1,6 +1,6 @@
-package Lab1.interfaces;
+package Lab1.truckextensions;
 
-public interface ITrailer {
+public abstract class Trailer {
     public abstract Boolean allowDriving();
 
     public abstract void raiseRamp(double amount);

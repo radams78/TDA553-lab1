@@ -2,18 +2,18 @@ package Lab1;
 
 import java.awt.*;
 
-import Lab1.interfaces.ITrailer;
+import Lab1.truckextensions.Trailer;
 
-public abstract class Truck extends Car {
+public abstract class Truck extends Vehicle {
     int nrWheels;
-    ITrailer trailer;
+    Trailer trailer;
 
     public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int nrWheels) {
         super(nrDoors, enginePower, currentSpeed, color, modelName);
         this.nrWheels = nrWheels;
     }
 
-    public void setTrailer(ITrailer trailer) {
+    public void setTrailer(Trailer trailer) {
         this.trailer = trailer;
     }
 

@@ -8,7 +8,7 @@ public class CarRepairShop {
     private double x;
     private double y;
     private double radius;
-    int capacity;
+    private int capacity;
 
     public CarRepairShop(double x, double y, double radius, int capacity) {
         this.x = x;

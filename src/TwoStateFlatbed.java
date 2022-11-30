@@ -3,13 +3,13 @@ public class TwoStateFlatbed extends Flatbed{
 
     public TwoStateFlatbed() {
         this.flatbedUp = true;
-    } //Constructer
+    } //Constructur
 
     public void raise(){
         flatbedUp = true;
     }
 
-    public void lowered(){
+    public void lower(){
         flatbedUp = false;
     }
 

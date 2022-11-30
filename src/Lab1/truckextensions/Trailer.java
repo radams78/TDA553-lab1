@@ -1,15 +1,15 @@
 package Lab1.truckextensions;
 
-public abstract class Trailer {
-    public abstract Boolean allowDriving();
+public interface Trailer {
+    public Boolean allowDriving();
 
-    public abstract void raiseRamp(double amount);
+    public void raiseRamp(double amount);
 
-    public abstract void lowerRamp(double amount);
+    public void lowerRamp(double amount);
 
-    public abstract double getCurrAngle();
+    public double getCurrAngle();
 
-    public abstract double getMaxAngle();
+    public double getMaxAngle();
 
-    public abstract double getMinAngle();
+    public double getMinAngle();
 }

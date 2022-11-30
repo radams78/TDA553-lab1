@@ -1,6 +1,6 @@
 package Lab1.truckextensions;
 
-public class Dumptruck extends Trailer {
+public class Dumptruck implements Trailer {
     private double currAngle = 0d;
     private double maxAngle = 70d;
     private double minAngle = 0d;

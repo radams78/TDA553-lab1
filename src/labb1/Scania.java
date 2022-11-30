@@ -9,9 +9,11 @@ public class Scania extends Truck {
         super(color, 770, "Scania", x, y, dirX, dirY, new Dumper(300, 0, 70), 300, 0, 70);
     }// Constructor
 
+
     @Override
     public double speedFactor() {
         return enginePower * 0.01;
     }// speedFactor()
+    
+}//Class
 
-}// Class

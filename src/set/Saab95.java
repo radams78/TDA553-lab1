@@ -11,7 +11,7 @@ import java.awt.*;
 
 public class Saab95 extends Car {
     
-    boolean turboOn;
+    private boolean turboOn;
     
     // Constructor for the class saab95
     public Saab95(int nrDoors, Color color, int enginePower, String modelName){
@@ -23,7 +23,7 @@ public class Saab95 extends Car {
 
     // Updates vehicle's speedfactor depending on if turbo is on or off
     @Override
-    protected double speedFactor(){
+    public double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
@@ -31,11 +31,11 @@ public class Saab95 extends Car {
     
 
     // Methods to set turbo values
-    protected void setTurboOn(){
+    public void setTurboOn(){
 	    turboOn = true;
     }
     
-    protected void setTurboOff(){
+    public void setTurboOff(){
 	    turboOn = false;
     }
     

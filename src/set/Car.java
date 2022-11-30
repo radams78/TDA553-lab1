@@ -1,9 +1,16 @@
-package set;
 // This module contains the abstract superclass for all cars
+
+// --- Packages --- //
+
+package set;
+
 
 // --- Imports --- //
 
 import java.awt.*;
+
+import javax.sound.midi.Track;
+import javax.sound.sampled.BooleanControl;
 
 
 // ---- Class ---- //
@@ -15,36 +22,38 @@ public abstract class Car implements Movable {
     private double currentSpeed; // The current speed of the car
     private Color  color;        // Color of the car
     private String modelName;    // The car model name
-    private double x;
-    private double y;
+    private double xPosition;
+    private double yPosition;
     private double direction;
+    private boolean engineOn;
 
     public Car(int nrDoors, Color color, int enginePower, String modelName){
-        validate_arguments(nrDoors, enginePower);     
+        validateArguments(nrDoors, enginePower);     
         this.color = color;
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.modelName = modelName;
         this.stopEngine();
-        
 
     }
     
     // --- Methods --- //
-    public void validate_arguments(int nrDoors, int enginePower){
+    
+    private void validateArguments(int nrDoors, int enginePower){
         if (nrDoors < 0 || enginePower < 0){
             throw new IllegalArgumentException();
         }
     }
     
     public void turnRight(){
-        direction -= 20;
+        direction += 20;
     }
 
     public void turnLeft(){
-        direction += 20;
+        direction -= 20;
     }
     // Methods to get values
+    
     public int getNrDoors(){
         return nrDoors;
     }
@@ -59,12 +68,12 @@ public abstract class Car implements Movable {
     public Color getColor(){
         return color;
     }
-    public double getX(){
-        return x;
+    public double getXPosition(){
+        return xPosition;
     }
     
-    public double getY(){
-        return y;
+    public double getYPosition(){
+        return yPosition;
     }
     
     public double getDirection(){
@@ -76,11 +85,11 @@ public abstract class Car implements Movable {
     public void move(){
         double xSpeed = Math.cos(direction) * currentSpeed;
         double ySpeed = Math.sin(direction) * currentSpeed;
-        x += xSpeed;
-        y += ySpeed;
+        xPosition += xSpeed;
+        yPosition += ySpeed;
     }
     
-    protected void incrementSpeed(double amount){
+    private void incrementSpeed(double amount){
         double newSpeed;
         double enginePower = getEnginePower();
 	    newSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
@@ -89,17 +98,17 @@ public abstract class Car implements Movable {
     }
 
     // Decrements the speed of the vehicle depending on the speedfactor
-    protected void decrementSpeed(double amount){
+    private void decrementSpeed(double amount){
         double  newSpeed;
         newSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
         setCurrentSpeed(newSpeed);
     }
 
-    protected void setColor(Color clr){
+    private void setColor(Color clr){
 	    color = clr;
     }
 
-    protected void setCurrentSpeed(double speed){
+    private void setCurrentSpeed(double speed){
         if (speed < 0 || speed > enginePower) {
 
             throw new IllegalArgumentException();
@@ -113,11 +122,12 @@ public abstract class Car implements Movable {
     }
 
     public void startEngine(){
-	    currentSpeed = 0.1;
+	    engineOn = true;
     }
 
     public void stopEngine(){
-	    currentSpeed = 0;
+	    
+        engineOn = false;
     }
 
     public void gas(double amount){
@@ -125,7 +135,9 @@ public abstract class Car implements Movable {
         {
             throw new IllegalArgumentException();
         } 
+        if (engineOn){ 
         incrementSpeed(amount);
+        }   
     }
 
     public void brake(double amount){
@@ -138,13 +150,7 @@ public abstract class Car implements Movable {
     
     // --- Abstract Methods --- //
 
-    protected abstract double speedFactor();
-    
-    
-
-
-
-    
+    public abstract double speedFactor();
 }
 
     

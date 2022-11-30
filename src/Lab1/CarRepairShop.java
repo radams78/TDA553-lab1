@@ -5,8 +5,8 @@ import Lab1.vehicles.Car;
 
 public class CarRepairShop {
     Set<Car> carsInShop;
-    int x;
-    int y;
+    private double x;
+    private double y;
     int capacity;
 
     public CarRepairShop(int x, int y, int capacity) {

@@ -1,7 +1,7 @@
 public class CarRepairShop implements Load{
     private int maxNrOfCars;
     private int currentNrOfCars;
-    
+
     public CarRepairShop(int maxNrOfCars, int currentNrOfCars){
         this.maxNrOfCars = Math.max(maxNrOfCars, 0);
         this.currentNrOfCars = Math.max(currentNrOfCars, 0);
@@ -21,7 +21,11 @@ public class CarRepairShop implements Load{
 
     @Override
     public void load() {
+        this.loadACar();
         
-        
+    }
+
+    private void loadACar() {
+        //TODO implement method that loads a car into CarRepairShop
     }
 }

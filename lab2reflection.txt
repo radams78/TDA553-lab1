@@ -12,5 +12,11 @@ Our code follows the Liskov Substitution Principle.
 
 2.How did you handle duplicated code between Scania, the car transporters and the repair shops? Explain how you decided when to use subclassing and when to use composition and delegation.
 
+To avoid code dublication we used subclassing for the car class and truck class. Their superclass is Vehicle. Why we used subclassing for car and truck is because we know that car and truck IS a Vehicle.
+The same goes for saab and volvo. We know that saab and volvo IS a car, and that is why we used subclassing.
+
+We used composition and delegation for the trailer. That is because we know that a truck HAS a trailer, the trailer is a part of the truck, the truck can still function without a trailer. 
+
+
 
 3.Did you need to modify the design from lab 1 in order to make these extensions? If so, how could you have noticed that your design from Lab 1 did not follow the Open-Closed Principle before you started working on Lab 2?

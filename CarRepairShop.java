@@ -8,7 +8,7 @@ public class CarRepairShop {
 
     private final double LOAD_RANGE = 5.0;
 
-    private ArrayList<MotorisedVehicle> repairshopGarage;
+    private ArrayList<MotorisedVehicle<Engine, Body>> repairshopGarage;
 
     public CarRepairShop(double x, double y, int maxCapacity) { 
         this.x = x;

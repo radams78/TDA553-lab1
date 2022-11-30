@@ -1,22 +1,22 @@
 public class CarRepairShop implements Load{
-    private int maxNrOfCars;
-    private int currentNrOfCars;
+    private int maxNumberOfCars;
+    private int currentNumberOfCars;
 
-    public CarRepairShop(int maxNrOfCars, int currentNrOfCars){
-        this.maxNrOfCars = Math.max(maxNrOfCars, 0);
-        this.currentNrOfCars = Math.max(currentNrOfCars, 0);
+    public CarRepairShop(int maxNumberOfCars, int currentNrOfCars){
+        this.maxNumberOfCars = Math.max(maxNumberOfCars, 1);
+        this.currentNumberOfCars = 0;
     }
     
-    public int getCurrentNrOfCars() {
-        return currentNrOfCars;
+    public int getCurrentNumberOfCars() {
+        return currentNumberOfCars;
     }
 
-    public void setCurrentNrOfCars(int currentNrOfCars) {
-        this.currentNrOfCars = currentNrOfCars;
+    public void setCurrentNumberOfCars(int currentNumberOfCars) {
+        this.currentNumberOfCars = currentNumberOfCars;
     }
 
-    public int getMaxNrOfCars(){
-        return maxNrOfCars;
+    public int getMaxNumberOfCars(){
+        return maxNumberOfCars;
     }
 
     @Override

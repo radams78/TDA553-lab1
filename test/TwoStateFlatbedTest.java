@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -14,6 +15,6 @@ public class TwoStateFlatbedTest {
     public void flatbedUp_should_be_false() {
         TwoStateFlatbed flatbed = new TwoStateFlatbed();
         flatbed.lower();
-        assertTrue(flatbed.getFlatbedUp());
+        assertFalse(flatbed.getFlatbedUp());
     }
 }

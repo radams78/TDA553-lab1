@@ -6,7 +6,6 @@ public class Volvo240 extends Car{
     
     public Volvo240(int nrDoors, double enginePower, double currentSpeed, Color color){
         super(nrDoors, enginePower, currentSpeed, color);
-        stopEngine();
     }
     
     public double speedFactor(){

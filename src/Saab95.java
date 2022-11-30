@@ -6,7 +6,6 @@ public class Saab95 extends Car{
     public Saab95(int nrDoors, double enginePower, double currentSpeed, Color color){
         super(nrDoors, enginePower, currentSpeed, color);
         turboOn = false;
-        stopEngine();
     }
 
     public void setTurboOn(){

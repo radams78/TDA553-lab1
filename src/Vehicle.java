@@ -21,6 +21,7 @@ public abstract class Vehicle implements Movable{
         this.y = 0;
         this.dx = 0;
         this.dy = 0;
+        stopEngine();
     }
 
     public int getNrDoors() {

@@ -28,6 +28,10 @@ abstract class Car implements Movable {
 	    currentSpeed = 0;
     }
     
+    public String getModelName() {
+        return modelName;
+    }
+    
     public void move() {
 
         switch(direction) {

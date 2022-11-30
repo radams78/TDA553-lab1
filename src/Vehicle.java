@@ -10,7 +10,6 @@ public abstract class Vehicle implements Movable{
     private double y;
     private double dx;
     private double dy;
-    // private String modelName; // The car model name
 
     public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color) {
         this.nrDoors = Math.max(nrDoors, 0);;
@@ -120,15 +119,6 @@ public abstract class Vehicle implements Movable{
     public double getDirection() {
         return direction;
     }
-    /*
-     * The car classes' methods currently have no way of controlling by how much the
-     * speed can be increased or decreased. Rewrite the methods so that:
-     * 
-     * gas() and brake() only accept values in the interval [0,1],
-     * currentSpeed always lies in the interval [0 , enginePower],
-     * calls to gas() cannot result in the speed decreasing, and
-     * calls to brake() cannot result in the speed increasing.
-     */
 
     public void gas(double gas){
         if((0 <= gas) && (gas <= 1) && (this.currentSpeed <= this.enginePower)) { 
@@ -140,5 +130,4 @@ public abstract class Vehicle implements Movable{
             decrementSpeed(brake);
         }
     }   
-
 }

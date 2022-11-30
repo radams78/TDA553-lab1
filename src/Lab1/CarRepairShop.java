@@ -24,7 +24,9 @@ public class CarRepairShop {
     public void loadCar(Car car) {
         if (carsInShop.size() < capacity) {
             if (checkDistanceToCar(car) <= radius) {
-                carsInShop.add(car);
+                if (!carsInShop.add(car)) {
+                    throw new IllegalArgumentException("Car already in shop");
+                }
             } else {
                 throw new IllegalArgumentException("Car is too far away from the shop");
             }

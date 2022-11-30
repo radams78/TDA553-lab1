@@ -3,10 +3,10 @@ What is the contract for gas() and brake() in this type? Do the implementations 
 Does your design follow the Liskov Substitution Principle?
 
 The contract for the gas() and break() it to increment and decrement the speed of the car. By calling gas() or break() we are starting a chain reaction to then
-call incrementSpeed() or decrementSpeed(), that calls setCurrentSpeed and sets it to the porpert value. 
+call incrementSpeed() or decrementSpeed(), that calls setCurrentSpeed() and sets it to the appropriate value. 
 So the contract for gas() and break() is to increase or decrease the speed of the car, which the methods dose. 
-Becasue the car class is abstract we do not have to implement gas() and brake() in the saab and volvo classes. 
-But what we can see is that the method speedFactor() is a method that both saab and volvo and has override to implement how fast the car goes.
+Becasue the car class is abstract we dosent have to implement their own gas() and brake() in the saab and volvo classes. 
+But what we can see is that the method speedFactor() is a method that both saab and volvo and has to override to implement how fast the car goes.
 Our code follows the Liskov Substitution Principle. 
 
 

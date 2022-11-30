@@ -77,16 +77,18 @@ public abstract class Vehicle implements Movable{
         setCurrentSpeed(currentSpeed);
     }
 
-    public void setDx() {
+    private void calculateDx() {
         this.dx = this.getCurrentSpeed() * Math.cos(Math.toRadians(direction));
     }
 
-    public void setDy() {
+    private void calculateDy() {
         this.dy = this.getCurrentSpeed() * Math.sin(Math.toRadians(direction));
     }
 
     @Override
     public void move() {
+        this.calculateDx();
+        this.calculateDy();
         this.x += this.dx;
         this.y += this.dy;
     }
@@ -102,6 +104,7 @@ public abstract class Vehicle implements Movable{
         this.direction += 1;
         this.direction %= 360;
     }
+
 
     public double getX() {
         return x;

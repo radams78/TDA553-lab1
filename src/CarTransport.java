@@ -10,6 +10,11 @@ public class CarTransport extends Truck{
 
     @Override
     public void startEngine() {
-        currentSpeed = 0.1;
+        
+    }
+
+    @Override
+    public void gas(double gas){
+        
     }
 }

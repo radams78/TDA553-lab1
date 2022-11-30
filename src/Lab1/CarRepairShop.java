@@ -3,7 +3,7 @@ package Lab1;
 import java.util.Set;
 import Lab1.vehicles.Car;
 
-public class CarRepairShop {
+public class CarRepairShop implements Location {
     private Set<Car> carsInShop;
     private double x;
     private double y;

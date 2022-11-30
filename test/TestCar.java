@@ -1,6 +1,5 @@
 package test;
 
-import src.Volvo240;
 import src.Direction;
 import src.Saab95;
 import static org.junit.jupiter.api.Assertions.*;

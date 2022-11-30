@@ -1,16 +1,17 @@
 package Lab1.truckextensions;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import Lab1.vehicles.Car;
 
 public class Transportbed implements Trailer {
-    private List<Car> loadedCars = new ArrayList<>();
+    private Set<Car> loadedCars;
     private Boolean extendedRamp;
+    private int capacity;
 
-    public Transportbed() {
+    public Transportbed(int capacity) {
         this.extendedRamp = false;
+        this.capacity = capacity;
     }
 
     public Boolean getExtendedRamp() {
@@ -42,7 +43,7 @@ public class Transportbed implements Trailer {
     }
 
     public void loadCar(Car car) {
-        if (loadedCars.size() < 4) {
+        if (loadedCars.size() < this.capacity) {
             loadedCars.add(car);
             car.stopEngine();
         } else {
@@ -50,30 +51,19 @@ public class Transportbed implements Trailer {
         }
     }
 
-    public void unloadCar() {
-        if (loadedCars.size() > 0) {
-            loadedCars.remove(loadedCars.size() - 1);
+    public void unloadCar(Car car) {
+        if (loadedCars.contains(car)) {
+            loadedCars.remove(car);
         } else {
-            throw new IllegalStateException("Car transporter is empty");
+            throw new IllegalStateException("Car is not loaded");
         }
-    }
-
-    public void unloadCar(String name) {
-        for (int i = 0; i < loadedCars.size(); i++) {
-            if (loadedCars.get(i).getModelName().equals(name)) {
-                loadedCars.remove(i);
-                return;
-            }
-        }
-        throw new IllegalStateException("Car transporter does not contain a car with the name " + name);
     }
 
     public void unloadAllCars() {
         loadedCars.clear();
     }
 
-    public List<Car> getCars() {
+    public Set<Car> getCars() {
         return loadedCars;
     }
-
 }

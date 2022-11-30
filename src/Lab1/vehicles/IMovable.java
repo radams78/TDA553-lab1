@@ -1,4 +1,4 @@
-package Lab1.vehicles.interfaces;
+package Lab1.vehicles;
 
 public interface IMovable {
     public void move();

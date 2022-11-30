@@ -2,10 +2,11 @@ package Lab1.truckextensions;
 
 import java.util.Set;
 
-import Lab1.vehicles.Car;
+import Lab1.vehicles.ICanLoad;
+import Lab1.vehicles.ILoadable;
 
-public class Transportbed implements Trailer {
-    private Set<Car> loadedCars;
+public class Transportbed implements Trailer, ICanLoad {
+    private Set<ILoadable> loadedObjects;
     private Boolean extendedRamp;
     private int capacity;
 
@@ -42,28 +43,37 @@ public class Transportbed implements Trailer {
         return 0;
     }
 
-    public void loadCar(Car car) {
-        if (loadedCars.size() < this.capacity) {
-            loadedCars.add(car);
-            car.stopEngine();
+    public void load(ILoadable loadable) {
+        if (loadedObjects.size() < this.capacity) {
+            loadedObjects.add(loadable);
         } else {
             throw new IllegalStateException("Car transporter is full");
         }
     }
 
-    public void unloadCar(Car car) {
-        if (loadedCars.contains(car)) {
-            loadedCars.remove(car);
+    public void unload(ILoadable loadable) {
+        if (loadedObjects.contains(loadable)) {
+            loadedObjects.remove(loadable);
         } else {
             throw new IllegalStateException("Car is not loaded");
         }
     }
 
-    public void unloadAllCars() {
-        loadedCars.clear();
+    public void unloadAllObjects() {
+        loadedObjects.clear();
     }
 
-    public Set<Car> getCars() {
-        return loadedCars;
+    public Set<ILoadable> getLoad() {
+        return loadedObjects;
+    }
+
+    public double getPosX() {
+        // TODO
+        return 0;
+    }
+
+    public double getPosY() {
+        // TODO
+        return 0;
     }
 }

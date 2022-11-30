@@ -1,10 +1,11 @@
 package Lab1;
 
 import java.util.Set;
-import Lab1.vehicles.Car;
+import Lab1.vehicles.ICanLoad;
+import Lab1.vehicles.ILoadable;
 
-public class CarRepairShop implements Location {
-    private Set<Car> carsInShop;
+public class CarRepairShop implements ICanLoad {
+    private Set<ILoadable> loadedObjects;
     private double x;
     private double y;
     private double radius;
@@ -17,21 +18,22 @@ public class CarRepairShop implements Location {
         this.capacity = capacity;
     }
 
-    private double distanceToCar(Car car) {
-        return Math.sqrt(Math.pow(car.getPosX() - this.x, 2) + Math.pow(car.getPosY() - this.y, 2));
+    private double distanceToObject(ILoadable loadable) {
+        return Math.sqrt(Math.pow(loadable.getPosX() - this.x, 2) + Math.pow(loadable.getPosY() - this.y, 2));
     }
 
-    public void moveCarHere(Car car) {
-        car.moveToLocation(this);
+    public void load(ILoadable loadable) {
+        loadable.load(this);
     }
 
-    public void loadCar(Car car) {
-        if (carsInShop.size() < capacity) {
-            if (distanceToCar(car) <= radius) {
-                if (!carsInShop.add(car)) {
+    // TODO We might want to move this to the loadable object
+    public void loadCar(ILoadable loadable) {
+        if (loadedObjects.size() < capacity) {
+            if (distanceToObject(loadable) <= radius) {
+                if (!loadedObjects.add(loadable)) {
                     throw new IllegalArgumentException("Car already in shop");
                 } else {
-                    moveCarHere(car);
+                    load(loadable);
                 }
             } else {
                 throw new IllegalArgumentException("Car is too far away from the shop");
@@ -41,8 +43,8 @@ public class CarRepairShop implements Location {
         }
     }
 
-    public void unloadCar(Car car) {
-        carsInShop.remove(car);
+    public void unload(ILoadable loadable) {
+        loadedObjects.remove(loadable);
     }
 
     public double getPosX() {

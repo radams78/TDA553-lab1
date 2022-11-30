@@ -7,6 +7,7 @@ public class Scania extends Truck{
         super(nrDoors, enginePower, currentSpeed, color);
     }
 
+    @Override
     
 
 }

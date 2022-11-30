@@ -6,14 +6,13 @@ public class Scania extends Truck{
 
     public Scania() {
         super(2, 100, 0, Color.BLACK, "Scania Interlink", 0, 0 ,
-         new AngledPlattform(70));
+         new AngledPlatform(70), new LoadObjects(100));
         
     }
-
-
+    
     @Override
     public Boolean isAbleToMove() {
-        if (plattform.getPlattformState() == 0){
+        if (getPlatformState() == 0){
             return true;
         }
         else {

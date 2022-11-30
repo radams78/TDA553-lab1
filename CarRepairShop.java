@@ -1,7 +1,7 @@
 
 public class CarRepairShop{
 
-    private LoadFunktion load;
+    private CarLoad load;
     private double x;
     private double y;
 
@@ -9,7 +9,7 @@ public class CarRepairShop{
 
         this.x = x;
         this.y = y;
-        this.load = new LoadFunktion(10);
+        this.load = new CarLoad(10);
     }   
 
 }

@@ -2,9 +2,12 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
+import java.util.ArrayDeque;
+
 import org.junit.Test;
 
 public class LabbTest {
+    
     
     @Test
     public void test_move_car_to_the_left(){
@@ -79,6 +82,37 @@ public class LabbTest {
     }
 
     
+    @Test
+    public void test_trucks_plattform_functions(){
 
+        Truck scaniaTruck = new Scania();
+        Truck carTransporter = new CarTransporter();
+
+        assertEquals(0, scaniaTruck.getPlatformState());
+        assertEquals(0, carTransporter.getPlatformState());
+
+        scaniaTruck.platformUp(10);
+        carTransporter.platformUp(1);
+
+        assertEquals(10, scaniaTruck.getPlatformState());
+        assertEquals(1, carTransporter.getPlatformState());
+    }
+
+    @Test
+    public void test_load_function(){
+
+        Truck carTransporter = new CarTransporter();
+        Car saab = new Saab95();
+        Car volvo = new Volvo240();
+        ArrayDeque<Car> cars = new ArrayDeque<>();
+
+        cars.add(volvo);
+        cars.add(saab);
+        carTransporter.load(volvo);
+        carTransporter.load(saab);
+
+        carTransporter.unload();
+
+    }   
   
 }

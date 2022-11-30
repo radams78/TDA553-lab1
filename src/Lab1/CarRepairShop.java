@@ -17,7 +17,7 @@ public class CarRepairShop {
         this.capacity = capacity;
     }
 
-    public double checkDistanceToCar(Car car) {
+    private double checkDistanceToCar(Car car) {
         return Math.sqrt(Math.pow(car.getPosX() - this.x, 2) + Math.pow(car.getPosY() - this.y, 2));
     }
 

@@ -7,11 +7,13 @@ public class CarRepairShop {
     Set<Car> carsInShop;
     private double x;
     private double y;
+    private double radius;
     int capacity;
 
-    public CarRepairShop(double x, double y, int capacity) {
+    public CarRepairShop(double x, double y, double radius, int capacity) {
         this.x = x;
         this.y = y;
+        this.radius = radius;
         this.capacity = capacity;
     }
 

@@ -17,8 +17,20 @@ public class CarRepairShop {
         this.capacity = capacity;
     }
 
+    public double checkDistanceToCar(Car car) {
+        return Math.sqrt(Math.pow(car.getPosX() - this.x, 2) + Math.pow(car.getPosY() - this.y, 2));
+    }
+
     public void loadCar(Car car) {
-        carsInShop.add(car);
+        if (carsInShop.size() < capacity) {
+            if (checkDistanceToCar(car) <= radius) {
+                carsInShop.add(car);
+            } else {
+                throw new IllegalArgumentException("Car is too far away from the shop");
+            }
+        } else {
+            throw new IllegalArgumentException("Shop is full");
+        }
     }
 
     public void unloadCar(Car car) {

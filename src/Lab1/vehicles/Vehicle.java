@@ -119,6 +119,14 @@ public abstract class Vehicle implements IMovable {
 
     }
 
+    public double getPosX() {
+        return posX;
+    }
+
+    public double getPosY() {
+        return posY;
+    }
+
     @Override
     public void move() {
         if (currentDirection == Direction.LEFT) {

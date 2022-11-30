@@ -3,7 +3,7 @@ package Lab1.truckextensions;
 import java.util.ArrayList;
 import java.util.List;
 
-import Lab1.Car;
+import Lab1.vehicles.Car;
 
 public class Transportbed implements Trailer {
     private List<Car> loadedCars = new ArrayList<>();

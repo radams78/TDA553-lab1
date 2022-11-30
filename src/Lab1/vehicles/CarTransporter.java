@@ -2,6 +2,7 @@ package Lab1;
 
 import java.awt.Color;
 
+import Lab1.vehicles.Truck;
 import Lab1.truckextensions.Transportbed;
 
 public class CarTransporter extends Truck {

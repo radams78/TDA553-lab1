@@ -1,4 +1,4 @@
-package Lab1;
+package Lab1.vehicles;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;

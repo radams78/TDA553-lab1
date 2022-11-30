@@ -1,4 +1,4 @@
-package Lab1;
+package Lab1.vehicles;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,7 +7,7 @@ import java.awt.Color;
 
 import org.junit.jupiter.api.*;
 
-import Lab1.Vehicle.Direction;
+import Lab1.vehicles.Vehicle.Direction;
 
 public class CarTest {
     @Test

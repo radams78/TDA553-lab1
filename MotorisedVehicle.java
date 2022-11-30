@@ -1,28 +1,19 @@
 import java.awt.*;
 import java.lang.Math;
 
-public class MotorisedVehicle implements Movable {
+public class MotorisedVehicle<TEngine extends Engine, TBody extends Body> implements Movable {
 
-    private Engine engine;
-    private Body body;
+    private TEngine engine;
+    private TBody body;
     private double currentSpeed;
 
     private double x, y; // Coordinates
 
     private Direction direction; // Current direction
 
-    public MotorisedVehicle(String modelName, Color color, double enginePower, int nrDoors) {
-        this.engine = new Engine(enginePower);
-        this.body = new Body(modelName, color, nrDoors);
-        this.stopEngine();
-        this.x = 0;
-        this.y = 0;
-        this.direction = Direction.NORTH;
-    }
-
-    public MotorisedVehicle(String modelName, Color color, Engine engine, int nrDoors){
+    public MotorisedVehicle(TBody body, TEngine engine) {
         this.engine = engine;
-        this.body = new Body(modelName, color, nrDoors);
+        this.body = body;
         this.stopEngine();
         this.x = 0;
         this.y = 0;
@@ -57,6 +48,14 @@ public class MotorisedVehicle implements Movable {
 
     public Color getColor() {
         return this.body.getColor();
+    }
+
+    public TBody getBody(){
+        return this.body;
+    }
+
+    public TEngine getEngine(){
+        return this.engine;
     }
 
     public double getX() { 
@@ -134,12 +133,12 @@ public class MotorisedVehicle implements Movable {
 
     public void turnLeft() {
         int dirValue = this.direction.getValue();
-        this.direction = Direction.values()[(((dirValue - 1) + 4) % 4)];
+        this.direction = Direction.values()[Math.floorMod(dirValue - 1, 4)];
     }
 
     public void turnRight() {
         int dirValue = this.direction.getValue();
-        this.direction = Direction.values()[(dirValue + 1) % 4];
+        this.direction = Direction.values()[Math.floorMod(dirValue + 1, 4)];
     }
     
     //Moves the vehicle in the current direction

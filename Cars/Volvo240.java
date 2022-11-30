@@ -1,15 +1,18 @@
 import java.awt.*;
 
-public class Volvo240 extends MotorisedVehicle {
+public class Volvo240 extends MotorisedVehicle<Engine, TrimBody> {
 
-    private final static double trimFactor = 1.25; // TODO fixa magic number
     
     public Volvo240(){
-        super("Volvo240", Color.black, 100, 4);
+        super(new TrimBody("Volvo240", Color.black, 4, 1.25), new Engine(100));
+    }
+
+    public double getTrimFactor(){
+        return this.getBody().getTrimFactor();
     }
     
     @Override
     public double speedFactor(){
-        return (this.getEnginePower() * 0.01 * Volvo240.trimFactor);
+        return (this.getEnginePower() * 0.01 * this.getTrimFactor());
     }
 }

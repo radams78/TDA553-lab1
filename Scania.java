@@ -1,12 +1,12 @@
 import java.awt.*;
 
-public class Scania extends MotorisedVehicle{
+public class Scania extends MotorisedVehicle<Engine, Body>{
     
    private TipPlatform tipPlatform;
 
 
    public Scania() {
-      super("Scania", Color.WHITE, 150.0, 2);
+      super(new Body("Scania", Color.WHITE, 2), new Engine(150));
       this.tipPlatform = new TipPlatform();
    }
 

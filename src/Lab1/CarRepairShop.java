@@ -1,6 +1,7 @@
 package Lab1;
 
 import java.util.Set;
+import  Lab1.vehicles.*;
 
 public class CarRepairShop {
     Set<Car> carsInShop;

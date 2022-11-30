@@ -1,19 +1,19 @@
 import java.awt.*;
 import java.util.Stack;
 
-public class CarTransporter extends MotorisedVehicle{
+public class CarTransporter extends MotorisedVehicle<Engine, Body> {
 
     private CarPlatform carPlatform;
-    private Stack<MotorisedVehicle> loadedVehicles;
+    private Stack<MotorisedVehicle<Engine,Body>> loadedVehicles;
     private int maxCapacity;
 
     public CarTransporter(int maxCapacity) {
-        super("Temporary", Color.black, 120, 2);
+        super(new Engine(120), new Body("Transporter", Color.black, 2));
         this.carPlatform = new CarPlatform();
         this.maxCapacity = maxCapacity;
     }
 
-    public void load(MotorisedVehicle car) {
+    public void load(MotorisedVehicle<Engine, Body> car) {
         if (car != this) {
             this.tryToLoad(car);
         } else {
@@ -21,7 +21,7 @@ public class CarTransporter extends MotorisedVehicle{
         }
     }
 
-    public MotorisedVehicle unload() {
+    public MotorisedVehicle<Engine, Body> unload() {
             return this.loadedVehicles.pop(); // Will throw exception if loadedVehicles is empty
     }
 
@@ -49,7 +49,7 @@ public class CarTransporter extends MotorisedVehicle{
 
 // }
 
-    private void tryToLoad(MotorisedVehicle car) {
+    private void tryToLoad(MotorisedVehicle<Engine, Body> car) {
         if (this.loadedVehicles.size() < this.maxCapacity) {
             this.loadedVehicles.push(car);
         } else {

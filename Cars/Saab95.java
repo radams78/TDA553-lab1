@@ -5,7 +5,7 @@ public class Saab95 extends MotorisedVehicle<TurboEngine, Body> {
     private boolean turboOn;
     
     public Saab95(){
-        super(new Body("Saab95", Color.gray, 2), new TurboEngine(125.0));
+        super(new TurboEngine(125.0), new Body("Saab95", Color.gray, 2));
     }
     
     public void setTurboOn(){

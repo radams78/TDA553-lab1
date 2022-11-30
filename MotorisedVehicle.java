@@ -11,7 +11,7 @@ public class MotorisedVehicle<TEngine extends Engine, TBody extends Body> implem
 
     private Direction direction; // Current direction
 
-    public MotorisedVehicle(TBody body, TEngine engine) {
+    public MotorisedVehicle(TEngine engine, TBody body) {
         this.engine = engine;
         this.body = body;
         this.stopEngine();

@@ -43,34 +43,30 @@ public class CarRepairShop {
     //-------------------Repairshop misc-------------------------
 
 
-    public void load(MotorisedVehicle car) { // TODO Ask TA/Föreläsare how to implement this distance check
-        if (car.getDistance(this.x, this.y) > this.LOAD_RANGE){
-            throw new IllegalArgumentException("Too far away from repair shop to transfer.");
-        }
+    public void load(MotorisedVehicle<Engine, Body> car) {
+        this.AssertInRange(car);
         this.tryToLoad(car);
     }
 
     public void carTransfer(CarTransporter transCar, int amountToLoad) {
-        if (amountToLoad > this.maxCapacity - this.repairshopGarage.size()) {
-            throw new IllegalArgumentException("Can't unload that many vehicles into garage."); // TODO hantera om de vill lasta av mer än möjligt
-        }
         
-        if (transCar.getDistance(this.x, this.y) > this.LOAD_RANGE){
-            throw new IllegalArgumentException("Too far away from repair shop to transfer.");
-        }
-
-        this.isOutsideRange(transCar);
-
-        this.inRange();
+        this.AssertCapacityLeft(transCar, amountToLoad);
+        this.AssertInRange(transCar);
 
         for (int i = 0; i < amountToLoad; i++) {
             this.repairshopGarage.add(transCar.unload());
         }
     }
 
-    public void isOutsideRange(CarTransporter transCar){
-        if (transCar.getDistance(this.x, this.y) > this.LOAD_RANGE){
+    private void AssertInRange (MotorisedVehicle<Engine, Body> transCar) throws IllegalArgumentException {
+        if (transCar.getDistance(this.x, this.y) > this.LOAD_RANGE) {
             throw new IllegalArgumentException("Too far away from repair shop to transfer.");
+        }
+    }
+
+    private void AssertCapacityLeft (CarTransporter transCar, int amountToLoad) throws IllegalArgumentException {
+        if (amountToLoad > this.maxCapacity - this.repairshopGarage.size()) {
+            throw new IllegalArgumentException("Can't unload that many vehicles into garage."); // TODO hantera om de vill lasta av mer än möjligt
         }
     }
 
@@ -86,12 +82,12 @@ public class CarRepairShop {
         }
     }
 
-    public void unload(MotorisedVehicle car) {
+    public void unload(MotorisedVehicle<Engine, Body> car) {
         this.repairshopGarage.remove(car);
         this.carToRepairShopPos(car);
     }
 
-    private void tryToLoad(MotorisedVehicle car) {
+    private void tryToLoad(MotorisedVehicle<Engine, Body> car) {
     if (!this.isFull()) {
         this.repairshopGarage.add(car);
         } else {
@@ -108,7 +104,7 @@ public class CarRepairShop {
         return "CarRepairShop [repairshopGarage=" + repairshopGarage + "]";
     }
 
-    private void carToRepairShopPos(MotorisedVehicle car) {
+    private void carToRepairShopPos(MotorisedVehicle<Engine, Body> car) {
         car.setX(this.x);
         car.setY(this.y);
     }

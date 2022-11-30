@@ -4,7 +4,7 @@ public class Volvo240 extends MotorisedVehicle<Engine, TrimBody> {
 
     
     public Volvo240(){
-        super(new TrimBody("Volvo240", Color.black, 4, 1.25), new Engine(100));
+        super(new Engine(100), new TrimBody("Volvo240", Color.black, 4, 1.25));
     }
 
     public double getTrimFactor(){

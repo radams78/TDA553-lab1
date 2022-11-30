@@ -4,7 +4,7 @@ import java.util.Set;
 import Lab1.vehicles.Car;
 
 public class CarRepairShop {
-    Set<Car> carsInShop;
+    private Set<Car> carsInShop;
     private double x;
     private double y;
     private double radius;

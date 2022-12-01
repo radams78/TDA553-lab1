@@ -1,6 +1,7 @@
 package Lab1.vehicles;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.Color;
@@ -11,19 +12,95 @@ import Lab1.vehicles.Vehicle.Direction;
 
 public class CarTest {
     @Test
-    public void direction_next_test() {
+    public void direction_left_after_down() {
         assertEquals(Direction.LEFT, Direction.DOWN.next());
+    }
+
+    @Test
+    public void direction_up_after_left() {
         assertEquals(Direction.UP, Direction.LEFT.next());
+    }
+
+    @Test
+    public void direction_right_after_up() {
         assertEquals(Direction.RIGHT, Direction.UP.next());
+    }
+
+    @Test
+    public void direction_down_after_right() {
         assertEquals(Direction.DOWN, Direction.RIGHT.next());
     }
 
     @Test
-    public void direction_prev_test() {
+    public void direction_left_before_up() {
         assertEquals(Direction.LEFT, Direction.UP.prev());
+    }
+
+    @Test
+    public void direction_up_before_right() {
         assertEquals(Direction.UP, Direction.RIGHT.prev());
+    }
+
+    @Test
+    public void direction_right_before_down() {
         assertEquals(Direction.RIGHT, Direction.DOWN.prev());
+    }
+
+    @Test
+    public void direction_down_before_left() {
         assertEquals(Direction.DOWN, Direction.LEFT.prev());
+    }
+
+    @Test
+    public void moving_right_should_increase_x() {
+        Car car = new Volvo240(4, 100, 0, Color.BLACK, "Volvo240");
+        double originalX = car.getPosX();
+        while (car.getDirection() != Direction.RIGHT) {
+            car.turnRight();
+        }
+        car.startEngine();
+        car.gas(1);
+        car.move();
+        assertTrue(car.getPosX() > originalX);
+    }
+
+    @Test
+    public void moving_up_should_increase_y() {
+        Car car = new Volvo240(4, 100, 0, Color.BLACK, "Volvo240");
+        double originalY = car.getPosY();
+        while (car.getDirection() != Direction.UP) {
+            car.turnRight();
+        }
+        car.startEngine();
+        car.gas(1);
+        car.move();
+        assertTrue(car.getPosY() > originalY);
+    }
+
+    @Test
+    public void moving_left_should_decrease_x() {
+        Car car = new Volvo240(4, 100, 0, Color.BLACK, "Volvo240");
+        double originalX = car.getPosX();
+        while (car.getDirection() != Direction.LEFT) {
+            car.turnRight();
+        }
+        car.startEngine();
+        car.gas(1);
+        car.move();
+        assertTrue(car.getPosX() < originalX);
+    }
+
+    @Test
+    public void moving_down_should_decrease_y() {
+        Car car = new Volvo240(4, 100, 0, Color.BLACK, "Volvo240");
+        double originalY = car.getPosY();
+        while (car.getDirection() != Direction.DOWN) {
+            car.turnRight();
+        }
+        car.startEngine();
+        car.gas(1);
+        car.move();
+        assertTrue(car.getPosY() < originalY);
     }
 
     @Test
@@ -70,11 +147,10 @@ public class CarTest {
 
     @Test
     public void braking_doesnt_make_the_car_reverse() {
-        Saab95 saab = new Saab95(Color.BLACK, "95", false);
-        assertEquals(true, 0 <= saab.getCurrentSpeed());
+        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
         for (int i = 0; i < 100; i++) {
             saab.brake(1);
         }
-        assertEquals(true, 0.0d <= saab.getCurrentSpeed());
+        assertEquals(true, 0 <= saab.getCurrentSpeed());
     }
 }

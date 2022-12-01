@@ -77,11 +77,11 @@ public abstract class Vehicle implements IMovable {
         return currentSpeed;
     }
 
-    protected void incrementSpeed(double amount) {
+    private void incrementSpeed(double amount) {
         setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
-    protected void decrementSpeed(double amount) {
+    private void decrementSpeed(double amount) {
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
 
@@ -119,6 +119,14 @@ public abstract class Vehicle implements IMovable {
 
     }
 
+    public double getPosX() {
+        return posX;
+    }
+
+    public double getPosY() {
+        return posY;
+    }
+
     @Override
     public void move() {
         if (currentDirection == Direction.LEFT) {
@@ -141,4 +149,10 @@ public abstract class Vehicle implements IMovable {
     public void turnRight() {
         currentDirection = currentDirection.next();
     }
+
+    public void moveToLoader(ILoadable loadable) {
+        posX = loadable.getPosX();
+        posY = loadable.getPosY();
+    }
+
 }

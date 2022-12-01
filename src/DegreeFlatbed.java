@@ -1,6 +1,6 @@
 
 
-public class DegreeFlatbed extends Flatbed{
+public class DegreeFlatbed implements Flatbed{
     private int flatbedAngle;
 
     public DegreeFlatbed() {

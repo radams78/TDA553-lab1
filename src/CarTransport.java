@@ -10,11 +10,20 @@ public class CarTransport extends Truck{
 
     @Override
     public void startEngine() {
-        
+        if (flatbed.getFlatbedUp() == true) {
+            super.startEngine(); 
+        }
     }
 
     @Override
     public void gas(double gas){
-        
+        if (flatbed.getFlatbedUp() == true) {
+            super.gas(gas); 
+        }
     }
+
+    public TwoStateFlatbed getFlatbed() {
+        return flatbed;
+    }
+    
 }

@@ -1,6 +1,4 @@
-public abstract class Flatbed {
-
-    abstract void raise();
-    
-    abstract void lower();
+interface Flatbed {
+    void raise();
+    void lower();
 }

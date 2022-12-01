@@ -37,8 +37,5 @@ public class ScaniaTest {
         assertThrows(IllegalStateException.class, () -> {
             scania.startEngine();
         });
-        assertThrows(IllegalStateException.class, () -> {
-            scania.setCurrentSpeed(10);
-        });
     }
 }

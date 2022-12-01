@@ -5,9 +5,9 @@ import java.awt.*;
 public class Saab95 extends Car implements ITurboable {
     private Boolean turboOn;
 
-    public Saab95(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName,
+    public Saab95(Color color, String modelName,
             boolean turboOn) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName);
+        super(2, 125, 0, color, modelName);
         this.turboOn = turboOn;
         stopEngine();
     }

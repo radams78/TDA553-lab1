@@ -77,11 +77,11 @@ public abstract class Vehicle implements IMovable {
         return currentSpeed;
     }
 
-    protected void incrementSpeed(double amount) {
+    private void incrementSpeed(double amount) {
         setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
-    protected void decrementSpeed(double amount) {
+    private void decrementSpeed(double amount) {
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
 

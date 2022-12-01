@@ -4,7 +4,7 @@ Task 5: Reflection
 
 The Open-closed principle states that software entities should be open for extension, but closed for modification.
 To make the code open for extension but closed for modification we chose to make inheritance hierarchy by using
-Hierarchical Inheritance. 
+subclass inheritance. 
 By using a superclass Car we can make sure that code dublication dosen't appear and therefor we dosent have to modify
 our different cars everytime we want to change somethings about the cars.
 

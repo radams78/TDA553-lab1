@@ -102,10 +102,9 @@ public class CarTest {
     @Test
     public void braking_doesnt_make_the_car_reverse() {
         Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
-        assertEquals(true, 0 <= saab.getCurrentSpeed());
         for (int i = 0; i < 100; i++) {
             saab.brake(1);
         }
-        assertEquals(true, 0.0d <= saab.getCurrentSpeed());
+        assertEquals(true, 0 <= saab.getCurrentSpeed());
     }
 }

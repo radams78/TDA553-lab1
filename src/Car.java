@@ -55,28 +55,33 @@ abstract class Car implements Movable{
     public void setColor(Color clr){
 	    color = clr;
     }
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    public void setCurrentSpeed(double newSpeed) {
+        if (getEnginePower() < newSpeed && newSpeed > 0) {
+            this.currentSpeed = newSpeed;
+        }
     }
     public double speedFactor(){
         return 0;
     }
     public void startEngine(){
 	    this.isEngineOn = true;
+        this.currentSpeed = 0.1;
     }
     public void stopEngine(){
         this.isEngineOn = false;
     }
     
-    public void incrementSpeed(double amount){
-        if (this.getCurrentSpeed() < this.getEnginePower()){
-            this.currentSpeed = this.getCurrentSpeed() + this.speedFactor() * amount;
+    public void incrementSpeed(double amount){   
+        this.currentSpeed = this.getCurrentSpeed() + this.speedFactor() * amount;
+        if (this.getCurrentSpeed() > this.getEnginePower()) {
+            this.currentSpeed = this.enginePower;
         }
     }
 
     public void decrementSpeed(double amount){
-        if (this.getCurrentSpeed() > 0){
-            this.currentSpeed = this.getCurrentSpeed() - this.speedFactor() * amount;
+        this.currentSpeed = this.getCurrentSpeed() - this.speedFactor() * amount;
+        if (this.getCurrentSpeed() < 0) {
+            this.currentSpeed = 0;
         }
     }
 

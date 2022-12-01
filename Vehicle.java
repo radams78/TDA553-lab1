@@ -1,9 +1,6 @@
 import java.awt.*;
 
 public abstract class Vehicle implements Movable{
-
-
-    public boolean turboOn;
     
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
@@ -33,9 +30,7 @@ public abstract class Vehicle implements Movable{
     public int getNrDoors(){
         return nrDoors;
     }
-    public boolean isTurboOn() {
-        return turboOn;
-    }
+
 
     public String getModelName() {
         return modelName;
@@ -63,7 +58,7 @@ public abstract class Vehicle implements Movable{
     }
 
     public void startEngine(){
-	    currentSpeed = 1;
+	    currentSpeed = 0.1;
     }
 
     public void stopEngine(){
@@ -72,12 +67,15 @@ public abstract class Vehicle implements Movable{
 
     abstract double speedFactor();
 
-    abstract void incrementSpeed(double amount);
+    public void incrementSpeed(double amount){
+        this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * Math.max(amount, 0), this.getEnginePower()));
+    }
 
-    abstract void decrementSpeed(double amount);
    
-
-    // TODO fix this method according to lab pm
+    public void decrementSpeed(double amount){
+        this.setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * Math.max(amount, 0), 0));;
+   
+    }
     public void gas(double amount) throws Exception{
 
         if (amount > 1 || amount < 0){

@@ -22,20 +22,6 @@ public abstract class Truck extends Vehicle{
     }
 
 
-    @Override
-    public void incrementSpeed(double amount){
-
-	    this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, this.getEnginePower()));
-    }
-
-
-    @Override
-    public void decrementSpeed(double amount){
-
-        this.setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));;
-    }
-
-
     abstract Boolean isAbleToMove();
 
 

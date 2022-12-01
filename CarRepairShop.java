@@ -1,4 +1,4 @@
-
+import java.util.ArrayDeque;
 
 public class CarRepairShop implements CarLoadable{
 
@@ -24,6 +24,12 @@ public class CarRepairShop implements CarLoadable{
         load.unload(getX(), getY());
         
     }   
+
+    @Override
+    public ArrayDeque<Car> getCars() {
+       
+        return load.getCars();
+    }
 
     public double getX() {
         return x;

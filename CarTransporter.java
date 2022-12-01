@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.ArrayDeque;
 
 
 public class CarTransporter extends Truck implements CarLoadable {
@@ -11,7 +12,6 @@ public class CarTransporter extends Truck implements CarLoadable {
          load = new CarLoad(10);
     }
 
-
     @Override
     public Boolean isAbleToMove() {
         if (getPlatformState() == 1){
@@ -22,7 +22,6 @@ public class CarTransporter extends Truck implements CarLoadable {
         } 
     }
 
-
     @Override
     public void load(Car c) {
         if (getPlatformState() == 0){
@@ -30,10 +29,17 @@ public class CarTransporter extends Truck implements CarLoadable {
         }
     }
 
+    
     @Override
     public void unload() {
         if(getPlatformState() == 0){
            load.unload(getX(), getY());
         }        
+    }
+
+    @Override
+    public ArrayDeque<Car> getCars() {
+      
+        return load.getCars();
     }
 }

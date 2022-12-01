@@ -23,20 +23,35 @@ public class LabbTest {
     } 
 
     @Test
-    public void test_turn_car_then_move(){
+    public void test_turn_car(){
         Car saab = new Saab95();
         Car volvo = new Volvo240();
 
         saab.turnLeft();
         volvo.turnLeft();
 
-        saab.move();
+        assertEquals(2, saab.getCurrentDirection(), 0.001);
+        assertEquals(2, volvo.getCurrentDirection(), 0.001);
+
+        saab.turnRight();
+        volvo.turnRight();
+
+        assertEquals(3, saab.getCurrentDirection());
+        assertEquals(3, volvo.getCurrentDirection());
+    } 
+
+    @Test 
+    public void test_move_car(){
+
+        Car volvo = new Volvo240();
+
+        assertEquals(0, volvo.getX(), 0.001);
+
         volvo.move();
 
-        assertEquals(-1, saab.getY(), 0.001);
-        assertEquals(-1, volvo.getY(), 0.001);
+        assertEquals(-0.1, volvo.getX(), 0.001);
+    }
 
-    } 
 
     @Test
     public void test_brake_and_gas() throws Exception {
@@ -111,7 +126,8 @@ public class LabbTest {
         carTransporter.load(volvo);
         carTransporter.load(saab);
 
-        carTransporter.load(volvo);
+        assertEquals(cars, carTransporter.getCars());
+
 
     }   
   

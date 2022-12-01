@@ -36,4 +36,9 @@ public class Saab95 extends Car{
         this.setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));;
     }
 
+
+    public boolean isTurboOn() {
+        return turboOn;
+    }
+
 }

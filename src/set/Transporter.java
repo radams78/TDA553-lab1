@@ -60,8 +60,8 @@ public class Transporter extends Truck{
     //   > Distance to transporter is below 15m
     public void loadCar(Car car){
         if (ramp.getRampPositionDown() == true){
-            car.setCoordinates(this.getX(),this.getY());
-            loadingSpace.loadCar(car, this.getX(), this.getY());
+            car.setCoordinates(this.getXPosition(),this.getYPosition());
+            loadingSpace.loadCar(car, this.getXPosition(), this.getYPosition());
         }
     }
     
@@ -75,7 +75,7 @@ public class Transporter extends Truck{
     public void move() {
         super.move();
         for (Car car: loadingSpace.getListOfCars()){
-            car.setCoordinates(this.getX(), this.getY());
+            car.setCoordinates(this.getXPosition(), this.getYPosition());
         }
     }
     

@@ -25,18 +25,20 @@ public class ScaniaTest {
     @Before
     public void reset_scania(){
         scania = new Scania(2, Color.black, 100, "Scania",70);
-        
+        scania.startEngine();
     }
 
     @Test
     public void scania_should_not_be_able_to_gas_when_ramp_is_up() {
         scania.raiseRamp();
+        
         scania.gas(1);
         assertTrue(scania.getCurrentSpeed() == 0);
     }
 
     @Test
     public void scania_should_be_able_to_gas_when_ramp_is_down() {
+        scania.lowerRamp();
         scania.gas(1);
         assertTrue(scania.getCurrentSpeed() > 0);
     }

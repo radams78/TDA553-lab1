@@ -1,4 +1,7 @@
-// --- Packages --- //
+/* 
+// --- Packages --- // ##########################################################
+                       #####         No test on abstract class              #####
+                       ##########################################################
 
 package set;
 
@@ -29,7 +32,7 @@ public class VehiclesTest {
     public void test_if_move_method_moves_correctly_X(){
         volvo.incrementSpeed(10);
         volvo.move();
-        assertEquals(volvo.getX(), 12.5, 0.00001);
+        assertEquals(volvo.getXPosition(), 12.5, 0.00001);
     
     }
 
@@ -37,7 +40,7 @@ public class VehiclesTest {
     public void test_if_move_method_moves_correctly_y(){
         volvo.incrementSpeed(10);
         volvo.move();
-        assertEquals(volvo.getY(), 0, 0.00001);
+        assertEquals(volvo.getYPosition(), 0, 0.00001);
     
     }
 
@@ -110,3 +113,4 @@ public class VehiclesTest {
     }
 }
 
+*/

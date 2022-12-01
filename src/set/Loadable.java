@@ -34,8 +34,8 @@ public class Loadable {
     // Method to load cars
     // - Note that you can only load cars within 15m radius and as long as capacity has not been reached
     public void loadCar(Car car, double x, double y) {
-        double xDistance = Math.pow(Math.abs(car.getX() - x), 2);
-        double yDistance = Math.pow(Math.abs(car.getY() - y), 2);
+        double xDistance = Math.pow(Math.abs(car.getXPosition() - x), 2);
+        double yDistance = Math.pow(Math.abs(car.getYPosition() - y), 2);
         double distanceToLoadable =  Math.sqrt(xDistance + yDistance);
         
         if (getAmountOfCarsLoaded() < capacity && distanceToLoadable < 15){

@@ -26,6 +26,7 @@ public class TransporterTest {
     public void reset_transporter(){
         transporter = new Transporter(2, Color.black, 100, "Transporter", 8);
         car = new Volvo240(2, Color.red, 100, "null");
+        transporter.startEngine();
     }
 
     @Test
@@ -70,7 +71,7 @@ public class TransporterTest {
         transporter.lowerRamp();
         transporter.loadCar(car);
         transporter.move();
-        assertEquals(transporter.getX(), car.getX(), 0.001);
+        assertEquals(transporter.getXPosition(), car.getXPosition(), 0.001);
         
     }
         

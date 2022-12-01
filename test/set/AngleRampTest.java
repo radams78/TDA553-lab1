@@ -27,11 +27,9 @@ public class AngleRampTest {
 
     @Test
     public void rampAngle_should_not_exceed_70_degrees() {
-        angleRamp.raiseRamp();
-        angleRamp.raiseRamp();
-        angleRamp.raiseRamp();
-        angleRamp.raiseRamp();
-        angleRamp.raiseRamp();
+        for (int i = 0; i < 20; i++){
+            angleRamp.raiseRamp();
+        }
         assertEquals(angleRamp.getAngle(), 70, 0.00001);
     }
 

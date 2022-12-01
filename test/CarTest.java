@@ -167,12 +167,6 @@ public class CarTest {
     assertTrue(car.getCurrentSpeed() <= oldSpeed);
   }
 
-  @Test
-  public void openplatformtest(){
-    Scania car = new Scania();
-    double startingAngle = car.getPlatformAngle();
-    double afteropeningAngle = car.openPlatform(); //kalla på den i scania?
-  }
-
+  
 
 }

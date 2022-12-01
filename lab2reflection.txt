@@ -24,12 +24,12 @@ without having our program break.
 Question 2: How did you handle duplicated code between Scania, the car transporters and the repair shops? 
             Explain how you decided when to use subclassing and when to use composition and delegation.
             
-    Since both scania and transporters are types of trucks, and both contain methods that are identical to 
-    all types of trucks, we decided to create a truck supertype containing those methods. 
-    Repair shop and transporter both needed to be able to load/unload cars,but since a transporter and a repair shop
-    are different things and since their methods have different contracts, we decided that they can not inherite from
-    the same superclass. And instead we decided to delegate all the loading to a helperclass called loadable, that 
-    handles all the loading.             
+    We decided to create a superclass Truck from which both the subclasses Scania and Transporter inherits. This was both
+    a logical choice in that it makes common sense, but also one which allowed us to avoid some light code duplication in terms 
+    of a common speedfactor. Aside from this it also allowed us to follow the open-closed principle so that future extensions are 
+    easily made. Repair shop and transporter both needed to be able to load/unload cars, but since a transporter and a repair shop 
+    are different things and since their methods have different contracts, we decided that they can not inherit from the same 
+    superclass. And instead we decided to delegate all the loading to a helperclass called loadable, that handles all the loading.             
 
 
 Question 3: Did you need to modify the design from lab 1 in order to make these extensions? 
@@ -37,7 +37,6 @@ Question 3: Did you need to modify the design from lab 1 in order to make these 
             
 The only modification we had to make from our design in lab 1 was to create a superclass called vehicle,
 which both classes truck and car could inherit from. This was because they both shared several attributes
-and methods. In other words, it made sense to create a superclass to group these under one roof.a
-
-
+and methods. In other words, it made sense to create a superclass to group these under one roof.
+We could have thought about the possibility that we had to add other types of vehicles, that also need the code in car.
 

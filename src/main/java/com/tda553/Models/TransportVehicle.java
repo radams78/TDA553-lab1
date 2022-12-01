@@ -1,8 +1,6 @@
-package com.tda553;
+package com.tda553.Models;
 
-import com.tda553.Vehicle;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class TransportVehicle extends Vehicle
@@ -14,11 +12,18 @@ public abstract class TransportVehicle extends Vehicle
 
     protected List<Vehicle> loadedVehicles = new ArrayList<>();
     
+
     public int getPlatformAngle()
     {
         return platformAngle;
     }
-    
+
+    public boolean isPlatformActive()
+    {
+        return platformActive;
+    }
+
+
     /**
      * @param angle
      * Sets the platform angle to the specified value.
@@ -26,15 +31,16 @@ public abstract class TransportVehicle extends Vehicle
      */
     public void raisePlatform(int angle)
     {
-        if (!platformActive) 
+        if (!this.isPlatformActive()) 
         {
             throw new IllegalStateException("Cannot raise platform while moving");
         }
         
-        if (platformAngle + angle <= platformMaxAngle) {
-            platformAngle += angle;
+        if (platformAngle + angle >= platformMaxAngle) {
+            throw new IllegalArgumentException("The platform's angle cannot be raised higher!");
         }
-        throw new IllegalArgumentException("The platform's angle cannot be raised higher!");
+        
+        platformAngle += angle;        
     }
 
     /**
@@ -55,32 +61,14 @@ public abstract class TransportVehicle extends Vehicle
         }
         throw new IllegalArgumentException("The platform cannot be lowered any further!");
     }
-    /**
-     * @param veh
-     *  Loads a vehicle onto the platform.
-     */
-    public void loadVehicle(Vehicle veh)
-    {
-        if (platformAngle == 0) return;
-        loadedVehicles.add(veh);
-    }
-
-    /**
-     * @param veh
-     *  Unloads a vehicle from the platform.
-     */
-    public Vehicle unloadVehicle(Vehicle veh)
-    {
-        if (platformAngle == 0) return null;
-        Vehicle v = loadedVehicles.get(loadedVehicles.indexOf(veh));
-        loadedVehicles.remove(veh);
-        return v;
-    }
 
     @Override
     public void startEngine()
     {
-        if (platformAngle != 0) return;
+        if (this.getPlatformAngle() != 0)
+        {
+            throw new IllegalStateException("Cannot start engine while platform is raised!");
+        };
         platformActive = false;
         currentSpeed = 0.1;
     }

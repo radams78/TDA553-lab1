@@ -1,19 +1,19 @@
-package com.tda553.Vehicles;
+package com.tda553.VehicleTypes.Trucks;
 
-import com.tda553.TransportVehicle;
 import java.awt.Color;
 
-public class CarTransport extends TransportVehicle
-{
-    private int platformAngle = 0; // Degrees
-    private int platformMaxAngle = 1; // 2 states: 0 = down, 1 = up
+import com.tda553.Models.TransportVehicle;
 
-    public CarTransport()
+public class Scania extends TransportVehicle
+{
+
+    public Scania()
     {
+        this.platformMaxAngle = 70;
         nrDoors = 2;
         color = Color.black;
         enginePower = 200;
-        modelName = "CarTransport";
+        modelName = "Scania";
         vehicleWeight = 4000;
         stopEngine();
     }

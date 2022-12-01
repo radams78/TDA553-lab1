@@ -1,14 +1,13 @@
-package com.tda553;
+package com.tda553.Models;
 
 import java.awt.Color;
 
 import com.tda553.Interfaces.IVehicle;
-import com.tda553.Interfaces.Movable;
-import com.tda553.Interfaces.Transportable;
+import com.tda553.Interfaces.ITransportable;
 
-public abstract class Vehicle implements Movable, IVehicle, Transportable
+public abstract class Vehicle implements IVehicle, ITransportable
 {
-    protected int x, y;
+    protected int y, x;
     protected int direction = 1;
 
     protected int nrDoors; // Number of doors on the vehicle
@@ -18,7 +17,6 @@ public abstract class Vehicle implements Movable, IVehicle, Transportable
     protected String modelName; // The vehicle model name
     protected boolean beingTransported = false;
     protected int vehicleWeight;
-
 
     private int[][] directionTable =
     {
@@ -49,7 +47,6 @@ public abstract class Vehicle implements Movable, IVehicle, Transportable
     public int getVehicleWeight(){
         return vehicleWeight;
     }
-
     
     public double getCurrentSpeed()
     {
@@ -116,11 +113,16 @@ public abstract class Vehicle implements Movable, IVehicle, Transportable
         direction = (direction + 1) % 4;
     }
 
-
     public int[] getPosition()
     {
         int[] position = {x, y};
         return position;
+    }
+
+    public void setPosition(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
     }
 
     public abstract double speedFactor();

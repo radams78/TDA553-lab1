@@ -3,8 +3,9 @@ package com.tda553;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.tda553.Vehicles.Saab95;
-import com.tda553.Vehicles.Volvo240;
+import com.tda553.Models.Vehicle;
+import com.tda553.VehicleTypes.Cars.Saab95;
+import com.tda553.VehicleTypes.Cars.Volvo240;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;

@@ -1,9 +1,8 @@
 package com.tda553;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import com.tda553.Vehicles.Scania;
+
+import com.tda553.VehicleTypes.Trucks.Scania;
 
 public class ScaniaTest {
     Scania scania = new Scania();

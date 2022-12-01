@@ -1,6 +1,6 @@
 package com.tda553.Interfaces;
 
-public interface Movable
+public interface IMovable
 {
     void move();
 

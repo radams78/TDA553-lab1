@@ -1,6 +1,7 @@
-package com.tda553.Vehicles;
-import com.tda553.Vehicle;
+package com.tda553.VehicleTypes.Cars;
 import java.awt.Color;
+
+import com.tda553.Models.Vehicle;
 
 public class Volvo240 extends Vehicle
 {

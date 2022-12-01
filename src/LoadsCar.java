@@ -22,7 +22,7 @@ public class LoadsCar {
         car.setIsLoaded(true);
     }
 
-    public void unLoadCar(Car car) {
+    public void unloadCar(Car car) {
         loadedCarsList.remove(car);
         car.setIsLoaded(false);
     }

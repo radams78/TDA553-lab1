@@ -2,7 +2,7 @@ package src;
 import java.awt.*;
 import java.lang.Math;
 
-public abstract class Car {
+public abstract class Car implements Movable{
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
     protected Color color; // Color of the car

@@ -2,41 +2,31 @@ package src;
 
 import java.awt.Color;
 
-public class CarTransporter extends Car {
-
-    private boolean platformIsUp;
-    private CarWithPlatform platform;
+public class CarTransporter extends Truck {
+    private DiscretePlatform platform;
 
     public CarTransporter(int nrDoors, double enginePower, Color color, String modelName, boolean platformIsUp) {
         super(nrDoors, enginePower, color, modelName);
-        this.platformIsUp = platformIsUp;
+        this.platform = new DiscretePlatform();
     }
 
     protected double speedFactor() {
-        return platform.speedFactor();
+        return 1;
     }
 
-    @Override
-    protected void raisePlatform() {
-        if (isStationary()) {
-        platformIsUp = true;
-        }
+    public void raisePlatform(){
+        platform.raisePlatform(getCurrentSpeed());
     }
 
-    @Override
-    protected void lowerPlatform() {
-        if (isStationary()) {
-        platformIsUp = false;
-        }
+    public void lowerPlatform(){
+        platform.lowerPlatform(getCurrentSpeed());
     }
 
-    public boolean canGas() {
-        return platformIsUp;
+    public boolean canGas(){
+        return platform.canGas();
     }
-
-    
 
     public boolean isPlatformUp() {
-        return platformIsUp;
+        return platform.isPlatformUp();
     }
 }

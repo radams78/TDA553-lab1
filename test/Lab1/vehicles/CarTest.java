@@ -11,18 +11,42 @@ import Lab1.vehicles.Vehicle.Direction;
 
 public class CarTest {
     @Test
-    public void direction_next_test() {
+    public void direction_left_after_down() {
         assertEquals(Direction.LEFT, Direction.DOWN.next());
+    }
+
+    @Test
+    public void direction_up_after_left() {
         assertEquals(Direction.UP, Direction.LEFT.next());
+    }
+
+    @Test
+    public void direction_right_after_up() {
         assertEquals(Direction.RIGHT, Direction.UP.next());
+    }
+
+    @Test
+    public void direction_down_after_right() {
         assertEquals(Direction.DOWN, Direction.RIGHT.next());
     }
 
     @Test
-    public void direction_prev_test() {
+    public void direction_left_before_up() {
         assertEquals(Direction.LEFT, Direction.UP.prev());
+    }
+
+    @Test
+    public void direction_up_before_right() {
         assertEquals(Direction.UP, Direction.RIGHT.prev());
+    }
+
+    @Test
+    public void direction_right_before_down() {
         assertEquals(Direction.RIGHT, Direction.DOWN.prev());
+    }
+
+    @Test
+    public void direction_down_before_left() {
         assertEquals(Direction.DOWN, Direction.LEFT.prev());
     }
 

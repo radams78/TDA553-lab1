@@ -1,4 +1,4 @@
-public class TwoStateFlatbed extends Flatbed{
+public class TwoStateFlatbed implements Flatbed{
     private boolean flatbedUp;
 
     public TwoStateFlatbed() {

@@ -8,8 +8,8 @@ public abstract class Car extends Vehicle {
         this.loaded = false;
     }
 
-    public void setLoaded(boolean trueOrFalse) {
-        this.loaded = trueOrFalse;
+    public void setLoaded(boolean loaded) {
+        this.loaded = loaded;
     }
     
 }

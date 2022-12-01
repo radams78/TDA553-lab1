@@ -1,7 +1,7 @@
 import java.awt.Color;
 
 
-public class CarTransporter extends Truck {
+public class CarTransporter extends Truck implements CarLoadable {
     
     private CarLoad load;
 
@@ -22,13 +22,15 @@ public class CarTransporter extends Truck {
         } 
     }
 
+
+    @Override
     public void load(Car c) {
         if (getPlatformState() == 0){
             load.load(getX(), getY(), c);
         }
     }
 
-    
+    @Override
     public void unload() {
         if(getPlatformState() == 0){
            load.unload(getX(), getY());

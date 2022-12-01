@@ -101,7 +101,7 @@ public class LabbTest {
     @Test
     public void test_load_function(){
 
-        Truck carTransporter = new CarTransporter();
+        CarTransporter carTransporter = new CarTransporter();
         Car saab = new Saab95();
         Car volvo = new Volvo240();
         ArrayDeque<Car> cars = new ArrayDeque<>();

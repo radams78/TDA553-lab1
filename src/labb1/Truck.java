@@ -9,7 +9,7 @@ public abstract class Truck extends Vehicle {
     public Truck(Color color, int enginePower, String modelName, double x, double y, double dirX, double dirY,
              int maxLoad) {
         super(2, color, enginePower, modelName, x, y, dirX, dirY);
-    }
+    }//Constructor
 
  
 
@@ -34,11 +34,12 @@ public abstract class Truck extends Vehicle {
 
     }
 
+    //Implemented by subclasses to get specific behavior inside different methods
     public abstract Trailer getTrailer();
 
     public void retractPlatform() {
         this.getTrailer().retractPlatform();
-    }
+    }//getTrailer()
 
     // Part of the class contract. SUbclass must implement speedFactor
     @Override

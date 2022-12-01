@@ -106,29 +106,29 @@ public abstract class Vehicle implements Movable{
     }
 
     public void setY(Double y) {
-        this.y += y;
+        this.y = y;
     }
 
     public void setX(Double x) {
-        this.x += x;
+        this.x = x;
     }
 
     public void direction(){
         switch(this.currentDirection){
             case 0:
-                this.setY(currentSpeed);
+                this.setY(this.y + currentSpeed);
                 break;
 
             case 1:
-                this.setX(currentSpeed);
+                this.setX(this.x + currentSpeed);
                 break;
 
             case 2:
-                this.setY(-currentSpeed);
+                this.setY(this.y-currentSpeed);
                 break;
 
             case 3:
-                this.setX(-currentSpeed);
+                this.setX(this.y -currentSpeed);
                 break;
         }
     }

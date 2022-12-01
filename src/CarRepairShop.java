@@ -27,8 +27,10 @@ public class CarRepairShop implements Load{
     public void load(Car car) { //You can only load cars.
         if ((currentNumberOfCars < maxNumberOfCars) && (distanceToCar(car) < 1)){
             currentNumberOfCars += 1;
+            car.setLoaded(true);
         }
     }
+
 
     private double distanceToCar(Car car) {
         double distance;
@@ -38,9 +40,15 @@ public class CarRepairShop implements Load{
         return distance;
     }
 
-    
+    @Override
+    public void unload(Car car) { //You can only load cars.
+        if (currentNumberOfCars > 0){
+            currentNumberOfCars -= 1;
+        }
+    }
 
     private void loadCar() {
         //TODO implement method that loads a car into CarRepairShop
+        //Lab 3?
     }
 }

@@ -1,16 +1,18 @@
 package Lab1.truckextensions;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
-import Lab1.vehicles.Car;
+import Lab1.vehicles.ICanLoad;
+import Lab1.vehicles.ILoadable;
 
-public class Transportbed implements Trailer {
-    private List<Car> loadedCars = new ArrayList<>();
+public class Transportbed implements Trailer, ICanLoad {
+    private Set<ILoadable> loadedObjects;
     private Boolean extendedRamp;
+    private int capacity;
 
-    public Transportbed() {
+    public Transportbed(int capacity) {
         this.extendedRamp = false;
+        this.capacity = capacity;
     }
 
     public Boolean getExtendedRamp() {
@@ -41,39 +43,37 @@ public class Transportbed implements Trailer {
         return 0;
     }
 
-    public void loadCar(Car car) {
-        if (loadedCars.size() < 4) {
-            loadedCars.add(car);
-            car.stopEngine();
+    public void load(ILoadable loadable) {
+        if (loadedObjects.size() < this.capacity) {
+            loadedObjects.add(loadable);
         } else {
             throw new IllegalStateException("Car transporter is full");
         }
     }
 
-    public void unloadCar() {
-        if (loadedCars.size() > 0) {
-            loadedCars.remove(loadedCars.size() - 1);
+    public void unload(ILoadable loadable) {
+        if (loadedObjects.contains(loadable)) {
+            loadedObjects.remove(loadable);
         } else {
-            throw new IllegalStateException("Car transporter is empty");
+            throw new IllegalStateException("Car is not loaded");
         }
     }
 
-    public void unloadCar(String name) {
-        for (int i = 0; i < loadedCars.size(); i++) {
-            if (loadedCars.get(i).getModelName().equals(name)) {
-                loadedCars.remove(i);
-                return;
-            }
-        }
-        throw new IllegalStateException("Car transporter does not contain a car with the name " + name);
+    public void unloadAllObjects() {
+        loadedObjects.clear();
     }
 
-    public void unloadAllCars() {
-        loadedCars.clear();
+    public Set<ILoadable> getLoad() {
+        return loadedObjects;
     }
 
-    public List<Car> getCars() {
-        return loadedCars;
+    public double getPosX() {
+        // TODO
+        return 0;
     }
 
+    public double getPosY() {
+        // TODO
+        return 0;
+    }
 }

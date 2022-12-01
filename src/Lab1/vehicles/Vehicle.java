@@ -149,4 +149,10 @@ public abstract class Vehicle implements IMovable {
     public void turnRight() {
         currentDirection = currentDirection.next();
     }
+
+    public void moveToLoader(ILoadable loadable) {
+        posX = loadable.getPosX();
+        posY = loadable.getPosY();
+    }
+
 }

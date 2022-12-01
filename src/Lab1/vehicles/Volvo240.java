@@ -16,4 +16,8 @@ public class Volvo240 extends Car implements ITrimmable {
         return getEnginePower() * 0.01 * trimFactor;
     }
 
+    public double getTrimFactor() {
+        return trimFactor;
+    }
+
 }

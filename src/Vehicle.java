@@ -21,6 +21,7 @@ public abstract class Vehicle implements Movable{
         this.y = 0;
         this.dx = 0;
         this.dy = 0;
+        
         stopEngine();
     }
 
@@ -46,6 +47,12 @@ public abstract class Vehicle implements Movable{
 
     public Color getColor() {
         return color;
+    }
+
+    public void setColor(Color color) {
+        if (condition) {
+            this.color = color;
+        }
     }
 
     public void startEngine() {

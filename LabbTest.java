@@ -18,8 +18,8 @@ public class LabbTest {
         saab.move();
         volvo.move();
         
-        assertEquals(-1, saab.getX(), 0.001);
-        assertEquals(-1, volvo.getX(), 0.001);
+        assertEquals(-0.1, saab.getX(), 0.001);
+        assertEquals(-0.1, volvo.getX(), 0.001);
     } 
 
     @Test
@@ -62,8 +62,8 @@ public class LabbTest {
         saab.startEngine();
         volvo.startEngine();
 
-        assertEquals(1, saab.getCurrentSpeed(), 0.001);
-        assertEquals(1, volvo.getCurrentSpeed(), 0.001);
+        assertEquals(0.1, saab.getCurrentSpeed(), 0.001);
+        assertEquals(0.1, volvo.getCurrentSpeed(), 0.001);
 
         saab.brake(1);
         volvo.brake(1);
@@ -127,8 +127,6 @@ public class LabbTest {
         carTransporter.load(saab);
 
         assertEquals(cars, carTransporter.getCars());
-
-
     }   
   
 }

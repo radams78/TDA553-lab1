@@ -1,7 +1,7 @@
 
 import java.awt.*;
 
-public class Saab95 extends Car{
+public class Saab95 extends Car implements TurboType{
 
     private TurboMode turbo;
     
@@ -10,11 +10,12 @@ public class Saab95 extends Car{
         turbo = new TurboMode();
     }
 
-
+    @Override
     public void setTurboOn(){
 	    turbo.setTurboOn();
     }
 
+    @Override
     public void setTurboOff(){
         turbo.setTurboOff();
     }

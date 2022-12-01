@@ -2,11 +2,17 @@ package src;
 
 import java.util.ArrayList;
 
-public interface ICanLoadCar {
+public abstract class ICanLoadCar {
     
-    void loadCar(Vehicle car);
+    public abstract void loadCar(Vehicle car){
 
-    void unloadCar(Vehicle car);
+    }
 
-    void loadableVehiclesInCloseVicinity(ArrayList<Vehicle> listOfVehicle);
+    public abstract void unloadCar(){
+
+    }
+
+    public void loadableVehiclesInCloseVicinity(ArrayList<Vehicle> listOfVehicle){
+
+    }
 }

@@ -10,9 +10,9 @@ public class HasPosition {
     private double currentDirectionRadian;  // which way the car is heading
     
 
-    public HasPosition() {
-        this.xCoordinate = 5;
-        this.yCoordinate = 5;
+    public HasPosition(double xCoordinate, double yCoordinate) {
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
         this.dX = 0;
         this.dY = 0;
         this.currentDirectionRadian = PI/2;
@@ -53,10 +53,10 @@ public class HasPosition {
         return dY;
     }
 
-    public Vehicle loadableVehiclesInCloseVicinity(ArrayList<Vehicle> listOfVehicles){
-        for(Vehicle vehicle: listOfVehicles){
-            vehicle.
-        }
+    public void updateCoordinateForUnloadedVehicle(double newXCoordinate, double newYCoordinate) {
+        this.xCoordinate = newXCoordinate;
+        this.yCoordinate = newYCoordinate;
+
     }
 
 }

@@ -4,15 +4,11 @@ public class CarRepairShop implements Load{
     private double x;
     private double y;
 
-    public CarRepairShop(int maxNumberOfCars, int currentNrOfCars){
+    public CarRepairShop(int maxNumberOfCars, int currentNrOfCars, double x, double y){
         this.maxNumberOfCars = Math.max(maxNumberOfCars, 1);
         this.currentNumberOfCars = 0;
-        this.x = 0;
-        this.y = 0;
-    }
-
-    public void setColor(Color color) {
-        this.color = color; //Problem inför imorgon.
+        this.x = x;
+        this.y = y;
     }
     
     public int getCurrentNumberOfCars() {
@@ -28,12 +24,21 @@ public class CarRepairShop implements Load{
     }
 
     @Override
-    public void load() {
-        if ((currentNumberOfCars < maxNumberOfCars) && (true)){
-            this.loadCar();
+    public void load(Car car) { //You can only load cars.
+        if ((currentNumberOfCars < maxNumberOfCars) && (distanceToCar(car) < 1)){
             currentNumberOfCars += 1;
         }
     }
+
+    private double distanceToCar(Car car) {
+        double distance;
+        double xDifference = car.getX() - x;
+        double yDifference = car.getY() - y;
+        distance = Math.sqrt(Math.pow(xDifference, 2) + Math.pow(yDifference, 2));
+        return distance;
+    }
+
+    
 
     private void loadCar() {
         //TODO implement method that loads a car into CarRepairShop

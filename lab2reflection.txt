@@ -1,0 +1,16 @@
+1. Your design probably has a type called something like Car or Vehicle that is a supertype to both Volvo and Scania. What is the contract for gas() and brake() in this type? Do the implementations of gas() and brake() in both Volvo and Scania follow this contract? Does your design follow the Liskov Substitution Principle?
+
+In our opinion gas(), brake() and other methods in our classes follow their contracts well. Gas() for example always increases the speed on the correct object if it satisfies the scope. Our design follows the Liskov Substitution Principle. Multiple objects of the same parents class can be used in the same methods.
+
+
+
+2. How did you handle duplicated code between Scania, the car transporters and the repair shops? Explain how you decided when to use subclassing and when to use composition and delegation.
+
+We noticed that Scania and the car transporters were both flatbeds, so we decided to create a superclass TruckWithFlatbed, which contains the shared functionality between Scania and the car transporters. As they both have flatbeds, but Scania opens the flatbed with an angle, we decided subclassing was appropriate so we could override the flatbed functions.
+The car loading functionality was identical between the car transporters and the repair shops, therefore we decided that composition and delegation was appropriate in order to reduce duplicated code.
+
+
+
+3. Did you need to modify the design from lab 1 in order to make these extensions? If so, how could you have noticed that your design from Lab 1 did not follow the Open-Closed Principle before you started working on Lab 2?
+
+We did have to modify some of the code used in lab 1, since we realised that it was necessary to abstract even further due to the need to seperate scania and cartransporter from car, since we otherwise would not have been differantiate small cars that fit on cartransporter and large trucks that dont. We could also modify our speedfactor function to become more generall for other applications such as trucks and later override them if needed to make them more specific for objects, while stil retaining the code contracts.

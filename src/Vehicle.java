@@ -54,8 +54,9 @@ abstract class Vehicle implements Movable{
     public void setColor(Color clr){
 	    color = clr;
     }
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    public void setCurrentSpeed(double newSpeed) {
+        if (newSpeed <= enginePower && newSpeed >= 0)
+        this.currentSpeed = newSpeed;
     }
     public double speedFactor(){
         return enginePower * 0.01;
@@ -68,14 +69,16 @@ abstract class Vehicle implements Movable{
     }
     
     public void incrementSpeed(double amount){
-        if (this.getCurrentSpeed() < this.getEnginePower()){
-            this.currentSpeed = this.getCurrentSpeed() + this.speedFactor() * amount;
+        this.currentSpeed = this.getCurrentSpeed() + this.speedFactor() * amount;
+        if (this.currentSpeed > this.getEnginePower()){
+            this.currentSpeed = this.getEnginePower();
         }
     }
 
     public void decrementSpeed(double amount){
-        if (this.getCurrentSpeed() > 0){
-            this.currentSpeed = this.getCurrentSpeed() - this.speedFactor() * amount;
+        this.currentSpeed = this.getCurrentSpeed() - this.speedFactor() * amount;
+        if (this.currentSpeed < 0){
+            this.currentSpeed = 0;
         }
     }
 

@@ -1,23 +1,42 @@
 public class FlatbedWithAngle {
-    int      flatbedAngle = 0;
-    int      max_flatbed_angle = 70;
+    private int flatbedAngle = 0;
+    private final int max_flatbed_angle = 70;
 
 
+    public int getMax_flatbed_angle() {
+        return max_flatbed_angle;
+    }
+
+    public void setFlatbedAngle(int flatbedAngle) {
+        this.flatbedAngle = flatbedAngle;
+    }
 
     public void lowerFlatbed(TruckWithFlatbed other) {
-        if (other.getCurrentSpeed() == 0 && flatbedAngle > 0) {
-            flatbedAngle -= 1;
-            if (flatbedAngle == 0){
-                other.flatbedFastened = true;
+        if (other.getCurrentSpeed() == 0 && getFlatbedAngle() > 0) {
+            decreaseFlatbedAngle();
+            if (getFlatbedAngle() == 0){
+                other.setFlatbedFastened(true);
             }
         }
     }
 
     public void raiseFlatbed(TruckWithFlatbed other){
-        if (other.getCurrentSpeed() == 0 && flatbedAngle < max_flatbed_angle) {
-            flatbedAngle += 1;
-            other.flatbedFastened = false;
+        if (other.getCurrentSpeed() == 0 && getFlatbedAngle() < getMax_flatbed_angle()) {
+            increaseFlatbedAngle();
+            other.setFlatbedFastened(false);
         }  
+    }
+
+    public void decreaseFlatbedAngle(){
+        if (getFlatbedAngle() > 0){
+            this.setFlatbedAngle(getFlatbedAngle() - 1);  
+        }
+    }
+
+    public void increaseFlatbedAngle(){
+        if (getFlatbedAngle() < getMax_flatbed_angle()){
+            this.setFlatbedAngle(getFlatbedAngle() + 1);  
+        }
     }
 
     public int getFlatbedAngle() {

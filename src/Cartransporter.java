@@ -15,11 +15,11 @@ public class Cartransporter extends TruckWithFlatbed{
     // }
 
     public void loadCar(Car car){
-       loadedCars.loadCar(car, this);
+       loadedCars.loadCar(car,getX(),getY());
     }
 
     public void unloadLatestCar(){
-      loadedCars.unloadLatestCar(this);
+      loadedCars.unloadLatestCar(getX(),getY());
     }
 
     public void lowerFlatbed() {

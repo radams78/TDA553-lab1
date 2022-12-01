@@ -1,20 +1,32 @@
-public class CarRepairShop{
-    Loadable loadedCars;
-    public CarRepairShop(){
-            int x = x;
-            int y = y;
-            loadedCars = new Loadable(6);
-            
-        }
-    // public int getAmountOfLoadedCars() {
-    //     return loadedCars.size();
-    // }
+public class CarRepairShop {
+  Loadable loadedCars;
+  private double x;
+  private double y;
 
-    public void loadCar(Car car){
-       loadedCars.loadCar(car, this);
-    }
+  public CarRepairShop(double xPos, double yPos) {
+    x = xPos;
+    y = yPos;
+    loadedCars = new Loadable(6);
+  }
+  
 
-    public void unloadLatestCar(){
-      loadedCars.unloadLatestCar(this);
-    }
+  // public int getAmountOfLoadedCars() {
+  // return loadedCars.size();
+  // }
+
+  public double getX() {
+    return x;
+  }
+
+  public double getY() {
+    return y;
+  }
+
+  public void loadCar(Car car) {
+    loadedCars.loadCar(car, getX(), getY());
+  }
+
+  public void unloadLatestCar() {
+    loadedCars.unloadLatestCar(getX(), getY());
+  }
 }

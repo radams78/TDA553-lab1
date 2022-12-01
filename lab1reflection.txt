@@ -10,6 +10,7 @@ our different cars everytime we want to change somethings about the cars.
 
 And by having a subclass we can extend our code by adding methods to the superclass and the subclasses can override the methods 
 if we want the subclass to have its own implementetion.
+We can also add more subclasses without modifying the superclass.
 
 
 

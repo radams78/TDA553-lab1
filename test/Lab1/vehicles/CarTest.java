@@ -1,6 +1,7 @@
 package Lab1.vehicles;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.Color;
@@ -48,6 +49,32 @@ public class CarTest {
     @Test
     public void direction_down_before_left() {
         assertEquals(Direction.DOWN, Direction.LEFT.prev());
+    }
+
+    @Test
+    public void moving_right_should_increase_x() {
+        Car car = new Volvo240(4, 100, 0, Color.BLACK, "Volvo240");
+        double originalX = car.getPosX();
+        while (car.getDirection() != Direction.RIGHT) {
+            car.turnRight();
+        }
+        car.startEngine();
+        car.gas(1);
+        car.move();
+        assertTrue(car.getPosX() > originalX);
+    }
+
+    @Test
+    public void moving_up_should_increase_y() {
+        Car car = new Volvo240(4, 100, 0, Color.BLACK, "Volvo240");
+        double originalY = car.getPosY();
+        while (car.getDirection() != Direction.UP) {
+            car.turnRight();
+        }
+        car.startEngine();
+        car.gas(1);
+        car.move();
+        assertTrue(car.getPosY() > originalY);
     }
 
     @Test

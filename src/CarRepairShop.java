@@ -47,8 +47,4 @@ public class CarRepairShop implements Load{
         }
     }
 
-    private void loadCar() {
-        //TODO implement method that loads a car into CarRepairShop
-        //Lab 3?
-    }
 }

@@ -28,7 +28,7 @@ public class CarTest {
 
     @Test
     public void gas_stays_within_expected_values() {
-        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
+        Saab95 saab = new Saab95(Color.BLACK, "95", false);
         assertThrows(IllegalArgumentException.class, () -> {
             saab.gas(2.0d);
         });
@@ -39,7 +39,7 @@ public class CarTest {
 
     @Test
     public void brake_stays_within_expected_values() {
-        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
+        Saab95 saab = new Saab95(Color.BLACK, "95", false);
         assertThrows(IllegalArgumentException.class, () -> {
             saab.brake(2.0d);
         });
@@ -49,15 +49,8 @@ public class CarTest {
     }
 
     @Test
-    public void engine_power_is_same_as_assigned() {
-        double enginePower = 10;
-        Saab95 saab = new Saab95(4, enginePower, 0, Color.BLACK, "95", false);
-        assertEquals(enginePower, saab.getEnginePower());
-    }
-
-    @Test
     public void turning_four_times_left_returns_to_start() {
-        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
+        Saab95 saab = new Saab95(Color.BLACK, "95", false);
         Direction initialDirection = saab.getDirection();
         for (int i = 0; i < 4; i++) {
             saab.turnLeft();
@@ -67,7 +60,7 @@ public class CarTest {
 
     @Test
     public void turning_four_times_right_returns_to_start() {
-        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
+        Saab95 saab = new Saab95(Color.BLACK, "95", false);
         Direction initialDirection = saab.getDirection();
         for (int i = 0; i < 4; i++) {
             saab.turnRight();
@@ -77,7 +70,7 @@ public class CarTest {
 
     @Test
     public void braking_doesnt_make_the_car_reverse() {
-        Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
+        Saab95 saab = new Saab95(Color.BLACK, "95", false);
         assertEquals(true, 0 <= saab.getCurrentSpeed());
         for (int i = 0; i < 100; i++) {
             saab.brake(1);

@@ -50,9 +50,7 @@ public abstract class Vehicle implements Movable{
     }
 
     public void setColor(Color color) {
-        if (condition) {
             this.color = color;
-        }
     }
 
     public void startEngine() {

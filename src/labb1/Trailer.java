@@ -9,6 +9,7 @@ public abstract class Trailer {
         this.maxLoad = maxLoad;
     }
 
+
     // Returns true if the platsform is extended
     public Boolean getPlatformExtended() {
         return platformExtended;

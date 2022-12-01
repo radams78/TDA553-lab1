@@ -35,7 +35,7 @@ public abstract class Truck extends Vehicle {
     }
 
     @Override
-    public void setCurrentSpeed(double currentSpeed) {
+    protected void setCurrentSpeed(double currentSpeed) {
         if (trailer == null) {
             super.setCurrentSpeed(currentSpeed);
         } else {

@@ -1,32 +1,32 @@
 public class CarRepairShop implements Load{
-    private int maxNumberOfCars;
-    private int currentNumberOfCars;
+    private int maxNumberOfCarsLoaded;
+    private int currentNumberOfCarsLoaded;
     private double x;
     private double y;
 
-    public CarRepairShop(int maxNumberOfCars, int currentNrOfCars, double x, double y){
-        this.maxNumberOfCars = Math.max(maxNumberOfCars, 1);
-        this.currentNumberOfCars = 0;
+    public CarRepairShop(int maxNumberOfCarsLoaded, int currentNrOfCars, double x, double y){
+        this.maxNumberOfCarsLoaded = Math.max(maxNumberOfCarsLoaded, 1);
+        this.currentNumberOfCarsLoaded = 0;
         this.x = x;
         this.y = y;
     }
     
     public int getCurrentNumberOfCars() {
-        return currentNumberOfCars;
+        return currentNumberOfCarsLoaded;
     }
 
-    public void setCurrentNumberOfCars(int currentNumberOfCars) {
-        this.currentNumberOfCars = currentNumberOfCars;
+    public void setCurrentNumberOfCars(int currentNumberOfCarsLoaded) {
+        this.currentNumberOfCarsLoaded = currentNumberOfCarsLoaded;
     }
 
     public int getMaxNumberOfCars(){
-        return maxNumberOfCars;
+        return maxNumberOfCarsLoaded;
     }
 
     @Override
     public void load(Car car) { //You can only load cars.
-        if ((currentNumberOfCars < maxNumberOfCars) && (distanceToCar(car) < 1)){
-            currentNumberOfCars += 1;
+        if ((currentNumberOfCarsLoaded < maxNumberOfCarsLoaded) && (distanceToCar(car) < 1)){
+            currentNumberOfCarsLoaded += 1;
             car.setLoaded(true);
         }
     }
@@ -41,8 +41,8 @@ public class CarRepairShop implements Load{
 
     @Override
     public void unload(Car car) { //You can only load cars.
-        if (currentNumberOfCars > 0){
-            currentNumberOfCars -= 1;
+        if (currentNumberOfCarsLoaded > 0){
+            currentNumberOfCarsLoaded -= 1;
             car.setLoaded(false);
         }
     }

@@ -22,7 +22,15 @@ public class Scania extends Truck{
         }
     }
 
-    public DegreeFlatbed getFlatbed() {
-        return flatbed;
+    public void raise() {
+        if (getCurrentSpeed() == 0) {
+            flatbed.raise();
+        }
+    }
+
+    public void lower() {
+        if (getCurrentSpeed() == 0) {
+            flatbed.lower();
+        }
     }
 }

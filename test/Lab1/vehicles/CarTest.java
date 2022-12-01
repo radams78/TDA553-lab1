@@ -48,12 +48,6 @@ public class CarTest {
         });
     }
 
-    @Test
-    public void engine_power_is_same_as_assigned() {
-        double enginePower = 10;
-        Saab95 saab = new Saab95(4, enginePower, 0, Color.BLACK, "95", false);
-        assertEquals(enginePower, saab.getEnginePower());
-    }
 
     @Test
     public void turning_four_times_left_returns_to_start() {

@@ -12,9 +12,4 @@ public abstract class Car extends Vehicle {
         this.loaded = trueOrFalse;
     }
     
-    public void setColor(Color color) {
-        if (condition) {
-            super.setColor(color);;
-        }
-    }
 }

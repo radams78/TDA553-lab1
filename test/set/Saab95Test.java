@@ -28,19 +28,6 @@ public class Saab95Test {
         saab95 = new Saab95(2, Color.red, 125, "Saab95");
     }
 
-    // New Tests
-    // - gas (condition)
-    // - brake (condition)
-    // - startEngine
-    // - stopEngine
-    // - turnRight
-    // - turnLeft
-
-    // - move
-    // - turbo
-    
-
-
 
     // Tests for startEngine
     @Test

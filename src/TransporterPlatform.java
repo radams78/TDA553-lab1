@@ -2,7 +2,7 @@ package src;
 
 import java.util.ArrayList;
 
-public class TransporterPlatform implements IPlatform, ICanLoadCar {
+public class TransporterPlatform extends ICanLoadCar implements IPlatform {
     
     public boolean rampDown;
     public int platformCapacity;
@@ -33,7 +33,7 @@ public class TransporterPlatform implements IPlatform, ICanLoadCar {
         this.rampDown = true;
     }
     
-    /*  Call this method to load a car onto the platform. */
+    /*  This method is called by CarTransporter to load a car onto the platform. */
     @Override
     public void loadCar(Vehicle car){
         if (this.rampDown == true && isSpaceLeftOnPlatform() == true){
@@ -41,13 +41,26 @@ public class TransporterPlatform implements IPlatform, ICanLoadCar {
         }
     }
 
-    /*  Call this method to unload a car. (first-in-last-out) */
+    /*  This method is called by CarTransporter to unload a car. (first-in-last-out) */
     @Override
-    public void unloadCar(Vehicle car){
+    public void unloadCar(int newXCoordinate, int newYCoordinate){
         if (this.rampDown == true && carsOnPlatform.isEmpty() == false){
+            carsOnPlatform.get(carsOnPlatform.size()-1).updateCoordinateForUnloadedVehicle(newXCoordinate, newYCoordinate);
             carsOnPlatform.remove(carsOnPlatform.size()-1);
         }
     }
+
+	@Override
+	public void loadableVehiclesInCloseVicinity(ArrayList<Vehicle> listOfVehicle) {
+		// TODO Auto-generated method stub
+        
+        // for(l : listOfVehicle){
+        //    if(l.intersects(this.loadableAre)){
+        //      loadCar()
+        //  }
+        // }
+		
+	}
 
 
 

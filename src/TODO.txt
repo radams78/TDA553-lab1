@@ -3,7 +3,11 @@ TJO!
 Nästa gång ska vi kika in lite goa grejer:
 
 
-1. Intersectfunktionen ska följa med objektet när move() kallas på. 
+1. bli klar med veckans labb.
+
+1.5 vehichle ska delas upp i Car- samt Truck-subklassser. Car ska ha variabeln isLoadable. Volvo och saab ska extenda Car.
+    Transportr och dumptruck ska extenda Trucks. Alla vehicles har en x och y koordinat. För att avgöra om en vehicle är isLoadable
+    kollar vi delta x och delta y mellan Transportr/CarRepairShop och alla vehicles.
 
 2. Intersekt ska implementeras för alla klasser som complements ICanLoadCar.
 
@@ -11,4 +15,16 @@ Nästa gång ska vi kika in lite goa grejer:
 
 4. Eventuellt dela på ICanLoadCar så att metoden loabableVehiclesInCloseVicinity ligger i CarTransporter klassen istället för TransporterPlatform.
 
-5. 
+
+
+5. isLoadable för att kunna sätta CarTransporter och Scania till False.
+
+// Critical changes we have to make
+5. Increment speed och decrement speed ska ligga i Car och ska vara privata
+
+6. current speed ska vara privat
+
+Vi behöver inte testa abstrakta klasser utan bara se konkreta.
+
+// Färdiga punkter
+1. Intersectfunktionen ska följa med objektet när move() kallas på.

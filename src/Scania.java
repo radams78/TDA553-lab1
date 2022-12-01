@@ -6,14 +6,14 @@ public class Scania extends Vehicle{
     public AnglePlatform garbagePlatform;
 
     public Scania() {
-        super(2, 200, Color.green, "Scania Dumb truck 2000GX", 20, 20);
+        super(2, 200, Color.green, "Scania Dumb truck 2000GX", 20, 20, false);
         garbagePlatform = new AnglePlatform(1000);
     }
+    
     public void raiseGarbagePlatform(){
         if(this.isVehicleCurrentSpeedZero()){
             garbagePlatform.raise();
         }
-        
     }
 
     public void lowerGarbagePlatform(){
@@ -25,8 +25,15 @@ public class Scania extends Vehicle{
     }
     
     @Override
+    public void startEngine(){
+        if(this.garbagePlatform.platformAngle == 0){
+            this.setCurrentSpeed(0.1);
+        }
+    }
+
+    @Override
     public void gas(double amount) {
-        if((0 <= amount && amount <= 1) && garbagePlatform.isPlatformAngleZero()) {
+        if(0 <= amount && amount <= 1) {
             incrementSpeed(amount);
         }
     }

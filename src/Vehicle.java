@@ -1,10 +1,13 @@
 package src;
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 public abstract class Vehicle extends HasPosition implements Movable {
 
-    private int nrDoors; // Number of doors on the car
+    private Boolean isLoadable; // True if the vehicle can be loaded
+	private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed = 0; // The current speed of the car
     private Color color; // Color of the car
@@ -12,17 +15,20 @@ public abstract class Vehicle extends HasPosition implements Movable {
     private double turnRightNegative = -1; // To turn right
     private double turnLeftPositive = 1; // To turn left
     private Rectangle pickupRectangle; // "hitbox" to decide wether vehicles are in the vicinity to be picked up
+    private ArrayList<Rectangle> listOfVehicleRectangles;
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int xCoordinate, int yCoordinate) {
-        super();
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int xCoordinate, int yCoordinate, boolean isLoadable) {
+        super(xCoordinate, yCoordinate);
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.isLoadable = isLoadable;
         this.pickupRectangle.x = xCoordinate;
         this.pickupRectangle.y = yCoordinate;
         this.pickupRectangle.height = 20;
         this.pickupRectangle.width = 10;
+        listOfVehicleRectangles.add(this.pickupRectangle);
     }
 
     @Override
@@ -53,6 +59,10 @@ public abstract class Vehicle extends HasPosition implements Movable {
 
     public void setCurrentSpeed(double newSpeed){
         this.currentSpeed = newSpeed;
+    }
+
+    public Boolean getIsLoadableBoolean() {
+        return isLoadable;
     }
 
     public double getEnginePower() {
@@ -87,7 +97,6 @@ public abstract class Vehicle extends HasPosition implements Movable {
             return true;
         }
         else return false;
-
     }
 
     // framtidens bekymmer nedan

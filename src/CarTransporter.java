@@ -1,15 +1,17 @@
 package src;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class CarTransporter extends Vehicle{
     
 public TransporterPlatform carPlatform;
 
+
     /**
      * Constructor CarTransporter
      */
     public CarTransporter() {
-        super(2, 85, Color.darkGray, "TransportTorkel", 30, 30);
+        super(2, 85, Color.darkGray, "TransportTorkel", 30, 30, false);
         this.carPlatform = new TransporterPlatform(5);
     }
 
@@ -20,6 +22,7 @@ public TransporterPlatform carPlatform;
         this.carPlatform.raise();
         
     }
+
 
     /**
      * Call this method to lower the ramp
@@ -32,6 +35,14 @@ public TransporterPlatform carPlatform;
 
     public double speedFactor(){
         return 1.0;
+    }
+    
+    public void loadCar(Vehicle car){
+        this.carPlatform.loadCar(car);
+    }
+
+    public void unloadCar(){
+        this.carPlatform.unloadCar((int)getX(), (int)getY());
     }
 
     /**
@@ -71,5 +82,7 @@ public TransporterPlatform carPlatform;
             setCurrentSpeed(0);
         }
     }
+
+
 }
 

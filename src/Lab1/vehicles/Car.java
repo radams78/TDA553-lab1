@@ -10,9 +10,13 @@ public abstract class Car extends Vehicle implements ILoadable {
     }
 
     public void load(ICanLoad loaderObject) {
-        stopEngine();
-        moveToCoords(loaderObject.getPosX(), loaderObject.getPosY());
-        loaderObject.load(this);
+        if (loaderObject.getDistanceTo(this) <= loaderObject.getRadius()) {
+            stopEngine();
+            moveToCoords(loaderObject.getPosX(), loaderObject.getPosY());
+            loaderObject.load(this);
+        } else {
+            throw new IllegalArgumentException("Car is too far away from the loader");
+        }
     }
 
     public void unload(ICanLoad loaderObject) {

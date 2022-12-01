@@ -27,8 +27,8 @@ public class CarTransporter extends Truck {
         }
     }
 
-    public void addTransportBed(int capacity) {
-        trailer = new Transportbed(capacity);
+    public void addTransportBed(int capacity, double radius) {
+        trailer = new Transportbed(capacity, radius);
     }
 
 }

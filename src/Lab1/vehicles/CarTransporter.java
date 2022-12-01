@@ -17,7 +17,6 @@ public class CarTransporter extends Truck {
     public CarTransporter(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName,
             int nrWheels) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, nrWheels);
-        this.trailer = new Transportbed();
     }
 
     public double speedFactor() {
@@ -26,6 +25,10 @@ public class CarTransporter extends Truck {
         } else {
             return getEnginePower() * 0.01;
         }
+    }
+
+    public void addTransportBed(int capacity) {
+        trailer = new Transportbed(capacity);
     }
 
 }

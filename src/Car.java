@@ -5,9 +5,4 @@ public abstract class Car extends Vehicle {
         super(nrDoors, enginePower, currentSpeed, color);
     }
     
-    public void setColor(Color color) {
-        if (condition) {
-            super.setColor(color);;
-        }
-    }
 }

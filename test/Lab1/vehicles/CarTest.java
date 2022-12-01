@@ -104,7 +104,7 @@ public class CarTest {
     }
 
     @Test
-    public void gas_stays_within_expected_values() {
+    public void gas_not_allowed_to_be_greater_than_one() {
         Saab95 saab = new Saab95(Color.BLACK, "95", false);
         assertThrows(IllegalArgumentException.class, () -> {
             saab.gas(2.0d);
@@ -120,7 +120,7 @@ public class CarTest {
     }
 
     @Test
-    public void brake_stays_within_expected_values() {
+    public void brake_not_allowed_to_be_greater_than_one() {
         Saab95 saab = new Saab95(Color.BLACK, "95", false);
         assertThrows(IllegalArgumentException.class, () -> {
             saab.brake(2.0d);

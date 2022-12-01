@@ -12,7 +12,7 @@ public class Scania extends Truck {
             double currentSpeed, Color color,
             String modelName,
             int nrWheels) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName, nrWheels);
+        super(nrDoors, enginePower, color, modelName, nrWheels);
         stopEngine();
         this.trailer = new Dumptruck(70, 0);
     }

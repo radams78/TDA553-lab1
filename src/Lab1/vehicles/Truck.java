@@ -8,8 +8,8 @@ public abstract class Truck extends Vehicle {
     int nrWheels;
     Trailer trailer;
 
-    public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int nrWheels) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName);
+    public Truck(int nrDoors, double enginePower, Color color, String modelName, int nrWheels) {
+        super(nrDoors, enginePower, color, modelName);
         this.nrWheels = nrWheels;
     }
 
@@ -45,5 +45,11 @@ public abstract class Truck extends Vehicle {
                 throw new IllegalStateException("Trailer is not allowed to drive");
             }
         }
+    }
+
+    @Override
+    public void move() {
+        super.move();
+        trailer.updateCoordinates(getPosX(), getPosY());
     }
 }

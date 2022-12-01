@@ -78,6 +78,32 @@ public class CarTest {
     }
 
     @Test
+    public void moving_left_should_decrease_x() {
+        Car car = new Volvo240(4, 100, 0, Color.BLACK, "Volvo240");
+        double originalX = car.getPosX();
+        while (car.getDirection() != Direction.LEFT) {
+            car.turnRight();
+        }
+        car.startEngine();
+        car.gas(1);
+        car.move();
+        assertTrue(car.getPosX() < originalX);
+    }
+
+    @Test
+    public void moving_down_should_decrease_y() {
+        Car car = new Volvo240(4, 100, 0, Color.BLACK, "Volvo240");
+        double originalY = car.getPosY();
+        while (car.getDirection() != Direction.DOWN) {
+            car.turnRight();
+        }
+        car.startEngine();
+        car.gas(1);
+        car.move();
+        assertTrue(car.getPosY() < originalY);
+    }
+
+    @Test
     public void gas_stays_within_expected_values() {
         Saab95 saab = new Saab95(4, 100, 0, Color.BLACK, "95", false);
         assertThrows(IllegalArgumentException.class, () -> {

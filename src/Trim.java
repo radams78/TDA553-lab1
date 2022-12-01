@@ -1,9 +1,9 @@
 package src;
 
-public class CarWithTrim{
+public class Trim{
     private double trimFactor;
     
-    public CarWithTrim(double trimFactor) {
+    public Trim(double trimFactor) {
         this.trimFactor = trimFactor;
     }
     

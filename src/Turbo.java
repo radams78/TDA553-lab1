@@ -1,11 +1,10 @@
 package src;
-import java.awt.*;
 
-public class CarWithTurbo{
+public class Turbo{
 
     protected boolean turboOn;
 
-    public CarWithTurbo(boolean turboOn){
+    public Turbo(boolean turboOn){
         this.turboOn = turboOn;
     }
 

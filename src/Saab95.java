@@ -4,11 +4,11 @@ import java.awt.*;
 public class Saab95 extends Car{
     
     private static boolean turboOn = false;
-    private CarWithTurbo turbo;
+    private Turbo turbo;
 
     public Saab95(){
         super(2, 125, Color.red, "Saab95");
-        this.turbo = new CarWithTurbo(turboOn);
+        this.turbo = new Turbo(turboOn);
     }
 
     public double speedFactor(){
@@ -25,5 +25,9 @@ public class Saab95 extends Car{
     
     public boolean isTurboOn() {
         return turbo.isTurboOn();
+    }
+
+    public boolean canGas(){
+        return true;
     }
 }

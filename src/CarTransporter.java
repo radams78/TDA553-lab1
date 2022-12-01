@@ -2,14 +2,18 @@ package src;
 
 import java.awt.Color;
 
-public class CarTransporter extends CarWithPlatform {
+public class CarTransporter extends Car {
 
     private boolean platformIsUp;
-
+    private CarWithPlatform platform;
 
     public CarTransporter(int nrDoors, double enginePower, Color color, String modelName, boolean platformIsUp) {
         super(nrDoors, enginePower, color, modelName);
         this.platformIsUp = platformIsUp;
+    }
+
+    protected double speedFactor() {
+        return platform.speedFactor();
     }
 
     @Override
@@ -30,10 +34,7 @@ public class CarTransporter extends CarWithPlatform {
         return platformIsUp;
     }
 
-    @Override
-    protected double speedFactor() {
-        return 1;
-    }
+    
 
     public boolean isPlatformUp() {
         return platformIsUp;

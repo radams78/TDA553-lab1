@@ -1,7 +1,7 @@
 package src;
 import java.awt.*;
 
-public class Scania extends CarWithPlatform {
+public class Scania extends Car {
     private double platformAngle;
 
     public Scania() {
@@ -9,12 +9,10 @@ public class Scania extends CarWithPlatform {
         this.platformAngle = 0;
     }
 
-    @Override
     protected double speedFactor() {
         return 1;
     }
 
-    @Override
     public void raisePlatform() {
         if (platformAngle < 70 && isStationary()) {
         this.platformAngle += 1;

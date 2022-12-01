@@ -65,7 +65,7 @@ public abstract class Car {
             incrementSpeed(amount);
         }
     }
-    
+
     public void brake(double amount){
         if (amount<0 || amount>1){
             throw new IllegalArgumentException("amount outside of range [0,1]");

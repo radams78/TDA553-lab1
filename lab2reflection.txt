@@ -37,6 +37,6 @@ Question 3: Did you need to modify the design from lab 1 in order to make these 
             
 The only modification we had to make from our design in lab 1 was to create a superclass called vehicle,
 which both classes truck and car could inherit from. This was because they both shared several attributes
-and methods. In other words, it made sense to create a superclass to group these under one roof.
-We could have thought about the possibility that we had to add other types of vehicles, that also need the code in car.
-
+and methods. In other words, it made sense to create a superclass to group these under one roof. We could 
+have thought about the possibility that we had to add other types of vehicles, that also need the code in car.
+If that was something that we had thought about then we would probably have created a higher vehicle abstraction.

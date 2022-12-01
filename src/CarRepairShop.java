@@ -31,7 +31,6 @@ public class CarRepairShop implements Load{
         }
     }
 
-
     private double distanceToCar(Car car) {
         double distance;
         double xDifference = car.getX() - x;
@@ -44,6 +43,7 @@ public class CarRepairShop implements Load{
     public void unload(Car car) { //You can only load cars.
         if (currentNumberOfCars > 0){
             currentNumberOfCars -= 1;
+            car.setLoaded(false);
         }
     }
 

@@ -19,6 +19,7 @@ public class ContinuousPlatform extends Platform {
         }
     }
 
+    @Override
     public boolean canGas() {
         return platformAngle == 0;
     }

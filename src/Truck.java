@@ -17,5 +17,7 @@ public abstract class Truck extends Car {
         }
     }
 
-    public abstract boolean canGas();
+    public boolean canGas() {
+        return true;
+    }
 }

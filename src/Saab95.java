@@ -11,6 +11,7 @@ public class Saab95 extends Car{
         this.turbo = new Turbo(turboOn);
     }
 
+    @Override
     public double speedFactor(){
         return turbo.speedFactor(enginePower);
     }

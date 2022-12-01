@@ -9,11 +9,6 @@ public class Scania extends Truck {
         this.platform = new ContinuousPlatform();
     }
 
-    @Override
-    protected double speedFactor() {
-        return 1;
-    }
-
     public void raisePlatform(){
         platform.raisePlatform(getCurrentSpeed());
     }

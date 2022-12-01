@@ -3,6 +3,10 @@ package src;
 public class DiscretePlatform extends Platform {
     private boolean platformIsUp;
 
+    public DiscretePlatform() {
+        this.platformIsUp = true;
+    }
+
     public void raisePlatform(double currentSpeed) {
         if (isStationary(currentSpeed)) {
             platformIsUp = true;
@@ -15,6 +19,7 @@ public class DiscretePlatform extends Platform {
         }
     }
 
+    @Override
     public boolean canGas() {
         return platformIsUp;
     }

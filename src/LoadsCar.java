@@ -14,7 +14,7 @@ public class LoadsCar {
 
     public LoadsCar(double maxLoadDistance) {
         this.maxLoadDistance = maxLoadDistance;
-        
+        this.loadedCarsList = new ArrayList<Car>();
     }
     
     public void loadCar(Car car) {
@@ -28,7 +28,7 @@ public class LoadsCar {
     }
 
     public boolean isCarInLoad(Car car) {
-        return !loadedCarsList.contains(car);
+        return loadedCarsList.contains(car);
     }
 
     public boolean carInRange(Position self, Car other){

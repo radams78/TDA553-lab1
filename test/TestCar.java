@@ -1,12 +1,10 @@
 package test;
 
-import src.Volvo240;
 import src.Direction;
 import src.Saab95;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 
 public class TestCar {
 

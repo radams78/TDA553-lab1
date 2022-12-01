@@ -1,10 +1,9 @@
 package src;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class CarTransporter extends Vehicle{
     
-public TransporterPlatform carPlatform;
+    public TransporterPlatform carPlatform;
 
 
     /**
@@ -41,8 +40,10 @@ public TransporterPlatform carPlatform;
         this.carPlatform.loadCar(car);
     }
 
-    public void unloadCar(){
-        this.carPlatform.unloadCar((int)getX(), (int)getY());
+    public void unloadCarFromPlatform(){
+        this.carPlatform.xCoordinate = (int)getX();
+        this.carPlatform.yCoordinate = (int)getY();
+        this.carPlatform.unloadCar();
     }
 
     /**

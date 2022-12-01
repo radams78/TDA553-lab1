@@ -2,8 +2,6 @@ package src;
 import java.awt.*;
 import java.util.ArrayList;
 
-import javax.swing.*;
-
 public abstract class Vehicle extends HasPosition implements Movable {
 
     private Boolean isLoadable; // True if the vehicle can be loaded

@@ -2,18 +2,17 @@ package src;
 
 import java.util.ArrayList;
 
-public class CarRepairShop extends ICanLoadCar {
+public class CarRepairShop extends CanLoadCar {
 
     private ArrayList<Vehicle> carsInRepairShop;
     private int maximumCapacity;
-    private int xCoordinate;
-    private int yCoordinate;
 
     /**
      * Constructor CarRepairShop.
      * maximumCapacity will be set to recived argument.
      */
     public CarRepairShop(int maximumCapacity, int xCoordinate, int yCoordinate){
+        super();
         this.maximumCapacity = maximumCapacity;
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
@@ -33,22 +32,19 @@ public class CarRepairShop extends ICanLoadCar {
      * (first-in-last-out)
      */
 	
-    @Override
-	public void unloadCar(this.xCoordinate, this.yCoordinate) {
+    
+    public void unloadCar(){
 		if (carsInRepairShop.isEmpty() == false) {
-            carsInRepairShop.get(carsInRepairShop.size()-1).updateCoordinateForUnloadedVehicle(this.xCoordinate, this.yCoordinate);
+            carsInRepairShop.get(carsInRepairShop.size()-1).updateCoordinateForUnloadedVehicle(unloadXCoordinate(), unloadYCoordinate());
             carsInRepairShop.remove(carsInRepairShop.size()-1);
         }
 	}
 
-	@Override
-	public void loadableVehiclesInCloseVicinity(ArrayList<Vehicle> listOfVehicle) {
+	
+	public void loadableVehiclesInCloseVicinity() {
 		// TODO Auto-generated method stub
 		
 	}
 
-    public int getY(){
-        return this.yCoordinate;
-    }
 
 }

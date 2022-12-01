@@ -2,7 +2,7 @@ package src;
 
 import java.util.ArrayList;
 
-public class TransporterPlatform extends ICanLoadCar implements IPlatform {
+public class TransporterPlatform extends CanLoadCar implements IPlatform {
     
     public boolean rampDown;
     public int platformCapacity;
@@ -11,6 +11,7 @@ public class TransporterPlatform extends ICanLoadCar implements IPlatform {
     /*  Constructor TransporterPlatform.
         Expects platformCapacity argument. */
     public TransporterPlatform(int platformCapacity){
+        super();
         this.rampDown = true;
         this.platformCapacity = platformCapacity;
     }
@@ -34,7 +35,7 @@ public class TransporterPlatform extends ICanLoadCar implements IPlatform {
     }
     
     /*  This method is called by CarTransporter to load a car onto the platform. */
-    @Override
+    
     public void loadCar(Vehicle car){
         if (this.rampDown == true && isSpaceLeftOnPlatform() == true){
             carsOnPlatform.add(car);
@@ -42,16 +43,17 @@ public class TransporterPlatform extends ICanLoadCar implements IPlatform {
     }
 
     /*  This method is called by CarTransporter to unload a car. (first-in-last-out) */
-    @Override
-    public void unloadCar(int newXCoordinate, int newYCoordinate){
+    
+    
+    public void unloadCar(){
         if (this.rampDown == true && carsOnPlatform.isEmpty() == false){
-            carsOnPlatform.get(carsOnPlatform.size()-1).updateCoordinateForUnloadedVehicle(newXCoordinate, newYCoordinate);
+            carsOnPlatform.get(carsOnPlatform.size()-1).updateCoordinateForUnloadedVehicle(unloadXCoordinate(), unloadYCoordinate());
             carsOnPlatform.remove(carsOnPlatform.size()-1);
         }
     }
 
-	@Override
-	public void loadableVehiclesInCloseVicinity(ArrayList<Vehicle> listOfVehicle) {
+	
+	public void loadableVehiclesInCloseVicinity() {
 		// TODO Auto-generated method stub
         
         // for(l : listOfVehicle){

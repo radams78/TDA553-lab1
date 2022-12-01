@@ -9,10 +9,23 @@ public class Transportbed implements Trailer, ICanLoad {
     private Set<ILoadable> loadedObjects;
     private Boolean extendedRamp;
     private int capacity;
+    private double radius;
+    private double posX;
+    private double posY;
 
-    public Transportbed(int capacity) {
+    public Transportbed(int capacity, double radius) {
         this.extendedRamp = false;
         this.capacity = capacity;
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public double getDistanceTo(ILoadable loadable) {
+        return Math.sqrt(
+                Math.pow(loadable.getPosX() - this.getPosX(), 2) + Math.pow(loadable.getPosY() - this.getPosY(), 2));
     }
 
     public Boolean getExtendedRamp() {
@@ -69,11 +82,16 @@ public class Transportbed implements Trailer, ICanLoad {
 
     public double getPosX() {
         // TODO
-        return 0;
+        return posX;
     }
 
     public double getPosY() {
         // TODO
-        return 0;
+        return posY;
+    }
+
+    public void updateCoordinates(double x, double y) {
+        this.posX = x;
+        this.posY = y;
     }
 }

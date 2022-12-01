@@ -7,7 +7,7 @@ public class Saab95 extends Car implements ITurboable {
 
     public Saab95(Color color, String modelName,
             boolean turboOn) {
-        super(2, 125, 0, color, modelName);
+        super(2, 125, color, modelName);
         this.turboOn = turboOn;
         stopEngine();
     }

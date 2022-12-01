@@ -2,10 +2,10 @@
 What is the contract for gas() and brake() in this type? Do the implementations of gas() and brake() in both Volvo and Scania follow this contract? 
 Does your design follow the Liskov Substitution Principle?
 
-The contract for the gas() and break() it to increment and decrement the speed of the car. By calling gas() or break() we are starting a chain reaction to then
+The contract for the gas() and break() is to increment and decrement the speed of the car. By calling gas() or break() we are starting a chain reaction to then
 call incrementSpeed() or decrementSpeed(), that calls setCurrentSpeed() and sets it to the appropriate value. 
 So the contract for gas() and break() is to increase or decrease the speed of the car, which the methods dose. 
-Becasue the car class is abstract we dosent have to implement their own gas() and brake() in the saab and volvo classes. 
+Becasue the car class is abstract we doesn't have to implement their own gas() and brake() in the saab and volvo classes. 
 But what we can see is that the method speedFactor() is a method that both saab and volvo and has to override to implement how fast the car goes.
 Our code follows the Liskov Substitution Principle. 
 
@@ -21,4 +21,4 @@ We used composition and delegation for the trailer. That is because we know that
 
 3.Did you need to modify the design from lab 1 in order to make these extensions? If so, how could you have noticed that your design from Lab 1 did not follow the Open-Closed Principle before you started working on Lab 2?
 No we did not had to, but we wanted to make changes to the code. 
-We did not brake the Open closed principle. We could implement new cars in lab 1 but for our desing to also follow other SOLID principle and good design we changed a couple different things.
+We did not break the Open closed principle. We could implement new cars in lab 1 but for our design to also follow other SOLID principle and good design we changed a couple different things.

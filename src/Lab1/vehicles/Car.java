@@ -5,14 +5,18 @@ import java.util.Random;
 
 public abstract class Car extends Vehicle implements ILoadable {
 
-    protected Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName);
+    protected Car(int nrDoors, double enginePower, Color color, String modelName) {
+        super(nrDoors, enginePower, color, modelName);
     }
 
     public void load(ICanLoad loaderObject) {
-        stopEngine();
-        moveToCoords(loaderObject.getPosX(), loaderObject.getPosY());
-        loaderObject.load(this);
+        if (loaderObject.getDistanceTo(this) <= loaderObject.getRadius()) {
+            stopEngine();
+            moveToCoords(loaderObject.getPosX(), loaderObject.getPosY());
+            loaderObject.load(this);
+        } else {
+            throw new IllegalArgumentException("Car is too far away from the loader");
+        }
     }
 
     public void unload(ICanLoad loaderObject) {

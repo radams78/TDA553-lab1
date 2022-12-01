@@ -9,6 +9,10 @@ public interface ICanLoad {
 
     public double getPosY();
 
+    public double getDistanceTo(ILoadable loadObject);
+
+    public double getRadius();
+
     public void load(ILoadable loadObject);
 
     public void unload(ILoadable loadObject);

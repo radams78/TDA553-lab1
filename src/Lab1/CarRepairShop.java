@@ -18,8 +18,12 @@ public class CarRepairShop implements ICanLoad {
         this.capacity = capacity;
     }
 
-    private double distanceToObject(ILoadable loadable) {
+    public double getDistanceTo(ILoadable loadable) {
         return Math.sqrt(Math.pow(loadable.getPosX() - this.x, 2) + Math.pow(loadable.getPosY() - this.y, 2));
+    }
+
+    public double getRadius() {
+        return radius;
     }
 
     public void load(ILoadable loadable) {
@@ -29,7 +33,7 @@ public class CarRepairShop implements ICanLoad {
     // TODO We might want to move this to the loadable object
     public void loadCar(ILoadable loadable) {
         if (loadedObjects.size() < capacity) {
-            if (distanceToObject(loadable) <= radius) {
+            if (getDistanceTo(loadable) <= radius) {
                 if (!loadedObjects.add(loadable)) {
                     throw new IllegalArgumentException("Car already in shop");
                 } else {
@@ -45,6 +49,7 @@ public class CarRepairShop implements ICanLoad {
 
     public void unload(ILoadable loadable) {
         loadedObjects.remove(loadable);
+        loadable.unload(this);
     }
 
     public double getPosX() {

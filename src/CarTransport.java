@@ -22,8 +22,16 @@ public class CarTransport extends Truck{
         }
     }
 
-    public TwoStateFlatbed getFlatbed() {
-        return flatbed;
+    public void raise() {
+        if (getCurrentSpeed() == 0) {
+            flatbed.raise();
+        }
+    }
+
+    public void lower() {
+        if (getCurrentSpeed() == 0) {
+            flatbed.lower();
+        }
     }
     
 }

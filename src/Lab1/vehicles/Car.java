@@ -5,8 +5,8 @@ import java.util.Random;
 
 public abstract class Car extends Vehicle implements ILoadable {
 
-    protected Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName);
+    protected Car(int nrDoors, double enginePower, Color color, String modelName) {
+        super(nrDoors, enginePower, color, modelName);
     }
 
     public void load(ICanLoad loaderObject) {

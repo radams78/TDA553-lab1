@@ -14,9 +14,9 @@ public class CarTransporter extends Truck {
      * @param modelName
      * @param nrWheels
      */
-    public CarTransporter(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName,
+    public CarTransporter(int nrDoors, double enginePower, Color color, String modelName,
             int nrWheels) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName, nrWheels);
+        super(nrDoors, enginePower, color, modelName, nrWheels);
     }
 
     public double speedFactor() {

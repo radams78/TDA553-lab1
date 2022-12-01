@@ -5,17 +5,16 @@ import java.awt.*;
 public abstract class Vehicle implements IMovable {
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power
-    protected double currentSpeed; // Current speed
+    protected double currentSpeed = 0; // Current speed
     protected Color color; // Color of the car
     protected String modelName; // Name of the model
     protected double posX;
     protected double posY;
     protected Direction currentDirection;
 
-    protected Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
+    protected Vehicle(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
-        this.currentSpeed = currentSpeed;
         this.color = color;
         this.modelName = modelName;
         this.posX = 0;

@@ -10,8 +10,8 @@ public class Transportbed implements Trailer, ICanLoad {
     private Boolean extendedRamp;
     private int capacity;
     private double radius;
-    private double x;
-    private double y;
+    private double posX;
+    private double posY;
 
     public Transportbed(int capacity, double radius) {
         this.extendedRamp = false;
@@ -82,11 +82,16 @@ public class Transportbed implements Trailer, ICanLoad {
 
     public double getPosX() {
         // TODO
-        return 0;
+        return posX;
     }
 
     public double getPosY() {
         // TODO
-        return 0;
+        return posY;
+    }
+
+    public void updateCoordinates(double x, double y) {
+        this.posX = x;
+        this.posY = y;
     }
 }

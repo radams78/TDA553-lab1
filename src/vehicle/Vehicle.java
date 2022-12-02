@@ -1,7 +1,9 @@
-
+package vehicle;
 import java.awt.*;
 
-public abstract class Car implements Movable {
+//import Movable;
+
+public abstract class Vehicle implements Movable{
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
@@ -12,7 +14,11 @@ public abstract class Car implements Movable {
     private double dx;
     private double dy;
 
+<<<<<<< HEAD:src/Car.java
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color) {
+=======
+    public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color) {
+>>>>>>> Develop:src/vehicle/Vehicle.java
         this.nrDoors = Math.max(nrDoors, 0);;
         this.enginePower = Math.max(enginePower, 0);
         this.currentSpeed = Math.max(currentSpeed, 0);
@@ -22,6 +28,11 @@ public abstract class Car implements Movable {
         this.y = 0;
         this.dx = 0;
         this.dy = 0;
+<<<<<<< HEAD:src/Car.java
+=======
+        
+        stopEngine();
+>>>>>>> Develop:src/vehicle/Vehicle.java
     }
 
     public int getNrDoors() {
@@ -49,7 +60,11 @@ public abstract class Car implements Movable {
     }
 
     public void setColor(Color color) {
+<<<<<<< HEAD:src/Car.java
         this.color = color;
+=======
+            this.color = color;
+>>>>>>> Develop:src/vehicle/Vehicle.java
     }
 
     public void startEngine() {
@@ -100,6 +115,7 @@ public abstract class Car implements Movable {
         this.direction %= 360;
     }
 
+
     public double getX() {
         return x;
     }
@@ -119,15 +135,6 @@ public abstract class Car implements Movable {
     public double getDirection() {
         return direction;
     }
-    /*
-     * The car classes' methods currently have no way of controlling by how much the
-     * speed can be increased or decreased. Rewrite the methods so that:
-     * 
-     * gas() and brake() only accept values in the interval [0,1],
-     * currentSpeed always lies in the interval [0 , enginePower],
-     * calls to gas() cannot result in the speed decreasing, and
-     * calls to brake() cannot result in the speed increasing.
-     */
 
     public void gas(double gas){
         if((0 <= gas) && (gas <= 1) && (this.currentSpeed <= this.enginePower)) { 
@@ -139,5 +146,4 @@ public abstract class Car implements Movable {
             decrementSpeed(brake);
         }
     }   
-
 }

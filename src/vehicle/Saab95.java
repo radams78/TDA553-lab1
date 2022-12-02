@@ -1,3 +1,4 @@
+package vehicle;
 import java.awt.*;
 
 public class Saab95 extends Car{
@@ -6,7 +7,6 @@ public class Saab95 extends Car{
     public Saab95(int nrDoors, double enginePower, double currentSpeed, Color color){
         super(nrDoors, enginePower, currentSpeed, color);
         turboOn = false;
-        stopEngine();
     }
 
     public void setTurboOn(){
@@ -22,7 +22,10 @@ public class Saab95 extends Car{
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
+<<<<<<< HEAD:src/Saab95.java
 
+=======
+>>>>>>> Develop:src/vehicle/Saab95.java
     
     public boolean getTurboOn(){
         return turboOn;

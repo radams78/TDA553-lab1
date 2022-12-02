@@ -1,0 +1,30 @@
+1.  Your design probably has a type called something like Car or Vehicle that is a supertype to both Volvo and Scania. 
+    What is the contract for gas() and brake() in this type? Do the implementations of gas() and brake() 
+    both Volvo and Scania follow this contract? Does your design follow the Liskov Substitution Principle?
+
+    The contract for gas and brake in Vehicle is "if you give me a double between 0 and 1 i will increment the speed of 
+    the vehicle" and "if you give me a double between 0 and 1 i will decrement the speed for the vehicle" respectivly.
+    Volvo and Scania follows the contract of gas() and brake(). The design follows Liskov Substitution Principle.
+
+
+2.  How did you handle duplicated code between Scania, the car transporters and the repair shops? 
+    Explain how you decided when to use subclassing and when to use composition and delegation.
+
+    We made a subclass of Vehicle called Truck since Scania and CarTransporter are both trucks, and since the
+    Liskov Substitution Principle applies to both of them. Therefore we get got rid of a lot of dublicated between 
+    Scania and CarTransporter. 
+    There is not any dublicated code between the two flatbed implementations and the two load implementations.
+    Therefore, we used delegation and composition to get rid of dublicated code. 
+    We made an interface flatbed and an interface load, incase more vehicles would use
+    the flatbed interface or the load interface. 
+    
+
+
+3.  Did you need to modify the design from lab 1 in order to make these extensions? 
+    If so, how could you have noticed that your design from Lab 1 did not follow the Open-Closed Principle before you 
+    started working on Lab 2?
+
+    Yes we needed to modify our design. We could have realised if we wanted other types of vehicles than Car that would have
+    led to a lot of dublicated code if we did not have a superclass Vehicle. 
+    We also had duplicated code of decrementspeed() and incrementspeed(), we could have realised that and put it in the
+    superclass.

@@ -6,19 +6,18 @@ import java.awt.*;
 public class CarTransporter extends Truck {
 
     private Flatbed trailer;
+
     public CarTransporter(Color color, double x, double y, double dirX, double dirY, int maxNrOfCars) {
 
         super(color, 500, "Ford", x, y, dirX, dirY, 100);
 
-        this.trailer = new Flatbed(100, maxNrOfCars);
+        this.trailer = new Flatbed(100, maxNrOfCars, x, y);
     }// Constructor
 
-
     @Override
-    public Flatbed getTrailer(){
+    public Flatbed getTrailer() {
         return trailer;
     }
-
 
     @Override
     // Specific speed factor for the car transporter

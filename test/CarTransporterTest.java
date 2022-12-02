@@ -23,18 +23,27 @@ public class CarTransporterTest {
     }
 
     @Test
-    public void canRaisePlatform() {
-        CarTransporter test = new CarTransporter();
-        test.raisePlatform();
-        assertEquals(true, test.isPlatformUp());
+    public void canUnloadCar() {
+        Volvo240 testCar = new Volvo240();
+        CarTransporter testCarTransporter = new CarTransporter();
+        testCarTransporter.loadCar(testCar);
+        testCarTransporter.unloadCar(testCar);;
+        assertEquals(false, testCarTransporter.isCarInLoad(testCar));
     }
 
-    @Test
-    public void canlowerPlatform() {
-        CarTransporter test = new CarTransporter();
-        test.lowerPlatform();
-        assertEquals(true, !test.isPlatformUp());
-    }
+    // @Test
+    // public void canRaisePlatform() {
+    //     CarTransporter test = new CarTransporter();
+    //     test.raisePlatform();
+    //     assertEquals(true, test.isPlatformUp());
+    // }
+
+    // @Test
+    // public void canlowerPlatform() {
+    //     CarTransporter test = new CarTransporter();
+    //     test.lowerPlatform();
+    //     assertEquals(true, !test.isPlatformUp());
+    // }
 
     @Test
     public void DoesntLowerWhenCallingRaise() {

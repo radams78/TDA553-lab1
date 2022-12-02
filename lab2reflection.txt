@@ -1,0 +1,42 @@
+Question 1: Your design probably has a type called something like Car or Vehicle that is a supertype to both Volvo and Scania. 
+            What is the contract for gas() and brake() in this type? 
+            Do the implementations of gas() and brake() in both Volvo and Scania follow this contract? 
+            Does your design follow the Liskov Substitution Principle?
+
+The contract for the gas and brake method for what the executor expects of the client is a double between 
+0 and 1. Conversely, the contract from what the client expects of the executor is a speed increase or decrease
+depending on the speedFactor for said vehicle they are called on. In addition to this, the speed always remains
+within an interval of 0 to the engine power of said vehicle.
+
+The implementation of gas() and brake() in both Volvo and Scania follows this contract, but it is worth
+noting that Scania has an added condition of only being able to gas and brake while its ramp is at an angle
+of 0 degrees.
+
+Our design does follow the Liskov Substitution Principle, in that:
+- All methods in our subtypes accept the same arguments as their supertypes
+- All subtypes can perform the same actions that their supertypes can perform (and sometimes more)
+- All subtypes return the same outputs that their supertypes returns
+In other words, we can freely replace objects of our superclasses with objects of their subclasses
+without having our program break.
+
+
+
+Question 2: How did you handle duplicated code between Scania, the car transporters and the repair shops? 
+            Explain how you decided when to use subclassing and when to use composition and delegation.
+            
+    We decided to create a superclass Truck from which both the subclasses Scania and Transporter inherits. This was both
+    a logical choice in that it makes common sense, but also one which allowed us to avoid some light code duplication in terms 
+    of a common speedfactor. Aside from this it also allowed us to follow the open-closed principle so that future extensions are 
+    easily made. Repair shop and transporter both needed to be able to load/unload cars, but since a transporter and a repair shop 
+    are different things and since their methods have different contracts, we decided that they can not inherit from the same 
+    superclass. And instead we decided to delegate all the loading to a helperclass called loadable, that handles all the loading.             
+
+
+Question 3: Did you need to modify the design from lab 1 in order to make these extensions? 
+            If so, how could you have noticed that your design from Lab 1 did not follow the Open-Closed Principle before you started working on Lab 2?
+            
+The only modification we had to make from our design in lab 1 was to create a superclass called vehicle,
+which both classes truck and car could inherit from. This was because they both shared several attributes
+and methods. In other words, it made sense to create a superclass to group these under one roof. We could 
+have thought about the possibility that we had to add other types of vehicles, that also need the code in car.
+If that was something that we had thought about then we would probably have created a higher vehicle abstraction.

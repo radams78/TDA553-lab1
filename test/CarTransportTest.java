@@ -13,4 +13,13 @@ public class CarTransportTest {
         transport.gas(1);
         assertEquals(0, transport.getCurrentSpeed(), 0.1);
     }
-}
+    @Test
+    public void load_is_able_to_load(){
+        CarTransport ivecoTurbostar = new CarTransport(4, 100, 0, Color.RED);
+        Car saab95 = new Saab95(4, 100, 50, Color.RED);
+        ivecoTurbostar.lower();
+        ivecoTurbostar.load(saab95);
+        assertTrue(saab95.getLoaded());
+        }
+    }
+

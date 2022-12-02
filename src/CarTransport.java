@@ -46,8 +46,8 @@ public class CarTransport extends Truck implements Load{
 
     private double distanceToCar(Car car) {
         double distance;
-        double xDifference = car.getX() - x;
-        double yDifference = car.getY() - y;
+        double xDifference = car.getX() - getX();
+        double yDifference = car.getY() - getY();
         distance = Math.sqrt(Math.pow(xDifference, 2) + Math.pow(yDifference, 2));
         return distance;
     }

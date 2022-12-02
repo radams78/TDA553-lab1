@@ -1,15 +1,16 @@
 import java.awt.*;
+import java.util.Stack;
 
 public class CarTransport extends Truck implements Load{
     private TwoStateFlatbed flatbed;
     private int maxNumberOfCarsLoaded;
-    private int currentNumberOfCarsLoaded;
+    private Stack carStack;
 
     public CarTransport(int nrDoors, double enginePower, double currentSpeed, Color color, int maxNumberOfCarsLoaded){
         super(nrDoors, enginePower, currentSpeed, color); 
         this.flatbed = new TwoStateFlatbed();   
-        this.maxNumberOfCarsLoaded = Math.max(maxNumberOfCarsLoaded, 1);
-        this.currentNumberOfCarsLoaded = 0;  
+        this.maxNumberOfCarsLoaded = Math.max(maxNumberOfCarsLoaded, 1);  
+        this.carStack = new Stack<>();
     }
 
     @Override
@@ -40,9 +41,10 @@ public class CarTransport extends Truck implements Load{
 
     @Override
     public void load(Car car) { //You can only load cars.
-        if ((currentNumberOfCarsLoaded < maxNumberOfCarsLoaded) && (distanceToCar(car) < 1)){
-            currentNumberOfCarsLoaded += 1;
+        if ((carStack.size() < maxNumberOfCarsLoaded) && (distanceToCar(car) < 1) && (car.getDx() == 0) &&
+         (car.getDy() == 0) && (flatbed.getFlatbedUp() == false)){
             car.setLoaded(true);
+            this.carStack.push(car);
         }
     }
 
@@ -56,8 +58,8 @@ public class CarTransport extends Truck implements Load{
 
     @Override
     public void unload(Car car) { //You can only load cars.
-        if (currentNumberOfCarsLoaded > 0){
-            currentNumberOfCarsLoaded -= 1;
+        if ((carStack.size() > 0) && (carStack.peek() == car) && (flatbed.getFlatbedUp() == false)){
+            carStack.pop();
             car.setLoaded(false);
         }
     }

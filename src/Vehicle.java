@@ -1,7 +1,4 @@
-package vehicle;
 import java.awt.*;
-
-//import Movable;
 
 public abstract class Vehicle implements Movable{
     private int nrDoors; // Number of doors on the car

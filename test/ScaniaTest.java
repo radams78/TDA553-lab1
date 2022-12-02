@@ -1,10 +1,10 @@
-package vehicle;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.*;
 
 import org.junit.jupiter.api.Test;
+
 
 public class ScaniaTest {
     @Test

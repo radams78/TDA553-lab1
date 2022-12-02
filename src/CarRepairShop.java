@@ -1,7 +1,3 @@
-package carRepairShop;
-import load.Load;
-import vehicle.Car;
-
 public class CarRepairShop implements Load{
     private int maxNumberOfCarsLoaded;
     private int currentNumberOfCarsLoaded;

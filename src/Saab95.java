@@ -1,4 +1,3 @@
-package vehicle;
 import java.awt.*;
 
 public class Saab95 extends Car{

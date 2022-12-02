@@ -1,7 +1,4 @@
-package vehicle;
 import java.awt.*;
-
-import flatbed.DegreeFlatbed;
 
 public class Scania extends Truck{
     private DegreeFlatbed flatbed;

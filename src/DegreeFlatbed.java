@@ -1,4 +1,3 @@
-package flatbed;
 
 
 public class DegreeFlatbed implements Flatbed{

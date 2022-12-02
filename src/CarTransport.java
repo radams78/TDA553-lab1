@@ -1,9 +1,5 @@
-package vehicle;
 import java.awt.*;
 import java.util.Stack;
-
-import flatbed.TwoStateFlatbed;
-import load.Load;
 
 public class CarTransport extends Truck implements Load{
     private TwoStateFlatbed flatbed;

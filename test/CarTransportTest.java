@@ -15,7 +15,7 @@ public class CarTransportTest {
     }
     @Test
     public void load_is_able_to_load(){
-        CarTransport ivecoTurbostar = new CarTransport(4, 100, 0, Color.RED);
+        CarTransport ivecoTurbostar = new CarTransport(4, 100, 0, Color.RED, 10);
         Car saab95 = new Saab95(4, 100, 50, Color.RED);
         ivecoTurbostar.lower();
         ivecoTurbostar.load(saab95);

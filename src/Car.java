@@ -1,104 +1,133 @@
 package src;
+
 import java.awt.*;
 import java.lang.Math;
 
-public abstract class Car {
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
-    protected Color color; // Color of the car
-    protected double currentSpeed; // The current speed of the car
-    protected String modelName; // The car model name
-    public double xPosition = 0, yPosition = 0;
-    public double facingDirection = 0;
+public abstract class Car implements Movable {
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
+    private Color color; // Color of the car
+    private double currentSpeed; // The current speed of the car
+    private String modelName; // The car model name
+    private double facingDirection = 0;
+    private Position position;
+    private boolean isLoaded = false;
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName){
+    public Car(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.position = new Position(0, 0);
         stopEngine();
     }
 
-    public int getNrDoors(){
+    public int getNrDoors() {
         return nrDoors;
     }
-    public double getEnginePower(){
+
+    public double getEnginePower() {
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    public double getCurrentSpeed() {
         return currentSpeed;
     }
 
-    public Color getColor(){
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(Color clr){
-	    color = clr;
+    public void setColor(Color clr) {
+        color = clr;
     }
 
-    public void startEngine(){
-	    currentSpeed = 0.1;
+    public void startEngine() {
+        currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
-	    currentSpeed = 0;
-    }
-    
-    protected abstract double speedFactor();
-
-    public void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
-    }
-    
-    public void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+    public void stopEngine() {
+        currentSpeed = 0;
     }
 
-    public void gas(double amount){
-        if (amount<0 || amount>1){
+    protected double speedFactor() {
+        return 1;
+    }
+
+    private void incrementSpeed(double amount) {
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
+    }
+
+    private void decrementSpeed(double amount) {
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+    }
+
+    public void gas(double amount) {
+        if (amount < 0 || amount > 1) {
             throw new IllegalArgumentException("amount outside of range [0,1]");
         } else {
             incrementSpeed(amount);
         }
     }
-    
-    public void brake(double amount){
-        if (amount<0 || amount>1){
+
+    public void brake(double amount) {
+        if (amount < 0 || amount > 1) {
             throw new IllegalArgumentException("amount outside of range [0,1]");
         } else {
             decrementSpeed(amount);
         }
     }
-    public void move(){
-        updateXPosition();
-        updateYPosition();
+
+    public void setIsLoaded(boolean loadedStatus) {
+        isLoaded = loadedStatus;
     }
 
-    protected void updateXPosition(){
-        xPosition += currentSpeed*getXComposant();
+    public void move() {
+        if (!isLoaded) {
+            updateXPosition();
+            updateYPosition();
+        }
     }
 
-    protected void updateYPosition(){
-        yPosition += currentSpeed*getYComposant();
+    private void updateXPosition() {
+        position.setXPosition(position.getXPosition() + currentSpeed * getXComposant());
     }
 
-    protected double getXComposant(){
+    private void updateYPosition() {
+        position.setYPosition(position.getYPosition() + currentSpeed * getYComposant());
+    }
+
+    protected double getXComposant() {
         return Math.cos(facingDirection);
     }
 
-    protected double getYComposant(){
+    protected double getYComposant() {
         return Math.sin(facingDirection);
     }
 
-    public void turnLeft(){
-        facingDirection += Math.PI/60;
-        facingDirection = facingDirection %(2*Math.PI);
+    public double getFacingDirection() {
+        return facingDirection;
     }
 
-    public void turnRight(){
-        facingDirection += -Math.PI/60;
-        facingDirection = facingDirection %(2*Math.PI);
+    public double getXPosition() {
+        return position.getXPosition();
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public double getYPosition() {
+        return position.getYPosition();
+    }
+
+    public void turnLeft() {
+        facingDirection += Math.PI / 60;
+        facingDirection = facingDirection % (2 * Math.PI);
+    }
+
+    public void turnRight() {
+        facingDirection -= Math.PI / 60;
+        facingDirection = facingDirection % (2 * Math.PI);
     }
 }

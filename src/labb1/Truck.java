@@ -33,9 +33,10 @@ public abstract class Truck extends Vehicle {
         }
 
     }
-
+    
     //Implemented by subclasses to get specific behavior inside different methods
     public abstract Trailer getTrailer();
+
 
     public void retractPlatform() {
         this.getTrailer().retractPlatform();

@@ -24,4 +24,15 @@ public class CarTransporter extends Truck {
     public double speedFactor() {
         return enginePower * 0.01;
     }
+
+    //Loads car objects
+    public void load(Car car){
+        trailer.load(car);
+    }
+
+    public Movable unload(){
+        return trailer.unload();
+    }
+
+
 }// Class

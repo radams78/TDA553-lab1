@@ -27,4 +27,11 @@ public class TruckTest {
 
         assert(scania.getTrailer().getPlatformAngle() < 70);
     }
+
+    @Test
+    public void car_transporter_loading_throws_error_at_end(){
+        CarTransporter trnsp = new CarTransporter(Color.blue, 0, 0, 0, 0, 1);
+        trnsp.load(new Saab95(null, 0, 0, 0, 0));
+        assertThrows(IllegalStateException.class, () -> {trnsp.load(new Saab95(null, 0, 0, 0, 0));});
+    }
 }

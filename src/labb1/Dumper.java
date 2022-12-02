@@ -12,7 +12,7 @@ public class Dumper extends Trailer {
         super(maxLoad);
         this.MIN_EXTENSION_ANGLE = MIN_EXTENSION_ANGLE;
         this.MAX_EXTENSOIN_ANGLE = MAX_EXTENSOIN_ANGLE;
-        this.platformSpeed = 1.0;
+        this.platformSpeed = platformSpeed;
         this.loadable = new Loadable(maxLoad, x, y);
     }
 

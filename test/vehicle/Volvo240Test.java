@@ -1,7 +1,9 @@
+package vehicle;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+
 import java.awt.*;
 
 public class Volvo240Test {

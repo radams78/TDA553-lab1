@@ -1,3 +1,4 @@
+package flatbed;
 public class TwoStateFlatbed implements Flatbed{
     private boolean flatbedUp;
 

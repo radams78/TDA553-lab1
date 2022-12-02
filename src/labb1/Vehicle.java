@@ -1,5 +1,6 @@
 package labb1;
 import java.awt.*;
+
 // To-Do
 // Add turning radius, a variable that change how fast the car turns
 
@@ -130,31 +131,21 @@ public abstract class Vehicle implements Movable {
     //standar gas method 
     //increments speed
     public void gas(double amount){
-        if (inBounds(1.0, 0.0, amount) == 0){
+        if (Helpers.inBounds(1.0, 0.0, amount) == 0){
             incrementSpeed(amount);
         }else{
             throw new IllegalArgumentException("amount needs to be between 0 and 1");
         } 
     } //gas()
 
-    //Helper function to check if  var is inside set bounds
-    private static int inBounds(double UpperLimit, double LowerLimit, double amount){
-        int result = 0;
-        if (amount > UpperLimit){
-            return result + 1;
-        }
-        else if (amount < LowerLimit) {
-            return result - 1;
-        }
-        return result;
-    }//inBounds()
+
 
     //Calculates and bound sets the speed to be applied after increaing/decreasing
     private double calculateSpeed(double speedToChange, double amount){
-        if (inBounds(enginePower, 0.0, speedToChange) == -1){
+        if (Helpers.inBounds(enginePower, 0.0, speedToChange) == -1){
             speedToChange = 0;
         }
-        else if (inBounds(enginePower, 0, speedToChange) == 1){
+        else if (Helpers.inBounds(enginePower, 0, speedToChange) == 1){
             speedToChange = enginePower;
         }
         return speedToChange;
@@ -162,7 +153,7 @@ public abstract class Vehicle implements Movable {
     
     //decreses speed
     public void brake(double amount){
-        if (inBounds(1.0, 0.0, amount) == 0){
+        if (Helpers.inBounds(1.0, 0.0, amount) == 0){
             decrementSpeed(amount);
         }else{
             throw new IllegalArgumentException("amount needs to be between 0 and 1");

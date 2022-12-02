@@ -15,6 +15,19 @@ public abstract class Car extends Vehicle {
     public void setLoaded(boolean loaded) {
         this.loaded = loaded;
     }
+
+    @Override
+    public void startEngine(){
+        if(loaded == false){
+            super.startEngine();
+        }
+    }
     
+    @Override
+    public void gas(double gas){
+        if(loaded == false){
+            super.gas(gas);
+        }
+    }
     
 }

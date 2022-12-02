@@ -1,0 +1,11 @@
+1.  The method in Car checks if the amount the speed increases is between 0 - 1. We have a subclass to Car called Truck which Override the gas 
+    method to add the canGas method that checks if the platform is in the correct position. Our design follow Liskov Substitution since we added
+    a method in Truck which makes it possible to use the gas method without assigning the canGas method in subclasses. If you want to add a 
+    soecific canGas method you need to Override the original method in Truck.
+
+2.  We used subclassing for the gas function for Scania and CarTransporter size they both depended on the Car class. Otherwise we used
+    two different delegations depending on the platforms function with a superclass to both delegations to handel the dublicate code
+    between the two delegations. We used another delegation called LoadsCar which delegated to CarTransporter and RepairShop.
+
+3.  Yes, in lab1 we implemented trim and turbo directly inside Volvo and Saab but to make them reuseable we changed them to delegations.
+    If we thought more about the extenability of our classes we would have thought of a solution.

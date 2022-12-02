@@ -1,6 +1,5 @@
 package src;
 import java.awt.*;
-import java.util.ArrayList;
 
 public abstract class Vehicle extends HasPosition implements Movable {
 
@@ -14,7 +13,7 @@ public abstract class Vehicle extends HasPosition implements Movable {
     private double turnLeftPositive = 1; // To turn left
 
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int xCoordinate, int yCoordinate, boolean isLoadable) {
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, double xCoordinate, double yCoordinate, boolean isLoadable) {
         super(xCoordinate, yCoordinate);
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
@@ -43,11 +42,27 @@ public abstract class Vehicle extends HasPosition implements Movable {
 
     }
 
-    public abstract void incrementSpeed(double amount);
+    public void incrementSpeed(double amount){
+        if (getCurrentSpeed() < getEnginePower()) {
+            setCurrentSpeed(getCurrentSpeed() + speedFactor() *amount);
+            }
+        else {
+            setCurrentSpeed(getEnginePower());
+        }
+    }
 
-    public abstract void decrementSpeed(double amount);
+    public void decrementSpeed(double amount) {
+        if(getCurrentSpeed() >= 0){
+        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+        }
+        else{
+            setCurrentSpeed(0);
+        }
+    }
 
-    public abstract double speedFactor();
+    public double speedFactor(){
+        return 1.0;
+    }
 
     public void setCurrentSpeed(double newSpeed){
         this.currentSpeed = newSpeed;

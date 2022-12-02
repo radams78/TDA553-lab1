@@ -10,8 +10,8 @@ public class CarTransporter extends Vehicle{
     /**
      * Constructor CarTransporter
      */
-    public CarTransporter() {
-        super(2, 85, Color.darkGray, "TransportTorkel", 30, 30, false);
+    public CarTransporter(double xCoordinate, double yCoordinate) {
+        super(2, 85, Color.darkGray, "TransportTorkel", xCoordinate, yCoordinate, false);
         this.carPlatform = new TransporterPlatform(5);
     }
 
@@ -19,7 +19,7 @@ public class CarTransporter extends Vehicle{
      * Call this method to raise the ramp
      */
     public void raiseRamp(){
-        this.carPlatform.raise();
+        this.carPlatform.raisePlatform();
         
     }
 
@@ -29,13 +29,10 @@ public class CarTransporter extends Vehicle{
      */
     public void lowerRamp(){
         if(this.isVehicleCurrentSpeedZero()){
-            this.carPlatform.lower();
+            this.carPlatform.lowerPlatform();
             }
     }
 
-    public double speedFactor(){
-        return 1.0;
-    }
     
     public void loadCarToPlatform(Vehicle car){
         updateCoordinatesForLoadingAndUnloading();
@@ -65,35 +62,5 @@ public class CarTransporter extends Vehicle{
             this.setCurrentSpeed(0.1);
         }
     }
-    
-    /**
-     * This method will be called by the gas method.
-     * Speed can not be more than the engine power of the carTransporter.
-     */
-    @Override
-    public void incrementSpeed(double amount){
-        if (getCurrentSpeed() < getEnginePower()) {
-            setCurrentSpeed(getCurrentSpeed() + speedFactor() *amount);
-            }
-        else {
-            setCurrentSpeed(getEnginePower());
-        }
-    }
-
-    /**
-     * Call this method to decrease the speed of the carTransporter.
-     * Speed can not be less than 0.
-     */
-    @Override
-    public void decrementSpeed(double amount) {
-        if(getCurrentSpeed() >= 0){
-        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
-        }
-        else{
-            setCurrentSpeed(0);
-        }
-    }
-
-
 }
 

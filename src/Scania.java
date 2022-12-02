@@ -1,27 +1,23 @@
 package src;
 import java.awt.*;
 
-public class Scania extends Vehicle{
+public class Scania extends Vehicle implements IPlatform{
 
     public AnglePlatform garbagePlatform;
 
-    public Scania() {
-        super(2, 200, Color.green, "Scania Dumb truck 2000GX", 20, 20, false);
+    public Scania(double xCoordinate, double yCoordinate) {
+        super(2, 200, Color.green, "Scania Dumb truck 2000GX", xCoordinate, yCoordinate, false);
         garbagePlatform = new AnglePlatform(1000);
     }
     
-    public void raiseGarbagePlatform(){
+    public void raisePlatform(){
         if(this.isVehicleCurrentSpeedZero()){
-            garbagePlatform.raise();
+            garbagePlatform.raisePlatform();
         }
     }
 
-    public void lowerGarbagePlatform(){
-        garbagePlatform.lower();
-    }
-
-    public double speedFactor(){
-        return 1.0;
+    public void lowerPlatform(){
+        garbagePlatform.lowerPlatform();
     }
     
     @Override
@@ -30,31 +26,5 @@ public class Scania extends Vehicle{
             this.setCurrentSpeed(0.1);
         }
     }
-
-    @Override
-    public void gas(double amount) {
-        if(0 <= amount && amount <= 1) {
-            incrementSpeed(amount);
-        }
-    }
     
-    
-    @Override
-    public void incrementSpeed(double amount){
-        if (getCurrentSpeed() < getEnginePower()) {
-            setCurrentSpeed(getCurrentSpeed() + speedFactor() *amount);
-            }
-        else {
-            setCurrentSpeed(getEnginePower());
-        }
-    }
-    @Override
-    public void decrementSpeed(double amount) {
-        if(getCurrentSpeed() >= 0){
-        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
-        }
-        else{
-            setCurrentSpeed(0);
-        }
-    }
 }

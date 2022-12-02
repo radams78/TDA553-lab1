@@ -5,8 +5,8 @@ public class Saab95 extends Vehicle{
 
     public boolean turboOn;
     
-    public Saab95() {
-        super(2, 125, Color.red, "Saab95", 0, 0, true);
+    public Saab95(double xCoordinate, double yCoordinate) {
+        super(2, 125, Color.red, "Saab95", xCoordinate, yCoordinate, true);
     }
 
 
@@ -18,30 +18,11 @@ public class Saab95 extends Vehicle{
 	    turboOn = false;
     }
     
+    @Override
     public double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
-    }
-
-    @Override
-    public void incrementSpeed(double amount) {
-        if(getCurrentSpeed() < getEnginePower()) {
-            setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
-            }
-        else { 
-            setCurrentSpeed(getEnginePower());
-        }
-    }
-
-    @Override
-    public void decrementSpeed(double amount) {
-        if(getCurrentSpeed() >= 0){
-        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
-        }
-        else{
-            setCurrentSpeed(0.1);
-        }
     }
 
 

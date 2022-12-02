@@ -10,22 +10,26 @@ public class Loadable{
         this.x = x;
         this.y = y;
         this.max_amount = max_amount;
-        this.loaded = new ArrayList(max_amount);
+        this.loaded = new ArrayList<Movable>();
     }
 
     public void load(Movable item){
         double deltaX  = item.getX() - this.x;
         double deltaY = item.getY() - this.y;
         if (Helpers.inBounds(1, -1, deltaX)==0 && Helpers.inBounds(1,-1,deltaY)==0){
-            try{
-                loaded.add(item);
-            }catch(IndexOutOfBoundsException E){
-                throw new IndexOutOfBoundsException("Loadable is full");
-            }
-        }
-        else{
+            addItemInList(item);    
+        }else{
             throw new IllegalArgumentException("too far away from the loadable");
         }
+    }
+
+    private void addItemInList(Movable item){
+        if (loaded.size() < max_amount){
+            loaded.add(item);
+            System.out.println("added item");
+        }else{
+            throw new IllegalStateException("Loadable is full");
+        }      
     }
 
     public Movable unload(Movable item){

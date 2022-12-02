@@ -7,6 +7,7 @@ public abstract class Trailer {
 
     public Trailer(int maxLoad) {
         this.maxLoad = maxLoad;
+
     }
 
     // Returns true if the platsform is extended
@@ -31,4 +32,5 @@ public abstract class Trailer {
     public abstract void extendPlatform();
 
     public abstract void retractPlatform();
+
 }

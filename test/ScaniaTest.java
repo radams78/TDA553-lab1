@@ -1,6 +1,5 @@
 package test;
 
-
 import static org.junit.Assert.assertEquals;
 // import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -14,12 +13,12 @@ import src.*;
 public class ScaniaTest {
 
     @Test
-    public void canRaisePlatform() {
+    public void cantLowerPlatformPast0Degrees() {
         Scania test = new Scania();
-        test.raisePlatform();
-        assertEquals(1, test.getPlatformAngle(), 0.01);
+        test.lowerPlatform();
+        assertEquals(0, test.getPlatformAngle(), 0.01);
     }
-    
+
     @Test
     public void cantRaisePast70() {
         Scania test = new Scania();
@@ -30,31 +29,31 @@ public class ScaniaTest {
     }
 
     @Test
-    public void canGasWhenPlatformDown(){
+    public void canGasWhenPlatformDown() {
         Scania test = new Scania();
         test.gas(0.7);
-        assertEquals(0.7,test.getCurrentSpeed(), 0.01);
-    }
-    
-    @Test
-    public void cantGasWhenPlatformUp(){
-        Scania test = new Scania();
-        test.raisePlatform();
-        test.gas(0.7);
-        assertEquals(0,test.getCurrentSpeed(), 0.01);
+        assertEquals(0.7, test.getCurrentSpeed(), 0.01);
     }
 
     @Test
-    public void throwsErrorWhenGasToLargeWhilePlatformIsUp(){
+    public void cantGasWhenPlatformUp() {
         Scania test = new Scania();
         test.raisePlatform();
-        assertThrows(IllegalArgumentException.class, ()->{
+        test.gas(0.7);
+        assertEquals(0, test.getCurrentSpeed(), 0.01);
+    }
+
+    @Test
+    public void throwsErrorWhenGasToLargeWhilePlatformIsUp() {
+        Scania test = new Scania();
+        test.raisePlatform();
+        assertThrows(IllegalArgumentException.class, () -> {
             test.brake(10);
         });
     }
-    
+
     @Test
-    public void testGetEnginePower(){
+    public void testGetEnginePower() {
         Car test = new Scania();
         double enginePower = test.getEnginePower();
         double testPower = 100;
@@ -62,84 +61,27 @@ public class ScaniaTest {
     }
 
     @Test
-    public void testGetNrDoors(){
-        Car test = new Scania();
-        int doors = test.getNrDoors();
-        assertEquals(2, doors);
-    }
-
-    @Test
-    public void testGetCurrentSpeed(){
-        Car test = new Scania();
-        double CurSped = test.getCurrentSpeed();
-        double testPower = 0;
-        assertEquals(testPower, CurSped, 1);
-    }
-
-    @Test
-    public void testGetColor(){
-        Car test = new Scania();
-        Color carColor = test.getColor();
-        assertEquals(Color.yellow, carColor);
-    }
-
-    @Test
-    public void testSetColor(){
-        Car test = new Scania();
-        test.setColor(Color.GREEN);
-        assertEquals(Color.GREEN, test.getColor());
-    }
-
-    @Test
-    public void testStartEngine(){
-        Car test = new Scania();
-        test.startEngine();
-        assertEquals(0.1, test.getCurrentSpeed(), 0.1);
-    }
-
-    @Test
-    public void testStopEngine(){
-        Car test = new Scania();
-        test.stopEngine();
-        assertEquals(0, test.getCurrentSpeed(), 0.1);
-    }
-    
-    @Test
-    public void testIncrementSpeed(){
-        Car test = new Scania();
-        test.incrementSpeed(10);
-        assertEquals(10, test.getCurrentSpeed(), 0.1);
-    }
-
-    @Test
-    public void testDecrementSpeed(){
-        Car test = new Scania();
-        test.decrementSpeed(10);
-        assertEquals(0, test.getCurrentSpeed(), 0.1);
-    }
-
-    @Test
-    public void testBrakeInRange(){
+    public void testBrakeInRange() {
         Car test = new Scania();
         test.brake(1);
         assertEquals(0, test.getCurrentSpeed(), 0.1);
     }
 
     @Test
-    public void testGasOutOfRange(){
+    public void testGasOutOfRangeThrowsException() {
         Car test = new Scania();
-        assertThrows(IllegalArgumentException.class, ()->{
+        assertThrows(IllegalArgumentException.class, () -> {
             test.brake(10);
         });
     }
 
     @Test
-    public void testBrakeOutOfRange(){
+    public void testBrakeOutOfRangeThrowsException() {
         Car test = new Scania();
-        assertThrows(IllegalArgumentException.class, ()->{
+        assertThrows(IllegalArgumentException.class, () -> {
             test.brake(10);
         });
-    } 
+    }
 
     @Test
     public void canMove() {
@@ -153,13 +95,13 @@ public class ScaniaTest {
     public void canTurnLeft() {
         Car testCar = new Scania();
         testCar.turnLeft();
-        assertEquals(Math.PI/60, testCar.getFacingDirection(), 0.01);
+        assertEquals(Math.PI / 60, testCar.getFacingDirection(), 0.01);
     }
 
     @Test
     public void canTurnRight() {
         Car testCar = new Scania();
         testCar.turnRight();
-        assertEquals(-(Math.PI/60), testCar.getFacingDirection(), 0.01);
+        assertEquals(-(Math.PI / 60), testCar.getFacingDirection(), 0.01);
     }
 }

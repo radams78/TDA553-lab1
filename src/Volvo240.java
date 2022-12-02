@@ -1,7 +1,7 @@
 package src;
 import java.awt.*;
 
-public class Volvo240 extends Truck{
+public class Volvo240 extends Car{
 
     private final static double trimFactor = 1.25;
     private Trim trim;
@@ -13,6 +13,6 @@ public class Volvo240 extends Truck{
 
     @Override
     public double speedFactor(){
-        return trim.speedFactor(enginePower);
+        return trim.speedFactor(this.getEnginePower());
     }
 }

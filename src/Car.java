@@ -4,14 +4,13 @@ import java.awt.*;
 import java.lang.Math;
 
 public abstract class Car implements Movable {
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
-    protected Color color; // Color of the car
-    protected double currentSpeed; // The current speed of the car
-    protected String modelName; // The car model name
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
+    private Color color; // Color of the car
+    private double currentSpeed; // The current speed of the car
+    private String modelName; // The car model name
     private double facingDirection = 0;
     private Position position;
-
     private boolean isLoaded = false;
 
     public Car(int nrDoors, double enginePower, Color color, String modelName) {
@@ -55,11 +54,11 @@ public abstract class Car implements Movable {
         return 1;
     }
 
-    public void incrementSpeed(double amount) {
+    private void incrementSpeed(double amount) {
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
 
-    public void decrementSpeed(double amount) {
+    private void decrementSpeed(double amount) {
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
@@ -90,11 +89,11 @@ public abstract class Car implements Movable {
         }
     }
 
-    protected void updateXPosition() {
+    private void updateXPosition() {
         position.setXPosition(position.getXPosition() + currentSpeed * getXComposant());
     }
 
-    protected void updateYPosition() {
+    private void updateYPosition() {
         position.setYPosition(position.getYPosition() + currentSpeed * getYComposant());
     }
 

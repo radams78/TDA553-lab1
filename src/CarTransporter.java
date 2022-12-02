@@ -23,6 +23,7 @@ public class CarTransporter extends Truck {
         platform.lowerPlatform(getCurrentSpeed());
     }
 
+    @Override
     public boolean canGas() {
         return platform.canGas();
     }

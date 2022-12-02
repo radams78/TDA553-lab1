@@ -13,11 +13,11 @@ public abstract class Truck extends Car {
         if (amount<0 || amount>1){
             throw new IllegalArgumentException("amount outside of range [0,1]");
         } else if (canGas()) {
-            incrementSpeed(amount);
+            super.gas(amount);
         }
     }
 
-    public boolean canGas() {
+    protected boolean canGas() {
         return true;
     }
 }

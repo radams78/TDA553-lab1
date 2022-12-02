@@ -44,7 +44,7 @@ public class CarTransporterTest {
     }
 
     @Test
-    public void doesntLowerWhenCallingRaise() {
+    public void doesntLowerWhenCallingRaiseWhenPlatformIsUp() {
         CarTransporter test = new CarTransporter();
         for (int i = 0; i < 80; i++) {
             test.raisePlatform();
@@ -54,7 +54,7 @@ public class CarTransporterTest {
     }
 
     @Test
-    public void doesntRaiseWhenCallingLower() {
+    public void doesntRaiseWhenCallingLowerWhenPlatformIsDown() {
         CarTransporter test = new CarTransporter();
         for (int i = 0; i < 80; i++) {
             test.lowerPlatform();
@@ -88,70 +88,7 @@ public class CarTransporterTest {
         });
     }
 
-    @Test
-    public void testGetEnginePower() {
-        Car test = new CarTransporter();
-        double enginePower = test.getEnginePower();
-        double testPower = 100;
-        assertEquals(testPower, enginePower, 0.01);
-    }
-
-    @Test
-    public void testGetNrDoors() {
-        Car test = new CarTransporter();
-        int doors = test.getNrDoors();
-        assertEquals(2, doors);
-    }
-
-    @Test
-    public void testGetCurrentSpeed() {
-        Car test = new CarTransporter();
-        double CurSped = test.getCurrentSpeed();
-        double testPower = 0;
-        assertEquals(testPower, CurSped, 1);
-    }
-
-    @Test
-    public void testGetColor() {
-        Car test = new CarTransporter();
-        Color carColor = test.getColor();
-        assertEquals(Color.gray, carColor);
-    }
-
-    @Test
-    public void testSetColor() {
-        Car test = new CarTransporter();
-        test.setColor(Color.GREEN);
-        assertEquals(Color.GREEN, test.getColor());
-    }
-
-    @Test
-    public void testStartEngine() {
-        Car test = new CarTransporter();
-        test.startEngine();
-        assertEquals(0.1, test.getCurrentSpeed(), 0.1);
-    }
-
-    @Test
-    public void testStopEngine() {
-        Car test = new CarTransporter();
-        test.stopEngine();
-        assertEquals(0, test.getCurrentSpeed(), 0.1);
-    }
-
-    @Test
-    public void testIncrementSpeed() {
-        Car test = new CarTransporter();
-        test.incrementSpeed(10);
-        assertEquals(10, test.getCurrentSpeed(), 0.1);
-    }
-
-    @Test
-    public void testDecrementSpeed() {
-        Car test = new CarTransporter();
-        test.decrementSpeed(10);
-        assertEquals(0, test.getCurrentSpeed(), 0.1);
-    }
+   
 
     @Test
     public void testBrakeInRange() {
@@ -161,7 +98,7 @@ public class CarTransporterTest {
     }
 
     @Test
-    public void testGasOutOfRange() {
+    public void testGasOutOfRangeThrowsException() {
         Car test = new CarTransporter();
         assertThrows(IllegalArgumentException.class, () -> {
             test.brake(10);
@@ -169,7 +106,7 @@ public class CarTransporterTest {
     }
 
     @Test
-    public void testBrakeOutOfRange() {
+    public void testBrakeOutOfRangeThrowsException() {
         Car test = new CarTransporter();
         assertThrows(IllegalArgumentException.class, () -> {
             test.brake(10);
@@ -178,7 +115,7 @@ public class CarTransporterTest {
 
     @Test
     public void canMove() {
-        Car testCar = new Scania();
+        Car testCar = new CarTransporter();
         testCar.gas(1);
         testCar.move();
         assertEquals(1.00, testCar.getXPosition(), 0.01);
@@ -186,16 +123,15 @@ public class CarTransporterTest {
 
     @Test
     public void canTurnLeft() {
-        Car testCar = new Scania();
+        Car testCar = new CarTransporter();
         testCar.turnLeft();
         assertEquals(Math.PI/60, testCar.getFacingDirection(), 0.01);
     }
 
     @Test
     public void canTurnRight() {
-        Car testCar = new Scania();
+        Car testCar = new CarTransporter();
         testCar.turnRight();
         assertEquals(-(Math.PI/60), testCar.getFacingDirection(), 0.01);
     }
 }
-    

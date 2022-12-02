@@ -9,70 +9,6 @@ import org.junit.Test;
 import src.*;
 
 public class Volvo240Test {
-    @Test
-    public void testGetEnginePowerVolvo() {
-        Car test = new Volvo240();
-        double enginePower = test.getEnginePower();
-        double testPower = 100;
-        assertEquals(testPower, enginePower, 0.01);
-    }
-
-    @Test
-    public void testGetNrDoorsVolvo() {
-        Car test = new Volvo240();
-        int doors = test.getNrDoors();
-        assertEquals(4, doors);
-    }
-
-    @Test
-    public void testGetCurrentSpeedVolvo() {
-        Car test = new Volvo240();
-        double CurSped = test.getCurrentSpeed();
-        double testPower = 0;
-        assertEquals(testPower, CurSped, 1);
-    }
-
-    @Test
-    public void testGetColorVolvo() {
-        Car test = new Volvo240();
-        Color carColor = test.getColor();
-        assertEquals(Color.black, carColor);
-    }
-
-    @Test
-    public void testSetColorVolvo() {
-        Car test = new Volvo240();
-        test.setColor(Color.GREEN);
-        assertEquals(Color.GREEN, test.getColor());
-    }
-
-    @Test
-    public void testStopEngineVolvo() {
-        Car test = new Volvo240();
-        test.stopEngine();
-        assertEquals(0, test.getCurrentSpeed(), 0.1);
-    }
-
-    @Test
-    public void testStartEngineVolvo() {
-        Car test = new Volvo240();
-        test.startEngine();
-        assertEquals(0.1, test.getCurrentSpeed(), 0.1);
-    }
-
-    @Test
-    public void testIncrementSpeed() {
-        Car test = new Volvo240();
-        test.incrementSpeed(10);
-        assertEquals(12.5, test.getCurrentSpeed(), 0.1);
-    }
-
-    @Test
-    public void testDecrementSpeed() {
-        Car test = new Volvo240();
-        test.decrementSpeed(10);
-        assertEquals(0, test.getCurrentSpeed(), 0.1);
-    }
 
     @Test
     public void testGasInRange() {
@@ -116,13 +52,13 @@ public class Volvo240Test {
     public void canTurnLeft() {
         Car testCar = new Volvo240();
         testCar.turnLeft();
-        assertEquals(Math.PI/60, testCar.getFacingDirection(), 0.01);
+        assertEquals(Math.PI / 60, testCar.getFacingDirection(), 0.01);
     }
 
     @Test
     public void canTurnRight() {
         Car testCar = new Volvo240();
         testCar.turnRight();
-        assertEquals(-(Math.PI/60), testCar.getFacingDirection(), 0.01);
+        assertEquals(-(Math.PI / 60), testCar.getFacingDirection(), 0.01);
     }
 }

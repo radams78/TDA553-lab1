@@ -5,9 +5,11 @@ public class CarTransport extends Truck implements Load{
     private int maxNumberOfCarsLoaded;
     private int currentNumberOfCarsLoaded;
 
-    public CarTransport(int nrDoors, double enginePower, double currentSpeed, Color color){
+    public CarTransport(int nrDoors, double enginePower, double currentSpeed, Color color, int maxNumberOfCarsLoaded){
         super(nrDoors, enginePower, currentSpeed, color); 
-        this.flatbed = new TwoStateFlatbed();     
+        this.flatbed = new TwoStateFlatbed();   
+        this.maxNumberOfCarsLoaded = Math.max(maxNumberOfCarsLoaded, 1);
+        this.currentNumberOfCarsLoaded = 0;  
     }
 
     @Override

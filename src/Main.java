@@ -3,11 +3,14 @@ import java.util.ArrayList;
 import java.util.List;
     //just tesing nothing important
 public class Main {
+    public static ArrayList<Car> cars;
     public static void main(String[] args) {
         Saab95 car1 = new Saab95();
         Volvo240 car2 = new Volvo240();
+        Scania car3 = new Scania();
+        CarTransporter car4 = new CarTransporter();
 
-        List<Car> cars = new ArrayList();
+        cars = new ArrayList<Car>();
 
         cars.add(car1);
         cars.add(car2);

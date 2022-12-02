@@ -67,6 +67,14 @@ public abstract class Car implements Movable {
         return yPos;
     }
 
+    public void setxPos(int xPos){
+        this.xPos = xPos;
+    }
+
+    public void setyPos(int yPos){
+        this.yPos = yPos;
+    }
+
     public void gas(double amount) throws Exception {
         if (amount >= 0 && amount <= 1) { // gas only accepts values in the interval [0,1]
             incrementSpeed(amount);

@@ -11,13 +11,10 @@ double platformAngle = 0;
 
 
 public double getPlatformAngle() {
-    // TODO Auto-generated method stub
     return platformAngle;
-    
 }
 
 public void setPlatformAngle(double platformAngle) {
-    // TODO Auto-generated method stub
     this.platformAngle = platformAngle; 
     
 }

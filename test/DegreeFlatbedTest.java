@@ -12,7 +12,7 @@ public class DegreeFlatbedTest {
     }
 
     @Test
-    public void flatbed_angle_should_be_zero() {
+    public void flatbed_angle_should_not_go_below_zero() {
         DegreeFlatbed flatbed = new DegreeFlatbed();
         flatbed.lower();
         assertEquals(0, flatbed.getFlatbedAngle());

@@ -11,8 +11,10 @@ public class LoadsCar {
     */
     private ArrayList<Car> loadedCarsList;
     private double maxLoadDistance;
+    private int maximalLoadedCars;  
 
-    public LoadsCar(double maxLoadDistance) {
+    public LoadsCar(int maximalLoadedCars, double maxLoadDistance) {
+        this.maximalLoadedCars = maximalLoadedCars;
         this.maxLoadDistance = maxLoadDistance;
         this.loadedCarsList = new ArrayList<Car>();
     }

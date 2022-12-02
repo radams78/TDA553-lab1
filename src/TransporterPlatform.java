@@ -11,7 +11,7 @@ public class TransporterPlatform extends CanLoadCar implements IPlatform {
     /*  Constructor TransporterPlatform.
         Expects platformCapacity argument. */
     public TransporterPlatform(int platformCapacity){
-        super();
+        super(0, 0);
         this.rampDown = true;
         this.platformCapacity = platformCapacity;
     }
@@ -37,7 +37,7 @@ public class TransporterPlatform extends CanLoadCar implements IPlatform {
     /*  This method is called by CarTransporter to load a car onto the platform. */
     
     public void loadCar(Vehicle car){
-        if (this.rampDown == true && isSpaceLeftOnPlatform() == true){
+        if (this.rampDown && isSpaceLeftOnPlatform() && (this.loadableVehicleInCloseVicinity(car))){
             carsOnPlatform.add(car);
         }
     }
@@ -51,20 +51,6 @@ public class TransporterPlatform extends CanLoadCar implements IPlatform {
             carsOnPlatform.remove(carsOnPlatform.size()-1);
         }
     }
-
-	
-	public void loadableVehiclesInCloseVicinity() {
-		// TODO Auto-generated method stub
-        
-        // for(l : listOfVehicle){
-        //    if(l.intersects(this.loadableAre)){
-        //      loadCar()
-        //  }
-        // }
-		
-	}
-
-
 
 
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Vehicle extends HasPosition implements Movable {
 
-    private Boolean isLoadable; // True if the vehicle can be loaded
+    // KANSKE SKA TA BORT private Boolean isLoadable; // True if the vehicle can be loaded
 	private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed = 0; // The current speed of the car
@@ -12,8 +12,7 @@ public abstract class Vehicle extends HasPosition implements Movable {
     private String modelName; // The car model name
     private double turnRightNegative = -1; // To turn right
     private double turnLeftPositive = 1; // To turn left
-    private Rectangle pickupRectangle; // "hitbox" to decide wether vehicles are in the vicinity to be picked up
-    private ArrayList<Rectangle> listOfVehicleRectangles;
+
 
     public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int xCoordinate, int yCoordinate, boolean isLoadable) {
         super(xCoordinate, yCoordinate);
@@ -21,12 +20,7 @@ public abstract class Vehicle extends HasPosition implements Movable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-        this.isLoadable = isLoadable;
-        this.pickupRectangle.x = xCoordinate;
-        this.pickupRectangle.y = yCoordinate;
-        this.pickupRectangle.height = 20;
-        this.pickupRectangle.width = 10;
-        listOfVehicleRectangles.add(this.pickupRectangle);
+        // KANSKE SKA TA BORT this.isLoadable = isLoadable;
     }
 
     @Override
@@ -44,8 +38,8 @@ public abstract class Vehicle extends HasPosition implements Movable {
     @Override
     public void move() {
         updateCoordinate();
-        this.pickupRectangle.x = (int)getX();
-        this.pickupRectangle.y = (int)getY();
+        //this.pickupRectangle.x = (int)getX();
+        //this.pickupRectangle.y = (int)getY();
 
     }
 
@@ -59,9 +53,11 @@ public abstract class Vehicle extends HasPosition implements Movable {
         this.currentSpeed = newSpeed;
     }
 
+    /*  KANSKE SKA TA BORT
     public Boolean getIsLoadableBoolean() {
         return isLoadable;
     }
+    */
 
     public double getEnginePower() {
         return enginePower;

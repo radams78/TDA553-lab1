@@ -43,12 +43,5 @@ public class AnglePlatform implements IPlatform {
         }
         else return false;
     }
-/*    public void load(){
-        
-
-    }
-    public void unload(){
-
-    }
-    */
+    
 }

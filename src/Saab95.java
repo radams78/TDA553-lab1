@@ -40,7 +40,7 @@ public class Saab95 extends Vehicle{
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
         }
         else{
-            setCurrentSpeed(0);
+            setCurrentSpeed(0.1);
         }
     }
 

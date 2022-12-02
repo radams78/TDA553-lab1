@@ -26,7 +26,7 @@ public class Volvo240 extends Vehicle{
         setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount,0));
         }
         else{
-            setCurrentSpeed(0);
+            setCurrentSpeed(0.1);
         }
     }   
 }

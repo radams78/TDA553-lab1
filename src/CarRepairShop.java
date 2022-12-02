@@ -12,18 +12,16 @@ public class CarRepairShop extends CanLoadCar {
      * maximumCapacity will be set to recived argument.
      */
     public CarRepairShop(int maximumCapacity, int xCoordinate, int yCoordinate){
-        super();
+        super(xCoordinate, yCoordinate);
         this.maximumCapacity = maximumCapacity;
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
     }
 
     /**
      * Call method to load a car into the repairshop
-     * Will not add car if maximumCapacity is reached.
+     * Will not add car if maximumCapacity is reached or car is too far away.
     */
     public void loadCar(Vehicle car){
-        if((carsInRepairShop.size() < maximumCapacity) && (car.getIsLoadableBoolean())){
+        if((carsInRepairShop.size() < maximumCapacity) && (this.loadableVehicleInCloseVicinity(car))){
             carsInRepairShop.add(car);
         }
     }
@@ -41,7 +39,7 @@ public class CarRepairShop extends CanLoadCar {
 	}
 
 	
-	public void loadableVehiclesInCloseVicinity() {
+	public void loadableVehicleInCloseVicinity() {
 		// TODO Auto-generated method stub
 		
 	}

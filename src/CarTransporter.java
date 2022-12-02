@@ -4,6 +4,7 @@ import java.awt.*;
 public class CarTransporter extends Vehicle{
     
     public TransporterPlatform carPlatform;
+    public Object carsOnPlatform;
 
 
     /**
@@ -36,23 +37,32 @@ public class CarTransporter extends Vehicle{
         return 1.0;
     }
     
-    public void loadCar(Vehicle car){
+    public void loadCarToPlatform(Vehicle car){
+        updateCoordinatesForLoadingAndUnloading();
         this.carPlatform.loadCar(car);
     }
 
     public void unloadCarFromPlatform(){
+        updateCoordinatesForLoadingAndUnloading();
+        this.carPlatform.unloadCar();
+    }
+
+    public void updateCoordinatesForLoadingAndUnloading(){
         this.carPlatform.xCoordinate = (int)getX();
         this.carPlatform.yCoordinate = (int)getY();
-        this.carPlatform.unloadCar();
+    }
+
+    public int getNumberOfCarsOnPlatform(){
+        return this.carPlatform.carsOnPlatform.size();
     }
 
     /**
      * Call this method to increase the speed of the carTransporter
      */
     @Override
-    public void gas(double amount) {
-        if(0 <= amount && amount <= 1 && carPlatform.rampDown == false) {
-            incrementSpeed(amount);
+    public void startEngine(){
+        if(carPlatform.rampDown == false){
+            this.setCurrentSpeed(0.1);
         }
     }
     

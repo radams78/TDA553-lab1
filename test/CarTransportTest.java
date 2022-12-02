@@ -62,21 +62,7 @@ public class CarTransportTest {
         ivecoTurbostar.unload(saab95);
         assertTrue(saab95.getLoaded());
     }
-    @Test
-    public void if_flatbed_is_not_0_degrees_cartransporter_should_not_be_able_to_move(){
-        CarTransport carTransport = new CarTransport(4, 100, 0, Color.red, 5);
-            carTransport.raise();
-            carTransport.gas(1);
-            carTransport.startEngine();
-            assertEquals(0, carTransport.getCurrentSpeed(), 0.1);
-    }
 
-    @Test
-    public void if_flatbed_is_not_0_degrees_cartransport_should_not_be_able_to_start_engine(){
-        CarTransport carTransport = new CarTransport(4, 100, 0, Color.red, 5);
-            carTransport.lower();
-            carTransport.startEngine();
-            assertEquals(0, carTransport.getCurrentSpeed());
-    }
+
     }
 

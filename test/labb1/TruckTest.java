@@ -16,4 +16,15 @@ public class TruckTest {
         assert(scania instanceof Truck);
 
     }
+
+    @Test
+    public void dumper_doesnt_extend_all_the_way(){
+        Scania scania = new Scania(Color.yellow, 2, 3, 1, 1);
+        scania.extendPlatform();
+  
+
+        System.out.println(scania.getTrailer().getPlatformAngle());
+
+        assert(scania.getTrailer().getPlatformAngle() < 70);
+    }
 }

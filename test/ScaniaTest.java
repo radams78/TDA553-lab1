@@ -140,4 +140,26 @@ public class ScaniaTest {
             test.brake(10);
         });
     } 
+
+    @Test
+    public void canMove() {
+        Car testCar = new Scania();
+        testCar.gas(1);
+        testCar.move();
+        assertEquals(1.00, testCar.getXPosition(), 0.01);
+    }
+
+    @Test
+    public void canTurnLeft() {
+        Car testCar = new Scania();
+        testCar.turnLeft();
+        assertEquals(Math.PI/60, testCar.getFacingDirection(), 0.01);
+    }
+
+    @Test
+    public void canTurnRight() {
+        Car testCar = new Scania();
+        testCar.turnRight();
+        assertEquals(-(Math.PI/60), testCar.getFacingDirection(), 0.01);
+    }
 }

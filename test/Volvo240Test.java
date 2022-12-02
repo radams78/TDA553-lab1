@@ -1,6 +1,5 @@
 package test;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
@@ -11,7 +10,7 @@ import src.*;
 
 public class Volvo240Test {
     @Test
-    public void testGetEnginePowerVolvo(){
+    public void testGetEnginePowerVolvo() {
         Car test = new Volvo240();
         double enginePower = test.getEnginePower();
         double testPower = 100;
@@ -19,14 +18,14 @@ public class Volvo240Test {
     }
 
     @Test
-    public void testGetNrDoorsVolvo(){
+    public void testGetNrDoorsVolvo() {
         Car test = new Volvo240();
         int doors = test.getNrDoors();
         assertEquals(4, doors);
     }
 
     @Test
-    public void testGetCurrentSpeedVolvo(){
+    public void testGetCurrentSpeedVolvo() {
         Car test = new Volvo240();
         double CurSped = test.getCurrentSpeed();
         double testPower = 0;
@@ -34,74 +33,96 @@ public class Volvo240Test {
     }
 
     @Test
-    public void testGetColorVolvo(){
+    public void testGetColorVolvo() {
         Car test = new Volvo240();
         Color carColor = test.getColor();
         assertEquals(Color.black, carColor);
     }
 
     @Test
-    public void testSetColorVolvo(){
+    public void testSetColorVolvo() {
         Car test = new Volvo240();
         test.setColor(Color.GREEN);
         assertEquals(Color.GREEN, test.getColor());
     }
 
     @Test
-    public void testStopEngineVolvo(){
+    public void testStopEngineVolvo() {
         Car test = new Volvo240();
         test.stopEngine();
         assertEquals(0, test.getCurrentSpeed(), 0.1);
     }
 
     @Test
-    public void testStartEngineVolvo(){
+    public void testStartEngineVolvo() {
         Car test = new Volvo240();
         test.startEngine();
         assertEquals(0.1, test.getCurrentSpeed(), 0.1);
     }
 
     @Test
-    public void testIncrementSpeed(){
+    public void testIncrementSpeed() {
         Car test = new Volvo240();
         test.incrementSpeed(10);
         assertEquals(12.5, test.getCurrentSpeed(), 0.1);
     }
 
     @Test
-    public void testDecrementSpeed(){
+    public void testDecrementSpeed() {
         Car test = new Volvo240();
         test.decrementSpeed(10);
         assertEquals(0, test.getCurrentSpeed(), 0.1);
     }
 
     @Test
-    public void testGasInRange(){
+    public void testGasInRange() {
         Car test = new Volvo240();
         test.gas(0.5);
         assertEquals(0.625, test.getCurrentSpeed(), 0.1);
     }
 
     @Test
-    public void testBrakeInRange(){
+    public void testBrakeInRange() {
         Car test = new Volvo240();
         test.brake(1);
         assertEquals(0, test.getCurrentSpeed(), 0.1);
     }
 
     @Test
-    public void testGasOutOfRange(){
+    public void testGasOutOfRange() {
         Car test = new Volvo240();
-        assertThrows(IllegalArgumentException.class, ()->{
+        assertThrows(IllegalArgumentException.class, () -> {
             test.brake(10);
         });
     }
 
     @Test
-    public void testBrakeOutOfRange(){
+    public void testBrakeOutOfRange() {
         Car test = new Volvo240();
-        assertThrows(IllegalArgumentException.class, ()->{
+        assertThrows(IllegalArgumentException.class, () -> {
             test.brake(10);
         });
+    }
+
+    @Test
+    public void canMove() {
+        Car testCar = new Volvo240();
+        testCar.gas(1);
+        testCar.move();
+        assertEquals(1.25, testCar.getXPosition(), 0.01);
+    }
+
+    @Test
+    public void canTurnLeft() {
+        Car testCar = new Volvo240();
+        testCar.turnLeft();
+        assertEquals(Math.PI/60, testCar.getFacingDirection(), 0.01);
+    }
+
+    @Test
+    public void canTurnRight() {
+        Car testCar = new Volvo240();
+        testCar.turnRight();
+        assertEquals(-(Math.PI/60), testCar.getFacingDirection(), 0.01);
     }
 }

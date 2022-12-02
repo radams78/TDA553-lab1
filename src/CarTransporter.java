@@ -6,7 +6,7 @@ public class CarTransporter extends Truck {
     private DiscretePlatform platform;
     private LoadsCar carLoader;
     private final int maximalLoadedCars = 10;
-    private final double maxLoadDistance = 5;
+    private final double maxLoadDistance = 50;
 
     public CarTransporter() {
         super(2, 100, Color.gray, "Car Transporter");
@@ -15,24 +15,24 @@ public class CarTransporter extends Truck {
 
     }
 
-    public void raisePlatform(){
+    public void raisePlatform() {
         platform.raisePlatform(getCurrentSpeed());
     }
 
-    public void lowerPlatform(){
+    public void lowerPlatform() {
         platform.lowerPlatform(getCurrentSpeed());
     }
 
-    public boolean canGas(){
+    public boolean canGas() {
         return platform.canGas();
     }
 
     public boolean isPlatformUp() {
         return platform.isPlatformUp();
     }
-    
+
     public void loadCar(Car car) {
-        carLoader.loadCar(car);
+        carLoader.loadCar(this.getPosition(), car);
     }
 
     public void unloadCar(Car car) {
@@ -43,7 +43,7 @@ public class CarTransporter extends Truck {
         return carLoader.isCarInLoad(car);
     }
 
-    public boolean carInRange(Car other){
-        return carLoader.carInRange(this.position, other);
-}
+    public boolean carInRange(Car other) {
+        return carLoader.carInRange(this.getPosition(), other);
+    }
 }

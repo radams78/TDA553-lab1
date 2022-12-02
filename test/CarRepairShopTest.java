@@ -33,9 +33,9 @@ public class CarRepairShopTest {
     @Test
     public void cantLoadCarTooFarAway() {
         Volvo240 testCar = new Volvo240();
-        CarRepairShop testShop = new CarRepairShop(2, 10, 15);
-        testShop.loadCar(testCar);
-        testShop.unloadCar(testCar);
-        assertEquals(false, testShop.isCarInLoad(testCar));
+        CarRepairShop testShop = new CarRepairShop(2, 50, 50);
+        assertThrows(IllegalArgumentException.class, ()->{
+            testShop.loadCar(testCar);
+        });
     }
 }

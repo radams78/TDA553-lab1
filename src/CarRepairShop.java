@@ -1,19 +1,17 @@
 package src;
 
-
-
 public class CarRepairShop {
     private LoadsCar carLoader;
     private Position position;
+    private final double maxLoadDistance = 50;
 
-
-    public CarRepairShop(int MaximalLoadedCars, int PositionX, int positionY) {
-        this.carLoader = new LoadsCar(MaximalLoadedCars);
+    public CarRepairShop(int maximalLoadedCars, int PositionX, int positionY) {
+        this.carLoader = new LoadsCar(maximalLoadedCars, maxLoadDistance);
         this.position = new Position(PositionX, positionY);
     }
 
     public void loadCar(Car car) {
-        carLoader.loadCar(car);
+        carLoader.loadCar(position, car);
     }
 
     public void unloadCar(Car car) {
@@ -24,7 +22,7 @@ public class CarRepairShop {
         return carLoader.isCarInLoad(car);
     }
 
-    public boolean carInRange(Car other){
+    public boolean carInRange(Car other) {
         return carLoader.carInRange(this.position, other);
-}
+    }
 }

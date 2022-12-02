@@ -3,25 +3,30 @@ package src;
 import java.util.ArrayList;
 
 public class LoadsCar {
-    /*List with loaded cars 
-    load method
-    unload method
-
-    method for checking distance to car to load
-    */
+    /*
+     * List with loaded cars
+     * load method
+     * unload method
+     * 
+     * method for checking distance to car to load
+     */
     private ArrayList<Car> loadedCarsList;
     private double maxLoadDistance;
-    private int maximalLoadedCars;  
+    private int maximalLoadedCars;
 
     public LoadsCar(int maximalLoadedCars, double maxLoadDistance) {
         this.maximalLoadedCars = maximalLoadedCars;
         this.maxLoadDistance = maxLoadDistance;
         this.loadedCarsList = new ArrayList<Car>();
     }
-    
-    public void loadCar(Car car) {
-        loadedCarsList.add(car);
-        car.setIsLoaded(true);
+
+    public void loadCar(Position position, Car car) {
+        if (loadingSpotsLeft() && carInRange(position, car)) {
+            loadedCarsList.add(car);
+            car.setIsLoaded(true);
+        } else {
+            throw new IllegalArgumentException("Car outside of range");
+        }
     }
 
     public void unloadCar(Car car) {
@@ -33,8 +38,13 @@ public class LoadsCar {
         return loadedCarsList.contains(car);
     }
 
-    public boolean carInRange(Position self, Car other){
-        return maxLoadDistance > Math.sqrt(Math.pow(self.getxPosition() - other.position.getxPosition(), 2) + Math.pow(self.getyPosition() - other.position.getyPosition(), 2));
+    public boolean carInRange(Position position, Car other) {
+        return maxLoadDistance > Math.sqrt(Math.pow(position.getXPosition() - other.getXPosition(), 2)
+                + Math.pow(position.getYPosition() - other.getXPosition(), 2));
+    }
+
+    private boolean loadingSpotsLeft() {
+        return loadedCarsList.size() < maximalLoadedCars;
     }
 
 }

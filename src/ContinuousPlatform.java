@@ -14,7 +14,7 @@ public class ContinuousPlatform extends Platform {
     }
 
     public void lowerPlatform(double currentSpeed) {
-        if (platformAngle > 0 && isStationary(currentSpeed)){
+        if (platformAngle > 0 && isStationary(currentSpeed)) {
             this.platformAngle -= 1;
         }
     }

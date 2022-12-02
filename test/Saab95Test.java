@@ -130,4 +130,26 @@ public class Saab95Test {
             test.brake(10);
         });
     } 
+
+    @Test
+    public void canMove() {
+        Car testCar = new Saab95();
+        testCar.gas(1);
+        testCar.move();
+        assertEquals(1.25, testCar.getXPosition(), 0.01);
+    }
+
+    @Test
+    public void canTurnLeft() {
+        Car testCar = new Saab95();
+        testCar.turnLeft();
+        assertEquals(Math.PI/60, testCar.getFacingDirection(), 0.01);
+    }
+
+    @Test
+    public void canTurnRight() {
+        Car testCar = new Saab95();
+        testCar.turnRight();
+        assertEquals(-(Math.PI/60), testCar.getFacingDirection(), 0.01);
+    }
 }

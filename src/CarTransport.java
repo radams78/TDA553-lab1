@@ -4,13 +4,13 @@ import java.util.Stack;
 public class CarTransport extends Truck implements Load{
     private TwoStateFlatbed flatbed;
     private int maxNumberOfCarsLoaded;
-    private Stack carStack;
+    private Stack<Car> carStack;
 
     public CarTransport(int nrDoors, double enginePower, double currentSpeed, Color color, int maxNumberOfCarsLoaded){
         super(nrDoors, enginePower, currentSpeed, color); 
         this.flatbed = new TwoStateFlatbed();   
         this.maxNumberOfCarsLoaded = Math.max(maxNumberOfCarsLoaded, 1);  
-        this.carStack = new Stack<>();
+        this.carStack = new Stack<Car>();
     }
 
     @Override

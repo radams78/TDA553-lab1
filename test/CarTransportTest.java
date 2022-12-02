@@ -21,5 +21,24 @@ public class CarTransportTest {
         ivecoTurbostar.load(saab95);
         assertTrue(saab95.getLoaded());
         }
+    
+    @Test
+    public void load_is_unable_to_load_because_of_distance(){
+        CarTransport ivecoTurbostar = new CarTransport(4, 100, 0, Color.RED, 10);
+        Car saab95 = new Saab95(4, 100, 50, Color.RED);
+        saab95.gas(1);
+        saab95.move();
+        ivecoTurbostar.lower();
+        ivecoTurbostar.load(saab95);
+        assertFalse(saab95.getLoaded());
+        }
+    
+    @Test
+    public void load_is_unable_to_load_because_flatbed_is_up(){
+        CarTransport ivecoTurbostar = new CarTransport(2, 100, 0, Color.RED, 4);
+        Car saab95 = new Saab95(4, 100, 0, Color.RED);
+        ivecoTurbostar.load(saab95);
+        assertFalse(saab95.getLoaded());
+    }
     }
 

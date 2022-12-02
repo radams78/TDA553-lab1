@@ -11,7 +11,7 @@ public class testHasPosition {
 
     @Test
     public void setCurrentDirectionRadian_methodIncreasesTheCurrentRadian_True() {
-        Saab95 testCar = new Saab95();
+        Saab95 testCar = new Saab95(10, 10);
         double startRadian = testCar.getCurrentDirectionRadian();
         for (int i = 0; i < 1; i++) {
             testCar.setCurrentDirectionRadian(1);
@@ -24,7 +24,7 @@ public class testHasPosition {
 
     @Test
     public void setCurrentDirectionRadian_methodDecreasesTheCurrentRadian_True() {
-        Saab95 testCar = new Saab95();
+        Saab95 testCar = new Saab95(10, 10);
         double startRadian = testCar.getCurrentDirectionRadian();
         for (int i = 0; i < 1; i++) {
             testCar.setCurrentDirectionRadian(-1);
@@ -37,7 +37,7 @@ public class testHasPosition {
 
     @Test
     public void setCurrentDirection_methodUpdatesDXvariableAndDYvariable_False(){
-        Saab95 testCar = new Saab95();
+        Saab95 testCar = new Saab95(10, 10);
         double startDX = testCar.currentDX();
         double startDY = testCar.currentDY();
 
@@ -52,7 +52,7 @@ public class testHasPosition {
 
     @Test
     public void updateCoordinate_methodUpdatesXCoordinateAndYCoordinate_False(){
-        Saab95 testCar = new Saab95();
+        Saab95 testCar = new Saab95(10, 10);
         double startX = testCar.getX();
         double startY = testCar.getY();
 

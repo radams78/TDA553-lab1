@@ -2,7 +2,7 @@ package src;
 
 public interface IPlatform {
 
-    void raise();
+    void raisePlatform();
 
-    void lower();
+    void lowerPlatform();
 }

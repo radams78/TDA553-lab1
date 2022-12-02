@@ -10,9 +10,9 @@ public class testScania{
 
     @Test
     public void raiseGarbagePlatform_testToSeeIfScaniaCanRaiseItsAnglePlatform_True(){
-        Scania testScania = new Scania();
+        Scania testScania = new Scania(10, 10);
         int startAngle = testScania.garbagePlatform.platformAngle;
-        testScania.garbagePlatform.raise();
+        testScania.raisePlatform();
         int newAngle = testScania.garbagePlatform.platformAngle;
 
         assertTrue(startAngle < newAngle);
@@ -20,23 +20,24 @@ public class testScania{
 
     @Test
     public void raiseGarbagePlatform_testToSeeIfScaniaCanRaiseItsAnglePlatformWhileMoving_False(){
-        Scania testScania = new Scania();
+        Scania testScania = new Scania(10, 10);
         testScania.startEngine();
-        testScania.raiseGarbagePlatform();
+        for(int i = 0; i < 10; i++) {testScania.raisePlatform();
+        }
 
-        assertFalse(testScania.garbagePlatform.platformAngle == 0);
+        assertFalse(testScania.garbagePlatform.platformAngle != 0);
     }
 
     @Test
     public void lowerGarbagePlatform_testToSeeIfScaniaCanLowerItsAnglePlatform_True(){
-        Scania testScania = new Scania();
+        Scania testScania = new Scania(10, 10);
         for(int i = 0; i < 10; i++){
-            testScania.garbagePlatform.raise();
+            testScania.raisePlatform();
         }
         int raisedAngle = testScania.garbagePlatform.platformAngle;
 
         for (int i = 0; i < 5; i++){
-            testScania.garbagePlatform.lower();
+            testScania.lowerPlatform();
         }
         int loweredAngle = testScania.garbagePlatform.platformAngle;
 
@@ -45,8 +46,8 @@ public class testScania{
 
     @Test
     public void startEngine_testToSeeIfScaniaCanStartEngineIfItsAnglePlatformIsRaised_False(){
-        Scania testScania = new Scania();
-        testScania.garbagePlatform.raise();
+        Scania testScania = new Scania(10, 10);
+        testScania.raisePlatform();
         testScania.startEngine();
 
         assertFalse(testScania.getCurrentSpeed() != 0.0);

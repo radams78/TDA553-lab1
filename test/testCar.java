@@ -12,32 +12,32 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class testCar {
 
 
-    // Test if car turns left
+    // Test if Vehicle turns left
     @Test 
     public void turnLeft_increaseTheCurrentRadian_True(){
-        Saab95 testCar = new Saab95();
-        double startRadian = testCar.getCurrentDirectionRadian();
+        Saab95 testVehicle = new Saab95(10, 10);
+        double startRadian = testVehicle.getCurrentDirectionRadian();
         for (int i = 0; i < 1; i++){
-            testCar.turnLeft();
+            testVehicle.turnLeft();
         }
 
-        double newRadian = testCar.getCurrentDirectionRadian();
+        double newRadian = testVehicle.getCurrentDirectionRadian();
 
 
         assertTrue(startRadian < newRadian);   
 
     }
 
-    // Test if car turns left with the right amount
+    // Test if Vehicle turns left with the right amount
     @Test 
     public void turnLeft_theCurrentRadianIncreasesWithExpectedAmountOfSteps_Equal(){
-        Saab95 testCar = new Saab95();
-        double startRadian = testCar.getCurrentDirectionRadian();
+        Saab95 testVehicle = new Saab95(10, 10);
+        double startRadian = testVehicle.getCurrentDirectionRadian();
         for (int i = 0; i < 30; i++){
-            testCar.turnLeft();
+            testVehicle.turnLeft();
         }
 
-        double newRadian = testCar.getCurrentDirectionRadian() - 30*(PI/180);
+        double newRadian = testVehicle.getCurrentDirectionRadian() - 30*(PI/180);
 
 
         assertEquals(startRadian, newRadian, 0.000000000000001);
@@ -46,49 +46,49 @@ public class testCar {
 
     }
 
-    // Test if the car turns right
+    // Test if the Vehicle turns right
     @Test 
     public void turnRight_decreaseTheCurrentRadian_True(){
-        Saab95 testCar = new Saab95();
-        double startRadian = testCar.getCurrentDirectionRadian();
+        Saab95 testVehicle = new Saab95(10, 10);
+        double startRadian = testVehicle.getCurrentDirectionRadian();
         for (int i = 0; i < 1; i++){
-            testCar.turnRight();
+            testVehicle.turnRight();
         }
 
-        double newRadian = testCar.getCurrentDirectionRadian();
+        double newRadian = testVehicle.getCurrentDirectionRadian();
 
 
         assertTrue(startRadian > newRadian);   
 
     }
 
-    // Test if the car turns right with the right amount
+    // Test if the Vehicle turns right with the right amount
     @Test 
     public void turnRight_theCurrentRadianDecreasesWithExpectedAmountOfSteps_Equal(){
-        Saab95 testCar = new Saab95();
-        double startRadian = testCar.getCurrentDirectionRadian();
+        Saab95 testVehicle = new Saab95(10, 10);
+        double startRadian = testVehicle.getCurrentDirectionRadian();
         for (int i = 0; i < 30; i++){
-            testCar.turnRight();
+            testVehicle.turnRight();
         }
 
-        double newRadian = testCar.getCurrentDirectionRadian() + 30*(PI/180);
+        double newRadian = testVehicle.getCurrentDirectionRadian() + 30*(PI/180);
 
 
         assertEquals(startRadian, newRadian, 0.000000000000001);
     }
      
-    // Test if the car turns and moves
+    // Test if the Vehicle turns and moves
     @Test
-    public void move_moveTheCarToToSeeIfTheCarActuallyMoves_NotEqual() {
-        Saab95 testCar = new Saab95();
-        double testX = testCar.getX();
-        double testY = testCar.getY();
-        testCar.startEngine();
-        testCar.turnLeft(); // If the car doesn't turn the y-coordinate is incremented by 0 by default
-        testCar.setCurrentDirection(testCar.getCurrentSpeed()); // 
-        testCar.move();
+    public void move_moveTheVehicleToToSeeIfTheVehicleActuallyMoves_NotEqual() {
+        Saab95 testVehicle = new Saab95(10, 10);
+        double testX = testVehicle.getX();
+        double testY = testVehicle.getY();
+        testVehicle.startEngine();
+        testVehicle.turnLeft(); // If the Vehicle doesn't turn the y-coordinate is incremented by 0 by default
+        testVehicle.setCurrentDirection(testVehicle.getCurrentSpeed()); // 
+        testVehicle.move();
         
-        assertFalse(testX == testCar.getX());
-        assertFalse(testY == testCar.getY());
+        assertFalse(testX == testVehicle.getX());
+        assertFalse(testY == testVehicle.getY());
     }
 }

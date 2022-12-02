@@ -16,7 +16,7 @@ public class AnglePlatform implements IPlatform {
 
     /** Call this method to raise platformAngle.
         Platform can not be raised more than 70 degrees. */
-    public void raise(){
+    public void raisePlatform(){
         if (this.platformAngle < 70){
             this.platformAngle += 1;
         }
@@ -27,7 +27,7 @@ public class AnglePlatform implements IPlatform {
     }
     /** Call this method to lower the platformAngle.
         Platform can not be lowered more than 0 degrees */
-    public void lower(){
+    public void lowerPlatform(){
         if (this.platformAngle > 0){
             this.platformAngle -= 1;
         }

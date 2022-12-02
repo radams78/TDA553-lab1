@@ -1,0 +1,42 @@
+kort och gott så har vi efter nogrann analys av uppgiften, dess läromål samt vårt utförande, både på individuell och gruppnivå
+kommit fram till - 
+    -   sköjja va go labb eller
+
+
+(1)
+Just nu ärver saab, volvo, cartransporter och scania samma methoder gas() och brake() från vehicle. Alla subklasser följer
+kontrakten för methoderna. Eftersom vi lagt problemet som uppstår med våra platformar i startEngine() så följer vi Liskov
+vid gas() och brake(). Men uppenbarligen inte vid startEngine() då vi här implementerat striktare krav på två av våra 
+sublkasser. Vi anser att detta för tillfället får lov att gå.
+Vid senare tillfälle har vi tänkt att ändra på hierarkin och implemetera två superklasser, car och truck, vilket saab/volvo
+och scania/cartransporter kommer ärva utav. Dessa superklasser kommer i sin tur att extenda vehicle som innehåller
+startEngine(), här finns det eventuellt möjligheter till att ändra på strukturen så att vi till och med kan följa Liskov vid
+startEngine(). Men det återstår att se till nästa labb.
+
+
+(2)
+Scania och carTransporter har ju båda en platform men de skiljer sig helt i hur de implementeras och därmed blir det ingen 
+kodduplicering, men vi valde att ha en interface IPlatform som strukturerar upp. 
+
+Eftersom carTransporter och CarRepairShop båda kommer ha en hel del kod gemensamt ville vi att de skulle ärva av en 
+superklass, men carTransporter extendar redan Vehicle (Truck vid senare tillfälle). Därför valde vi att använda oss utav
+composition här och skapa en klass TransporterPlatform. Så nu ärver CarRepairShop och TransporterPlatform båda från supern
+CanLoadCar. Delegeringen blev lite rörig att få till mellan carTransporter och TransporterPlatform men tillslut fick vi till
+en schysst variant.
+Egentligen hade vi inte behövt använda composition för Scania och AnglePlatform, men vi tänkte att i framtiden kanske 
+monopolet på avfallsbilar löses upp och Scania inte längre är dem enda på marknaden med en AnglePlatform. Så därför valde 
+vi att följa Open-Closed och köra på composition här med.
+
+(3)
+Lab 2 medförde att vi behövde modifiera vår design lite grann.
+Hierarkin från lab 1 behövde struktureras upp något för att uppnå OCP.
+I nuläget är vår kod inte säkert helt uppdelad efter denna princip.
+Samtidigt har vi tyvärr inte fått någon respons på Lab 1 ännu.
+Eftersom vi vill att våra klasser/moduler inte ska vara möjliga att modifiera av andra klasser
+men samtidigt kunna utvidgas har vi implementerat en hierarki som i mångt och mycket bygger på detta.
+Vi har en superklass Vehicle som både Saab95, Volvo240, Scania och CarTransporter extendar av.
+Scania och CarTransporter har, mha. komposition, plattformar. Dessa i sin tur har implementerat interfacet IPlatform.
+TransporterPlatform och CarRepairShop extendar superklassen CanLoadCar.
+Vårt mål är att ändra kod så lite som möjligt, och endast ändra ny kod.
+Det vi gjorde initialt när vi började arbeta med Lab 2 var att byta namn på Car till Vehicle,
+vilket gjorde vårt program mer utbyggbart.

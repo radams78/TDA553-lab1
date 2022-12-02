@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class CarRepairShop extends CanLoadCar {
 
-    private ArrayList<Vehicle> carsInRepairShop;
+    private ArrayList<Vehicle> carsInRepairShop = new ArrayList<>();
     private int maximumCapacity;
 
     /**
@@ -38,11 +38,16 @@ public class CarRepairShop extends CanLoadCar {
         }
 	}
 
-	
-	public void loadableVehicleInCloseVicinity() {
-		// TODO Auto-generated method stub
-		
-	}
+    /*  Method to see if the repair shop is full. */
+    public boolean isSpaceLeftInRepairShop(){
+        if (maximumCapacity == carsInRepairShop.size()){
+            return false;
+        }
+        else return true;
+    }
 
+    public int getNumberOfCarsInReapairShop(){
+        return this.carsInRepairShop.size();
+    }
 
 }

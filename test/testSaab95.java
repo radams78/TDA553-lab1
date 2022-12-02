@@ -10,7 +10,7 @@ public class testSaab95 {
     
     @Test 
     public void gas_testToSeeIfTheSpeedOfTheTheSaab95IncreasesAsExpected_True(){
-        Saab95 testCar = new Saab95();
+        Saab95 testCar = new Saab95(10, 10);
         testCar.startEngine();
         double startSpeed = testCar.getCurrentSpeed();
         testCar.gas(1);
@@ -22,7 +22,7 @@ public class testSaab95 {
     @Test
     public void brake_testToSeeIfTheSpeedOfTheVolvo240DecreasesAsExpected_True() {
 
-        Saab95 testCar = new Saab95();
+        Saab95 testCar = new Saab95(10, 10);
         testCar.startEngine();;
         testCar.setCurrentSpeed(100);
         double startSpeed = testCar.getCurrentSpeed();

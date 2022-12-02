@@ -3,10 +3,9 @@ package src;
 import java.util.ArrayList;
 
 public class TransporterPlatform extends CanLoadCar implements IPlatform {
-    
     public boolean rampDown;
     public int platformCapacity;
-    public ArrayList<Vehicle> carsOnPlatform;   // Array with all the cars currently on the platform.
+    public ArrayList<Vehicle> carsOnPlatform = new ArrayList<>();   // Array with all the cars currently on the platform.
 
     /*  Constructor TransporterPlatform.
         Expects platformCapacity argument. */
@@ -25,12 +24,12 @@ public class TransporterPlatform extends CanLoadCar implements IPlatform {
     }
 
     /*  Call this method to raise the platform. */
-    public void raise(){
+    public void raisePlatform(){
         this.rampDown = false;
         }
 
     /*  Call this method to lower the platform */
-    public void lower(){
+    public void lowerPlatform(){
         this.rampDown = true;
     }
     

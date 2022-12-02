@@ -11,7 +11,7 @@ public class testVolvo240 {
     @Test 
     public void gas_testToSeeIfTheSpeedOfTheVolvo240IncreasesAsExpected_True(){
         
-        Volvo240 testCar = new Volvo240();
+        Volvo240 testCar = new Volvo240(10, 10);
         testCar.startEngine();
         double startSpeed = testCar.getCurrentSpeed();
         testCar.gas(1);
@@ -23,7 +23,7 @@ public class testVolvo240 {
     @Test
     public void brake_testToSeeIfTheSpeedOfTheVolvo240DecreasesAsExpected_True() {
 
-        Volvo240 testCar = new Volvo240();
+        Volvo240 testCar = new Volvo240(10, 10);
         testCar.startEngine();;
         testCar.setCurrentSpeed(100);
         double startSpeed = testCar.getCurrentSpeed();

@@ -23,7 +23,7 @@ public class Scania extends Truck {
         return enginePower * 0.01;
     }// speedFactor()
 
-    public void load(Movable thing){
+    public void load(Movable thing) {
         trailer.load(thing);
     }
 

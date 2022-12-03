@@ -5,13 +5,10 @@ import java.awt.*;
 //*Abstract class for any truck. Truck must have a max load . */
 public abstract class Truck extends Vehicle {
 
-
     public Truck(Color color, int enginePower, String modelName, double x, double y, double dirX, double dirY,
-             int maxLoad) {
+            int maxLoad) {
         super(2, color, enginePower, modelName, x, y, dirX, dirY);
-    }//Constructor
-
- 
+    }// Constructor
 
     @Override
     // Overrides the evehicle gas method to do a check for if the platform is
@@ -33,14 +30,13 @@ public abstract class Truck extends Vehicle {
         }
 
     }
-    
-    //Implemented by subclasses to get specific behavior inside different methods
-    public abstract Trailer getTrailer();
 
+    // Implemented by subclasses to get specific behavior inside different methods
+    public abstract Trailer getTrailer();
 
     public void retractPlatform() {
         this.getTrailer().retractPlatform();
-    }//getTrailer()
+    }// getTrailer()
 
     // Part of the class contract. SUbclass must implement speedFactor
     @Override

@@ -25,14 +25,13 @@ public class CarTransporter extends Truck {
         return enginePower * 0.01;
     }
 
-    //Loads car objects
-    public void load(Car car){
+    // Loads car objects
+    public void load(Car car) {
         trailer.load(car);
     }
 
-    public Movable unload(){
+    public Movable unload() {
         return trailer.unload();
     }
-
 
 }// Class

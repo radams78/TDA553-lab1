@@ -37,12 +37,7 @@ private double platformAngle;
         }
     }
 
-    double calculateSpeedIncrease(double amount){
-        return getCurrentSpeed() + speedFactor * amount;
+    double calculateSpeed(double amount) {
+        return speedFactor * amount;
     }
-
-    double calculateSpeedDecrease(double amount){
-        return getCurrentSpeed() - speedFactor * amount;
-    }
-    
 }

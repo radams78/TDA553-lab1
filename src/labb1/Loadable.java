@@ -37,7 +37,7 @@ public class Loadable{
             loaded.remove(item);
             return item;
         }else{
-            throw new IllegalArgumentException("Item not loaded");
+            throw new IllegalStateException("Item not loaded");
         }  
     }
 }

@@ -1,9 +1,7 @@
 package src;
 
-import java.util.Set;
-
 public class Ramp {
-    private State state = State.DOWN;
+    private State state = State.UP;
 
     public void raiseRamp() {
         state = State.UP;
@@ -15,5 +13,9 @@ public class Ramp {
 
     public State getState() {
         return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }

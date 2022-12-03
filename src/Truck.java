@@ -19,4 +19,5 @@ public abstract class Truck extends Vehicle {
     public double speedFactor(){
         return getEnginePower() * 0.01;
     }
+
 }

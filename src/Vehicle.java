@@ -62,6 +62,11 @@ public abstract class Vehicle implements Movable {
     public void startEngine(){
 	    currentSpeed = 0.1;
     }
+
+    public double calculateDistance(double x, double y){
+        double distance = Math.sqrt(Math.pow((posx-x), 2)+Math.pow((posy-y), 2));
+        return distance;
+    }
     
     //////////// GETTEEEERS AND SETTEEEERS ////////////
     public int getNrDoors() {
@@ -104,5 +109,13 @@ public abstract class Vehicle implements Movable {
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    public void setX(double x) {
+        posx = x;
+    }
+
+    public void setY(double y) {
+        posy = y;
     }
 }

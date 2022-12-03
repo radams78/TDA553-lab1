@@ -1,6 +1,5 @@
 package test;
 
-import src.State;
 import src.Scania;
 
 import static org.junit.jupiter.api.Assertions.*;

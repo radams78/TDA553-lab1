@@ -10,14 +10,14 @@ public class Scania extends Truck {
     }
 
     public void raisePlatform() {
-        if (getCurrentSpeed() != 0) {System.out.println("Unable to raise platform while truck is moving");}
+        if (getCurrentSpeed() != 0) {throw new IllegalArgumentException("Unable to raise platform while truck is moving");}
         else {
             platform.raisePlatform(1);
         }
     }
 
     public void lowerPlatform() {
-        if (getCurrentSpeed() != 0) {System.out.println("Unable to lower platform while truck is moving");}
+        if (getCurrentSpeed() != 0) {throw new IllegalArgumentException("Unable to lower platform while truck is moving");}
         else {
             platform.lowerPlatform(1);
         }
@@ -25,7 +25,7 @@ public class Scania extends Truck {
 
     @Override
     public void incrementSpeed(double amount){
-        if (platform.getAngle() != 0) {System.out.println("Unable to move while platform is raised");}
+        if (platform.getAngle() != 0) {throw new IllegalArgumentException("Unable to move while platform is raised");}
         else {
             double newSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
             if (newSpeed > getCurrentSpeed()) {setCurrentSpeed(newSpeed);}
@@ -34,7 +34,7 @@ public class Scania extends Truck {
 
     @Override
     public void decrementSpeed(double amount){
-        if (platform.getAngle() != 0) {System.out.println("Unable to move while platform is raised");}
+        if (platform.getAngle() != 0) {throw new IllegalArgumentException("Unable to move while platform is raised");}
         else {
             double newSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
             if (newSpeed < getCurrentSpeed()) {setCurrentSpeed(newSpeed);}

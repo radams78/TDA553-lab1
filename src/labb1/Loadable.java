@@ -38,8 +38,8 @@ public class Loadable {
         if (loaded.contains(item)) {
             loaded.remove(item);
             return item;
-        } else {
-            throw new IllegalArgumentException("Item not loaded");
-        }
+        }else{
+            throw new IllegalStateException("Item not loaded");
+        }  
     }
 }

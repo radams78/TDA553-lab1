@@ -2,12 +2,10 @@ package set;
 
 import java.awt.*;
 
-public class Volvo240 extends Car {
-
-    private final static double trimFactor = 1.25;
+public class Volvo240 extends TrimCar {
 
     public Volvo240() {
-        super(4, 100, "Volvo240", Color.black, 0);
+        super(4, 100, "Volvo240", Color.black, 0, 1.25);
         stopEngine();
     }
 
@@ -15,7 +13,7 @@ public class Volvo240 extends Car {
         return getEnginePower() * 0.01 * trimFactor;
     }
 
-    double calculateSpeed(double amount) {
+    double calculateSpeed(double amount) { 
         return speedFactor() * amount;
     }
 }

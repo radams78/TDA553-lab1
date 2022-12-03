@@ -4,9 +4,8 @@ import java.awt.*;
 
 public class Scania extends Truck{
     
-private double speedFactor = 1.25; 
-private double platformAngle;
-
+    private double speedFactor = 1.25; 
+    private double platformAngle;
 
 
     public Scania(){
@@ -15,11 +14,6 @@ private double platformAngle;
         stopEngine();
 
     }
-
-    public double getPlatformAngle() {
-        return platformAngle;
-    }
-
     public void raisePlatform(double amount){
         if (platformAngle <= 70 && getCurrentSpeed() == 0){
             this.platformAngle = platformAngle + amount;
@@ -27,7 +21,6 @@ private double platformAngle;
             throw new IllegalArgumentException("Can not raise the platform any further");
         }
     }
-
 
     public void lowerPlatform(double amount){
         if ((platformAngle - amount) >= 0 && getCurrentSpeed() == 0){

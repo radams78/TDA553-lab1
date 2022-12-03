@@ -11,8 +11,17 @@ abstract class Truck extends Car{
         
     }
 
-    private double getPlatformAngle(){
+    protected double getPlatformAngle(){
         return platformAngle;
+    }
+
+    @Override // OBS! Not done!
+    public void gas(double amount){
+        if (getPlatformAngle() == 0){
+            gas(amount);
+        }else{
+            throw new IllegalArgumentException("Car platform must be at starting position.");
+        }
     }
 }
 

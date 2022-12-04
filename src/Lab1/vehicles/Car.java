@@ -27,7 +27,7 @@ public abstract class Car extends Vehicle implements ILoadable {
     }
 
     private void moveToCoords(double x, double y) {
-        this.posX = x;
-        this.posY = y;
+        setPosX(x);
+        setPosY(y);
     }
 }

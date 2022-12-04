@@ -33,6 +33,7 @@ public class Flatbed extends Trailer {
         loadable.load(car);
     }
 
+    //TODO: unload(car)?
     public Movable unload() {
         return loadable.unload(null);
     }

@@ -10,10 +10,10 @@ import org.junit.jupiter.api.function.Executable;
 
 
 public class TruckTest {
-    
+
     @Test
     public void test_if_gas_throws_exception_due_to_platform() {
-
+         
         assertThrows(IllegalArgumentException.class, new Executable() {
 
             @Override

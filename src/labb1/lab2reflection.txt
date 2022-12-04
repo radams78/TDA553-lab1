@@ -8,14 +8,22 @@ in this type? Do the implementations of gas() and brake() in both Volvo and Scan
 2. How did you handle duplicated code between Scania, the car transporters and the repair shops? Explain how you decided when to use subclassing and when to use
 composition and delegation.
 
-We let both Scania and CarTransporter be subclasses of a superclass Truck. Doing this made all the duplicated code between them get stored in the Truck class which the subclasses were an extension of.
+We let both Scania and CarTransporter be subclasses of a superclass Truck. Doing this made all the duplicated code between them get stored in the Truck class which the
+subclasses were an extension of.
 
-Though, since Scania and CarTransporter had different types of trailers with different types of functionality, we made a class called Trailer that the trucks could inherit from. The trailers are something that the trucks “have” and not something that “they are” so we used composition and delegation for those objects.
+Though, since Scania and CarTransporter had different types of trailers with different types of functionality, we made a class called Trailer that the trucks could
+inherit from. The trailers are something that the trucks “have” and not something that “they are” so we used composition and delegation for those objects.
 
 The trailer has two subclasses Dumper and Flatbed, which are the specific trailer objects that Scania and CarTransporter can inherit from using composition and delegation.
 
-Something that the CarRepairShop has in common with Dumper and Flatbed is that it needs to be able to load items. Because of this, CarRepairShop, Dumper and Flatbed uses composition and delegation on a class Loadable to remove code duplication and add polymorphism.
+Something that the CarRepairShop has in common with Dumper and Flatbed is that it needs to be able to load items. Because of this, CarRepairShop, Dumper and Flatbed uses
+composition and delegation on a class Loadable to remove code duplication and add polymorphism.
 
 
 3. Did you need to modify the design from lab 1 in order to make these extensions? If so, how could you have noticed that your design from Lab 1 did not follow
 the Open-Closed Principle before you started working on Lab 2?
+
+Yes we needed to modify the design from lab 1. For example, we had most of the methods in the Car class, including all the movability functionality. This made it
+impossible to add a new class of a completely different type without having to either make a really bad inheritance trail or having to modify and remove the move
+methods to another class, probably higher up in abstraction. To prevent this we should have thought about that for example cars aren’t the only thing that can move
+that we might want to add to the program in the future. 

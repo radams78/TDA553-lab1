@@ -9,14 +9,12 @@ public class Saab95 extends TurboCar{
         stopEngine();
     }
 
-        protected double speedFactor() {
+    double speedFactor() {
         double turbo = 1;
         if (getTurboOn() == true)
+
             turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
 
-    double calculateSpeed(double amount) {
-        return speedFactor() * amount;
-    }
 }

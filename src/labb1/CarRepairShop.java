@@ -1,5 +1,8 @@
 package labb1;
 
+/**
+ * 
+ */
 public class CarRepairShop {
     private Loadable loadable;
     private String name;

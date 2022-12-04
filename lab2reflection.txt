@@ -1,11 +1,8 @@
 1. Your design probably has a type called something like Car or Vehicle that is a supertype to both Volvo and Scania. What is the contract for gas() and brake() in this type? Do the implementations of gas() and brake() in both Volvo and Scania follow this contract? Does your design follow the Liskov Substitution Principle?
-
-Answer: The contract for gas() and brake() is that they both are void, and neither of them throw any exceptions. Both Volvo and Scania's gas() and brake() functions are part of the parent class Vehicle, and do not differ in implementation - therefore, our design follows the Liskov Substitution Principle.
-
+The contract for gas() and brake() is that they both are void, and neither of them throw any exceptions. Both Volvo and Scania's gas() and brake() functions are part of the parent class Vehicle, and do not differ in implementation - therefore, our design follows the Liskov Substitution Principle.
 
 2. How did you handle duplicated code between Scania, the car transporters and the repair shops? Explain how you decided when to use subclassing and when to use composition and delegation.
-
-
+We created a model (parent class) for all transport vehicles named TransportVehicle. Shared code, mainly relating to the platforms and startEngine()'s behaviour when the platform was either raised or lowered, was moved into this class. For the repair shop, we created a new Building model to allow for future extension, as well as an Entity class for all entities in the "world" which shared common attributes such as position and direction.
 
 3. Did you need to modify the design from lab 1 in order to make these extensions? If so, how could you have noticed that your design from Lab 1 did not follow the Open-Closed Principle before you started working on Lab 2?
-
+We didn't need to modify our old design much, one of the few changes we made was moving position and direction into the new Entity class, but apart from that the Vehicle class remained relatively unchanged.

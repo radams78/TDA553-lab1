@@ -1,15 +1,32 @@
 package labb1;
 
-//Superclass contract for any movable objects
+/**
+ * Superclass contract for any movable object
+ */
 public interface Movable {
-    // Interface that represent ay movable object
-    void move(); // moves the object
 
-    void turnLeft(); // turns the object
+    /**
+     * Moves the object
+     */
+    void move();
 
-    void turnRight(); // turns the object
+    /**
+     * Turns the object to the left
+     */
+    void turnLeft();
 
-    double getX();// returns x position value
+    /**
+     * Turns the object to the right
+     */
+    void turnRight();
 
-    double getY();// return y position value
+    /**
+     * Get the object's x value
+     */
+    double getX();
+
+    /**
+     * Get the object's y value
+     */
+    double getY();
 }

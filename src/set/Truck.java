@@ -6,13 +6,17 @@ abstract class Truck extends Car {
 
     private double platformAngle;
 
-    protected Truck(int nrDoors, double enginePower, String modelName, Color color, double currentSpeed) {
+    protected Truck(int nrDoors, double enginePower, String modelName, Color color, double currentSpeed, double platformAngle) {
         super(nrDoors, enginePower, modelName, color, currentSpeed);
-        this.platformAngle = 0;
+        this.platformAngle = platformAngle;
     }
 
     public double getPlatformAngle() {
         return platformAngle;
+    }
+
+    protected void setPlatformAngle(double platformAngle) {
+        this.platformAngle = platformAngle;
     }
 
     @Override

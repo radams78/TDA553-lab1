@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class CarTransporter extends Truck{
     private ArrayList<Car> loadcarslist;
-
-    int transporterx =getxPos();
+    
+    int transporterx =getxPos();//should get pos from Truck?
     int transportery =getyPos();
 
     public CarTransporter() {
@@ -52,12 +52,14 @@ public void findCloseCars(int transporterx, int transportery){
     }
 }
 
-//do we need a loadCars function?
+//do we need a loadCars function? Yes!/HC
 
-public void unloadCars(Car car){
+public void unloadCars(){
     if(platform.platformAngle == 70){
-        car.setxPos(transporterx-10);   //unload next to the transporter
-        car.setyPos(transportery);
+        for (Car car : loadcarslist) { //unload = yeet from list
+            car.setxPos(transporterx-10);   //unload next to the transporter // WANT to unload into carshop
+            car.setyPos(transportery);
+        }
     }
 }
 

@@ -1,4 +1,11 @@
+// --- Package --- //
+
+package set;
+
+// --- Imports --- //
+
 import javax.swing.*;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -9,7 +16,10 @@ import java.util.ArrayList;
 * modifying the model state and the updating the view.
  */
 
+ // --- Class --- //
+
 public class CarController {
+
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -21,15 +31,17 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<ACar> cars = new ArrayList<>();
+    ArrayList<Vehicles> vehicles = new ArrayList<>();
 
     //methods:
 
     public static void main(String[] args) {
         // Instance of this class
         CarController cc = new CarController();
+        
 
-        cc.cars.add(new Volvo240());
+        cc.vehicles.add(new Volvo240(4,Color.BLACK, 100, "Bil"));
+
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -43,10 +55,12 @@ public class CarController {
     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (ACar car : cars) {
-                car.move();
-                int x = (int) Math.round(car.getPosition().getX());
-                int y = (int) Math.round(car.getPosition().getY());
+            for (Vehicles vehicle : vehicles) {
+                vehicle.move();
+                System.out.println(vehicle.getCurrentSpeed());
+                System.out.println(vehicle);
+                int x = (int) Math.round(vehicle.getXPosition());
+                int y = (int) Math.round(vehicle.getYPosition());
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
@@ -56,10 +70,20 @@ public class CarController {
 
     // Calls the gas method for each car once
     void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (ACar car : cars
-                ) {
-            car.gas(gas);
+        double gas = ((double) amount) / 100.0;
+        for (Vehicles vehicle : vehicles) {
+            vehicle.gas(gas);
+        }
+    }
+    void startEngine(){
+        for (Vehicles vehicle : vehicles) {
+            vehicle.startEngine();
+        }
+    }
+    
+    void stopEngine(){
+        for (Vehicles vehicle : vehicles) {
+            vehicle.stopEngine();
         }
     }
 }

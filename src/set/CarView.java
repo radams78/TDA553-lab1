@@ -1,3 +1,10 @@
+// --- Package --- //
+
+package set;
+
+
+// --- Imports --- //
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -12,6 +19,8 @@ import java.awt.event.ActionListener;
  * each of it's components.
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
+
+// --- Class --- //
 
 public class CarView extends JFrame{
     private static final int X = 800;
@@ -98,6 +107,20 @@ public class CarView extends JFrame{
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
+        // ADDED OWN ACTIONLISTENER BY HUFFLA
+        startButton.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+                carC.startEngine();;
+            }
+        });
+        // ADDED OWN ACTIONLISTENER BY HUFFLA
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.stopEngine();;
+            }
+        });
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary

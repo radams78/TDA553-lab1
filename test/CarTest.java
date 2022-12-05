@@ -166,7 +166,49 @@ public class CarTest {
     car.brake(0.5);
     assertTrue(car.getCurrentSpeed() <= oldSpeed);
   }
+  @Test
+  public void PlatformAngleIntervaltest(){
+    Platform platform = new Platform();
+    double angle = platform.PlatformAngleinterval(71);     // ska bli 70
+    assertTrue(angle <= 70 && angle >= 0);
+  }
+  @Test
+  public void platformOpenTest(){
+    Platform platform = new Platform();
+    double oldAngle = 50;
+    double newAngle = platform.openPlatform(oldAngle);
+    assertTrue(newAngle>oldAngle);
+  }
+  @Test
+  public void platformCloseTest(){
+    Platform platform = new Platform();
+    double oldAngle = 50;
+    double newAngle = platform.closePlatform(oldAngle);
+    assertTrue(newAngle<oldAngle);
+  }
+  @Test
+  public void raiseplatformTest() throws Exception{
+    Scania scania = new Scania();
+    scania.setCurrentSpeed(5);
+    assertThrows(Exception.class,()-> scania.raiseplatform(scania.platformAngle));
+  }
+  @Test
+  public void lowerplatformTest() throws Exception{
+    Scania scania = new Scania();
+    scania.setCurrentSpeed(5);
+    assertThrows(Exception.class,()-> scania.lowerplatform(scania.platformAngle));
+  }
 
-  
-
+@Test
+  public void raiseplatformForTruckTest() throws Exception{
+    Truck truck = new Truck(0, 0, 0, null, null, 0, 0, null);
+    truck.setCurrentSpeed(10);
+    assertThrows(Exception.class,()-> truck.raiseplatform(truck.getPlatformAngle()));   //vet ej om denna är rätt?
+  }
+  @Test
+  public void lowerPlatformTruck() throws Exception{
+    Truck truck= new Truck(0, 0, 0, null, null, 0, 0, null);
+    truck.setCurrentSpeed(10);
+    assertThrows(Exception.class,()-> truck.lowerplatform(truck.getPlatformAngle()));
+  }
 }

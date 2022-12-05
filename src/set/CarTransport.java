@@ -14,10 +14,10 @@ public class CarTransport extends Truck{
 
     public void changePlatform() {
         if (getCurrentSpeed() == 0) {
-            if (getPlatformAngle() == 0){
-                setPlatformAngle(45); //Raised
+            if (getPlatformAngle() == -45){
+                setPlatformAngle(0);//Raised
             }else{
-                setPlatformAngle(0); //Lowered
+                setPlatformAngle(-45); //Lowered
             }
         } else {
             throw new IllegalArgumentException("Can not change the platform while car transport is moving");
@@ -25,20 +25,32 @@ public class CarTransport extends Truck{
     }
 
     public void loadCar(Car object){
-        if (getPlatformAngle() == 0){
+        if (getPlatformAngle() == -45 && loadedCars.size() <= 6){
+            object.setX(getX());
+            object.setY(getY());
             loadedCars.add(object);
         }else{
-            throw new IllegalArgumentException("Platform must be lowered");
+            throw new IllegalArgumentException("Platform must be lowered or the maximum car capacity has been reached");
         }
     }
 
     public void unloadCar(Car object){
-        if (getPlatformAngle() == 0){
+        if (!loadedCars.isEmpty() && getPlatformAngle() == -45){
             loadedCars.remove(object);
         }else{
-            throw new IllegalArgumentException("Platform must be lowered");
+            throw new IllegalArgumentException("Platform must be lowered or there are no cars to unload");
         }
-    } 
+    }
+     
+    @Override
+    public void move() {
+        setX(getX() + Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed());
+        setY(getY() + Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed());
+        for (int i = 0; i <= loadedCars.size(); i++) {
+            loadedCars.get(i).setX(getX());
+            loadedCars.get(i).setY(getY());
+        }
+    }
 
     public List<Car> getLoadedCars(){
         return loadedCars;

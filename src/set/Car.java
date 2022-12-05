@@ -88,6 +88,14 @@ abstract class Car implements Movable {
         return y;
     }
 
+    protected void setX(double x) {
+        this.x = x;
+    }
+
+    protected void setY(double y) {
+        this.y = y;
+    }
+
     public String getModelName() {
         return modelName;
     }

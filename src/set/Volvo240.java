@@ -9,8 +9,4 @@ public class Volvo240 extends TrimCar {
         stopEngine();
     }
 
-    double speedFactor() {
-        return getEnginePower() * 0.01 * trimFactor;
-    }
-
 }

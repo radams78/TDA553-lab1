@@ -18,11 +18,7 @@ public class Scania extends Truck{
         }
     }
 
-
-
     double speedFactor(){
         return getEnginePower() * 0.01;
     }
-
-
 }

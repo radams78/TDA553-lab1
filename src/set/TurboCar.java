@@ -11,6 +11,13 @@ abstract class TurboCar extends Car{
         super(nrDoors, enginePower, modelName, color, currentSpeed);
         this.turboOn = turboOn;
     }
+    double speedFactor() {
+        double turbo = 1;
+        if (getTurboOn() == true)
+
+            turbo = 1.3;
+        return getEnginePower() * 0.01 * turbo;
+    }
 
     public void setTurboOn() {
         turboOn = true;

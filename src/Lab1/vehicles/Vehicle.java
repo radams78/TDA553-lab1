@@ -3,14 +3,15 @@ package Lab1.vehicles;
 import java.awt.*;
 
 public abstract class Vehicle implements IMovable {
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power
-    protected double currentSpeed = 0; // Current speed
-    protected Color color; // Color of the car
-    protected String modelName; // Name of the model
-    protected double posX;
-    protected double posY;
-    protected Direction currentDirection;
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power
+    private double currentSpeed = 0; // Current speed
+    private Color color; // Color of the car
+    private String modelName; // Name of the model
+    private double posX;
+    private double posY;
+
+    private Direction currentDirection;
 
     protected Vehicle(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
@@ -124,6 +125,14 @@ public abstract class Vehicle implements IMovable {
 
     public double getPosY() {
         return posY;
+    }
+
+    protected void setPosX(double posX) {
+        this.posX = posX;
+    }
+
+    protected void setPosY(double posY) {
+        this.posY = posY;
     }
 
     @Override

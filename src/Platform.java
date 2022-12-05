@@ -23,8 +23,6 @@ public class Platform{ //can create a class instead because you want to have the
         PlatformAngleinterval(platformAngle);
         return platformAngle;
 
-
-
         
     }
     }

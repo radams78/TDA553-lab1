@@ -176,39 +176,41 @@ public class CarTest {
   public void platformOpenTest(){
     Platform platform = new Platform();
     double oldAngle = 50;
-    double newAngle = platform.openPlatform(oldAngle);
+    platform.openPlatform();
+    double newAngle= platform.getPlatformAngle(); 
     assertTrue(newAngle>oldAngle);
   }
   @Test
   public void platformCloseTest(){
     Platform platform = new Platform();
     double oldAngle = 50;
-    double newAngle = platform.closePlatform(oldAngle);
+    platform.closePlatform();
+    double newAngle = platform.getPlatformAngle();
     assertTrue(newAngle<oldAngle);
   }
   @Test
   public void raiseplatformTest() throws Exception{
     Scania scania = new Scania();
     scania.setCurrentSpeed(5);
-    assertThrows(Exception.class,()-> scania.raiseplatform(scania.platformAngle));
+    assertThrows(Exception.class,()-> scania.raiseplatform(scania.getPlatformAngle()));
   }
   @Test
   public void lowerplatformTest() throws Exception{
     Scania scania = new Scania();
     scania.setCurrentSpeed(5);
-    assertThrows(Exception.class,()-> scania.lowerplatform(scania.platformAngle));
+    assertThrows(Exception.class,()-> scania.lowerplatform(scania.getPlatformAngle()));
   }
 
 @Test
-  public void raiseplatformForTruckTest() throws Exception{
-    Truck truck = new Truck(0, 0, 0, null, null, 0, 0, null);
-    truck.setCurrentSpeed(10);
-    assertThrows(Exception.class,()-> truck.raiseplatform(truck.getPlatformAngle()));   //vet ej om denna är rätt?
+  public void raiseplatformForScaniaTest() throws Exception{
+    Scania scania= new Scania();
+    scania.setCurrentSpeed(10);
+    assertThrows(Exception.class,()-> scania.raiseplatform(scania.getPlatformAngle()));   //vet ej om denna är rätt?
   }
   @Test
-  public void lowerPlatformTruck() throws Exception{
-    Truck truck= new Truck(0, 0, 0, null, null, 0, 0, null);
-    truck.setCurrentSpeed(10);
-    assertThrows(Exception.class,()-> truck.lowerplatform(truck.getPlatformAngle()));
+  public void lowerPlatformTransporter() throws Exception{
+    CarTransporter carTransporter= new CarTransporter();
+    carTransporter.setCurrentSpeed(10);
+    assertThrows(Exception.class,()-> carTransporter.lowerplatform(carTransporter.getPlatformAngle()));
   }
 }

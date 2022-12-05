@@ -7,20 +7,23 @@ public class CarTransporter extends Truck{
     int transporterx =getxPos();//should get pos from Truck?
     int transportery =getyPos();
 
+
     public CarTransporter() {
         super(2, 110, 0, Color.BLUE, "car transporter", 0, 0, Direction.NORTH);
     }
     
+//det ska vara max och min i platform; 
 
 
 @Override
-public double openPlatform(){       //platform is not in the superclass, cant override
-    return platform.platformAngle = 70;                          //can we move the open and close func to Truck?
+public void openPlatform(){ 
+      //platform is not in the superclass, cant override
+    platform.setPlatformAngle(platform.maxAngle);                         //can we move the open and close func to Truck?
 }
 
 @Override
-public double closePlatform(){       //platform is not in the superclass, cant override
-    return platform.platformAngle = 0;                          //can we move the open and close func to Truck?
+public void closePlatform(){       //platform is not in the superclass, cant override
+    platform.setPlatformAngle(platform.minAngle);                          //can we move the open and close func to Truck?
 }
 
 
@@ -53,6 +56,15 @@ public void findCloseCars(int transporterx, int transportery){
 }
 
 //do we need a loadCars function? Yes!/HC
+
+public void loadCars(){
+    platform.openPlatform();
+    if platformAngle>0
+      
+    }
+
+
+
 
 public void unloadCars(){
     if(platform.platformAngle == 70){

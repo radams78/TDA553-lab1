@@ -17,7 +17,6 @@ public class CarTransporter extends Truck{
 
     @Override
     public void openPlatform() {
-        // platform is not in the superclass, cant override
         platform.setPlatformAngle(platform.maxAngle); // can we move the open and close func to Truck?
     }
 
@@ -26,5 +25,50 @@ public class CarTransporter extends Truck{
         platform.setPlatformAngle(platform.minAngle); // can we move the open and close func to Truck?
     }
 
+    private boolean Carxposisclose(Car car, int transporterx) { // check nearby cars in x
+        if (car.getxPos() < (transporterx + 20) & car.getxPos() > (transporterx - 20)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean Caryposisclose(Car car, int transportery) { // check nearby cars in y
+        if (car.getyPos() < (transportery + 20) & car.getyPos() > (transportery - 20)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void findCloseCars(int transporterx, int transportery) {
+
+        loadcarslist = new ArrayList<Car>(); // make a list of nearby cars
+
+        for (Car car : Main.cars) {
+            if (Carxposisclose(car, transportery) & Caryposisclose(car, transportery)) {
+                loadcarslist.add(car);
+            }
+        }
+    }
+
+    // do we need a loadCars function? Yes!/HC
+
+    public void loadCars() {
+        platform.openPlatform();
+        if (platform.getPlatformAngle() == platform.maxAngle) {
+                //TODO FIX THIS Hälsningar Anna
+        }
+
+    }
+
+    public void unloadCars() {
+        if (platform.getPlatformAngle() == platform.maxAngle) {
+            for (Car car : loadcarslist) { // unload = yeet from list
+                car.setxPos(transporterx - 10); // unload next to the transporter // WANT to unload into carshop
+                car.setyPos(transportery);
+            }
+        }
+    }
 
 }

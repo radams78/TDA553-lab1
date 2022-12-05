@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.util.ArrayList;
 
+
 public class CarTransporter extends Truck {
     private ArrayList<Car> loadcarslist;
 
@@ -15,7 +16,6 @@ public class CarTransporter extends Truck {
 
     @Override
     public void openPlatform() {
-        // platform is not in the superclass, cant override
         platform.setPlatformAngle(platform.maxAngle); // can we move the open and close func to Truck?
     }
 
@@ -51,17 +51,17 @@ public class CarTransporter extends Truck {
         }
     }
 
-    // do we need a loadCars function? Yes!/HC
-
     public void loadCars() {
+        content.loadCars;
         platform.openPlatform();
         if (platform.getPlatformAngle() == platform.maxAngle) {
                 //TODO FIX THIS Hälsningar Anna
-        }
-
-    }
-
+                for (Car car : loadcarslist) { // unload = yeet from list
+                car.setxPos(transporterx); // unload next to the transporter // WANT to unload into carshop
+                car.setyPos(transportery);
+                }
     public void unloadCars() {
+        content.unloadCars;
         if (platform.getPlatformAngle() == platform.maxAngle) {
             for (Car car : loadcarslist) { // unload = yeet from list
                 car.setxPos(transporterx - 10); // unload next to the transporter // WANT to unload into carshop

@@ -1,7 +1,7 @@
 import java.awt.Color;
 public class Truck extends Car{
 Turbo t  = new Turbo();
-Platform platform;
+Platform platform= new Platform(); 
 
 
 public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xPos, int yPos, Direction currentcardirection) {
@@ -16,16 +16,16 @@ public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, 
     }
 
     public void raiseplatform(double platformAngle) throws Exception{
-        if (getCurrentSpeed()==0){  //platform.getPlatformAngle()> 0 &
-            platform.openPlatform(); //open ist för close då vi raisar
-        }else if(getCurrentSpeed() > 0){ //getPlatformAngle() == 0 || varför har vi denna ens?
+        if (platform.getPlatformAngle()> 0 & getCurrentSpeed()==0){  
+            platform.openPlatform(); 
+        }else if(getPlatformAngle() == 0 || getCurrentSpeed() > 0){ 
             throw new Exception("raising the platform is not possible");
         }
     }
     public void lowerplatform(double platformAngle) throws Exception{
-        if (getCurrentSpeed()==0){ //platform.getPlatformAngle()< 70 & villkoren faställs redan i open respektive close platform
-            platform.closePlatform();  //här ska vi ha close
-        }else if(getCurrentSpeed() > 0){ //getPlatformAngle() == 70 ||
+        if (platform.getPlatformAngle()< 70 & getCurrentSpeed()==0){ 
+            platform.closePlatform();  
+        }else if(getPlatformAngle() == 70 || getCurrentSpeed() > 0){ 
             throw new Exception("lowering the platform is not possible");
 
         }

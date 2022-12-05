@@ -192,12 +192,14 @@ public class CarTest {
   public void raiseplatformTest() throws Exception{
     Scania scania = new Scania();
     scania.setCurrentSpeed(5);
+    scania.openPlatform();
     assertThrows(Exception.class,()-> scania.raiseplatform(scania.getPlatformAngle()));
   }
   @Test
   public void lowerplatformTest() throws Exception{
     Scania scania = new Scania();
     scania.setCurrentSpeed(5);
+    scania.closePlatform();
     assertThrows(Exception.class,()-> scania.lowerplatform(scania.getPlatformAngle()));
   }
 
@@ -205,6 +207,7 @@ public class CarTest {
   public void raiseplatformForScaniaTest() throws Exception{
     Scania scania= new Scania();
     scania.setCurrentSpeed(10);
+
     assertThrows(Exception.class,()-> scania.raiseplatform(scania.getPlatformAngle()));   //vet ej om denna är rätt?
   }
   @Test

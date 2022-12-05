@@ -23,7 +23,7 @@ public abstract class Vehicle implements Movable{
         this.currentDirection = 3;
     }
 
-    public void setCurrentSpeed(double currentSpeed) {
+    private void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 

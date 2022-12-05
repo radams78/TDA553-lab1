@@ -1,15 +1,11 @@
 package set;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.Assert.assertEquals;
 
-import org.hamcrest.core.IsInstanceOf;
 import org.junit.Test;
 import org.junit.jupiter.api.function.Executable;
 
-
-public class TruckTest {
+public class TrckTest {
 
     @Test
     public void test_if_gas_throws_exception_due_to_platform() {

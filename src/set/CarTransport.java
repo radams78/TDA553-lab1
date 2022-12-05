@@ -2,10 +2,11 @@ package set;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarTransport extends Truck{
 
-    ArrayList <Car> loadedCars = new ArrayList();
+    private List <Car> loadedCars = new ArrayList();
 
     public CarTransport(){
         super(2, 100, "Car Transport", Color.red, 0, 0);
@@ -39,7 +40,7 @@ public class CarTransport extends Truck{
         }
     } 
 
-    public ArrayList getLoadedCars(){
+    public List<Car> getLoadedCars(){
         return loadedCars;
     }
 

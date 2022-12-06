@@ -1,17 +1,20 @@
 import java.util.*;     //gör test för alla
 
 public class Content {
-    private Stack<Car> loadcarslist;
     Platform platform;
 
     // constructor for content
+    protected Stack<Car> loadcarslist;
     protected int xPos;
     protected int yPos;
 
     public Content(int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
+    }
 
+    public Stack<Car> getCarStack(Stack<Car> loadcarslist){
+        return loadcarslist;
     }
 
     private boolean Carxposisclose(Car car, int xPos) { // check nearby cars in x
@@ -42,12 +45,6 @@ public class Content {
         }
     }
 
-    public void move(){
-        for (Car car : loadcarslist) {
-            car.setxPos(xPos);
-            car.setyPos(yPos);
-        }
-    }
 
     public void unloadCars() {
         if (platform.getPlatformAngle() == platform.maxAngle) {

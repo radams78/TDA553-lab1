@@ -17,8 +17,6 @@ public class Main {
         cars.add(car3);
         cars.add(car4);
 
-        car4.loadCar(car1)
-
         
         for (Car car : cars){
             if (car.equals(car2)){

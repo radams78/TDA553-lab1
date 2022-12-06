@@ -166,3 +166,4 @@ public class CarTest {
     car.brake(0.5);
     assertTrue(car.getCurrentSpeed() <= oldSpeed);
   }
+}

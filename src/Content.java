@@ -4,17 +4,26 @@ public class Content {
     Platform platform;
 
     // constructor for content
-    protected Stack<Car> loadcarslist;
+    protected Stack<Car> loadedCars;
     protected int xPos;
     protected int yPos;
+    private int carAmount;
 
-    public Content(int xPos, int yPos) {
+    public Content(int xPos, int yPos, int carAmount) {
         this.xPos = xPos;
         this.yPos = yPos;
+        this.carAmount = carAmount;
     }
 
-    public Stack<Car> getCarStack(Stack<Car> loadcarslist){
-        return loadcarslist;
+    public void SetCaramount(Stack<Car> loadedCars){
+        carAmount = loadedCars.size();
+    }
+    public int GetCaramount(Stack<Car> loadedCars){
+        return carAmount;
+    }
+
+    public Stack<Car> getCarStack(Stack<Car> loadedCars){
+        return loadedCars;
     }
 
     private boolean Carxposisclose(Car car, int xPos) { // check nearby cars in x
@@ -35,7 +44,7 @@ public class Content {
 
     public void findCloseCars(int xPos, int yPos, Car carToLoad) {
         if (Carxposisclose(carToLoad, yPos) & Caryposisclose(carToLoad, yPos)) {
-                loadcarslist.add(carToLoad);
+                loadedCars.add(carToLoad);
             }
     }
 
@@ -48,7 +57,7 @@ public class Content {
 
     public void unloadCars() {
         if (platform.getPlatformAngle() == platform.maxAngle) {
-            Car carToUnload = loadcarslist.pop();
+            Car carToUnload = loadedCars.pop();
             carToUnload.setxPos(xPos - 10); // unload next to the transporter // WANT to unload into carshop
             carToUnload.setyPos(yPos);
         }

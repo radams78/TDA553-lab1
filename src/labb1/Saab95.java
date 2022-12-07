@@ -36,20 +36,6 @@ public class Saab95 extends Car {
     }
 
     /**
-     * Sets the boolean turboOn to true
-     */
-    public void setTurboOn() {
-        turboOn = true;
-    }
-
-    /**
-     * Sets the boolean turboOn to false
-     */
-    public void setTurboOff() {
-        turboOn = false;
-    }// setTurboOff()
-
-    /**
      * The speed factor of Saab95. Used when gasing. Gets an increased speed factor
      * if the turbo is on
      * 

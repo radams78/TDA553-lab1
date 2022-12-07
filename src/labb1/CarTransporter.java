@@ -66,4 +66,14 @@ public class CarTransporter extends Truck {
         return trailer.unload();
     }
 
+    @Override
+    public void setTurboOn() {
+        throw new IllegalArgumentException("CarTransporter doesn't have a turbo");
+    }
+
+    @Override
+    public void setTurboOff() {
+        throw new IllegalArgumentException("CarTransporter doesn't have a turbo");
+    }
+
 }// Class

@@ -4,22 +4,23 @@ package labb1;
 public class Turbo {
 
     private boolean turboOn;
+    private boolean hasTurbo;
 
-    public Turbo(boolean turboOn) {
-        this.turboOn = turboOn;
+    public Turbo(boolean hasTurbo) {
+        this.hasTurbo = hasTurbo;
     }
 
     /**
      * Sets the boolean turboOn to true
      */
-    public void setTurboOn() {
+    public abstract void setTurboOn() {
         this.turboOn = true;
     }
 
     /**
      * Sets the boolean turboOn to false
      */
-    public void setTurboOff() {
+    public abstract void setTurboOff() {
         this.turboOn = false;
     }// setTurboOff()
 }

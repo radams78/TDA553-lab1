@@ -24,6 +24,15 @@ public class Saab95 extends Car {
         turboOn = false;
     }// Constructor
 
+    @Override
+    public void turboOn() {
+        this.turboOn = true;
+    }
+
+    @Override
+    public void turboOff() {
+        this.turboOn = false;
+    }
 
     /**
      * The speed factor of Saab95. Used when gasing. Gets an increased speed factor

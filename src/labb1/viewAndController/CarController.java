@@ -4,6 +4,7 @@ import java.awt.*;
 import labb1.Car;
 import labb1.Saab95;
 import labb1.Scania;
+import labb1.Truck;
 import labb1.Vehicle;
 import labb1.Volvo240;
 
@@ -33,6 +34,7 @@ public class CarController {
     // A list of cars, modify if needed
     ArrayList<Vehicle> cars = new ArrayList<>();
     ArrayList<Saab95> turbocars = new ArrayList<>();
+    ArrayList<Truck> trucks = new ArrayList<>();
 
     // methods:
 
@@ -52,6 +54,7 @@ public class CarController {
         cc.turbocars.add(saab);
 
         cc.cars.add(scania);
+        cc.trucks.add(scania);
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -100,7 +103,7 @@ public class CarController {
 
     // really ugly and doesnt follow open closed principle. Remake?? Might need
     // refactoring or maybe not
-    void turnOnSaabTurbo() {
+    void turnOnTurbo() {
         int i = 0;
         for (Saab95 car : turbocars) {
             car.setTurboOn();
@@ -108,10 +111,22 @@ public class CarController {
     }
 
     // this ones really ugly too
-    void turnOffSaabTurbo() {
+    void turnOffTurbo() {
         int i = 0;
         for (Saab95 car : turbocars) {
             car.setTurboOff();
+        }
+    }
+
+    void lowerBed() {
+        for (Truck truck : trucks) {
+            truck.extendPlatform();
+        }
+    }
+
+    void raiseBed() {
+        for (Truck truck : trucks) {
+            truck.retractPlatform();
         }
     }
 

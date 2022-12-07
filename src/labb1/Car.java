@@ -8,7 +8,6 @@ import java.awt.*;
  * car adds a special print method for cars and adds to the polymorphism
  */
 public abstract class Car extends Vehicle {
-    Turbo turbo;
 
     /**
      * Constuctor of the Car class
@@ -25,7 +24,6 @@ public abstract class Car extends Vehicle {
     public Car(int nrDoors, Color color, int enginePower, String modelName, double x, double y, double dirX,
             double dirY) {
         super(nrDoors, color, enginePower, modelName, x, y, dirX, dirY);
-        this.turbo = new Turbo(false);
     }// Constructor
 
     /**

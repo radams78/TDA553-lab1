@@ -279,4 +279,8 @@ public abstract class Vehicle implements Movable {
      * @return the speed factor which the movement depends on
      */
     public abstract double speedFactor();
+
+    public abstract void setTurboOn();
+
+    public abstract void setTurboOff();
 }// Class

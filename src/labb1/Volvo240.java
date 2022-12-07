@@ -24,12 +24,12 @@ public class Volvo240 extends Car {
     }
 
     @Override
-    public void turboOn() {
+    public void setTurboOn() {
         throw new IllegalArgumentException("Volvo240 doesn't have a turbo");
     }
 
     @Override
-    public void turboOff() {
+    public void setTurboOff() {
         throw new IllegalArgumentException("Volvo240 doesn't have a turbo");
     }
 

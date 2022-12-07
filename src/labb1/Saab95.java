@@ -25,12 +25,12 @@ public class Saab95 extends Car {
     }// Constructor
 
     @Override
-    public void turboOn() {
+    public void setTurboOn() {
         this.turboOn = true;
     }
 
     @Override
-    public void turboOff() {
+    public void setTurboOff() {
         this.turboOn = false;
     }
 

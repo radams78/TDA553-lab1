@@ -49,4 +49,14 @@ public class Scania extends Truck {
         trailer.load(thing);
     }
 
+    @Override
+    public void setTurboOn() {
+        throw new IllegalArgumentException("Scania doesn't have a turbo");
+    }
+
+    @Override
+    public void setTurboOff() {
+        throw new IllegalArgumentException("Scania doesn't have a turbo");
+    }
+
 }// Class

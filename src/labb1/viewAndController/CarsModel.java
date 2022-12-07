@@ -26,6 +26,7 @@ public class CarsModel {
     }
 
     public void start() {
+        // TODO make this slower
         while (true) {
             update();
         }

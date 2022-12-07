@@ -21,7 +21,7 @@ public abstract class Trailer {
     /**
      * @return true if the platform is extended
      */
-    public Boolean getPlatformExtended() {
+    public boolean getPlatformExtended() {
         return platformExtended;
     }
 

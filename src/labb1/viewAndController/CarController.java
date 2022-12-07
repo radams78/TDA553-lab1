@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 
 import labb1.Car;
+import labb1.Saab95;
+import labb1.Scania;
+import labb1.Truck;
+import labb1.Vehicle;
 import labb1.Volvo240;
 
 import java.awt.event.ActionEvent;
@@ -14,6 +18,7 @@ import java.util.ArrayList;
 * modifying the model state and the updating the view.
  */
 
+//this does a bit too much for a controller
 public class CarController {
     // member fields:
 
@@ -27,7 +32,9 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Vehicle> cars = new ArrayList<>();
+    ArrayList<Saab95> turbocars = new ArrayList<>();
+    ArrayList<Truck> trucks = new ArrayList<>();
 
     // methods:
 
@@ -35,7 +42,19 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240(Color.red, 2, 3, 1, 1));
+        Volvo240 volvo = new Volvo240(Color.red, 0, 50, 0, 1);
+        Saab95 saab = new Saab95(Color.red, 100, 50, 0, 1);
+        Scania scania = new Scania(Color.green, 200, 50, 0, 1);
+
+        // Maybs make an add thing in the class that adds and storts the different cars
+        // into different arrays for different purposes????
+        cc.cars.add(volvo);
+
+        cc.cars.add(saab);
+        cc.turbocars.add(saab);
+
+        cc.cars.add(scania);
+        cc.trucks.add(scania);
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -50,12 +69,13 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
+            for (Vehicle car : cars) {
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
+                // This shouldnt be here
                 frame.drawPanel.repaint();
             }
         }
@@ -64,8 +84,50 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars) {
+        for (Vehicle car : cars) {
             car.gas(gas);
         }
     }
+
+    void stopEngine() {
+        for (Vehicle car : cars) {
+            car.stopEngine();
+        }
+    }
+
+    void startEngine() {
+        for (Vehicle car : cars) {
+            car.startEngine();
+        }
+    }
+
+    // really ugly and doesnt follow open closed principle. Remake?? Might need
+    // refactoring or maybe not
+    void turnOnTurbo() {
+        int i = 0;
+        for (Saab95 car : turbocars) {
+            car.setTurboOn();
+        }
+    }
+
+    // this ones really ugly too
+    void turnOffTurbo() {
+        int i = 0;
+        for (Saab95 car : turbocars) {
+            car.setTurboOff();
+        }
+    }
+
+    void lowerBed() {
+        for (Truck truck : trucks) {
+            truck.extendPlatform();
+        }
+    }
+
+    void raiseBed() {
+        for (Truck truck : trucks) {
+            truck.retractPlatform();
+        }
+    }
+
 }

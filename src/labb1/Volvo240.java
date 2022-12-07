@@ -23,6 +23,7 @@ public class Volvo240 extends Car {
         super(4, color, 100, "Volvo240", x, y, dirX, dirY);
     }
 
+
     /**
      * Speed factor of Volvo240. Used when gasing.
      * 

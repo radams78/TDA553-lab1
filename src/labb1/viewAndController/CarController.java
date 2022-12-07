@@ -1,7 +1,9 @@
+
 import javax.swing.*;
 import java.awt.*;
 
 import labb1.Car;
+import labb1.CarsModel;
 import labb1.Saab95;
 import labb1.Scania;
 import labb1.Truck;
@@ -20,49 +22,101 @@ import java.util.ArrayList;
 
 //this does a bit too much for a controller
 public class CarController {
-    // member fields:
-
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
-    // The timer is started with an listener (see below) that executes the
-    // statements
-    // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
-
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
+    CarsModel model;
+    CarView view;
+    JPanel controlPanel;
+
+    public CarController(CarsModel model, CarView view) {
+        this.model = model;
+        this.view = view;
+        this.controlPanel = view.getControlPanel();
+
+    }
+
+    
+
     // A list of cars, modify if needed
     ArrayList<Vehicle> cars = new ArrayList<>();
     ArrayList<Saab95> turbocars = new ArrayList<>();
     ArrayList<Truck> trucks = new ArrayList<>();
 
-    // methods:
+    JButton gasButton = new JButton("Gas");
+    JButton brakeButton = new JButton("Brake");
+    JButton turboOnButton = new JButton("Saab Turbo on");
+    JButton turboOffButton = new JButton("Saab Turbo off");
+    JButton liftBedButton = new JButton("Scania Lift Bed");
+    JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    // Shoudld be in separate method
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
+    JButton startButton = new JButton("Start all cars");
+    JButton stopButton = new JButton("Stop all cars");
 
-        Volvo240 volvo = new Volvo240(Color.red, 0, 50, 0, 1);
-        Saab95 saab = new Saab95(Color.red, 100, 50, 0, 1);
-        Scania scania = new Scania(Color.green, 200, 50, 0, 1);
+    controlPanel.add(controlPanel);
+    controlPanel.add(gasButton, 0);
+    controlPanel.add(turboOnButton, 1);
+    controlPanel.add(liftBedButton, 2);
+    controlPanel.add(brakeButton, 3);
+    controlPanel.add(turboOffButton, 4);
 
-        // Maybs make an add thing in the class that adds and storts the different cars
-        // into different arrays for different purposes????
-        cc.cars.add(volvo);
+    startButton.setBackground(Color.blue);
+    startButton.setForeground(Color.green);
+    startButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+    view.add(startButton);
 
-        cc.cars.add(saab);
-        cc.turbocars.add(saab);
+    stopButton.setBackground(Color.red);
+    stopButton.setForeground(Color.black);
+    stopButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+    view.add(stopButton);
 
-        cc.cars.add(scania);
-        cc.trucks.add(scania);
+      // To controller
+    gasButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            model.gas(gasAmount);
+        }
+    });
+    stopButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            model.stopEngine();
+        }
+    });
 
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+    startButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            model.startEngine();
+        }
+    });
 
-        // Start the timer
-        cc.timer.start();
-    }
+    // turboOnButton.addActionListener(new ActionListener() {
+    //     @Override
+    //     public void actionPerformed(ActionEvent e) {
+    //         carC.turnOnTurbo();
+    //     }
+    // });
+    // turboOffButton.addActionListener(new ActionListener() {
+    //     @Override
+    //     public void actionPerformed(ActionEvent e) {
+    //         carC.turnOffTurbo();
+    //     }
+    // });
+
+    // lowerBedButton.addActionListener(new ActionListener() {
+    //     @Override
+    //     public void actionPerformed(ActionEvent e) {
+    //         carC.lowerBed();
+    //     }
+    // });
+
+    // liftBedButton.addActionListener(new ActionListener() {
+    //     @Override
+    //     public void actionPerformed(ActionEvent e) {
+    //         carC.raiseBed();
+    //     }
+    // });
+
+}
 
     /*
      * Each step the TimerListener moves all the cars in the list and tells the
@@ -70,6 +124,7 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            model.update();
             for (Vehicle car : cars) {
                 car.move();
                 int x = (int) Math.round(car.getX());
@@ -80,26 +135,7 @@ public class CarController {
                 frame.drawPanel.repaint();
             }
         }
-    }
 
-    // Calls the gas method for each car once
-    void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Vehicle car : cars) {
-            car.gas(gas);
-        }
-    }
-
-    void stopEngine() {
-        for (Vehicle car : cars) {
-            car.stopEngine();
-        }
-    }
-
-    void startEngine() {
-        for (Vehicle car : cars) {
-            car.startEngine();
-        }
     }
 
     // really ugly and doesnt follow open closed principle. Remake?? Might need

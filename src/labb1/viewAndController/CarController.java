@@ -99,7 +99,7 @@ public class CarController {
                 Saab95 copy = new Saab95(car);
                 copy.setTurboOn();
                 cars.set(i, copy);
-                System.out.println("trying to to tur on tubo");
+                System.out.println("trying to to turn on turbo");
             }
             i++;
         }
@@ -115,7 +115,7 @@ public class CarController {
                 Saab95 copy = new Saab95(car);
                 copy.setTurboOff();
                 cars.set(i, copy);
-                System.out.println("trying to to tur on tubo");
+                System.out.println("trying to to turn off turbo");
             }
             i++;
         }

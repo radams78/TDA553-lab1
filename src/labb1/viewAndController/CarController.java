@@ -54,17 +54,13 @@ public class CarController {
         this.view = view;
         initControlPanel();
         initGasPanel();
-        view.add(controlPanel);
-        view.add(gasPanel);
-        addButtons();
         addListeners();
-        addSpinner();
 
     }
 
     private void addButtons() {
         // controlPanel.add(controlPanel);
-        this.controlPanel.add(gasButton, 0);
+        controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
         controlPanel.add(liftBedButton, 2);
         controlPanel.add(brakeButton, 3);
@@ -83,6 +79,7 @@ public class CarController {
     }
 
     private void initControlPanel() {
+        addButtons();
         controlPanel.setLayout(new GridLayout(2, 4));
         controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
         controlPanel.setBackground(Color.CYAN);
@@ -90,8 +87,21 @@ public class CarController {
     }
 
     private void initGasPanel() {
+        SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
+                0, // min
+                100, // max
+                1);// step
+        gasSpinner = new JSpinner(spinnerModel);
+        gasSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
+            }
+        });
+
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
+        gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
+
         view.add(gasPanel);
     }
 

@@ -1,11 +1,9 @@
 package set;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-import org.hamcrest.core.IsInstanceOf;
 import org.junit.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -38,6 +36,7 @@ public class CarTransportTest{
         Volvo240 volvo240 = new Volvo240();
         carTransport.changePlatform();
         carTransport.loadCar(volvo240);
+        carTransport.changePlatform();
         carTransport.gas(0.1);
         carTransport.move();
         assertFalse(volvo240.getX() == 0);

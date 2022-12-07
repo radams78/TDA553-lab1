@@ -1,12 +1,10 @@
 package set;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CarTransport extends Truck{
 
-    private List <Car> loadedCars = new ArrayList();
+    private CarStorage storage = new CarStorage(6); 
 
     public CarTransport(){
         super(2, 100, "Car Transport", Color.red, 0, 0);
@@ -24,21 +22,27 @@ public class CarTransport extends Truck{
         }
     }
 
+    private boolean isCarCloseEnoughToStore(Car object){
+        double xDiff = this.getX() - object.getX();
+        double yDiff = this.getY() - object.getY();
+        return Math.sqrt(Math.pow(xDiff, 2) + (Math.pow(yDiff, 2))) < 4;
+    }
+
     public void loadCar(Car object){
-        if (getPlatformAngle() == -45 && loadedCars.size() <= 6){
+        if (isCarCloseEnoughToStore(object) && getPlatformAngle() == -45){
+            storage.loadCar(object);
             object.setX(getX());
             object.setY(getY());
-            loadedCars.add(object);
         }else{
-            throw new IllegalArgumentException("Platform must be lowered or the maximum car capacity has been reached");
+            throw new IllegalArgumentException("Car is not close enough to be loaded");
         }
     }
 
     public void unloadCar(Car object){
-        if (!loadedCars.isEmpty() && getPlatformAngle() == -45){
-            loadedCars.remove(object);
+        if (getPlatformAngle() == -45){
+            storage.unloadCar(object);
         }else{
-            throw new IllegalArgumentException("Platform must be lowered or there are no cars to unload");
+            throw new IllegalArgumentException("Platform must be lowered");
         }
     }
      
@@ -46,16 +50,12 @@ public class CarTransport extends Truck{
     public void move() {
         setX(getX() + Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed());
         setY(getY() + Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed());
-        for (int i = 0; i <= loadedCars.size(); i++) {
-            loadedCars.get(i).setX(getX());
-            loadedCars.get(i).setY(getY());
+        for (int i = 0; i <= storage.getLoadedCars().size()-1; i++) {
+            storage.getLoadedCars().get(i).setX(getX());
+            storage.getLoadedCars().get(i).setY(getY());
         }
     }
-
-    public List<Car> getLoadedCars(){
-        return loadedCars;
-    }
-
+    
     double speedFactor(){
         return getEnginePower() * 0.01;
     }

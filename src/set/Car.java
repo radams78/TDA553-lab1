@@ -12,6 +12,7 @@ abstract class Car implements Movable {
     private double direction;
     private double x;
     private double y;
+    private boolean carInStorage = false;
 
     protected Car(int nrDoors, double enginePower, String modelName, Color color, double currentSpeed) {
         this.nrDoors = nrDoors;
@@ -63,11 +64,16 @@ abstract class Car implements Movable {
     }
 
     public void gas(double amount) {
-        if (amount >= 0 && amount <= 1) {
-            incrementSpeed(amount);
-        } else {
-            throw new IllegalArgumentException("The gas method only accepts values in the interval [0, 1]");
+        if (!isCarInStorage()){
+            if (amount >= 0 && amount <= 1) {
+                incrementSpeed(amount);
+            } else {
+                throw new IllegalArgumentException("The gas method only accepts values in the interval [0, 1]");
+            }
+        }else{
+            throw new IllegalArgumentException("This car is loaded");
         }
+
     }
 
     public void brake(double amount) {
@@ -126,8 +132,12 @@ abstract class Car implements Movable {
 
     @Override
     public void move() {
-        this.x = (getX() + Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed());
-        this.y = (getY() + Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed());
+        if (!isCarInStorage()){
+            this.x = (getX() + Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed());
+            this.y = (getY() + Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed());
+        }else{
+            throw new IllegalArgumentException("This car is loaded");
+        }
     }
 
     public void turnLeft() {
@@ -137,4 +147,13 @@ abstract class Car implements Movable {
     public void turnRight() {
         setDirection(getDirection() - 90);
     }
+
+    public void changeCarInStorage() {
+        carInStorage = !carInStorage;
+    }
+
+    public boolean isCarInStorage() {
+        return carInStorage;
+    }
+    
 }

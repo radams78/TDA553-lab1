@@ -17,6 +17,7 @@ import java.util.ArrayList;
 * modifying the model state and the updating the view.
  */
 
+//this does a bit too much for a controller
 public class CarController {
     // member fields:
 
@@ -73,4 +74,44 @@ public class CarController {
             car.gas(gas);
         }
     }
+
+    void stopEngine() {
+        for (Vehicle car : cars) {
+            car.stopEngine();
+        }
+    }
+
+    // really ugly and doesnt follow open closed principle. Remake?? Might need
+    // refactoring or maybe not
+    void turnOnSaabTurbo() {
+        int i = 0;
+        for (Vehicle car : cars) {
+
+            if (car instanceof Saab95) {
+
+                Saab95 copy = new Saab95(car);
+                copy.setTurboOn();
+                cars.set(i, copy);
+                System.out.println("trying to to tur on tubo");
+            }
+            i++;
+        }
+    }
+
+    // this ones really ugly too
+    void turnOffSaabTurbo() {
+        int i = 0;
+        for (Vehicle car : cars) {
+
+            if (car instanceof Saab95) {
+
+                Saab95 copy = new Saab95(car);
+                copy.setTurboOff();
+                cars.set(i, copy);
+                System.out.println("trying to to tur on tubo");
+            }
+            i++;
+        }
+    }
+
 }

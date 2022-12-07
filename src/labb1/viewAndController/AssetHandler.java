@@ -1,3 +1,5 @@
+package labb1.viewAndController;
+
 import java.util.HashMap;
 
 import javax.imageio.ImageIO;
@@ -8,22 +10,23 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class AssetHandler {
-    private static HashMap<Point, BufferedImage> imagePointMap;
+    private HashMap<Point, BufferedImage> imagePointMap = new HashMap<Point, BufferedImage>();
 
-    public static void bindPointToNamedImage(String modelName, Point point) {
+    public void bindPointToNamedImage(String modelName, Point point) {
         imagePointMap.put(point, makeImageFromModelName(modelName));
+        System.out.print("put in image");
     }
 
-    private static BufferedImage makeImageFromModelName(String modelName) {
+    private BufferedImage makeImageFromModelName(String modelName) {
         try {
-            return ImageIO.read(DrawPanel.class.getResourceAsStream("pics" + modelName + ".jpg"));
+            return ImageIO.read(DrawPanel.class.getResourceAsStream("pics/" + modelName + ".jpg"));
         } catch (IOException e) {
 
             return new BufferedImage(0, 0, 0);
         }
     }
 
-    public static BufferedImage getAssetFromPoint(Point point) {
+    public BufferedImage getAssetFromPoint(Point point) {
         return imagePointMap.get(point);
     }
 

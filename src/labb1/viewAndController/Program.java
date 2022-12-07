@@ -1,3 +1,5 @@
+package labb1.viewAndController;
+
 import labb1.Car;
 import labb1.Saab95;
 import labb1.Scania;
@@ -28,5 +30,6 @@ public class Program {
         CarController cc = new CarController(model, frame);
 
         model.addObserver(frame);
+        model.start();
     }
 }

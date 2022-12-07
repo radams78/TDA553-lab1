@@ -1,3 +1,4 @@
+package labb1.viewAndController;
 
 import labb1.Car;
 import labb1.Truck;
@@ -12,10 +13,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CarsModel {
-    ArrayList<Vehicle> vehicles;
+    ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
     ArrayList<Car> cars;
     ArrayList<Truck> trucks;
-    List<Observer> observers;
+    List<Observer> observers = new ArrayList<Observer>();
 
     public CarsModel(ArrayList<Truck> trucks, ArrayList<Car> cars) {
         this.trucks = trucks;

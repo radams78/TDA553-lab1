@@ -1,3 +1,5 @@
+package labb1.viewAndController;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -29,13 +31,14 @@ public class CarView extends JFrame implements Observer {
     // Constructor
     public CarView(String framename, CarsModel model) {
         this.model = model;
-        initComponents(framename);
         this.drawPanel = new DrawPanel(model, X, Y - 240);
+        initComponents(framename);
     }
 
     @Override
     public void update() {
         drawPanel.update();
+        repaint();
     }
 
     JPanel controlPanel = new JPanel();
@@ -47,6 +50,10 @@ public class CarView extends JFrame implements Observer {
 
     public JPanel getControlPanel() {
         return controlPanel;
+    }
+
+    public Dimension getPreferredButtonSize() {
+        return new Dimension(X / 5 - 15, 200);
     }
 
     // Sets everything in place and fits everything

@@ -107,6 +107,7 @@ public class CarView extends JFrame{
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
+        
         // ADDED OWN ACTIONLISTENER BY HUFFLA
         startButton.addActionListener(new ActionListener() {
             @Override 
@@ -118,7 +119,7 @@ public class CarView extends JFrame{
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.stopEngine();;
+                carC.stopEngine();
             }
         });
 

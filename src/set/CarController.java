@@ -32,6 +32,7 @@ public class CarController {
     CarView frame;
     // A list of cars, modify if needed
     ArrayList<Vehicles> vehicles = new ArrayList<>();
+    
 
     //methods:
 
@@ -41,6 +42,12 @@ public class CarController {
         
 
         cc.vehicles.add(new Volvo240(4,Color.BLACK, 100, "Bil"));
+        cc.vehicles.add(new Saab95(4,Color.BLACK, 100, "Bil"));
+        cc.vehicles.add(new Scania(4,Color.BLACK, 100, "Bil", 70));
+
+        cc.vehicles.get(0).setCoordinates(0, 50);
+        cc.vehicles.get(1).setCoordinates(100, 150);  // For clarity
+        cc.vehicles.get(2).setCoordinates(0, 100);
 
 
         // Start a new view and send a reference of self
@@ -48,6 +55,7 @@ public class CarController {
 
         // Start the timer
         cc.timer.start();
+        
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
@@ -56,15 +64,31 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicles vehicle : vehicles) {
+                
                 vehicle.move();
                 System.out.println(vehicle.getCurrentSpeed());
                 System.out.println(vehicle);
                 int x = (int) Math.round(vehicle.getXPosition());
                 int y = (int) Math.round(vehicle.getYPosition());
                 frame.drawPanel.moveit(x, y);
+                // VERY BAD CODE BUT I ONLY WANT THE FIRST PART TO WORK BEFORE WE REFACTOR
+                // Does not follow the openclosed principle, would need to add new code to paint another type of vehicle
+                if (vehicle.getClass().equals(new Scania(y, null, y, null, x).getClass())){
+                    
+                    frame.drawPanel.moveScania((int)vehicle.getXPosition(), (int)vehicle.getYPosition());
+                }
+                if (vehicle.getClass().equals(new Volvo240(x, null, y, null).getClass())){
+
+                    frame.drawPanel.moveVolvo((int)vehicle.getXPosition(), (int)vehicle.getYPosition());
+                }
+                if (vehicle.getClass().equals(new Saab95(x, null, y, null).getClass())){
+
+                    frame.drawPanel.moveSaab((int)vehicle.getXPosition(),(int) vehicle.getYPosition());
+                }
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
+            
         }
     }
 
@@ -85,5 +109,9 @@ public class CarController {
         for (Vehicles vehicle : vehicles) {
             vehicle.stopEngine();
         }
+    }
+    // Not implemented
+    void setTurboOn(){
+        
     }
 }

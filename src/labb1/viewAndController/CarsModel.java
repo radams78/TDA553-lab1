@@ -28,7 +28,14 @@ public class CarsModel {
     public void start() {
         // TODO make this slower
         while (true) {
+
             update();
+            try {
+                Thread.sleep(GraphicsDependencies.getFrameTime());
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
     }
 
@@ -36,13 +43,20 @@ public class CarsModel {
         observers.add(observer);
     }
 
-    public void update() {
-        for (Vehicle vehicle : vehicles) {
-            vehicle.move();
-        }
+    private void notifyObservers(){
         for (Observer observer : observers) {
             observer.update();
         }
+    }
+
+    public void update() {
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getCurrentSpeedX() > 0 || vehicle.getCurrentSpeedY() > 0){
+                vehicle.move();
+                notifyObservers();
+            }
+        }
+      
     }
 
     public ArrayList<Vehicle> getVehicles() {

@@ -52,52 +52,20 @@ public class CarController {
     public CarController(CarsModel model, CarView view) {
         this.model = model;
         this.view = view;
-        initControlPanel();
-        initGasPanel();
-        addListeners();
+        initComponents();
 
     }
 
-    private void addButtons() {
-        // controlPanel.add(controlPanel);
-        controlPanel.add(gasButton, 0);
-        controlPanel.add(turboOnButton, 1);
-        controlPanel.add(liftBedButton, 2);
-        controlPanel.add(brakeButton, 3);
-        controlPanel.add(turboOffButton, 4);
-
-        startButton.setBackground(Color.blue);
-        startButton.setForeground(Color.green);
-        startButton.setPreferredSize(view.getPreferredButtonSize());
-        controlPanel.add(startButton);
-
-        stopButton.setBackground(Color.red);
-        stopButton.setForeground(Color.black);
-        stopButton.setPreferredSize(view.getPreferredButtonSize());
-        controlPanel.add(stopButton);
-
-    }
-
-    private void initControlPanel() {
-        addButtons();
-        controlPanel.setLayout(new GridLayout(2, 4));
-        controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
-        controlPanel.setBackground(Color.CYAN);
-        view.add(controlPanel);
-    }
-
-    private void initGasPanel() {
+    private void initSpinner() {
         SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
                 0, // min
                 100, // max
                 1);// step
         gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
-            }
-        });
+    }
 
+    private void initGasPanel() {
+        initSpinner();
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
@@ -105,13 +73,46 @@ public class CarController {
         view.add(gasPanel);
     }
 
-    private void addSpinner() {
-        SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
-                0, // min
-                100, // max
-                1);// step
-        gasSpinner = new JSpinner(spinnerModel);
-        gasPanel.add(gasSpinner);
+    private void initControlPanel() {
+        controlPanel.setLayout(new GridLayout(2, 4));
+        initPanelButtons();
+
+        view.add(controlPanel);
+        controlPanel.setBackground(Color.CYAN);
+    }
+
+    private void initPanelButtons() {
+        controlPanel.add(gasButton, 0);
+        controlPanel.add(turboOnButton, 1);
+        controlPanel.add(liftBedButton, 2);
+        controlPanel.add(brakeButton, 3);
+        controlPanel.add(turboOffButton, 4);
+        controlPanel.add(lowerBedButton, 5);
+        controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
+    }
+
+    private void initStartButton() {
+        startButton.setBackground(Color.blue);
+        startButton.setForeground(Color.green);
+        startButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+        view.add(startButton);
+    }
+
+    private void initStopButton() {
+        stopButton.setBackground(Color.red);
+        stopButton.setForeground(Color.black);
+        stopButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+        view.add(stopButton);
+    }
+
+    private void initComponents() {
+        initGasPanel();
+        initControlPanel();
+        initStartButton();
+        initStopButton();
+
+        addListeners();
+        view.pack();
     }
 
     private void addListeners() {

@@ -19,23 +19,39 @@ public class DrawPanel extends JPanel implements Observer {
 
     CarsModel model;
     AssetHandler handler = new AssetHandler();
+    ArrayList<Point> points = new ArrayList<Point>();
 
     public DrawPanel(CarsModel model, int x, int y) {
+        this.model = model;
+        addImages();
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
-        this.model = model;
+        update();
     }
 
-    ArrayList<Point> points = new ArrayList<Point>();
+    
+
+    private void addImages(){
+        for (Vehicle vehicle : model.getVehicles()){
+        
+            handler.addNamedImageToDict(vehicle.getModelName());
+            System.out.println("added"+ vehicle.getModelName());
+        }
+    }
+   
 
     @Override
     public void update() {
-        addDrawPoints();
-        paintComponent(getGraphics());
+        
+        redrawPoints();
         repaint();
-        System.out.println("HI");
+        
+    }
 
+  
+    public void refresh(){
+        points.clear();
     }
 
     private void bindImages(Vehicle vehicle, Point point) {
@@ -43,7 +59,8 @@ public class DrawPanel extends JPanel implements Observer {
     }
 
     // TODO: Make this genereal for all cars
-    private void addDrawPoints() {
+    private void redrawPoints() {
+        points = new ArrayList<Point>();
         for (Vehicle vehicle : model.getVehicles()) {
 
             int x = (int) Math.round(vehicle.getX());
@@ -62,8 +79,7 @@ public class DrawPanel extends JPanel implements Observer {
         super.paintComponent(g);
         for (Point pt : points) {
             g.drawImage(handler.getAssetFromPoint(pt), pt.x, pt.y, null);
-            i++;
         }
-        points.clear();// see javadoc for more info on the parameters
+       // see javadoc for more info on the parameters
     }
 }

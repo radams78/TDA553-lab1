@@ -40,8 +40,7 @@ public class CarView extends JFrame implements Observer {
     @Override
     public void update() {
         drawPanel.update();
-        repaint();
-
+        
     }
 
     public Dimension getPreferredButtonSize() {
@@ -57,10 +56,7 @@ public class CarView extends JFrame implements Observer {
         this.setPreferredSize(new Dimension(X, Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
-        this.add(drawPanel);
         // Make the frame pack all it's components by respecting the sizes if possible.
-        this.pack();
-
         // Get the computer screen resolution
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         // Center the frame
@@ -69,5 +65,6 @@ public class CarView extends JFrame implements Observer {
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.add(drawPanel);
     }
 }

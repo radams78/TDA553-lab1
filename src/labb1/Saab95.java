@@ -32,22 +32,6 @@ public class Saab95 extends Car {
     public Saab95(Vehicle other) {
         super(2, other.getColor(), 125, "Saab95", other.getX(), other.getY(), other.getDirectionX(),
                 other.getDirectionY());
-        turboOn = false;
-    }
-
-    /**
-     * Sets the boolean turboOn to true
-     */
-    public void setTurboOn() {
-        turboOn = true;
-    }
-
-    /**
-     * Sets the boolean turboOn to false
-     */
-    public void setTurboOff() {
-        turboOn = false;
-    }// setTurboOff()
 
     /**
      * The speed factor of Saab95. Used when gasing. Gets an increased speed factor

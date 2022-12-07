@@ -8,8 +8,8 @@ public class CarTransporter extends Truck {
     private final int maximalLoadedCars = 10;
     private final double maxLoadDistance = 50;
 
-    public CarTransporter() {
-        super(2, 100, Color.gray, "Car Transporter");
+    public CarTransporter(int positionX, int positionY) {
+        super(2, 100, Color.gray, "Car Transporter", positionX, positionY);
         this.platform = new DiscretePlatform();
         this.carLoader = new LoadsCar(maximalLoadedCars, maxLoadDistance);
 

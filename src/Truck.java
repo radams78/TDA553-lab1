@@ -4,8 +4,8 @@ import java.awt.Color;
 
 public abstract class Truck extends Car {
 
-    public Truck(int nrDoors, double enginePower, Color color, String modelName) {
-        super(nrDoors, enginePower, color, modelName);
+    public Truck(int nrDoors, double enginePower, Color color, String modelName, int positionX, int positionY) {
+        super(nrDoors, enginePower, color, modelName, positionX, positionY);
     }
 
     @Override

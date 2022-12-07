@@ -4,8 +4,8 @@ import java.awt.*;
 public class Scania extends Truck {
     private ContinuousPlatform platform;
 
-    public Scania() {
-        super(2, 100, Color.yellow, "Scania dump truck");
+    public Scania(int positionX, int positionY) {
+        super(2, 100, Color.yellow, "Scania", positionX, positionY);
         this.platform = new ContinuousPlatform();
     }
 

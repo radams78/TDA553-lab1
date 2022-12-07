@@ -31,7 +31,9 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240());
+        cc.cars.add(new Volvo240(0, 0));
+        cc.cars.add(new Saab95(0, 100));
+        cc.cars.add(new Scania(0, 200));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -43,16 +45,18 @@ public class CarController {
     /* Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
     * */
+
+
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
                 car.move();
                 int x = (int) Math.round(car.getPosition().getXPosition());
                 int y = (int) Math.round(car.getPosition().getYPosition());
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(car.getModelName(), x, y);
                 // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
             }
+            frame.drawPanel.repaint();
         }
     }
 

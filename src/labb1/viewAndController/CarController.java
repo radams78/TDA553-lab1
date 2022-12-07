@@ -1,5 +1,9 @@
+package labb1.viewAndController;
+
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import labb1.Car;
 import labb1.Saab95;
@@ -19,106 +23,160 @@ import java.util.ArrayList;
 
 //this does a bit too much for a controller
 public class CarController {
-    // member fields:
 
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
-    // The timer is started with an listener (see below) that executes the
-    // statements
-    // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
-
+    private static final int X = GraphicsDependencies.getX();
+    private static final int Y = GraphicsDependencies.getY();
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
-    // A list of cars, modify if needed
-    ArrayList<Vehicle> cars = new ArrayList<>();
 
-    // methods:
+    private CarsModel model;
+    private CarView view;
 
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240(Color.red, 50, 50, 0, 1));
-        cc.cars.add(new Saab95(Color.red, 100, 50, 0, 1));
-        cc.cars.add(new Scania(Color.green, 150, 50, 0, 1));
+    private JSpinner gasSpinner = new JSpinner();
+    private double gasAmount = 0;
 
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+    private JPanel controlPanel = new JPanel();
 
-        // Start the timer
-        cc.timer.start();
+    private JPanel gasPanel = new JPanel();
+    private JLabel gasLabel = new JLabel("Amount of gas");
+
+    private JButton gasButton = new JButton("Gas");
+    private JButton brakeButton = new JButton("Brake");
+    private JButton turboOnButton = new JButton("Saab Turbo on");
+    private JButton turboOffButton = new JButton("Saab Turbo off");
+    private JButton liftBedButton = new JButton("Scania Lift Bed");
+    private JButton lowerBedButton = new JButton("Lower Lift Bed");
+
+    private JButton startButton = new JButton("Start all cars");
+    private JButton stopButton = new JButton("Stop all cars");
+
+    public CarController(CarsModel model, CarView view) {
+        this.model = model;
+        this.view = view;
+        initComponents();
+
     }
 
-    /*
-     * Each step the TimerListener moves all the cars in the list and tells the
-     * view to update its images. Change this method to your needs.
-     */
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Vehicle car : cars) {
-                car.move();
-                int x = (int) Math.round(car.getX());
-                int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(x, y);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
+
+
+    private void initSpinner() {
+        SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
+                0, // min
+                100, // max
+                1);// step
+        gasSpinner = new JSpinner(spinnerModel);
+    }
+
+    private void initGasPanel() {
+        initSpinner();
+        gasPanel.setLayout(new BorderLayout());
+        gasPanel.add(gasLabel, BorderLayout.PAGE_START);
+        gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
+
+        view.add(gasPanel);
+    }
+
+
+
+    private void initControlPanel() {
+        controlPanel.setLayout(new GridLayout(2, 4));
+        initPanelButtons();
+
+        view.add(controlPanel);
+        controlPanel.setBackground(Color.CYAN);
+    }
+
+    private void initPanelButtons() {
+        controlPanel.add(gasButton, 0);
+        controlPanel.add(turboOnButton, 1);
+        controlPanel.add(liftBedButton, 2);
+        controlPanel.add(brakeButton, 3);
+        controlPanel.add(turboOffButton, 4);
+        controlPanel.add(lowerBedButton, 5);
+        controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
+    }
+
+    private void initStartButton() {
+        startButton.setBackground(Color.blue);
+        startButton.setForeground(Color.green);
+        startButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+        view.add(startButton);
+    }
+
+    private void initStopButton() {
+        stopButton.setBackground(Color.red);
+        stopButton.setForeground(Color.black);
+        stopButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+        view.add(stopButton);
+    }
+
+    private void initComponents() {
+        initGasPanel();
+        initControlPanel();
+        initStartButton();
+        initStopButton();
+
+        addListeners();
+        view.pack();
+    }
+
+    private void addListeners() {
+
+        gasSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
             }
-        }
-    }
+        });
 
-    // Calls the gas method for each car once
-    void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Vehicle car : cars) {
-            car.gas(gas);
-        }
-    }
-
-    void startEngine() { // Change startEngine to boolean so that we cant gas if the vehicle hasnt
-                         // started yet
-        for (Vehicle car : cars) {
-            car.startEngine();
-        }
-    }
-
-    void stopEngine() {
-        for (Vehicle car : cars) {
-            car.stopEngine();
-        }
-    }
-
-    // really ugly and doesnt follow open closed principle. Remake?? Might need
-    // refactoring or maybe not
-    void turnOnSaabTurbo() {
-        int i = 0;
-        for (Vehicle car : cars) {
-
-            if (car instanceof Saab95) {
-
-                Saab95 copy = new Saab95(car);
-                copy.setTurboOn();
-                cars.set(i, copy);
-                System.out.println("trying to to tur on tubo");
+        gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO MAke this work better
+                model.gas(gasAmount);
             }
-            i++;
-        }
-    }
-
-    // this ones really ugly too
-    void turnOffSaabTurbo() {
-        int i = 0;
-        for (Vehicle car : cars) {
-
-            if (car instanceof Saab95) {
-
-                Saab95 copy = new Saab95(car);
-                copy.setTurboOff();
-                cars.set(i, copy);
-                System.out.println("trying to to tur on tubo");
+        });
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.stopEngine();
             }
-            i++;
-        }
+        });
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.startEngine();
+            }
+        });
+
     }
 
 }
+
+// --------------TODO
+// turboOnButton.addActionListener(new ActionListener() {
+// @Override
+// public void actionPerformed(ActionEvent e) {
+// carC.turnOnTurbo();
+// }
+// });
+// turboOffButton.addActionListener(new ActionListener() {
+// @Override
+// public void actionPerformed(ActionEvent e) {
+// carC.turnOffTurbo();
+// }
+// });
+
+// lowerBedButton.addActionListener(new ActionListener() {
+// @Override
+// public void actionPerformed(ActionEvent e) {
+// carC.lowerBed();
+// }
+// });
+
+// liftBedButton.addActionListener(new ActionListener() {
+// @Override
+// public void actionPerformed(ActionEvent e) {
+// carC.raiseBed();
+// }
+// });

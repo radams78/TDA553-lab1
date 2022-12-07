@@ -1,3 +1,5 @@
+package labb1.viewAndController;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
@@ -5,51 +7,68 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.util.HashMap;
+
+import labb1.Vehicle;
+
 import java.util.ArrayList;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel {
+public class DrawPanel extends JPanel implements Observer {
 
-    // Just a single image, TODO: Generalize
-    ArrayList<BufferedImage> images = new ArrayList<BufferedImage>();
-    BufferedImage volvoImage;
-    BufferedImage saabImage;
-    BufferedImage scaniaImage;
-    // To keep track of a singel cars position
-
+    CarsModel model;
+    AssetHandler handler = new AssetHandler();
     ArrayList<Point> points = new ArrayList<Point>();
 
-    // TODO: Make this genereal for all cars
-    void moveit(int x, int y) {
-        points.add(new Point(x, y));
-    }
-
-    // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
+    public DrawPanel(CarsModel model, int x, int y) {
+        this.model = model;
+        addImages();
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
-        // Print an error message in case file is not found with a try/catch block
-        try {
-            // You can remove the "pics" part if running outside of IntelliJ and
-            // everything is in the same main folder.
-            // volvoImage = ImageIO.read(new File("Volvo240.jpg"));
+        update();
+    }
 
-            // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to
-            // pics.
-            // if you are starting in IntelliJ.
-            this.volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
-            this.saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
-            this.scaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
-        } catch (IOException ex) {
-            ex.printStackTrace();
+    
+
+    private void addImages(){
+        for (Vehicle vehicle : model.getVehicles()){
+        
+            handler.addNamedImageToDict(vehicle.getModelName());
+            System.out.println("added"+ vehicle.getModelName());
         }
+    }
+   
 
-        this.images.add(volvoImage);
-        this.images.add(saabImage);
-        this.images.add(scaniaImage);
+    @Override
+    public void update() {
+        
+        redrawPoints();
+        repaint();
+        
+    }
 
+  
+    public void refresh(){
+        points.clear();
+    }
+
+    private void bindImages(Vehicle vehicle, Point point) {
+        handler.bindPointToNamedImage(vehicle.getModelName(), point);
+    }
+
+    // TODO: Make this genereal for all cars
+    private void redrawPoints() {
+        points = new ArrayList<Point>();
+        for (Vehicle vehicle : model.getVehicles()) {
+
+            int x = (int) Math.round(vehicle.getX());
+            int y = (int) Math.round(vehicle.getY());
+            Point point = new Point(x, y);
+            points.add(point);
+            bindImages(vehicle, point);
+        }
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
@@ -59,10 +78,8 @@ public class DrawPanel extends JPanel {
         int i = 0;
         super.paintComponent(g);
         for (Point pt : points) {
-            g.drawImage(images.get(i), pt.x, pt.y, null);
-
-            i++;
+            g.drawImage(handler.getAssetFromPoint(pt), pt.x, pt.y, null);
         }
-        points.clear();// see javadoc for more info on the parameters
+       // see javadoc for more info on the parameters
     }
 }

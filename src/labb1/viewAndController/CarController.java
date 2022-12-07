@@ -32,6 +32,7 @@ public class CarController {
     CarView frame;
     // A list of cars, modify if needed
     ArrayList<Vehicle> cars = new ArrayList<>();
+    ArrayList<Saab95> turbocars = new ArrayList<>();
 
     // methods:
 
@@ -39,9 +40,18 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240(Color.red, 50, 50, 0, 1));
-        cc.cars.add(new Saab95(Color.red, 100, 50, 0, 1));
-        cc.cars.add(new Scania(Color.green, 150, 50, 0, 1));
+        Volvo240 volvo = new Volvo240(Color.red, 0, 50, 0, 1);
+        Saab95 saab = new Saab95(Color.red, 100, 50, 0, 1);
+        Scania scania = new Scania(Color.green, 200, 50, 0, 1);
+
+        // Maybs make an add thing in the class that adds and storts the different cars
+        // into different arrays for different purposes????
+        cc.cars.add(volvo);
+
+        cc.cars.add(saab);
+        cc.turbocars.add(saab);
+
+        cc.cars.add(scania);
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -62,6 +72,7 @@ public class CarController {
                 int y = (int) Math.round(car.getY());
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
+                // This shouldnt be here
                 frame.drawPanel.repaint();
             }
         }
@@ -81,36 +92,26 @@ public class CarController {
         }
     }
 
+    void startEngine() {
+        for (Vehicle car : cars) {
+            car.startEngine();
+        }
+    }
+
     // really ugly and doesnt follow open closed principle. Remake?? Might need
     // refactoring or maybe not
     void turnOnSaabTurbo() {
         int i = 0;
-        for (Vehicle car : cars) {
-
-            if (car instanceof Saab95) {
-
-                Saab95 copy = new Saab95(car);
-                copy.setTurboOn();
-                cars.set(i, copy);
-                System.out.println("trying to to tur on tubo");
-            }
-            i++;
+        for (Saab95 car : turbocars) {
+            car.setTurboOn();
         }
     }
 
     // this ones really ugly too
     void turnOffSaabTurbo() {
         int i = 0;
-        for (Vehicle car : cars) {
-
-            if (car instanceof Saab95) {
-
-                Saab95 copy = new Saab95(car);
-                copy.setTurboOff();
-                cars.set(i, copy);
-                System.out.println("trying to to tur on tubo");
-            }
-            i++;
+        for (Saab95 car : turbocars) {
+            car.setTurboOff();
         }
     }
 

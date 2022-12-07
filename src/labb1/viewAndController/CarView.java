@@ -114,6 +114,13 @@ public class CarView extends JFrame {
             }
         });
 
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.startEngine();
+            }
+        });
+
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

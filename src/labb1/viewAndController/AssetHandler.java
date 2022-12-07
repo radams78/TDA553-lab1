@@ -11,18 +11,19 @@ import java.io.IOException;
 
 public class AssetHandler {
     private HashMap<Point, BufferedImage> imagePointMap = new HashMap<Point, BufferedImage>();
+    BufferedImage currentImage;
 
     public void bindPointToNamedImage(String modelName, Point point) {
-        imagePointMap.put(point, makeImageFromModelName(modelName));
+        makeImageFromModelName(modelName);
+        imagePointMap.put(point, currentImage);
         System.out.print("put in image");
     }
 
-    private BufferedImage makeImageFromModelName(String modelName) {
+    private void makeImageFromModelName(String modelName) {
         try {
-            return ImageIO.read(DrawPanel.class.getResourceAsStream("pics/" + modelName + ".jpg"));
+            currentImage = ImageIO
+                    .read(DrawPanel.class.getResourceAsStream("pics/" + modelName + ".jpg"));
         } catch (IOException e) {
-
-            return new BufferedImage(0, 0, 0);
         }
     }
 

@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import labb1.viewAndController.GraphicsDependencies;
+
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
  * It initializes with being center on the screen and attaching it's controller
@@ -19,11 +21,11 @@ import java.awt.event.ActionListener;
  **/
 
 public class CarView extends JFrame implements Observer {
-    private static final int X = 800;
-    private static final int Y = 800;
 
     // to controller
 
+    private static final int X = GraphicsDependencies.getX();
+    private static final int Y = GraphicsDependencies.getY();
     //
     CarsModel model;
     DrawPanel drawPanel;
@@ -39,17 +41,7 @@ public class CarView extends JFrame implements Observer {
     public void update() {
         drawPanel.update();
         repaint();
-    }
 
-    JPanel controlPanel = new JPanel();
-
-    JPanel gasPanel = new JPanel();
-    JSpinner gasSpinner = new JSpinner();
-    int gasAmount = 0;
-    JLabel gasLabel = new JLabel("Amount of gas");
-
-    public JPanel getControlPanel() {
-        return controlPanel;
     }
 
     public Dimension getPreferredButtonSize() {
@@ -66,30 +58,6 @@ public class CarView extends JFrame implements Observer {
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
-
-        SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
-                0, // min
-                100, // max
-                1);// step
-        gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
-            }
-        });
-
-        gasPanel.setLayout(new BorderLayout());
-        gasPanel.add(gasLabel, BorderLayout.PAGE_START);
-        gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
-
-        this.add(gasPanel);
-
-        controlPanel.setLayout(new GridLayout(2, 4));
-
-        controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
-        this.add(controlPanel);
-        controlPanel.setBackground(Color.CYAN);
-
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
 

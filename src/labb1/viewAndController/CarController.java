@@ -2,6 +2,8 @@ package labb1.viewAndController;
 
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import labb1.Car;
 import labb1.Saab95;
@@ -22,28 +24,47 @@ import java.util.ArrayList;
 
 //this does a bit too much for a controller
 public class CarController {
+
+    private static final int X = GraphicsDependencies.getX();
+    private static final int Y = GraphicsDependencies.getY();
     // The frame that represents this instance View of the MVC pattern
-    CarsModel model;
-    CarView view;
-    JPanel controlPanel;
+    private CarsModel model;
+    private CarView view;
 
-    JButton gasButton = new JButton("Gas");
-    JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
+    private JSpinner gasSpinner = new JSpinner();
+    private double gasAmount = 0;
 
-    JButton startButton = new JButton("Start all cars");
-    JButton stopButton = new JButton("Stop all cars");
+    private JPanel controlPanel = new JPanel();
+
+    private JPanel gasPanel = new JPanel();
+    private JLabel gasLabel = new JLabel("Amount of gas");
+
+    private JButton gasButton = new JButton("Gas");
+    private JButton brakeButton = new JButton("Brake");
+    private JButton turboOnButton = new JButton("Saab Turbo on");
+    private JButton turboOffButton = new JButton("Saab Turbo off");
+    private JButton liftBedButton = new JButton("Scania Lift Bed");
+    private JButton lowerBedButton = new JButton("Lower Lift Bed");
+
+    private JButton startButton = new JButton("Start all cars");
+    private JButton stopButton = new JButton("Stop all cars");
 
     public CarController(CarsModel model, CarView view) {
         this.model = model;
         this.view = view;
-        this.controlPanel = view.getControlPanel();
+        initControlPanel();
+        initGasPanel();
+        view.add(controlPanel);
+        view.add(gasPanel);
+        addButtons();
+        addListeners();
+        addSpinner();
 
+    }
+
+    private void addButtons() {
         // controlPanel.add(controlPanel);
-        controlPanel.add(gasButton, 0);
+        this.controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
         controlPanel.add(liftBedButton, 2);
         controlPanel.add(brakeButton, 3);
@@ -52,19 +73,50 @@ public class CarController {
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
         startButton.setPreferredSize(view.getPreferredButtonSize());
-        view.add(startButton);
+        controlPanel.add(startButton);
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(view.getPreferredButtonSize());
-        view.add(stopButton);
+        controlPanel.add(stopButton);
 
-        // To controller
+    }
+
+    private void initControlPanel() {
+        controlPanel.setLayout(new GridLayout(2, 4));
+        controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
+        controlPanel.setBackground(Color.CYAN);
+        view.add(controlPanel);
+    }
+
+    private void initGasPanel() {
+        gasPanel.setLayout(new BorderLayout());
+        gasPanel.add(gasLabel, BorderLayout.PAGE_START);
+        view.add(gasPanel);
+    }
+
+    private void addSpinner() {
+        SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
+                0, // min
+                100, // max
+                1);// step
+        gasSpinner = new JSpinner(spinnerModel);
+        gasPanel.add(gasSpinner);
+    }
+
+    private void addListeners() {
+
+        gasSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
+            }
+        });
+
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO MAke this work better
-                model.gas();
+                model.gas(gasAmount);
             }
         });
         stopButton.addActionListener(new ActionListener() {
@@ -81,6 +133,7 @@ public class CarController {
             }
         });
     }
+
 }
 
 // --------------TODO

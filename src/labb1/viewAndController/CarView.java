@@ -101,6 +101,13 @@ public class CarView extends JFrame {
         // TODO: Create more for each component as necessary
 
         // TODO; THese are supposed to be in thecontrollet not the view
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.startEngine();
+            }
+        });
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -114,37 +121,16 @@ public class CarView extends JFrame {
             }
         });
 
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.startEngine();
-            }
-        });
-
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turnOnTurbo();
+                carC.turnOnSaabTurbo();
             }
         });
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turnOffTurbo();
-            }
-        });
-
-        lowerBedButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.lowerBed();
-            }
-        });
-
-        liftBedButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.raiseBed();
+                carC.turnOffSaabTurbo();
             }
         });
 

@@ -38,6 +38,7 @@ public class CarController {
 
     // methods:
 
+    // Shoudld be in separate method
     public static void main(String[] args) {
         // Instance of this class
         CarController cc = new CarController();

@@ -31,7 +31,6 @@ public class CarController {
     private CarsModel model;
     private CarView view;
 
-
     private JSpinner gasSpinner = new JSpinner();
     private double gasAmount = 0;
 
@@ -57,8 +56,6 @@ public class CarController {
 
     }
 
-
-
     private void initSpinner() {
         SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
                 0, // min
@@ -75,8 +72,6 @@ public class CarController {
 
         view.add(gasPanel);
     }
-
-
 
     private void initControlPanel() {
         controlPanel.setLayout(new GridLayout(2, 4));
@@ -139,8 +134,9 @@ public class CarController {
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.brake(gasAmount)}
+                model.brake(gasAmount);}
             });
+
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

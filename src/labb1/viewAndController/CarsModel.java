@@ -73,6 +73,14 @@ public class CarsModel {
         }
     }
 
+    public void brake(double amount) {
+        double gas = ((double) amount) / 100;
+        for (Vehicle car : vehicles) {
+            car.brake(gas);
+        }
+    }
+
+
     public void stopEngine() {
         for (Vehicle car : vehicles) {
             car.stopEngine();

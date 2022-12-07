@@ -32,6 +32,7 @@ public class Saab95 extends Car {
     public Saab95(Vehicle other) {
         super(2, other.getColor(), 125, "Saab95", other.getX(), other.getY(), other.getDirectionX(),
                 other.getDirectionY());
+    }
 
     /**
      * The speed factor of Saab95. Used when gasing. Gets an increased speed factor
@@ -47,4 +48,12 @@ public class Saab95 extends Car {
         return enginePower * 0.01 * turbo;
     }// speedFactor()
 
+    @Override
+    public void setTurboOn(){
+        turboOn = true;
+    }
+    @Override
+    public void setTurboOff(){
+        turboOn= false;
+    }
 }// Class

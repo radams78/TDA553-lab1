@@ -10,24 +10,24 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class AssetHandler {
-    private HashMap<Point, BufferedImage> imagePointMap = new HashMap<Point, BufferedImage>();
-    private HashMap<String, BufferedImage> imageNameMap = new HashMap<String, BufferedImage>();
+    private HashMap<Point, BufferedImage> assetPointMap = new HashMap<Point, BufferedImage>();
+    private HashMap<String, BufferedImage> assetNameMap = new HashMap<String, BufferedImage>();
 
     public void addNamedImageToDict(String name) {
         BufferedImage image = makeImageFromModelName(name);
-        imageNameMap.put(name, image);
+        assetNameMap.put(name, image);
     }
 
     private BufferedImage findImageFromName(String name) {
-        if (imageNameMap.containsKey(name)) {
-            return imageNameMap.get(name);
+        if (assetNameMap.containsKey(name)) {
+            return assetNameMap.get(name);
         }else   {
             throw new IllegalArgumentException("Name doesnt exist");
         }
     }
 
     public void bindPointToNamedImage(String modelName, Point point) {
-        imagePointMap.put(point, findImageFromName(modelName));
+        assetPointMap.put(point, findImageFromName(modelName));
     }
 
     private BufferedImage makeImageFromModelName(String modelName) {
@@ -42,9 +42,9 @@ public class AssetHandler {
     }
 
     public BufferedImage getAssetFromPoint(Point point) {
-        if (imagePointMap.containsKey(point)) {
+        if (assetPointMap.containsKey(point)) {
             //might need to make this safe
-            return imagePointMap.get(point);
+            return assetPointMap.get(point);
         }else{
             throw new IllegalArgumentException("point does not exist");
         }
@@ -54,8 +54,8 @@ public class AssetHandler {
 
 
     public void removePoint(Point point){
-        if (imagePointMap.containsKey(point)) {
-            imagePointMap.remove(point);
+        if (assetPointMap.containsKey(point)) {
+            assetPointMap.remove(point);
         }else{
             throw new IllegalArgumentException("point does not exist");
         }

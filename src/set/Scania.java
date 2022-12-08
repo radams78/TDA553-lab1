@@ -4,7 +4,6 @@ import java.awt.*;
 
 public class Scania extends Truck{
     
-    private double platformAngle;
 
     public Scania(){
         super(2, 100, "Scania", Color.black, 0, 0);

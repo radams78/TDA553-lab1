@@ -34,13 +34,6 @@ public class CarTest { // Done!
     }
 
     @Test
-    public void test_getCurrentSpeed() {
-        Volvo240 volvo = new Volvo240();
-        volvo.gas(0.1);
-        assertEquals(0.125, volvo.getCurrentSpeed(), 0);
-    }
-
-    @Test
     public void test_getX() {
         Volvo240 volvo = new Volvo240();
         volvo.gas(0.1); // Since 0 is the standardvalue of an int I want to change the value of x first.

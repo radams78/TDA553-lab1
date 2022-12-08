@@ -13,7 +13,7 @@ abstract class TurboCar extends Car{
     }
     double speedFactor() {
         double turbo = 1;
-        if (getTurboOn() == true)
+        if (getTurboOn())
 
             turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;

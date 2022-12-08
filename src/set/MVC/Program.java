@@ -30,6 +30,7 @@ public class Program {
         model.addToObservers(controller);
         model.addToObservers(view);
         model.addToObservers(view.drawPanel);
+        model.run();
 
 
 

@@ -77,6 +77,7 @@ public class ModelHead {
     public void run(){
         while (true){
             sendObserverSignal();
+            moveVehicles(); //ADDED NOW FOR TEST
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {

@@ -9,6 +9,10 @@ import java.awt.image.BufferedImage;
 
 import java.io.IOException;
 
+/*
+ * this class keeps track of the various images and binds them to their names for better performance and then binds the loaded images to input points
+ * the assetNameMap names have to always correspond to the image name (case sensistive)
+ */
 public class AssetHandler {
     private HashMap<Point, BufferedImage> assetPointMap = new HashMap<Point, BufferedImage>(); // A HashMap that keeps
                                                                                                // track of what images
@@ -24,17 +28,20 @@ public class AssetHandler {
      * 
      * This function maps string to particular images and stores it in a hash map
      * 
-     * @param name The name of the image (Has to match or exeption is thrown). Name also needs to be 10 chars or under for injection safety
+     * @param name The name of the image (Has to match or exeption is thrown). Name
+     *             also needs to be 10 chars or under for injection safety
+     * @return the corresponding image
      * 
      */
     public void addNamedImageToDict(String name) {
-        if (name.length()<=10){
+        if (name.length() <= 10) {
             BufferedImage image = makeImageFromModelName(name);
             assetNameMap.put(name, image);
-        }else{
-            throw new IllegalArgumentException("String was " + name.length() + " long when its supposed to be under 10 chars");
+        } else {
+            throw new IllegalArgumentException(
+                    "String was " + name.length() + " long when its supposed to be under 10 chars");
         }
-        
+
     }
 
     /**
@@ -43,10 +50,10 @@ public class AssetHandler {
      * This function finds an image from a string name in the given image directory
      * 
      * @param name The name of the image (Has to match or exeption is thrown)
+     * @return the wanted image
      * 
      */
 
-    // TODO make this injection safe
     private BufferedImage findImageFromName(String name) {
         if (assetNameMap.containsKey(name)) {
             return assetNameMap.get(name);
@@ -55,28 +62,31 @@ public class AssetHandler {
         }
     }
 
-    /**bindPointToNamedImage
+    /**
+     * bindPointToNamedImage
      * 
-     * This function binds a point to an image from a given name. Name has to exist in prior dict or throws exception
+     * This function binds a point to an image from a given name. Name has to exist
+     * in prior dict or throws exception
      * 
      * @param modelName the name to search for
      * 
-     * @param point any point that is to be linked to the image
+     * @param point     any point that is to be linked to the image
      * 
      */
     public void bindPointToNamedImage(String modelName, Point point) {
         assetPointMap.put(point, findImageFromName(modelName));
     }
 
-    /**makeImageFromModelNam
+    /**
+     * makeImageFromModelNam
      * 
-     * this function makes an image using the Buffered Image library from a given place
+     * this function makes an image using the Buffered Image library from a given
+     * place
      * 
-     * @param modelName this needs to exist as an image name(case sensitive) or exception is thrown
-     * 
+     * @param modelName this needs to exist as an image name(case sensitive) or
+     *                  exception is thrown
+     * @return the wanted image
      */
-
-     //TODO make this injection safe
     private BufferedImage makeImageFromModelName(String modelName) {
         try {
             BufferedImage image = ImageIO
@@ -88,6 +98,15 @@ public class AssetHandler {
         }
     }
 
+    /**
+     * getAssetFromPoint
+     * 
+     * this function finds an image in the point map
+     * 
+     * @param point the point to search for (throws exception if not in there)
+     * @return the wanted image
+     * 
+     */
     public BufferedImage getAssetFromPoint(Point point) {
         if (assetPointMap.containsKey(point)) {
             // TODO see if you can be more defensive here

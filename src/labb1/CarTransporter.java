@@ -37,4 +37,34 @@ public class CarTransporter extends Truck {
         return enginePower * 0.01;
     }
 
+    /**
+     * Load the flatbed with a car through delegation of Flatbed, which in turn uses
+     * delegation on Loadable.
+     * 
+     * @param car of type Car
+     */
+    public void load(Car car) {
+        trailer.load(car);
+    }
+
+    /**
+     * Unload the flatbed through delegation of Flatbed, which in turn uses
+     * delegation on Loadable.
+     * 
+     * @return a car that has been loaded.
+     */
+    public Movable unload() {
+        return trailer.unload();
+    }
+
+    @Override
+    public void setTurboOn() {
+        throw new IllegalArgumentException("CarTransporter doesn't have a turbo");
+    }
+
+    @Override
+    public void setTurboOff() {
+        throw new IllegalArgumentException("CarTransporter doesn't have a turbo");
+    }
+
 }// Class

@@ -56,6 +56,16 @@ public class CarController {
 
     }
 
+    private void initComponents() {
+        initGasPanel();
+        initControlPanel();
+        initStartButton();
+        initStopButton();
+
+        addListeners();
+        view.pack();
+    }
+
     private void initSpinner() {
         SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
                 0, // min
@@ -105,16 +115,6 @@ public class CarController {
         view.add(stopButton);
     }
 
-    private void initComponents() {
-        initGasPanel();
-        initControlPanel();
-        initStartButton();
-        initStopButton();
-
-        addListeners();
-        view.pack();
-    }
-
     private void addListeners() {
 
         gasSpinner.addChangeListener(new ChangeListener() {
@@ -134,8 +134,9 @@ public class CarController {
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.brake(gasAmount);}
-            });
+                model.brake(gasAmount);
+            }
+        });
 
         stopButton.addActionListener(new ActionListener() {
             @Override

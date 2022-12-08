@@ -19,7 +19,11 @@ public class AssetHandler {
     }
 
     private BufferedImage findImageFromName(String name) {
-        return imageNameMap.get(name);
+        if (imageNameMap.containsKey(name)) {
+            return imageNameMap.get(name);
+        }else   {
+            throw new IllegalArgumentException("Name doesnt exist");
+        }
     }
 
     public void bindPointToNamedImage(String modelName, Point point) {
@@ -32,20 +36,29 @@ public class AssetHandler {
                     .read(DrawPanel.class.getResourceAsStream("pics/" + modelName + ".jpg"));
             return image;
         } catch (IOException e) {
-            return new BufferedImage(1, 1, 1);
+            throw new RuntimeException("Image doesnt exist. Name might be wrong");
+            // return new BufferedImage(1, 1, 1);
         }
     }
 
     public BufferedImage getAssetFromPoint(Point point) {
-        return imagePointMap.get(point);
+        if (imagePointMap.containsKey(point)) {
+            //might need to make this safe
+            return imagePointMap.get(point);
+        }else{
+            throw new IllegalArgumentException("point does not exist");
+        }
     }
 
-    public void clear() {
-        imagePointMap.clear();
-    }
+
+
 
     public void removePoint(Point point){
-        imagePointMap.remove(point);
+        if (imagePointMap.containsKey(point)) {
+            imagePointMap.remove(point);
+        }else{
+            throw new IllegalArgumentException("point does not exist");
+        }
     }
 
 }

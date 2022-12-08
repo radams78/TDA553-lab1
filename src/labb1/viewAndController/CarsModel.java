@@ -60,6 +60,7 @@ public class CarsModel {
     }
 
     public ArrayList<Vehicle> getVehicles() {
+        //Defensive copying
         ArrayList<Vehicle> copy = new ArrayList<Vehicle>(this.vehicles);
 
         return copy;

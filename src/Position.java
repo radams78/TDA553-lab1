@@ -8,6 +8,10 @@ public class Position {
         this.yPosition = yPosition;
     }
 
+    public Position(Position pos) {
+        this(pos.xPosition, pos.yPosition);
+    }
+
     public double getXPosition() {
         return xPosition;
     }

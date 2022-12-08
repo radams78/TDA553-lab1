@@ -115,9 +115,9 @@ public abstract class Car implements Movable {
     public double getXPosition() {
         return position.getXPosition();
     }
-
+    //Defensive copying
     public Position getPosition() {
-        return position;
+        return new Position(position);
     }
 
     public double getYPosition() {

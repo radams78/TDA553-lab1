@@ -102,6 +102,8 @@ public class CarController {
         view.add(startButton);
     }
 
+
+
     private void initStopButton() {
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
@@ -138,10 +140,12 @@ public class CarController {
             }
         });
 
+
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.startEngine();
+
             }
         });
 

@@ -41,6 +41,16 @@ public class Saab95 extends Car {
      * @return the speed factor based on the engine power and turbo
      */
     @Override
+    public void setTurboOn() {
+        this.turboOn = true;
+    }
+
+    @Override
+    public void setTurboOff() {
+        this.turboOn = false;
+    }
+
+    @Override
     public double speedFactor() {
         double turbo = 1;
         if (turboOn)

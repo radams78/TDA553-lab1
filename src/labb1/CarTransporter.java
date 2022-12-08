@@ -8,7 +8,6 @@ import java.awt.*;
  */
 public class CarTransporter extends Truck {
 
-    private Flatbed trailer; // Decleration of a Flatbed object, trailer.
 
     /**
      * Constructor of CarTransporter.
@@ -21,19 +20,11 @@ public class CarTransporter extends Truck {
      * @param maxNrOfCars is the number of cars tha the CarTransporter can store on
      *                    its flatbed
      */
-    public CarTransporter(Color color, double x, double y, double dirX, double dirY, int maxNrOfCars) {
+    public CarTransporter(Color color, double x, double y, double dirX, double dirY, int maxNrOfCars,Trailer trailer) {
 
-        super(color, 500, "Ford", x, y, dirX, dirY, 100);
+        super(color, 500, "Ford", x, y, dirX, dirY, 100, trailer);
 
-        this.trailer = new Flatbed(100, maxNrOfCars, x, y); // Initializing a new Flatbed object to use for delegation
-    }
-
-    /**
-     * Get the trailer of the CarTransporter
-     */
-    @Override
-    public Flatbed getTrailer() {
-        return trailer;
+        // this.trailer = new Flatbed(100, maxNrOfCars, x, y); // Initializing a new Flatbed object to use for delegation
     }
 
     /**

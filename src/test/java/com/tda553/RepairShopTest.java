@@ -2,6 +2,7 @@ package com.tda553;
 
 import org.junit.Test;
 
+import com.tda553.Models.RepairShop;
 import com.tda553.VehicleTypes.Cars.Volvo240;
 
 public class RepairShopTest {

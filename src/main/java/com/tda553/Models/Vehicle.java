@@ -5,9 +5,8 @@ import java.awt.Color;
 import com.tda553.Interfaces.IVehicle;
 import com.tda553.Interfaces.ITransportable;
 
-public abstract class Vehicle implements IVehicle, ITransportable
+public abstract class Vehicle extends Entity implements IVehicle, ITransportable
 {
-    protected int y, x;
     protected int direction = 1;
 
     protected int nrDoors; // Number of doors on the vehicle
@@ -111,18 +110,6 @@ public abstract class Vehicle implements IVehicle, ITransportable
     public void turnRight()
     {
         direction = (direction + 1) % 4;
-    }
-
-    public int[] getPosition()
-    {
-        int[] position = {x, y};
-        return position;
-    }
-
-    public void setPosition(int x, int y)
-    {
-        this.x = x;
-        this.y = y;
     }
 
     public abstract double speedFactor();

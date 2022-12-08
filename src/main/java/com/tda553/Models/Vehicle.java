@@ -30,6 +30,11 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
         return nrDoors;
     }
 
+    public String getModelName()
+    {
+        return modelName;
+    }
+
     public double getEnginePower()
     {
         return enginePower;
@@ -94,8 +99,7 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
 
     public void move()
     {
-        x += directionTable[direction][0] * currentSpeed;
-        y += directionTable[direction][1] * currentSpeed;
+        setPosition((int)Math.round(pos.getX() + directionTable[direction][0] * currentSpeed), (int)Math.round(pos.getY() + directionTable[direction][1] * currentSpeed));
     }
 
     public void turnLeft()

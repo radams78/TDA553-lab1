@@ -8,6 +8,7 @@ import com.tda553.VehicleTypes.Cars.Saab95;
 import com.tda553.VehicleTypes.Cars.Volvo240;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,14 +52,14 @@ public class CarTest
         for (Vehicle car : cars)
         {
             System.out.println(car.toString());
-            assertArrayEquals(start_position, car.getPosition());
+            assertEquals(start_position[0], car.getPosition().getX());
+            assertEquals(start_position[1], car.getPosition().getY());
 
             car.startEngine();
             car.gas(1);
             car.move();
 
-            assertFalse(Arrays.equals(car.getPosition(), start_position));
-
+            assertFalse(car.getPosition().getX() == start_position[0] && car.getPosition().getY() == start_position[1]);
         }
 
 

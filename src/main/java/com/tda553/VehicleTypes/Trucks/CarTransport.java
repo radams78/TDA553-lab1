@@ -3,7 +3,7 @@ import java.awt.Color;
 import com.tda553.Interfaces.ILoadable;
 import com.tda553.Models.TransportVehicle;
 import com.tda553.Models.Vehicle;
-import com.tda553.Models.TransportVehicle;
+import com.tda553.Models.Position;
 
 public class CarTransport extends TransportVehicle implements ILoadable
 {
@@ -33,10 +33,11 @@ public class CarTransport extends TransportVehicle implements ILoadable
         {
             throw new IllegalStateException("Platform must be down to load vehicles!");
         }
-        int[] vehiclePosition = vehicle.getPosition();
-        int[] thisPosition = this.getPosition();
+        Position vehiclePosition = vehicle.getPosition();
+        Position thisPosition = this.getPosition();
         // Close enough to the platform
-        if (Math.abs(vehiclePosition[0] - thisPosition[0]) > 2 || Math.abs(vehiclePosition[1] - thisPosition[1]) > 2)
+        // TODO: Violates Law of Demeter, fix?
+        if (Math.abs(vehiclePosition.getX() - thisPosition.getX()) > 2 || Math.abs(vehiclePosition.getY() - thisPosition.getY()) > 2)
         {
             throw new IllegalStateException("Vehicle is not close enough to the platform");
         }
@@ -55,8 +56,7 @@ public class CarTransport extends TransportVehicle implements ILoadable
         }
         Vehicle car = loadedVehicles.get(loadedVehicles.indexOf(vehicle));
         loadedVehicles.remove(vehicle);
-        int[] transportPos = this.getPosition();
-        car.setPosition(transportPos[0] + 1, transportPos[1] + 1);
+        car.setPosition(this.pos.getX() + 1, this.pos.getY() + 1);
         return car;
     }
     

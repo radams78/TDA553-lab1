@@ -1,19 +1,15 @@
 package labb1.viewAndController;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+
 import javax.swing.*;
-import java.util.HashMap;
 
 import labb1.Vehicle;
 
 import java.util.ArrayList;
 
 // This panel represent the animated part of the view with the car images.
+//TODO reformatting
 
 public class DrawPanel extends JPanel implements Observer {
 
@@ -30,27 +26,22 @@ public class DrawPanel extends JPanel implements Observer {
         update();
     }
 
-    
+    private void addImages() {
+        for (Vehicle vehicle : model.getVehicles()) {
 
-    private void addImages(){
-        for (Vehicle vehicle : model.getVehicles()){
-        
             handler.addNamedImageToDict(vehicle.getModelName());
-            System.out.println("added"+ vehicle.getModelName());
+            System.out.println("added" + vehicle.getModelName());
         }
     }
-   
 
     @Override
     public void update() {
         redrawPoints();
         repaint();
-        // handler = new AssetHandler();
-        
+
     }
 
-  
-    public void refresh(){
+    public void refresh() {
         points = new ArrayList<Point>();
         handler.refresh();
     }
@@ -59,7 +50,6 @@ public class DrawPanel extends JPanel implements Observer {
         handler.bindPointToNamedImage(vehicle.getModelName(), point);
     }
 
-    
     private void redrawPoints() {
         refresh();
         for (Vehicle vehicle : model.getVehicles()) {
@@ -73,7 +63,7 @@ public class DrawPanel extends JPanel implements Observer {
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
-    // TODO: Change to suit your needs.
+
     @Override
     protected void paintComponent(Graphics g) {
         int i = 0;
@@ -81,6 +71,6 @@ public class DrawPanel extends JPanel implements Observer {
         for (Point pt : points) {
             g.drawImage(handler.getAssetFromPoint(pt), pt.x, pt.y, null);
         }
-       // see javadoc for more info on the parameters
+        // see javadoc for more info on the parameters
     }
 }

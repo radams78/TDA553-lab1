@@ -5,15 +5,9 @@ import java.awt.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import labb1.Car;
-import labb1.Saab95;
-import labb1.Scania;
-import labb1.Vehicle;
-import labb1.Volvo240;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -126,7 +120,6 @@ public class CarController {
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO MAke this work better
                 model.gas(gasAmount);
             }
         });
@@ -156,7 +149,7 @@ public class CarController {
 
 }
 
-// --------------TODO
+// --------------TODO add more of there method calls
 // turboOnButton.addActionListener(new ActionListener() {
 // @Override
 // public void actionPerformed(ActionEvent e) {

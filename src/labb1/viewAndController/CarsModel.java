@@ -6,11 +6,7 @@ import labb1.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.awt.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class CarsModel {
     ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
@@ -26,15 +22,17 @@ public class CarsModel {
     }
 
     public void start() {
-        // TODO make this slower
+       
         while (true) {
 
             update();
+
+            //TODO make this into a separate method
             try {
                 Thread.sleep(GraphicsDependencies.getFrameTime());
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                System.out.println("Clock Interrupted");
+                System.out.println(e);
             }
         }
     }
@@ -93,11 +91,7 @@ public class CarsModel {
             car.startEngine();
         }
     }
+    //TODO make more method listeners from the controller
 
 }
 
-// class TimerListener implements ActionListener {
-// public void actionPerformed(ActionEvent e) {
-// update();
-// }
-// }

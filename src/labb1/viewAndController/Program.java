@@ -10,6 +10,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Timer;
 
+//TODO clean up and commenting for all methods
+
 public class Program {
     public static void main(String[] args) {
 

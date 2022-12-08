@@ -1,14 +1,8 @@
 package labb1.viewAndController;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import labb1.viewAndController.GraphicsDependencies;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -40,7 +34,7 @@ public class CarView extends JFrame implements Observer {
     @Override
     public void update() {
         drawPanel.update();
-        
+
     }
 
     public Dimension getPreferredButtonSize() {
@@ -48,8 +42,6 @@ public class CarView extends JFrame implements Observer {
     }
 
     // Sets everything in place and fits everything
-    // TODO: Take a good look and make sure you understand how these methods and
-    // components work
     private void initComponents(String title) {
 
         this.setTitle(title);
@@ -59,9 +51,8 @@ public class CarView extends JFrame implements Observer {
         // Make the frame pack all it's components by respecting the sizes if possible.
         // Get the computer screen resolution
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        // Center the frame
 
-        //TODO make this nicer
+        // TODO change these statics to getters
         this.setLocation(dim.width / 2 - this.X / 2, dim.height / 2 - this.Y / 2);
         // Make the frame visible
         this.setVisible(true);

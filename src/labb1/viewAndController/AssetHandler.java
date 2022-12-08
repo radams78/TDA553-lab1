@@ -43,7 +43,7 @@ public class AssetHandler {
 
     public BufferedImage getAssetFromPoint(Point point) {
         if (assetPointMap.containsKey(point)) {
-            //might need to make this safe
+            //TODO see if you can be more defensive here
             return assetPointMap.get(point);
         }else{
             throw new IllegalArgumentException("point " + point +" does not exist in hash");

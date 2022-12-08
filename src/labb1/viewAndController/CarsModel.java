@@ -102,6 +102,29 @@ public class CarsModel {
             }
         }
     }
+
+    public void turnOffTurbo(){
+        for (Vehicle car : vehicles){
+            try{
+                car.setTurboOff();
+            }catch (IllegalArgumentException e){
+                System.out.println(e);
+            }
+        }
+    }
+
+    public void lowerBed(){
+        for (Truck truck : trucks){
+            truck.extendPlatform();
+        }
+    }
+
+    public void raiseBed(){
+        for (Truck truck : trucks){
+            truck.retractPlatform();
+        }
+    }
+
     //TODO make more method listeners from the controller
 
 }

@@ -151,34 +151,28 @@ public class CarController {
                 model.turnOnTurbo();
             }
         });
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.turnOffTurbo();
+            }
+        });
+        lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.lowerBed();
+            }
+
+        });
+        liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.raiseBed();
+            }
+        });
+
     }
 
 }
 
 // --------------TODO add more of there method calls
-// turboOnButton.addActionListener(new ActionListener() {
-// @Override
-// public void actionPerformed(ActionEvent e) {
-// carC.turnOnTurbo();
-// }
-// });
-// turboOffButton.addActionListener(new ActionListener() {
-// @Override
-// public void actionPerformed(ActionEvent e) {
-// carC.turnOffTurbo();
-// }
-// });
-
-// lowerBedButton.addActionListener(new ActionListener() {
-// @Override
-// public void actionPerformed(ActionEvent e) {
-// carC.lowerBed();
-// }
-// });
-
-// liftBedButton.addActionListener(new ActionListener() {
-// @Override
-// public void actionPerformed(ActionEvent e) {
-// carC.raiseBed();
-// }
-// });

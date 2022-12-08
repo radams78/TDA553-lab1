@@ -5,7 +5,7 @@ package labb1;
  */
 public class Dumper extends Trailer {
     private int platformAngle;
-    private final int MIN_EXTENSION_ANGLE;
+    private final int MIN_EXTENSION_ANGLE = 0;
     private final int MAX_EXTENSOIN_ANGLE;
     private Double platformSpeed;
     private Loadable loadable; // Decleration of Loadable object
@@ -15,17 +15,16 @@ public class Dumper extends Trailer {
      * Constructor of Dumper
      * 
      * @param maxLoad             is the max load of what the dumper can load
-     * @param MIN_EXTENSION_ANGLE is the minimum angle that the dumper can extend to
      * @param MAX_EXTENSION_ANGLE is the maximum angle that the dumper can extend to
      * @param platformSpeed       is the speed which the platform extends or
      *                            retracts
      * @param x                   the x coordinate of the dumper
      * @param y                   the y coordinate of the dumper
      */
-    public Dumper(int maxLoad, int MIN_EXTENSION_ANGLE, int MAX_EXTENSION_ANGLE, double platformSpeed, double x,
+    public Dumper(int maxLoad, int MAX_EXTENSION_ANGLE, double platformSpeed, double x,
             double y) {
         super(maxLoad ,x , y);
-        this.MIN_EXTENSION_ANGLE = MIN_EXTENSION_ANGLE;
+
         this.MAX_EXTENSOIN_ANGLE = MAX_EXTENSION_ANGLE;
         this.platformSpeed = platformSpeed;
         this.loadable = new Loadable(maxLoad, x, y); // Initializing a new Loadable object

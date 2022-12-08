@@ -17,7 +17,7 @@ public class Scania extends Truck {
      * @param dirY  is sthe direction y of the truck
      */
     public Scania(Color color, double x, double y, double dirX, double dirY) {
-        super(color, 770, "Scania", x, y, dirX, dirY, 300, new Dumper(300, 0, 70, 1.5, x, y));
+        super(color, 770, "Scania", x, y, dirX, dirY, 300, new Dumper(300, 70, 1.5, x, y));
 
     }// Constructor
 

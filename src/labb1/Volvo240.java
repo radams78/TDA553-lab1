@@ -33,6 +33,7 @@ public class Volvo240 extends Car {
         throw new IllegalArgumentException("Volvo240 doesn't have a turbo");
     }
 
+
     /**
      * Speed factor of Volvo240. Used when gasing.
      * 

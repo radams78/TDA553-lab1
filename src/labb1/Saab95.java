@@ -58,4 +58,12 @@ public class Saab95 extends Car {
         return enginePower * 0.01 * turbo;
     }// speedFactor()
 
+    @Override
+    public void setTurboOn(){
+        turboOn = true;
+    }
+    @Override
+    public void setTurboOff(){
+        turboOn= false;
+    }
 }// Class

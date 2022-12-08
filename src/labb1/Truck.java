@@ -45,7 +45,7 @@ public abstract class Truck extends Vehicle {
      * Extends platform is the speed is 0
      */
     public void extendPlatform() {
-        if (this.getCurrentSpeedX() > 0 && this.getCurrentSpeedY() > 0) {
+        if (this.getCurrentSpeedX() > 0 || this.getCurrentSpeedY() > 0) {
             throw new IllegalArgumentException("Cant open platform while driving");
         } else {
             trailer.extendPlatform();

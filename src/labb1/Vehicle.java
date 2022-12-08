@@ -21,6 +21,7 @@ public abstract class Vehicle implements Movable {
     private double x; // x coordinate
     private double y; // y coordinate
     private double[] direction; // x and y list for the direction that the car is supposed to move in
+    private boolean engineStarted = false; // Whether the vehicle is started or not
 
     /**
      * Constructor of Vehicle
@@ -154,7 +155,7 @@ public abstract class Vehicle implements Movable {
      * Starts the engine of the vehicle and increasing the speed
      */
     public void startEngine() {
-        incrementSpeed(0.1);
+        engineStarted = true;
     }
 
     /**
@@ -163,6 +164,7 @@ public abstract class Vehicle implements Movable {
     public void stopEngine() {
         this.currentSpeedX = 0;
         this.currentSpeedY = 0;
+        engineStarted = false;
     }
 
     /**
@@ -170,8 +172,11 @@ public abstract class Vehicle implements Movable {
      */
     @Override
     public void move() {
-        x += currentSpeedX;
-        y += currentSpeedY;
+        if (engineStarted){
+            x += currentSpeedX;
+            y += currentSpeedY;
+        }
+        
     }
 
     /**

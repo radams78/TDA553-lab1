@@ -177,7 +177,7 @@ public abstract class Vehicle implements Movable {
     /**
      * Turns the vehicle to the left by decreasing the x vector
      */
-    @Override
+    
     public void turnLeft() {
         System.out.println("turning: " + this);
         decreaseDirectionX(0.1);
@@ -186,7 +186,7 @@ public abstract class Vehicle implements Movable {
     /**
      * Turns the vehicle to the right by increasing the x vector
      */
-    @Override
+
     public void turnRight() {
         increaseDirectionX(0.1);
 

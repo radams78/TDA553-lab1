@@ -1,6 +1,8 @@
 package labb1.viewAndController;
 
 import labb1.Car;
+import labb1.Dumper;
+import labb1.Dumper;
 import labb1.Saab95;
 import labb1.Scania;
 import labb1.Truck;

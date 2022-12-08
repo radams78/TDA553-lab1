@@ -3,30 +3,23 @@ package labb1;
 /**
  * Superclass contract for any movable object
  */
-public interface Movable {
+public interface Movable extends Positionable {
 
     /**
      * Moves the object
      */
     void move();
 
-    /**
-     * Turns the object to the left
-     */
-    void turnLeft();
-
-    /**
-     * Turns the object to the right
-     */
-    void turnRight();
 
     /**
      * Get the object's x value
      */
+    @Override
     double getX();
 
     /**
      * Get the object's y value
      */
+    @Override
     double getY();
 }

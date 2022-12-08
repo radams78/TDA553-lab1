@@ -10,6 +10,7 @@ public class Dumper extends Trailer {
     private Double platformSpeed;
     private Loadable loadable; // Decleration of Loadable object
 
+
     /**
      * Constructor of Dumper
      * 
@@ -23,7 +24,7 @@ public class Dumper extends Trailer {
      */
     public Dumper(int maxLoad, int MIN_EXTENSION_ANGLE, int MAX_EXTENSION_ANGLE, double platformSpeed, double x,
             double y) {
-        super(maxLoad);
+        super(maxLoad ,x , y);
         this.MIN_EXTENSION_ANGLE = MIN_EXTENSION_ANGLE;
         this.MAX_EXTENSOIN_ANGLE = MAX_EXTENSION_ANGLE;
         this.platformSpeed = platformSpeed;

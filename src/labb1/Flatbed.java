@@ -16,7 +16,7 @@ public class Flatbed extends Trailer {
      * @param y                  is the y coordinate of the flatbed
      */
     public Flatbed(int maxLoad, int MAX_NUMBER_OF_CARS, double x, double y) {
-        super(maxLoad);
+        super(maxLoad, x, y);
         this.MAX_NUMBER_OF_CARS = MAX_NUMBER_OF_CARS;
         this.loadable = new Loadable(MAX_NUMBER_OF_CARS, x, y); // Initializing a new Loadable object
     }

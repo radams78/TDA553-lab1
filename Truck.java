@@ -3,7 +3,7 @@ import java.awt.Color;
 
 public abstract class Truck extends Vehicle{
     
-    private Platform platform;
+    protected Platform platform;
     private final static double slowFactor = 0.8;
 
     public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y, Platform 
@@ -52,14 +52,19 @@ public abstract class Truck extends Vehicle{
 
 
     public void platformUp(int state) {
-
-        platform.platformUp(state);
+        if (this.getCurrentSpeed()==0){
+            platform.platformUp(state);
+        }
+        else{
+            System.out.println("Cant raise the platform while moving");
+        }
     }
-
-
     public void platfromDown(int state) {
-
+        if (this.getCurrentSpeed()==0){
         platform.platfromDown(state);
+        }
+        else{
+            System.out.println("Cant lower the platform while moving");
+        }
     }
-  
 }

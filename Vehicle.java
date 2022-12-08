@@ -20,10 +20,10 @@ public abstract class Vehicle implements Movable{
         this.modelName = modelName;
         this.x = x;
         this.y = y;
-        this.currentDirection = 3;
+        this.currentDirection = 1;
     }
 
-    private void setCurrentSpeed(double currentSpeed) {
+    protected void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
@@ -44,7 +44,7 @@ public abstract class Vehicle implements Movable{
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    protected double getCurrentSpeed(){
      
         return currentSpeed;
     }
@@ -69,6 +69,7 @@ public abstract class Vehicle implements Movable{
 
     public void incrementSpeed(double amount){
         this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * Math.max(amount, 0), this.getEnginePower()));
+        System.out.println(currentSpeed +"currentSpeed");
     }
 
    
@@ -114,21 +115,25 @@ public abstract class Vehicle implements Movable{
     }
 
     public void direction(){
+        
         switch(this.currentDirection){
             case 0:
                 this.setY(this.y + currentSpeed);
+                
                 break;
 
             case 1:
                 this.setX(this.x + currentSpeed);
+           
                 break;
 
             case 2:
                 this.setY(this.y-currentSpeed);
+                
                 break;
 
             case 3:
-                this.setX(this.y -currentSpeed);
+                this.setX(this.x -currentSpeed);
                 break;
         }
     }

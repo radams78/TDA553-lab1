@@ -20,5 +20,22 @@ public class Scania extends Truck{
         }
     }
 
+    @Override
+    public void gas(double amount) throws Exception{
+        if (amount > 1 || amount < 0){
+            throw new IllegalArgumentException("Only accepts values of 1 and 0");
+        }
+        else { if (platform.getPlatformState() == 0){
+            incrementSpeed(amount);
+        }
+        }
+    }
+    @Override
+    public void startEngine(){
+        if (platform.getPlatformState()== 0){
+        this.setCurrentSpeed((0.1));
+        }
+    }
+
     
 }

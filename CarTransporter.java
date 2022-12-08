@@ -42,4 +42,21 @@ public class CarTransporter extends Truck implements CarLoadable {
       
         return load.getCars();
     }
+
+    @Override
+    public void gas(double amount) throws Exception{
+        if (amount > 1 || amount < 0){
+            throw new IllegalArgumentException("Only accepts values of 1 and 0");
+        }
+        else { if (platform.getPlatformState() == 1){
+            incrementSpeed(amount);
+        }
+        }
+    }
+    @Override
+    public void startEngine(){
+        if (platform.getPlatformState()== 1){
+        this.setCurrentSpeed((0.1));
+        }
+    }
 }

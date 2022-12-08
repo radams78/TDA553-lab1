@@ -1,7 +1,7 @@
 package src;
 import java.awt.*;
 
-public class Scania extends Vehicle implements IPlatform{
+public class Scania extends Vehicle {
 
     public AnglePlatform garbagePlatform;
 

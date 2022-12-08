@@ -22,7 +22,7 @@ public class AssetHandler {
         if (assetNameMap.containsKey(name)) {
             return assetNameMap.get(name);
         }else   {
-            throw new IllegalArgumentException("Name doesnt exist");
+            throw new IllegalArgumentException("Name "+ name + " doesnt exist");
         }
     }
 
@@ -36,7 +36,7 @@ public class AssetHandler {
                     .read(DrawPanel.class.getResourceAsStream("pics/" + modelName + ".jpg"));
             return image;
         } catch (IOException e) {
-            throw new RuntimeException("Image doesnt exist. Name might be wrong");
+            throw new RuntimeException("Image with the name " + modelName + " doesnt exist.");
             // return new BufferedImage(1, 1, 1);
         }
     }
@@ -46,7 +46,7 @@ public class AssetHandler {
             //might need to make this safe
             return assetPointMap.get(point);
         }else{
-            throw new IllegalArgumentException("point does not exist");
+            throw new IllegalArgumentException("point " + point +" does not exist in hash");
         }
     }
 

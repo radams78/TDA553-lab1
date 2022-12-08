@@ -64,8 +64,8 @@ public class DrawPanel extends JPanel implements Observer {
         refresh();
         for (Vehicle vehicle : model.getVehicles()) {
 
-            int x = (int) Math.round(vehicle.getX());
-            int y = (int) Math.round(vehicle.getY());
+            int x = (int) Math.round(vehicle.getY());
+            int y = (int) Math.round(vehicle.getX());
             Point point = new Point(x, y);
             points.add(point);
             bindImages(vehicle, point);

@@ -48,6 +48,14 @@ public abstract class Vehicle implements Movable {
         stopEngine();
     }// Constructor
 
+    public double getDirectionX() {
+        return direction[0];
+    }
+
+    public double getDirectionY() {
+        return direction[1];
+    }
+
     /**
      * 
      * @return the number of doors on the vehicle
@@ -99,7 +107,6 @@ public abstract class Vehicle implements Movable {
     public double getY() {
         return y;
     }
-
 
     /**
      * @return the color of the vehicle

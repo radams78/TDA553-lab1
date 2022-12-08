@@ -91,6 +91,17 @@ public class CarsModel {
             car.startEngine();
         }
     }
+
+
+    public void turnOnTurbo(){
+        for (Vehicle car : vehicles){
+            try{
+                car.setTurboOn();
+            }catch (IllegalArgumentException e){
+                System.out.println(e);
+            }
+        }
+    }
     //TODO make more method listeners from the controller
 
 }

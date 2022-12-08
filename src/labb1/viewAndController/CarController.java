@@ -5,7 +5,6 @@ import java.awt.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -102,8 +101,6 @@ public class CarController {
         view.add(startButton);
     }
 
-
-
     private void initStopButton() {
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
@@ -140,7 +137,6 @@ public class CarController {
             }
         });
 
-
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -149,6 +145,12 @@ public class CarController {
             }
         });
 
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.turnOnTurbo();
+            }
+        });
     }
 
 }

@@ -60,6 +60,8 @@ public class CarView extends JFrame implements Observer {
         // Get the computer screen resolution
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         // Center the frame
+
+        //TODO make this nicer
         this.setLocation(dim.width / 2 - this.X / 2, dim.height / 2 - this.Y / 2);
         // Make the frame visible
         this.setVisible(true);

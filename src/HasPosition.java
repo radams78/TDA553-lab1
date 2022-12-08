@@ -15,7 +15,7 @@ public class HasPosition {
         this.yCoordinate = yCoordinate;
         this.dX = 0;
         this.dY = 0;
-        this.currentDirectionRadian = PI/2;
+        this.currentDirectionRadian = 0;
     }
     public void updateCoordinate(){
         

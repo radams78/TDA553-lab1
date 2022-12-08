@@ -76,6 +76,12 @@ public abstract class Truck extends Vehicle {
         trailer.retractPlatform();
     }// getTrailer()
 
+    @Override
+    public void move(){
+        super.move();
+        trailer.linkPosition(getX(),getY());
+    }
+
     /**
      * Part of the class contract. SUbclass must implement speedFactor
      */

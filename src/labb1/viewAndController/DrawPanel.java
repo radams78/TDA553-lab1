@@ -43,24 +43,25 @@ public class DrawPanel extends JPanel implements Observer {
 
     @Override
     public void update() {
-        
         redrawPoints();
         repaint();
+        // handler = new AssetHandler();
         
     }
 
   
     public void refresh(){
-        points.clear();
+        points = new ArrayList<Point>();
+        handler.refresh();
     }
 
     private void bindImages(Vehicle vehicle, Point point) {
         handler.bindPointToNamedImage(vehicle.getModelName(), point);
     }
 
-    // TODO: Make this genereal for all cars
+    
     private void redrawPoints() {
-        points = new ArrayList<Point>();
+        refresh();
         for (Vehicle vehicle : model.getVehicles()) {
 
             int x = (int) Math.round(vehicle.getX());

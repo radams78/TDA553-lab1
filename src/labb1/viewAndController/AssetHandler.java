@@ -51,14 +51,11 @@ public class AssetHandler {
     }
 
 
-
-
-    public void removePoint(Point point){
-        if (assetPointMap.containsKey(point)) {
-            assetPointMap.remove(point);
-        }else{
-            throw new IllegalArgumentException("point does not exist");
-        }
+    public void refresh(){
+        assetPointMap = new HashMap<Point, BufferedImage>();
     }
+
+
+
 
 }

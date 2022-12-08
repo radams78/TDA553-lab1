@@ -156,5 +156,4 @@ abstract class Car implements Movable {
     public boolean isCarInStorage() {
         return carInStorage;
     }
-    
 }

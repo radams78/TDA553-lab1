@@ -1,6 +1,6 @@
 // --- Package --- //
 
-package set;
+package set.MVC;
 
 
 // --- Imports --- //
@@ -8,9 +8,13 @@ package set;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import set.MVC.Model.Vehicles;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -22,7 +26,7 @@ import java.awt.event.ActionListener;
 
 // --- Class --- //
 
-public class CarView extends JFrame{
+public class CarView extends JFrame implements Observer{
     private static final int X = 800;
     private static final int Y = 800;
 
@@ -47,11 +51,14 @@ public class CarView extends JFrame{
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
-
+    ArrayList<Vehicles> vehicles;
     // Constructor
     public CarView(String framename, CarController cc){
         this.carC = cc;
         initComponents(framename);
+    }
+    public void updateVehiclesList(ArrayList<Vehicles> vehicles){
+        this.vehicles = vehicles;
     }
 
     // Sets everything in place and fits everything
@@ -112,7 +119,7 @@ public class CarView extends JFrame{
         startButton.addActionListener(new ActionListener() {
             @Override 
             public void actionPerformed(ActionEvent e) {
-                carC.startEngine();;
+                carC.startEngine();
             }
         });
         // ADDED OWN ACTIONLISTENER BY HUFFLA

@@ -6,7 +6,8 @@ package set;
 
 import org.junit.Before;
 import org.junit.Test;
-import set.Volvo240;
+
+import set.MVC.Model.Volvo240;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertThrows;

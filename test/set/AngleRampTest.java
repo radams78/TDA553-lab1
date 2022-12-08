@@ -6,7 +6,8 @@ package set;
 
 import org.junit.Before;
 import org.junit.Test;
-import set.AngleRamp;
+
+import set.MVC.Model.AngleRamp;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

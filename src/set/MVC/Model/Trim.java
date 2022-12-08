@@ -2,14 +2,14 @@
 
 // --- Packages --- //
 
-package set;
+package set.MVC.Model;
 
 
 // --- Imports --- //
 
 // --- Class --- //
 
-public class Trim {
+ public class Trim {
     
     private Double trimFactor;
     

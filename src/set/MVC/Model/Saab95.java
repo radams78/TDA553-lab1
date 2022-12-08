@@ -3,7 +3,7 @@
 
 // --- Packages --- //
 
-package set;
+package set.MVC.Model;
 
 
 // --- Imports --- //
@@ -14,7 +14,7 @@ import java.awt.*;
 
 // ---- Class ---- //
 
-public class Saab95 extends Car {
+ public class Saab95 extends Car {
     
     private Turbo turbo;
     

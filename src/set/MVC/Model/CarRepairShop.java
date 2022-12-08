@@ -1,15 +1,13 @@
 // --- Packages --- //
 
-package set;
+package set.MVC.Model;
 
-// ---- Imports ---- //
-
-import set.Loadable;
+import set.MVC.Model.Loadable;
 
 
 // ----- Class ----- //
 
-public class CarRepairShop {
+ public class CarRepairShop {
     
     private double x;
     private double y;

@@ -3,18 +3,17 @@
 
 // --- Packages --- //
 
-package set;
+package set.MVC.Model;
 
 
-// --- Imports --- //
-
-import set.AngleRamp;
 import java.awt.*;
+
+import set.MVC.Model.AngleRamp;
 
 
 // ---- Class ---- //
 
-public class Scania extends Truck{
+ public class Scania extends Truck{
 
     private AngleRamp ramp;
 

@@ -3,7 +3,7 @@
 
 // --- Packages --- //
 
-package set;
+package set.MVC.Model;
 
 
 // --- Imports --- //
@@ -12,7 +12,7 @@ import java.awt.*;
 
 // ---- Class ---- //
 
-public abstract class Truck extends Vehicles{
+ public abstract class Truck extends Vehicles{
 
 
     // --- Constructor --- //

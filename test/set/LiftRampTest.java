@@ -7,7 +7,8 @@ package set;
 
 import org.junit.Before;
 import org.junit.Test;
-import set.LiftRamp;
+
+import set.MVC.Model.LiftRamp;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

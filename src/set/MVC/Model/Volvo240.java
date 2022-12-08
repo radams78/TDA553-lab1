@@ -3,19 +3,20 @@
 
 // --- Packages --- //
 
-package set;
+package set.MVC.Model;
 
 
 // --- Imports --- //
 
 import java.awt.*;
 import java.nio.channels.Pipe;
-import set.Trim;
+
+import set.MVC.Model.Trim;
 
 
 // ---- Class ---- //
 
-public class Volvo240 extends Car {
+ public class Volvo240 extends Car {
     
     private Trim trimCar;
     

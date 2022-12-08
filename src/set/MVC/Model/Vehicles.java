@@ -3,7 +3,7 @@
 
 // -- Packages -- //
 
-package set;
+package set.MVC.Model;
 
 
 // --- Imports --- //

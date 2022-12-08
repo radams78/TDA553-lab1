@@ -3,14 +3,14 @@
 
 // --- Packages --- //
 
-package set;
+package set.MVC.Model;
 
 // --- Imports --- //
 
 
 // --- Class --- //
 
-public class AngleRamp {
+ public class AngleRamp {
     private int rampAngle;
     private static final int angleSpeed = 15;
     private int maxAngle;

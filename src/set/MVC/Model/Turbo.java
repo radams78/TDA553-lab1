@@ -3,13 +3,13 @@
 
 // --- Packages --- //
 
-package set;
+package set.MVC.Model;
 
 // --- Imports --- //
 
 // --- Class --- //
 
-public class Turbo {
+ public class Turbo {
     
     private boolean turbo;
     

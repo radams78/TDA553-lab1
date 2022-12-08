@@ -1,0 +1,71 @@
+package set.MVC;
+import java.awt.event.ActionListener;
+import java.lang.ModuleLayer.Controller;
+import java.util.ArrayList;
+
+import javax.swing.*;
+
+import org.junit.platform.console.shadow.picocli.CommandLine.Model;
+
+import set.MVC.Model.ModelHead;
+import set.MVC.Model.Vehicles;
+import set.MVC.Model.Volvo240;
+import java.awt.*;
+import java.awt.event.ActionListener;
+public class Program {
+    
+    
+    
+    
+    private final int delay = 50;
+    
+    
+    public static void main(String[] args) {
+
+        ModelHead model = new ModelHead();
+        model.createStandardModel();
+        CarController controller = new CarController(model);
+        CarView view = new CarView("car game", controller);
+        
+        model.addToObservers(controller);
+        model.addToObservers(view);
+        model.addToObservers(view.drawPanel);
+
+
+
+        
+        /*// Instance of this class
+        private Timer timer = new Timer(delay, new ActionListener());
+        
+        ModelHead modelhead = new ModelHead();
+        CarController controller = new CarController(modelhead);
+    
+        CarView frame = new CarView("CarSim 1.0", controller);
+        
+        
+
+        modelhead.createVolvo();
+        modelhead.createSaab();
+        modelhead.createScania();
+
+        ArrayList<Vehicles> vehicles = modelhead.getVehicleList();
+        vehicles.get(0).setCoordinates(0, 50);
+        vehicles.get(1).setCoordinates(100, 150);  // For clarity
+        vehicles.get(2).setCoordinates(0, 100);
+
+
+        // Start a new view and send a reference of self
+        
+
+        // Start the timer
+        controller.timer.start();
+         */
+
+
+
+        // 
+
+
+        
+    }
+}

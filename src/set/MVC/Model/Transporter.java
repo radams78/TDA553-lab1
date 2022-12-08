@@ -3,18 +3,20 @@
 
 // --- Packages --- //
 
-package set;
+package set.MVC.Model;
 
 // ---- Imports ---- //
 
 import java.awt.*;
 import java.util.ArrayList;
+
+import set.MVC.Model.Loadable;
+
 import java.math.*;
-import set.Loadable;
 
 // ----- Class ----- //
 
-public class Transporter extends Truck{
+ public class Transporter extends Truck{
 
     private LiftRamp ramp;
     private Loadable loadingSpace;

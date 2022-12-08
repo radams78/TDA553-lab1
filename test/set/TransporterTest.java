@@ -7,7 +7,10 @@ package set;
 
 import org.junit.Before;
 import org.junit.Test;
-import set.Transporter;
+
+import set.MVC.Model.Car;
+import set.MVC.Model.Transporter;
+import set.MVC.Model.Volvo240;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;

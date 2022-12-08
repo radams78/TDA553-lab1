@@ -7,7 +7,8 @@ package set;
 
 import org.junit.Before;
 import org.junit.Test;
-import set.Scania;
+
+import set.MVC.Model.Scania;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;

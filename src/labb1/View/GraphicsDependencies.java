@@ -1,4 +1,4 @@
-package labb1.viewAndController;
+package labb1.View;
 
 public class GraphicsDependencies {
     private static final int X = 800;

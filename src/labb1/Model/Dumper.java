@@ -1,4 +1,4 @@
-package labb1;
+package labb1.Model;
 
 /**
  * Class for Dumper. Extends Trailer. Composition and delegation on Loadable.

@@ -1,6 +1,8 @@
-package labb1.viewAndController;
+package labb1.View;
 
 import javax.swing.*;
+
+import labb1.Model.CarsModel;
 
 import java.awt.*;
 

@@ -1,11 +1,10 @@
-package labb1.viewAndController;
-
-import labb1.Car;
-import labb1.Truck;
-import labb1.Vehicle;
+package labb1.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import labb1.View.GraphicsDependencies;
+import labb1.View.Observer;
 
 
 public class CarsModel {

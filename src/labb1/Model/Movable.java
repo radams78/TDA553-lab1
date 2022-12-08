@@ -1,4 +1,4 @@
-package labb1;
+package labb1.Model;
 
 /**
  * Superclass contract for any movable object

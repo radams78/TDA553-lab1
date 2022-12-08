@@ -1,4 +1,4 @@
-package labb1;
+package labb1.Model;
 
 /**
  * Class of the type CarRepairShop. Can unload and unload a car. Uses

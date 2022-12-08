@@ -1,4 +1,4 @@
-package labb1;
+package labb1.Model;
 
 /**
  * Abstract superclass for Trailer

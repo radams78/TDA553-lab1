@@ -1,9 +1,13 @@
-package labb1.viewAndController;
+package labb1.Controller;
 
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import labb1.Model.CarsModel;
+import labb1.View.CarView;
+import labb1.View.GraphicsDependencies;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

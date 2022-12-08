@@ -1,4 +1,4 @@
-package labb1;
+package labb1.Model;
 
 public interface Positionable {
     double getX();

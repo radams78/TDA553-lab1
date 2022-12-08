@@ -1,4 +1,4 @@
-package labb1.viewAndController;
+package labb1.View;
 
 import java.util.HashMap;
 

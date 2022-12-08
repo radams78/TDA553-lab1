@@ -1,4 +1,4 @@
-package labb1;
+package labb1.Model;
 
 /**
  * Class for Flatbed. Extends trailer. Composition and delegation on Loadable.

@@ -1,10 +1,11 @@
-package labb1.viewAndController;
+package labb1.View;
 
 import java.awt.*;
 
 import javax.swing.*;
 
-import labb1.Vehicle;
+import labb1.Model.CarsModel;
+import labb1.Model.Vehicle;
 
 import java.util.ArrayList;
 

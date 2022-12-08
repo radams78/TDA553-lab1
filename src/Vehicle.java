@@ -19,7 +19,6 @@ public abstract class Vehicle extends HasPosition implements Movable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-        // KANSKE SKA TA BORT this.isLoadable = isLoadable;
     }
 
     @Override
@@ -37,26 +36,29 @@ public abstract class Vehicle extends HasPosition implements Movable {
     @Override
     public void move() {
         updateCoordinate();
-        //this.pickupRectangle.x = (int)getX();
-        //this.pickupRectangle.y = (int)getY();
 
     }
 
     public void incrementSpeed(double amount){
         if (getCurrentSpeed() < getEnginePower()) {
             setCurrentSpeed(getCurrentSpeed() + speedFactor() *amount);
+            setCurrentDirection(getCurrentSpeed());
             }
         else {
             setCurrentSpeed(getEnginePower());
+            setCurrentDirection(getCurrentSpeed());
         }
     }
 
     public void decrementSpeed(double amount) {
         if(getCurrentSpeed() >= 0){
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+        setCurrentDirection(getCurrentSpeed());
+
         }
         else{
             setCurrentSpeed(0);
+            setCurrentDirection(getCurrentSpeed());
         }
     }
 
@@ -67,12 +69,6 @@ public abstract class Vehicle extends HasPosition implements Movable {
     public void setCurrentSpeed(double newSpeed){
         this.currentSpeed = newSpeed;
     }
-
-    /*  KANSKE SKA TA BORT
-    public Boolean getIsLoadableBoolean() {
-        return isLoadable;
-    }
-    */
 
     public double getEnginePower() {
         return enginePower;

@@ -4,11 +4,10 @@ import labb1.Car;
 import labb1.Saab95;
 import labb1.Scania;
 import labb1.Truck;
-import labb1.Vehicle;
 import labb1.Volvo240;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Timer;
+
 
 //TODO clean up and commenting for all methods
 

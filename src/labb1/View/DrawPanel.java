@@ -10,8 +10,6 @@ import labb1.Model.Vehicle;
 import java.util.ArrayList;
 
 // This panel represent the animated part of the view with the car images.
-//TODO reformatting
-
 public class DrawPanel extends JPanel implements Observer {
 
     CarsModel model;
@@ -27,6 +25,9 @@ public class DrawPanel extends JPanel implements Observer {
         update();
     }
 
+     /**
+      * Adds an image to the disctionary for images and names
+      */
     private void addImages() {
         for (Vehicle vehicle : model.getVehicles()) {
 
@@ -35,6 +36,9 @@ public class DrawPanel extends JPanel implements Observer {
         }
     }
 
+    /**
+     * This method updates the screen
+     */
     @Override
     public void update() {
         redrawPoints();
@@ -47,10 +51,18 @@ public class DrawPanel extends JPanel implements Observer {
         handler.refresh();
     }
 
+    /**
+     * This method binds a point to a specific image generated from a vehicle
+     * @param vehicle
+     * @param point
+     */
     private void bindImages(Vehicle vehicle, Point point) {
         handler.bindPointToNamedImage(vehicle.getModelName(), point);
     }
 
+    /**
+     * This method redraws the points to their respective places
+     */
     private void redrawPoints() {
         refresh();
         for (Vehicle vehicle : model.getVehicles()) {

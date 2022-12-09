@@ -11,60 +11,39 @@ import java.util.ArrayList;
 * modifying the model state and the updating the view.
  */
 
-public class CarController {
+public class CarController extends JFrame{
     // member fields:
+    JButton gasButton = new JButton("Gas");
+    JButton brakeButton = new JButton("Brake");
+    JButton turboOnButton = new JButton("Saab Turbo on");
+    JButton turboOffButton = new JButton("Saab Turbo off");
+    JButton liftBedButton = new JButton("Scania Lift Bed");
+    JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    // The delay (ms) corresponds to 20 updates a sec (hz)
+    JButton startButton = new JButton("Start all cars");
+    JButton stopButton = new JButton("Stop all cars");
+
+     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
-
-
-    // The frame that represents this instance View of the MVC pattern
-    CarView frame;
+    Timer timer = new Timer(delay, new TimerListener());
+    
     // A list of cars, modify if needed
-    ArrayList<Vehicle> cars = new ArrayList<>();
+    ArrayList<Vehicle> cars;
 
-    //methods:
+     // The frame that represents this instance View of the MVC pattern
+    CarView frame;
 
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
-
-        cc.cars.add(new Volvo240(0, 10));
-        cc.cars.add(new Saab95(0, 110));
-        cc.cars.add(new Scania(0, 210));
-
-
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
-
-        // Start the timer
-        cc.timer.start();
+    // Constructor
+    public CarController(ArrayList<Vehicle> listOfVehicles) {
+        this.cars = listOfVehicles;
     }
 
-    /* Each step the TimerListener moves all the cars in the list and tells the
-    * view to update its images. Change this method to your needs.
-    * */
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Vehicle car : cars) {
-                car.move();
-                int x = (int) Math.round(car.getX());
-                int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(x, y);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
-            }
-        }
-    }
-
-    // Calls the gas method for each car once
+        // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Vehicle car : cars
-                ) {
+        for (Vehicle car : cars) {
             car.gas(gas);
         }
     }
@@ -82,6 +61,47 @@ public class CarController {
         for (Vehicle car : cars
                 ) {
             car.brake(brek);
+        }
+    }
+    // This actionListener is for the gas button only
+        // TODO: Create more for each component as necessary
+   /*     gasButton.addActionListener(new ActionListener(int amount) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gas(amount); //// DEN HÄR FINNS I CAR VIEW, ska få in i CarController tsm med alla panelgrejer
+            }
+        });
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event){
+                startEngine();
+            }
+            
+        });
+
+        brakeButton.addActionListener(new ActionListener(int amount) {
+            @Override
+            public void actionPerformed(ActionEvent event){
+                brake(amount);
+            }
+            
+        });
+*/
+    //methods:   
+        /* Each step the TimerListener moves all the cars in the list and tells the
+    * view to update its images. Change this method to your needs.
+    * */
+    private class TimerListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            for (Vehicle car : cars) {
+                car.move();
+                int x = (int) Math.round(car.getX());
+                int y = (int) Math.round(car.getY());
+                frame.drawPanel.moveit(x, y);
+                // repaint() calls the paintComponent method of the panel
+                frame.drawPanel.repaint();
+            }
         }
     }
 }

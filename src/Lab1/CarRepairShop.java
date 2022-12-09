@@ -27,7 +27,7 @@ public class CarRepairShop implements ICanLoad {
     }
 
     public void load(ILoadable loadable) {
-        loadable.load(this);
+        loadable.loadOnto(this);
     }
 
     // TODO We might want to move this to the loadable object
@@ -49,7 +49,7 @@ public class CarRepairShop implements ICanLoad {
 
     public void unload(ILoadable loadable) {
         loadedObjects.remove(loadable);
-        loadable.unload(this);
+        loadable.unloadFrom(this);
     }
 
     public double getPosX() {

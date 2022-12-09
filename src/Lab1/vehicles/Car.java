@@ -9,7 +9,7 @@ public abstract class Car extends Vehicle implements ILoadable {
         super(nrDoors, enginePower, color, modelName);
     }
 
-    public void load(ICanLoad loaderObject) {
+    public void loadOnto(ICanLoad loaderObject) {
         if (loaderObject.getDistanceTo(this) <= loaderObject.getRadius()) {
             stopEngine();
             moveToCoords(loaderObject.getPosX(), loaderObject.getPosY());
@@ -19,7 +19,7 @@ public abstract class Car extends Vehicle implements ILoadable {
         }
     }
 
-    public void unload(ICanLoad loaderObject) {
+    public void unloadFrom(ICanLoad loaderObject) {
         Random randomizer = new Random();
         moveToCoords(loaderObject.getPosX() + randomizer.nextDouble(-2, 2),
                 loaderObject.getPosY() + randomizer.nextDouble(-2, 2));

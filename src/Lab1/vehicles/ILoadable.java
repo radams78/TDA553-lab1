@@ -1,9 +1,9 @@
 package Lab1.vehicles;
 
 public interface ILoadable {
-    public void load(ICanLoad load);
+    public void loadOnto(ICanLoad load);
 
-    public void unload(ICanLoad load);
+    public void unloadFrom(ICanLoad load);
 
     public double getPosX();
 

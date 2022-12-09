@@ -1,33 +1,15 @@
 package set.MVC;
-import java.awt.event.ActionListener;
-import java.lang.ModuleLayer.Controller;
-import java.util.ArrayList;
-
-import javax.swing.*;
-
-import org.junit.platform.console.shadow.picocli.CommandLine.Model;
 
 import set.MVC.Model.ModelHead;
-import set.MVC.Model.Vehicles;
-import set.MVC.Model.Volvo240;
-import java.awt.*;
-import java.awt.event.ActionListener;
+
 public class Program {
-    
-    
-    
-    
-    private final int delay = 50;
-    
     
     public static void main(String[] args) {
 
         ModelHead model = new ModelHead();
         model.createStandardModel();
-        CarController controller = new CarController(model);
-        CarView view = new CarView("car game", controller);
-        
-        model.addToObservers(controller);
+        CarController view = new CarController("car game", model);
+
         model.addToObservers(view);
         model.addToObservers(view.drawPanel);
         model.run();

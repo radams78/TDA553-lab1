@@ -29,11 +29,6 @@ public class DrawPanel extends JPanel implements Observer{
     BufferedImage volvoImage;
     BufferedImage scaniaImage;
     BufferedImage saabImage;
-
-    Point point = new Point();
-    Point volvoPoint = new Point();
-    Point saabPoint = new Point();
-    Point scaniaPoint = new Point();
     ArrayList<Vehicles> vehicles = new ArrayList<Vehicles>();
     
 
@@ -45,23 +40,8 @@ public class DrawPanel extends JPanel implements Observer{
         this.vehicles = vehicles;
     }
     // TODO: Make this genereal for all cars
-    void moveit(int x, int y){
-        point.x = x;
-        point.y = y;
-    }
-    public void moveSaab(int x,int y){
-        saabPoint.x = x;
-        saabPoint.y = y;
-    }
-    public void moveScania(int x,int y){
-        scaniaPoint.x = x;
-        scaniaPoint.y = y;
-
-    }
-    public void moveVolvo(int x,int y){
-        volvoPoint.x = x;
-        volvoPoint.y = y;
-    }
+    
+    
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
@@ -89,6 +69,8 @@ public class DrawPanel extends JPanel implements Observer{
 
     // This method is called each time the panel updates/refreshes/repaints itself
     // TODO: Change to suit your needs.
+    // Does not follow the open closed principle, better if every type of vehicle was matched with an image in
+    // a hashmap or a tuple, so that you do not have to check the instance of every car.
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -96,10 +78,11 @@ public class DrawPanel extends JPanel implements Observer{
             if (vehicle instanceof Saab95){
                 g.drawImage(saabImage, (int)vehicle.getXPosition(), (int)vehicle.getYPosition(), null);
             } else if(vehicle instanceof Scania){
-                g.drawImage(scaniaImage, (int)vehicle.getXPosition(), (int)vehicle.getXPosition(), null);
+                g.drawImage(scaniaImage, (int)vehicle.getXPosition(), (int)vehicle.getYPosition(), null);
             } else if (vehicle instanceof Volvo240){
                 g.drawImage(volvoImage,  (int)vehicle.getXPosition(), (int)vehicle.getYPosition(), null);
             } 
+        this.repaint();
         }
 
         

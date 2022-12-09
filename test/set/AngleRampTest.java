@@ -10,9 +10,6 @@ import org.junit.Test;
 import set.MVC.Model.AngleRamp;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.awt.*;
 
 
 // --- Tests --- //

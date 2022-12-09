@@ -2,86 +2,154 @@
 
 package set.MVC;
 
+
 // --- Imports --- //
 
 import javax.swing.*;
-
-import org.junit.jupiter.api.function.ThrowingSupplier;
-import org.junit.jupiter.params.provider.EnumSource.Mode;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import set.MVC.Model.ModelHead;
-import set.MVC.Model.Saab95;
-import set.MVC.Model.Scania;
 import set.MVC.Model.Vehicles;
-import set.MVC.Model.Volvo240;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-/*
-* This class represents the Controller part in the MVC pattern.
-* It's responsibilities is to listen to the View and responds in a appropriate manner by
-* modifying the model state and the updating the view.
- */
+/**
+ * This class represents the full view of the MVC pattern of your car simulator.
+ * It initializes with being center on the screen and attaching it's controller in it's state.
+ * It communicates with the Controller by calling methods of it when an action fires of in
+ * each of it's components.
+ * 
+ **/
 
- // --- Class --- //
+// --- Class --- //
 
-public class CarController implements Observer{
+public class CarController extends JFrame implements Observer{
+    private static final int X = 800;
+    private static final int Y = 800;
 
-    // member fields:
+    // The controller member
+    ModelHead model;
 
-    
+    DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
-    // The frame that represents this instance View of the MVC pattern
-    CarView frame;
-    // A list of cars, modify if needed
+    JPanel controlPanel = new JPanel();
+
+    JPanel gasPanel = new JPanel();
+    JSpinner gasSpinner = new JSpinner();
+    int gasAmount = 0;
+    JLabel gasLabel = new JLabel("Amount of gas");
+
+    JButton gasButton = new JButton("Gas");
+    JButton brakeButton = new JButton("Brake");
+    JButton turboOnButton = new JButton("Saab Turbo on");
+    JButton turboOffButton = new JButton("Saab Turbo off");
+    JButton liftBedButton = new JButton("Scania Lift Bed");
+    JButton lowerBedButton = new JButton("Lower Lift Bed");
+
+    JButton startButton = new JButton("Start all cars");
+    JButton stopButton = new JButton("Stop all cars");
     ArrayList<Vehicles> vehicles;
-    ModelHead modelHead;
-    
-    public CarController(ModelHead modelhead){
-        this.modelHead = modelhead;
+    // Constructor
+    public CarController(String framename, ModelHead model){
+        this.model = model;
+        initComponents(framename);
     }
     public void updateVehiclesList(ArrayList<Vehicles> vehicles){
         this.vehicles = vehicles;
     }
 
-    //methods:
+    // Sets everything in place and fits everything
+    // 
+    private void initComponents(String title) {
 
-    
+        this.setTitle(title);
+        this.setPreferredSize(new Dimension(X,Y));
+        this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
-    /* Each step the TimerListener moves all the cars in the list and tells the
-    * view to update its images. Change this method to your needs.
-    * 
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Vehicles vehicle : vehicles) {
-                
-                vehicle.move();
-                System.out.println(vehicle.getCurrentSpeed());
-                System.out.println(vehicle);
-                int x = (int) Math.round(vehicle.getXPosition());
-                int y = (int) Math.round(vehicle.getYPosition());
-                
-                // VERY BAD CODE BUT I ONLY WANT THE FIRST PART TO WORK BEFORE WE REFACTOR
-                // Does not follow the openclosed principle, would need to add new code to paint another type of vehicle
-               
+        this.add(drawPanel);
+
+
+
+        SpinnerModel spinnerModel =
+                new SpinnerNumberModel(0, //initial value
+                        0, //min
+                        100, //max
+                        1);//step
+        gasSpinner = new JSpinner(spinnerModel);
+        gasSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
             }
-            
-        }
+        });
+
+        gasPanel.setLayout(new BorderLayout());
+        gasPanel.add(gasLabel, BorderLayout.PAGE_START);
+        gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
+
+        this.add(gasPanel);
+
+        controlPanel.setLayout(new GridLayout(2,4));
+
+        controlPanel.add(gasButton, 0);
+        controlPanel.add(turboOnButton, 1);
+        controlPanel.add(liftBedButton, 2);
+        controlPanel.add(brakeButton, 3);
+        controlPanel.add(turboOffButton, 4);
+        controlPanel.add(lowerBedButton, 5);
+        controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
+        this.add(controlPanel);
+        controlPanel.setBackground(Color.CYAN);
+
+
+        startButton.setBackground(Color.blue);
+        startButton.setForeground(Color.green);
+        startButton.setPreferredSize(new Dimension(X/5-15,200));
+        this.add(startButton);
+
+
+        stopButton.setBackground(Color.red);
+        stopButton.setForeground(Color.black);
+        stopButton.setPreferredSize(new Dimension(X/5-15,200));
+        this.add(stopButton);
+        
+        // ADDED OWN ACTIONLISTENER BY HUFFLA
+        startButton.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+                model.startEngines();
+            }
+        });
+        // ADDED OWN ACTIONLISTENER BY HUFFLA
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.stopEngines();
+            }
+        });
+
+        // This actionListener is for the gas button only
+        // 
+        gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.gasVehicles(gasAmount);
+            }
+        });
+
+        // Make the frame pack all it's components by respecting the sizes if possible.
+        this.pack();
+
+        // Get the computer screen resolution
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        // Center the frame
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        // Make the frame visible
+        this.setVisible(true);
+        // Make sure the frame exits when "x" is pressed
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-*/
-    // Calls the gas method for each car once
-    void gas(int amount) {
-        modelHead.gasVehicles(amount);
-    }
-    void startEngine(){
-        modelHead.startEngines();
-    }
-    
-    void stopEngine(){
-        modelHead.stopEngines();
-    }
-    
 }

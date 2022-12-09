@@ -11,7 +11,7 @@ import set.MVC.Model.Volvo240;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 import java.awt.*;
 

@@ -18,13 +18,13 @@ public class ModelHead {
         
     }
     public void createScania(){
-        vehicles.add(factory.createScania(2, Color.black, 100, "null", 70));
+        vehicles.add(factory.createScania(2, Color.black, 100, "null", 70 ,0,200 ));
     }
     public void createSaab(){
-        vehicles.add(factory.createSaab(4, Color.black, 100, "null"));
+        vehicles.add(factory.createSaab(4, Color.black, 100, "null", 0, 100));
     }
     public void createVolvo(){
-        vehicles.add(factory.createVolvo(4, Color.black, 100, "null"));
+        vehicles.add(factory.createVolvo(4, Color.black, 100, "null", 0, 0));
     }
     public ArrayList<Vehicles> getVehicleList(){
         return vehicles;
@@ -79,7 +79,7 @@ public class ModelHead {
             sendObserverSignal();
             moveVehicles(); //ADDED NOW FOR TEST
             try {
-                Thread.sleep(500);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 
                 System.out.println("Not work");
@@ -87,34 +87,4 @@ public class ModelHead {
         }
     }
     
-    /*
-    public void turnTurboOn(){
-        for (Vehicles vehicle : vehicles){
-            if (vehicle instanceof Saab95){
-                
-                
-            }
-        }
-    }
-    public void turnTurboOff(){
-        for (Vehicles vehicle : vehicles){
-            if (vehicle instanceof Saab95){
-                
-            }
-        }
-    }
-    public void liftScaniaBed(){
-        for (Vehicles vehicle : vehicles){
-            if (vehicle instanceof Scania){
-                
-            }
-        }
-    }
-    public void lowerScaniaBed(){
-        for (Vehicles vehicle : vehicles){
-            if (vehicle instanceof Scania){
-                
-            }
-        }
-    } */
 }

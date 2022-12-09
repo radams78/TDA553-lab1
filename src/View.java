@@ -10,7 +10,7 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class View extends JPanel{
+public class View extends JPanel implements IObserver{
 
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
@@ -68,6 +68,9 @@ public class View extends JPanel{
     // This method is called each time the panel updates/refreshes/repaints itself
     // TODO: Change to suit your needs.
     @Override
+    public void update() {
+        repaint();
+    }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // see javadoc for more info on the parameters

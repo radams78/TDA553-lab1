@@ -17,14 +17,12 @@ import java.awt.event.ActionListener;
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
-public class Controller extends JFrame{
+public class Controller extends JPanel{
     private static final int X = 800;
     private static final int Y = 800;
 
     // The controller member
     Model currentModel;
-
-    View currentView;
 
     JPanel controlPanel = new JPanel();
 
@@ -44,23 +42,14 @@ public class Controller extends JFrame{
     JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public Controller(String framename, Model currentModel, View currentView){
+    public Controller(String framename, Model currentModel){
         this.currentModel = currentModel;
-        this.currentView = currentView;
-        initComponents(framename, currentView);
+        initComponents(framename);
     }
 
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
-    private void initComponents(String title, View currentView) {
-
-        this.setTitle(title);
-        this.setPreferredSize(new Dimension(X,Y));
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-
-        this.add(currentView);
-
-
+    private void initComponents(String title) {
 
         SpinnerModel spinnerModel =
                 new SpinnerNumberModel(0, //initial value
@@ -112,17 +101,5 @@ public class Controller extends JFrame{
                 currentModel.gas(gasAmount);
             }
         });
-
-        // Make the frame pack all it's components by respecting the sizes if possible.
-        this.pack();
-
-        // Get the computer screen resolution
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        // Center the frame
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        // Make the frame visible
-        this.setVisible(true);
-        // Make sure the frame exits when "x" is pressed
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

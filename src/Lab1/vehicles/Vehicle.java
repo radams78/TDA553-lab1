@@ -63,7 +63,7 @@ public abstract class Vehicle implements IMovable {
         decrementSpeed(amount);
     }
 
-    protected void setCurrentSpeed(double currentSpeed) {
+    private void setCurrentSpeed(double currentSpeed) {
         if (currentSpeed > enginePower) {
             this.currentSpeed = enginePower;
         } else if (currentSpeed < 0d) {

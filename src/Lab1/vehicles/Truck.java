@@ -7,6 +7,8 @@ import Lab1.truckextensions.Trailer;
 public abstract class Truck extends Vehicle {
     int nrWheels;
     Trailer trailer;
+    private double currentSpeed = 0; // Current speed
+    private double enginePower; // Engine power
 
     public Truck(int nrDoors, double enginePower, Color color, String modelName, int nrWheels) {
         super(nrDoors, enginePower, color, modelName);
@@ -34,13 +36,24 @@ public abstract class Truck extends Vehicle {
         }
     }
 
-    @Override
-    protected void setCurrentSpeed(double currentSpeed) {
+    private void setCurrentSpeed(double speed) {
         if (trailer == null) {
-            super.setCurrentSpeed(currentSpeed);
+            if (speed > enginePower) {
+                this.currentSpeed = enginePower;
+            } else if (speed < 0d) {
+                this.currentSpeed = 0d;
+            } else {
+                this.currentSpeed = speed;
+            }
         } else {
             if (trailer.allowDriving()) {
-                super.setCurrentSpeed(currentSpeed);
+                if (speed > enginePower) {
+                    this.currentSpeed = enginePower;
+                } else if (speed < 0d) {
+                    this.currentSpeed = 0d;
+                } else {
+                    this.currentSpeed = speed;
+                }
             } else {
                 throw new IllegalStateException("Trailer is not allowed to drive");
             }

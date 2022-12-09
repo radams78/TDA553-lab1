@@ -16,7 +16,7 @@ public class Dumptruck implements Trailer {
         return currAngle;
     }
 
-    public void setCurrAngle(double currentAngle) {
+    private void setCurrAngle(double currentAngle) {
         if (currentAngle > maxAngle) {
             this.currAngle = maxAngle;
 

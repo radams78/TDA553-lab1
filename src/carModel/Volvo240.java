@@ -1,4 +1,4 @@
-package src;
+package src.carModel;
 import java.awt.*;
 
 public class Volvo240 extends Car{

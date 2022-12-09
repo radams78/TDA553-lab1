@@ -11,6 +11,8 @@ import java.awt.Color;
 
 import org.junit.Test;
 import src.*;
+import src.carModel.CarRepairShop;
+import src.carModel.Volvo240;
 
 public class CarRepairShopTest {
     @Test

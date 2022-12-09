@@ -1,4 +1,4 @@
-package src;
+package src.carModel;
 
 public class Position {
     private double xPosition = 0, yPosition = 0;

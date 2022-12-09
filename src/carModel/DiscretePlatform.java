@@ -1,4 +1,4 @@
-package src;
+package src.carModel;
 
 public class DiscretePlatform extends Platform {
     private boolean platformIsUp;

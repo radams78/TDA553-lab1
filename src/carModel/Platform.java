@@ -1,4 +1,4 @@
-package src;
+package src.carModel;
 
 public abstract class Platform {
     public abstract void raisePlatform(double currentSpeed);

@@ -7,6 +7,8 @@ import java.awt.Color;
 
 import org.junit.Test;
 import src.*;
+import src.carModel.Car;
+import src.carModel.Volvo240;
 
 public class Volvo240Test {
 

@@ -2,6 +2,12 @@ package src;
 
 import javax.management.AttributeChangeNotificationFilter;
 import javax.swing.*;
+
+import src.carModel.Car;
+import src.carModel.Saab95;
+import src.carModel.Scania;
+import src.carModel.Volvo240;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;

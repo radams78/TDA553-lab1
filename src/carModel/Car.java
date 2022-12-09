@@ -1,4 +1,4 @@
-package src;
+package src.carModel;
 
 import java.awt.*;
 import java.lang.Math;

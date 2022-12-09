@@ -6,7 +6,11 @@ import java.util.List;
 import labb1.View.GraphicsDependencies;
 import labb1.View.Observer;
 
-
+/**
+ * This is the big model class that helps initialize all the car and helps to run all the different model methos calls for all the vehicles.
+ * 
+ * The model also keeps time and notifies the observers
+ */
 public class CarsModel {
     ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
     ArrayList<Car> cars;

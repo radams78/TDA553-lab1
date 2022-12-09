@@ -53,6 +53,8 @@ public abstract class Truck extends Vehicle {
 
     }
 
+
+    //Functions fo loading the truck uses loadable
     public void load(Movable movable) {
         if (trailer.getPlatformExtended()) {
             trailer.load(movable);

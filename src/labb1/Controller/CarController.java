@@ -25,17 +25,19 @@ public class CarController {
     private static final int Y = GraphicsDependencies.getY();
     // The frame that represents this instance View of the MVC pattern
 
-    private CarsModel model;
-    private CarView view;
+    private CarsModel model; // The big model file
+    private CarView view; //The static view
 
-    private JSpinner gasSpinner = new JSpinner();
-    private double gasAmount = 0;
+    private JSpinner gasSpinner = new JSpinner(); //A spinner for number input
+    private double gasAmount = 0; // TEMP Input value from spinner
 
-    private JPanel controlPanel = new JPanel();
+    private JPanel controlPanel = new JPanel(); // A panel for packaging together controlls
 
-    private JPanel gasPanel = new JPanel();
-    private JLabel gasLabel = new JLabel("Amount of gas");
+    private JPanel gasPanel = new JPanel(); // A Panel for packagings the gas components
+    private JLabel gasLabel = new JLabel("Amount of gas"); // Label above the gas spinner
 
+
+    //Controll panel buttons
     private JButton gasButton = new JButton("Gas");
     private JButton brakeButton = new JButton("Brake");
     private JButton turboOnButton = new JButton("Saab Turbo on");
@@ -43,16 +45,30 @@ public class CarController {
     private JButton liftBedButton = new JButton("Scania Lift Bed");
     private JButton lowerBedButton = new JButton("Lower Lift Bed");
 
+    //Big buttons
     private JButton startButton = new JButton("Start all cars");
     private JButton stopButton = new JButton("Stop all cars");
 
+/**
+ *  CarController
+ * 
+ * Init
+ * 
+ * @param model // The model
+ * @param view // The view frame
+ */
     public CarController(CarsModel model, CarView view) {
         this.model = model;
         this.view = view;
         initComponents();
 
-    }
+    }//Constructor
 
+    /**
+     * initComponents
+     * 
+     * Initializing all the different controlling components
+     */
     private void initComponents() {
         initGasPanel();
         initControlPanel();
@@ -63,6 +79,11 @@ public class CarController {
         view.pack();
     }
 
+    /**
+     * initSpinner
+     * 
+     * Initializing the spinner for controling gas amount
+     */
     private void initSpinner() {
         SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
                 0, // min
@@ -71,6 +92,12 @@ public class CarController {
         gasSpinner = new JSpinner(spinnerModel);
     }
 
+
+    /**
+     * initGasPanel
+     * 
+     * Initializing the gas panel and adding up its buttons
+     */
     private void initGasPanel() {
         initSpinner();
         gasPanel.setLayout(new BorderLayout());
@@ -80,6 +107,11 @@ public class CarController {
         view.add(gasPanel);
     }
 
+    /**
+     * initControlPanel
+     * 
+     * Initializing the control panel and adding the different buttons to it
+     */
     private void initControlPanel() {
         controlPanel.setLayout(new GridLayout(2, 4));
         initPanelButtons();
@@ -88,6 +120,11 @@ public class CarController {
         controlPanel.setBackground(Color.CYAN);
     }
 
+    /**
+     * initPanelButtons
+     * 
+     * Initializing the buttons for the control panel
+     */
     private void initPanelButtons() {
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
@@ -98,6 +135,11 @@ public class CarController {
         controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
     }
 
+    /**
+     * initStartButton
+     * 
+     * Initializing the start button that starts all the engines
+     */
     private void initStartButton() {
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
@@ -105,6 +147,11 @@ public class CarController {
         view.add(startButton);
     }
 
+    /**
+     * initStopButton
+     * 
+     * Initializing the stop button that stops all the engines
+     */
     private void initStopButton() {
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
@@ -112,6 +159,11 @@ public class CarController {
         view.add(stopButton);
     }
 
+    /**
+     * addListeners
+     * 
+     * Add the actions event listeners to all the different buttons and defines their method calls to the model
+     */
     private void addListeners() {
 
         gasSpinner.addChangeListener(new ChangeListener() {

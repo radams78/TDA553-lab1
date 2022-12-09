@@ -33,7 +33,7 @@ public class CarRepairShop {
         loadable.load(car);
     }
 
-    // Todo fix this
+
     /**
      * Unload car if the CarRepairShop has it loaded.
      * 

@@ -1,5 +1,9 @@
 package labb1.View;
 
+
+/**
+ * This class are to store and set dependencies for graphics and frame rates and such
+ */
 public class GraphicsDependencies {
     private static final int X = 800;
     private static final int Y = 800;

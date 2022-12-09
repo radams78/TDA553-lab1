@@ -37,6 +37,7 @@ public class CarTransporter extends Truck {
         return enginePower * 0.01;
     }
 
+    //These are for if the car were to have a turbo ( yes trucks can have turbos)
     @Override
     public void setTurboOn() {
         throw new IllegalArgumentException("CarTransporter doesn't have a turbo");

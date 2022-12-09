@@ -6,11 +6,9 @@ package labb1.Model;
 public abstract class Trailer implements Positionable{
     private int maxLoad;
     private boolean platformExtended;
-    private int platformAngle;
     private double x;
     private double y;
-    private double dx;
-    private double dy;
+
     /**
      * Constructor for Trailer
      * 

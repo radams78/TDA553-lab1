@@ -38,6 +38,8 @@ public class Scania extends Truck {
     // trailer.load(thing);
     // }
 
+
+    //Yes, trucks can have turbos. These dont though
     @Override
     public void setTurboOn() {
         throw new IllegalArgumentException("Scania doesn't have a turbo");

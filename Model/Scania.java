@@ -1,3 +1,4 @@
+package Model;
 import java.awt.Color;
 
 public class Scania extends Truck{
@@ -5,7 +6,7 @@ public class Scania extends Truck{
 
 
     public Scania() {
-        super(2, 100, 0, Color.BLACK, "Scania Interlink", 0, 0 ,
+        super(2, 100, 0.1, Color.BLACK, "Scania", 0, 0 ,
          new AngledPlatform(70));
         
     }
@@ -28,12 +29,6 @@ public class Scania extends Truck{
         else { if (platform.getPlatformState() == 0){
             incrementSpeed(amount);
         }
-        }
-    }
-    @Override
-    public void startEngine(){
-        if (platform.getPlatformState()== 0){
-        this.setCurrentSpeed((0.1));
         }
     }
 

@@ -1,3 +1,4 @@
+package Model;
 public interface Platform {
 
     void platformUp(int state);

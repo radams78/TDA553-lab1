@@ -1,10 +1,15 @@
 
+package Model;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 import java.util.ArrayDeque;
 
 import org.junit.Test;
+
+import Model.Car;
+import Model.CarTransporter;
 
 public class LabbTest {
     

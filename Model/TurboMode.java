@@ -1,3 +1,4 @@
+package Model;
 public class TurboMode {
     
     private Boolean turboOn;

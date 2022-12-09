@@ -1,4 +1,4 @@
-
+package Model;
 
 public class CarTransportPlatform implements Platform{
 

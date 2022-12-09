@@ -1,4 +1,9 @@
+package Model;
 import java.awt.*;
+
+
+
+
 
 public abstract class Vehicle implements Movable{
     
@@ -10,6 +15,8 @@ public abstract class Vehicle implements Movable{
     private double y;
     private double x;
     private int currentDirection;
+    private boolean engineOn = false;
+
 
     public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y) {
       
@@ -21,6 +28,7 @@ public abstract class Vehicle implements Movable{
         this.x = x;
         this.y = y;
         this.currentDirection = 1;
+      
     }
 
     protected void setCurrentSpeed(double currentSpeed) {
@@ -44,7 +52,7 @@ public abstract class Vehicle implements Movable{
         return enginePower;
     }
 
-    protected double getCurrentSpeed(){
+    public double getCurrentSpeed(){
      
         return currentSpeed;
     }
@@ -58,18 +66,33 @@ public abstract class Vehicle implements Movable{
     }
 
     public void startEngine(){
-	    currentSpeed = 0.1;
+        
+        if(engineOn == false){
+            currentSpeed = 0.1;
+            engineOn = true;
+            System.out.println("yes");    
+        }
+        else{
+            return;
+       
+        }
+    }
+
+    public void setEngineOn(boolean engineOn) {
+        this.engineOn = engineOn;
     }
 
     public void stopEngine(){
 	    currentSpeed = 0;
+        engineOn = false;
     }
 
     abstract double speedFactor();
 
     public void incrementSpeed(double amount){
-        this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * Math.max(amount, 0), this.getEnginePower()));
+        this.setCurrentSpeed(Math.min((getCurrentSpeed() + speedFactor() * amount), this.getEnginePower()));
         System.out.println(currentSpeed +"currentSpeed");
+        System.out.println(Math.min(getCurrentSpeed() + speedFactor() * Math.max(amount, 0), this.getEnginePower()) + " Uträkning");
     }
 
    
@@ -78,13 +101,17 @@ public abstract class Vehicle implements Movable{
    
     }
     public void gas(double amount) throws Exception{
-
-        if (amount > 1 || amount < 0){
-            throw new IllegalArgumentException("Only accepts values of 1 and 0");
+        if(engineOn){
+        if (amount <= 1 && amount >= 0){
+            incrementSpeed(amount);
+          
         }
            
         else {
-            incrementSpeed(amount);
+            throw new IllegalArgumentException("Only accepts values of 1 and 0");
+        }}
+        else{
+            return;
         }
     }
 
@@ -154,6 +181,18 @@ public abstract class Vehicle implements Movable{
             this.currentDirection = 0;
         }
     }
+
+    public void move() {
+        
+        if(engineOn){
+        direction();   
+        } 
+    }
+
+    public boolean isEngineOn() {
+        return engineOn;
+    }
+
 
 }
 

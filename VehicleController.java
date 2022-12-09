@@ -1,4 +1,10 @@
 import javax.swing.*;
+
+import org.hamcrest.core.IsInstanceOf;
+
+import Model.*;
+
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -30,12 +36,18 @@ public class VehicleController {
         VehicleController cc = new VehicleController();
 
         cc.vehicles.add(new Volvo240());
-
+        cc.vehicles.add(new Saab95());
+        cc.vehicles.add(new Scania());
+        
         // Start a new view and send a reference of self
         cc.frame = new VehicleView("Vehiclesim 1.0", cc);
 
         // Start the timer
         cc.timer.start();
+    }
+
+    public ArrayList<Vehicle> getVehicles() {
+        return vehicles;
     }
 
     /* Each step the TimerListener moves all the Vehicles in the list and tells the
@@ -46,9 +58,10 @@ public class VehicleController {
             
             for (Vehicle vehicle : vehicles) {
                 vehicle.move();
+                
                 int x = (int) Math.round(vehicle.getX());
                 int y = (int) Math.round(vehicle.getY());
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(vehicles.indexOf(vehicle), x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -56,31 +69,67 @@ public class VehicleController {
     }
 
     // Calls the gas method for each car once
-    void gas(int amount) {
-        System.out.println("No");
+    public void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (Vehicle vehicle : vehicles
                 ) {
             try {
                 vehicle.gas(gas);
             } catch (Exception e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
-            System.out.println(vehicle.getX());
+
         }
     }
 
-    void startEngine() {
+    public void startEngine() {
 
-        System.out.println("Yes");
         for (Vehicle vehicle : vehicles){
             
             vehicle.startEngine();
-           
         }
-
     }
 
-    
+    public void stopEngine() {
+        
+        for (Vehicle vehicle : vehicles){
+            
+            vehicle.stopEngine();
+
+        }
+    }
+
+    public void brake(int amount){
+        double brake = ((double) amount) / 100;
+        for (Vehicle vehicle : vehicles){
+            
+            try {
+                vehicle.brake(brake);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    public void liftBedButton() {
+        for (Vehicle vehicle : vehicles){
+            if (vehicle instanceof Scania) {
+                Scania scania = (Scania) vehicle;
+                scania.platformUp(10);
+            }
+                
+    }}
+
+    public void lowerBedButton() {
+        for (Vehicle vehicle : vehicles){
+            if (vehicle instanceof Scania) {
+                Scania scania = (Scania) vehicle;
+                scania.platfromDown(10);
+            }
+                  
+    }}
+
 }

@@ -15,7 +15,7 @@ import src.*;
 public class CarRepairShopTest {
     @Test
     public void canLoadCar() {
-        Volvo240 testCar = new Volvo240();
+        Volvo240 testCar = new Volvo240(0,0);
         CarRepairShop testShop = new CarRepairShop(2, 10, 15);
         testShop.loadCar(testCar);
         assertEquals(true, testShop.isCarInLoad(testCar));
@@ -23,7 +23,7 @@ public class CarRepairShopTest {
 
     @Test
     public void canUnloadCar() {
-        Volvo240 testCar = new Volvo240();
+        Volvo240 testCar = new Volvo240(0,0);
         CarRepairShop testShop = new CarRepairShop(2, 10, 15);
         testShop.loadCar(testCar);
         testShop.unloadCar(testCar);
@@ -32,7 +32,7 @@ public class CarRepairShopTest {
 
     @Test
     public void cantLoadCarTooFarAway() {
-        Volvo240 testCar = new Volvo240();
+        Volvo240 testCar = new Volvo240(0,0);
         CarRepairShop testShop = new CarRepairShop(2, 50, 50);
         assertThrows(IllegalArgumentException.class, ()->{
             testShop.loadCar(testCar);

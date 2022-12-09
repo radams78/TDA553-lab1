@@ -17,13 +17,13 @@ public class ModelHead {
     public ModelHead(){
         
     }
-    public void createScania(){
+    public void addScaniaToVehicles(){
         vehicles.add(factory.createScania(2, Color.black, 100, "null", 70 ,0,200 ));
     }
-    public void createSaab(){
+    public void addSaabToVehicles(){
         vehicles.add(factory.createSaab(4, Color.black, 100, "null", 0, 100));
     }
-    public void createVolvo(){
+    public void addVolvoToVehicles(){
         vehicles.add(factory.createVolvo(4, Color.black, 100, "null", 0, 0));
     }
     public ArrayList<Vehicles> getVehicleList(){
@@ -34,9 +34,9 @@ public class ModelHead {
     }
     public void createStandardModel(){
         vehicles.clear();
-        createScania();
-        createSaab();
-        createVolvo();
+        addScaniaToVehicles();
+        addSaabToVehicles();
+        addVolvoToVehicles();
     }
     public void sendObserverSignal(){
         for (Observer observer : observers){

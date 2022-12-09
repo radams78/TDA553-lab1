@@ -26,7 +26,11 @@ public abstract class Truck extends Vehicle{
 
     @Override 
     public void startEngine(){
-        if(this.isAbleToMove()){
+
+        if(isEngineOn()){
+            return;
+        }
+        else if(this.isAbleToMove()){
             this.setEngineOn(true);
             setCurrentSpeed(0.1);;
         }

@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -36,10 +36,10 @@ public class DrawPanel extends JPanel{
             vehiclePoints.add(new Point(0, yPoint));
             vehicle.setY((double) yPoint);
             yPoint += 100;
+
             try {
                 images.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/" + vehicle.getModelName() + ".jpg")));
-            } catch (IOException e) {
-              
+            } catch (IOException e) {   
                 e.printStackTrace();
             }
         }

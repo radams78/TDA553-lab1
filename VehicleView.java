@@ -24,14 +24,12 @@ public class VehicleView extends JFrame{
     DrawPanel drawPanel;
 
     JPanel controlPanel = new JPanel();
-
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner;
     JSpinner brakeSpinner;
     int brakeAmount = 0;
     int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
-
 
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
@@ -51,6 +49,14 @@ public class VehicleView extends JFrame{
         initComponents(framename);
     }
 
+    public void moveit(int index, int x, int y){
+        drawPanel.moveit(index, x, y);
+    }
+
+    public void repaint(){
+        drawPanel.repaint();
+    }
+
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {
@@ -61,6 +67,7 @@ public class VehicleView extends JFrame{
 
         this.add(drawPanel);
 
+        
 
 
         SpinnerModel spinnerModel =
@@ -114,7 +121,7 @@ public class VehicleView extends JFrame{
         this.add(stopButton);
 
         // This actionListener is for the gas button only
-        // TODO: Create more for each component as necessary
+      
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -140,6 +147,20 @@ public class VehicleView extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e){
                 vehicleC.stopEngine();
+            }
+        });
+
+        turboOffButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                vehicleC.turboOff();
+            }
+        }); 
+
+        turboOnButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                vehicleC.turboOn();
             }
         });
 

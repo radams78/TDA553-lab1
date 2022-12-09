@@ -70,7 +70,6 @@ public abstract class Vehicle implements Movable{
         if(engineOn == false){
             currentSpeed = 0.1;
             engineOn = true;
-            System.out.println("yes");    
         }
         else{
             return;
@@ -91,8 +90,6 @@ public abstract class Vehicle implements Movable{
 
     public void incrementSpeed(double amount){
         this.setCurrentSpeed(Math.min((getCurrentSpeed() + speedFactor() * amount), this.getEnginePower()));
-        System.out.println(currentSpeed +"currentSpeed");
-        System.out.println(Math.min(getCurrentSpeed() + speedFactor() * Math.max(amount, 0), this.getEnginePower()) + " Uträkning");
     }
 
    

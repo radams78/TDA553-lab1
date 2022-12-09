@@ -6,7 +6,7 @@ public class Scania extends Truck{
 
 
     public Scania() {
-        super(2, 100, 0.1, Color.BLACK, "Scania", 0, 0 ,
+        super(2, 100, 0, Color.BLACK, "Scania", 0, 0 ,
          new AngledPlatform(70));
         
     }

@@ -8,9 +8,6 @@ import java.util.ArrayDeque;
 
 import org.junit.Test;
 
-import Model.Car;
-import Model.CarTransporter;
-
 public class LabbTest {
     
     

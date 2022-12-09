@@ -4,14 +4,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel{
+public class View extends JPanel{
 
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
@@ -40,12 +39,11 @@ public class DrawPanel extends JPanel{
             case "Scania": scaniaPoint.x = x;
                 scaniaPoint.y = y;
                 break;
-
         }
     }
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
+    public View(int x, int y) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);

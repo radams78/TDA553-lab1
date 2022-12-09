@@ -17,7 +17,7 @@ import java.util.Collection;
 
 // ----- Class ----- //
 
- public class Loadable {
+  public class Loadable {
     
     private ArrayList<Car> loadedCars;
     private int capacity;

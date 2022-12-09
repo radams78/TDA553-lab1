@@ -7,7 +7,7 @@ import set.MVC.Model.Loadable;
 
 // ----- Class ----- //
 
- public class CarRepairShop {
+  class CarRepairShop {
     
     private double x;
     private double y;

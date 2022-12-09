@@ -9,7 +9,7 @@ package set.MVC.Model;
 
 // --- Class --- //
 
- public class Trim {
+  class Trim {
     
     private Double trimFactor;
     

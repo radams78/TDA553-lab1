@@ -13,7 +13,7 @@ import set.MVC.Model.AngleRamp;
 
 // ---- Class ---- //
 
- public class Scania extends Truck{
+  public class Scania extends Truck{
 
     private AngleRamp ramp;
 

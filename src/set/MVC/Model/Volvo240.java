@@ -16,7 +16,7 @@ import set.MVC.Model.Trim;
 
 // ---- Class ---- //
 
- public class Volvo240 extends Car {
+  public class Volvo240 extends Car {
     
     private Trim trimCar;
     

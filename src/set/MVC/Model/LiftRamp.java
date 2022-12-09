@@ -8,7 +8,7 @@ package set.MVC.Model;
 
 // ---- Class ---- //
 
- public class LiftRamp {
+  public class LiftRamp {
  
     private boolean rampPositionDown;
 

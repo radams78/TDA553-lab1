@@ -1,7 +1,7 @@
 package set.MVC.Model;
 // Module to hold...
 
- public interface Movable {
+  interface Movable {
     
     // --- Methods --- //
     

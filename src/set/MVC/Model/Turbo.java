@@ -9,7 +9,7 @@ package set.MVC.Model;
 
 // --- Class --- //
 
- public class Turbo {
+  class Turbo {
     
     private boolean turbo;
     

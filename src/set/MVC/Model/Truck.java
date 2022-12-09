@@ -12,7 +12,7 @@ import java.awt.*;
 
 // ---- Class ---- //
 
- public abstract class Truck extends Vehicles{
+  abstract class Truck extends Vehicles{
 
 
     // --- Constructor --- //

@@ -15,8 +15,8 @@ import Model.Vehicle;
 
 public class DrawPanel extends JPanel{
 
-    ArrayList<Point> vehiclePoints = new ArrayList<>();
-    ArrayList<BufferedImage> images = new ArrayList<>();
+    private ArrayList<Point> vehiclePoints = new ArrayList<>();
+    private ArrayList<BufferedImage> images = new ArrayList<>();
 
     void moveit(int index, int x, int y){
        vehiclePoints.set(index, new Point(x, y));

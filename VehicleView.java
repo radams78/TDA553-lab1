@@ -19,32 +19,32 @@ public class VehicleView extends JFrame{
     private static final int Y = 800;
 
     // The controller member
-    VehicleController vehicleC;
+    private VehicleController vehicleC;
 
-    DrawPanel drawPanel;
+    private DrawPanel drawPanel;
 
-    JPanel controlPanel = new JPanel();
-    JPanel gasPanel = new JPanel();
-    JSpinner gasSpinner;
-    JSpinner brakeSpinner;
-    int brakeAmount = 0;
-    int gasAmount = 0;
-    JLabel gasLabel = new JLabel("Amount of gas");
+    private JPanel controlPanel = new JPanel();
+    private JPanel gasPanel = new JPanel();
+    private JSpinner gasSpinner;
+    private JSpinner brakeSpinner;
+    private int brakeAmount = 0;
+    private int gasAmount = 0;
+    private JLabel gasLabel = new JLabel("Amount of gas");
 
-    JButton gasButton = new JButton("Gas");
-    JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
+    private JButton gasButton = new JButton("Gas");
+    private JButton brakeButton = new JButton("Brake");
+    private JButton turboOnButton = new JButton("Saab Turbo on");
+    private JButton turboOffButton = new JButton("Saab Turbo off");
+    private JButton liftBedButton = new JButton("Scania Lift Bed");
+    private JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    JButton startButton = new JButton("Start all cars");
-    JButton stopButton = new JButton("Stop all cars");
+    private JButton startButton = new JButton("Start all cars");
+    private JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
     public VehicleView(String framename, VehicleController cc){
         this.vehicleC = cc;
-        drawPanel = new DrawPanel(X, Y-240, cc.getVehicles());
+        drawPanel = new DrawPanel(X, Y-240, vehicleC.getVehicles());
 
         initComponents(framename);
     }

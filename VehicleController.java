@@ -19,8 +19,10 @@ public class VehicleController {
    
     private Timer timer = new Timer(delay, new TimerListener());
 
-    VehicleView frame;
-    VehicleModel model;
+    private VehicleView frame;
+    private VehicleModel model;
+
+    
 
 
     public VehicleController(VehicleModel model){

@@ -33,6 +33,7 @@ public class CarTransport extends TransportVehicle implements ILoadable
      */
     public void loadVehicle(Vehicle vehicle) throws IllegalStateException
     {
+        this.lowerPlatform(this.platformMaxAngle);
         vehicleLoadable.loadVehicle(vehicle, this.pos);
     }
 
@@ -42,6 +43,7 @@ public class CarTransport extends TransportVehicle implements ILoadable
      */
     public Vehicle unloadVehicle(Vehicle vehicle) throws IllegalStateException
     {
+        this.lowerPlatform(this.platformMaxAngle);
         return vehicleLoadable.unloadVehicle(vehicle, this.pos);
     }
 

@@ -1,15 +1,12 @@
 package src;
 
-import javax.management.AttributeChangeNotificationFilter;
-import javax.swing.*;
+
 
 import src.carModel.Car;
 import src.carModel.Saab95;
 import src.carModel.Scania;
 import src.carModel.Volvo240;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /*
@@ -19,8 +16,8 @@ import java.util.ArrayList;
  */
 
 public class Main {
-    private static final int X = 800;
-    private static final int Y = 800;
+    private static final int X = Config.X;
+    private static final int Y = Config.Y;
     private static ArrayList<Car> cars = new ArrayList<Car>() {
         
         {
@@ -35,15 +32,14 @@ public class Main {
         // Instance of this class
         Model currentModel = new Model(cars);
 
-        currentModel.cars.add(new Volvo240(0, 0));
-        currentModel.cars.add(new Saab95(0, 100));
-        currentModel.cars.add(new Scania(0, 200));
+        currentModel.addCar(new Volvo240(0, 0));
+        currentModel.addCar(new Saab95(0, 100));
+        currentModel.addCar(new Scania(0, 200));
 
         // Start a new view and send a reference of self
-        View currentView = new View(X, Y-240);
-        currentModel.addObserver(currentView);
-        currentModel.currentController = new Controller("CarSim 1.0", currentModel, currentView);
-
+        View currentView = new View(X, Y-240, currentModel);
+        currentModel.currentController = new Controller("CarSim 1.0", currentModel);
+        Window currentwindow = new Window("Car Simulator 1.0", currentView, currentModel.currentController);
         // Start the timer
         currentModel.start();
     }

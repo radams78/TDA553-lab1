@@ -18,8 +18,7 @@ import java.awt.event.ActionListener;
  **/
 
 public class Controller extends JPanel{
-    private static final int X = 800;
-    private static final int Y = 800;
+    private static final int X = Config.X;
 
     // The controller member
     Model currentModel;

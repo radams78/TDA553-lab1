@@ -5,12 +5,17 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import src.carModel.Car;
 
 // This panel represent the animated part of the view with the car images.
 
 public class View extends JPanel implements IObserver{
+
+    private Model model;
 
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
@@ -27,23 +32,25 @@ public class View extends JPanel implements IObserver{
     Point saabPoint = new Point();
     Point scaniaPoint = new Point();
 
-    // TODO: Make this genereal for all cars
-    void moveit(String modelName, int x, int y){
-        switch (modelName) {
-            case "Volvo240": volvoPoint.x = x;
-                volvoPoint.y = y;
-                break;
-            case "Saab95": saabPoint.x = x;
-                saabPoint.y = y;
-                break;
-            case "Scania": scaniaPoint.x = x;
-                scaniaPoint.y = y;
-                break;
+
+    // TODO: Make this general for all cars
+    private void movePoints() {
+        for (Car car: model.getCars()) {
+            switch (car.getModelName()) {
+                case "Volvo240": volvoPoint.setLocation(car.getXPosition(), car.getYPosition());
+                    break;
+                case "Saab95": saabPoint.setLocation(car.getXPosition(), car.getYPosition());
+                    break;
+                case "Scania": scaniaPoint.setLocation(car.getXPosition(), car.getYPosition());
+                    break;
+            }
         }
-    }
+    }   
 
     // Initializes the panel and reads the images
-    public View(int x, int y) {
+    public View(int x, int y, Model model) {
+        this.model = model;
+        model.addObserver(this);
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
@@ -69,6 +76,7 @@ public class View extends JPanel implements IObserver{
     // TODO: Change to suit your needs.
     @Override
     public void update() {
+        movePoints();
         repaint();
     }
     protected void paintComponent(Graphics g) {

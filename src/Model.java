@@ -9,8 +9,6 @@ import src.carModel.Car;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 public class Model {
 
@@ -28,10 +26,14 @@ public class Model {
     Controller currentController;
 
     // A list of cars, modify if needed
-    List<Car> cars = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
 
     public Model(ArrayList<Car> cars) {
         this.cars = cars;
+    }
+
+    public void addCar(Car carToAdd) {
+        cars.add(carToAdd);
     }
 
     // methods:
@@ -39,16 +41,16 @@ public class Model {
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
                 car.move();
-                int x = (int) Math.round(car.getXPosition());
-                int y = (int) Math.round(car.getYPosition());
-                currentController.currentView.moveit(car.getModelName(), x, y);
                 // repaint() calls the paintComponent method of the view
             }
-
             //currentController.currentView.repaint();
             updateObservers();
         }
     }
+    public ArrayList<Car> getCars() {
+        return new ArrayList<>(cars);
+    }
+
     public void addObserver(IObserver observer) {
         observers.add(observer);
     }

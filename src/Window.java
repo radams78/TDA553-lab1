@@ -1,14 +1,11 @@
 package src;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class Window extends JFrame{
-    private static final int X = 800;
-    private static final int Y = 800;
+    private static final int X = Config.X;
+    private static final int Y = Config.Y;
 
     public Window(String title, View view, Controller controller) {
         initComponents(title, view, controller);
@@ -20,8 +17,9 @@ public class Window extends JFrame{
         this.setTitle(title);
         this.setPreferredSize(new Dimension(X,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-        this.add(controller);
         this.add(view);
+        this.add(controller);
+        
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

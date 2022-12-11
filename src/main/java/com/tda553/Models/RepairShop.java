@@ -1,46 +1,33 @@
 package com.tda553.Models;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.tda553.VehicleLoadable;
 import com.tda553.Interfaces.ILoadable;
-import com.tda553.Models.Entity;
-import com.tda553.Models.Vehicle;
 
 public class RepairShop extends Entity implements ILoadable
 {
-    protected List<Vehicle> loadedVehicles = new ArrayList<>();
+    private VehicleLoadable vehicleLoadable;
 
     public RepairShop(int x, int y)
     {
         this.setPosition(x, y);
+        this.vehicleLoadable = new VehicleLoadable(1);
     }
 
     /**
      * @param vehicle
      *  Loads a vehicle into the repair shop.
      */
-    public void loadVehicle(Vehicle vehicle)
+    public void loadVehicle(Vehicle vehicle) throws IllegalStateException
     {
-        int[] vehiclePosition = vehicle.getPosition();
-        int[] thisPosition = this.getPosition();
-        // Close enough to the shop
-        if (Math.abs(vehiclePosition[0] - thisPosition[0]) > 2 || Math.abs(vehiclePosition[1] - thisPosition[1]) > 2)
-        {
-            throw new IllegalStateException("Vehicle is not close enough to the repair shop!");
-        }
-        loadedVehicles.add(vehicle);
+        this.vehicleLoadable.loadVehicle(vehicle, this.getPosition());
     }
 
     /**
      * @param vehicle
-     *  Unloads a vehicle from the repair shop. The vehicle is then placed close to the building's position.
+     *  Unloads a vehicle from the repair shop. The vehicle must be placed close to the repair shop.
      */
-    public Vehicle unloadVehicle(Vehicle vehicle)
+    public Vehicle unloadVehicle(Vehicle vehicle) throws IllegalStateException
     {
-        Vehicle car = loadedVehicles.get(loadedVehicles.indexOf(vehicle));
-        loadedVehicles.remove(vehicle);
-        car.setPosition(this.pos.getX() + 1, this.pos.getY() + 1);
-        return car;
+        return this.vehicleLoadable.unloadVehicle(vehicle, this.getPosition());
     }
 }

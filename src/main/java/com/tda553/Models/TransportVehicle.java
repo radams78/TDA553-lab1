@@ -1,7 +1,6 @@
 package com.tda553.Models;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public abstract class TransportVehicle extends Vehicle
 {
@@ -9,9 +8,6 @@ public abstract class TransportVehicle extends Vehicle
 
     private int platformAngle = 0; // Platform angle in degrees.
     private int platformMaxAngle; // Platform maximum angle in degrees.
-    private int maxCars = 0; // Maximum number of cars that can be transported.
-
-    private List<Vehicle> loadedVehicles = new ArrayList<>();
 
     public int getPlatformAngle()
     {
@@ -33,31 +29,6 @@ public abstract class TransportVehicle extends Vehicle
         platformMaxAngle = angle;
     }
 
-    public int getMaxCars()
-    {
-        return maxCars;
-    }
-
-    public void setMaxCars(int cars)
-    {
-        maxCars = cars;
-    }
-
-    public List<Vehicle> getLoadedVehicles()
-    {
-        return loadedVehicles;
-    }
-
-    public void addLoadedVehicle(Vehicle vehicle)
-    {
-        loadedVehicles.add(vehicle);
-    }
-
-    public void setLoadedVehicles(List<Vehicle> vehicles)
-    {
-        loadedVehicles = vehicles;
-    }
-
     public Boolean getPlatformActive()
     {
         return platformActive;
@@ -73,8 +44,12 @@ public abstract class TransportVehicle extends Vehicle
      * Sets the platform angle to the specified value.
      * The angle of the platform cannot be lower than 0 or higher than 70.
      */
-    public void raisePlatform(int angle)
+    public void raisePlatform(int angle) throws IllegalStateException
     {
+        if (getPlatformAngle() == getPlatformMaxAngle())
+        {
+            return; // Platform is already raised
+        }
         if (!getPlatformActive()) 
         {
             throw new IllegalStateException("Cannot raise platform while moving");
@@ -92,8 +67,12 @@ public abstract class TransportVehicle extends Vehicle
      * Sets the platform angle to the specified value.
      * The angle of the platform can not be lower than 0 degress.
      */ 
-    public void lowerPlatform(int angle)
+    public void lowerPlatform(int angle) throws IllegalStateException
     {
+        if (getPlatformAngle() == 0)
+        {
+            return; // Platform is already lowered
+        }
         if (!getPlatformActive()) 
         {
             throw new IllegalStateException("Cannot raise platform while moving");

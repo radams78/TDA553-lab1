@@ -62,7 +62,7 @@ public class CarTransportTest {
 
     }    
 
-    @Test
+    @Test (expected = IllegalStateException.class)
     public void unloadVehicleTest(){
         this.loadVehicleTest();
         euro_truck.unloadVehicle(this.volvo);

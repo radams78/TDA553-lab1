@@ -1,7 +1,6 @@
 package com.tda553.Models;
 
 import com.tda553.VehicleLoadable;
-import com.tda553.Interfaces.ILoadable;
 
 public class RepairShop extends Entity implements ILoadable
 {

@@ -1,6 +1,4 @@
-package com.tda553.Interfaces;
-
-import com.tda553.Models.Vehicle;
+package com.tda553.Models;
 
 public interface ILoadable
 {

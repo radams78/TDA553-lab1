@@ -1,17 +1,12 @@
 package com.tda553.Models;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public abstract class TransportVehicle extends Vehicle
 {
     protected boolean platformActive; // True if the platform is active.
     protected int platformAngle = 0; // Platform angle in degrees.
     protected int platformMaxAngle; // Platform maximum angle in degrees.
-    protected int maxCars = 0; // Maximum number of cars that can be transported.
-
-    protected List<Vehicle> loadedVehicles = new ArrayList<>();
-    
 
     public int getPlatformAngle()
     {

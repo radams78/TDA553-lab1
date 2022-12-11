@@ -9,7 +9,7 @@ public class Scania extends TransportVehicle
 
     public Scania()
     {
-        this.platformMaxAngle = 70;
+        this.setMaxPlatformAngle(70);
         nrDoors = 2;
         color = Color.black;
         enginePower = 200;
@@ -17,11 +17,7 @@ public class Scania extends TransportVehicle
         vehicleWeight = 4000;
         stopEngine();
     }
-    
-    public int getPlatformAngle()
-    {
-        return platformAngle;
-    }
+
 
     @Override
     public double speedFactor() {

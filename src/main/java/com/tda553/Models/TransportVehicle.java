@@ -4,10 +4,12 @@ package com.tda553.Models;
 
 public abstract class TransportVehicle extends Vehicle
 {
-    protected boolean platformActive; // True if the platform is active.
-    protected int platformAngle = 0; // Platform angle in degrees.
-    protected int platformMaxAngle; // Platform maximum angle in degrees.
+    private boolean platformActive; // True if the platform is active.
+    private int platformAngle = 0; // Platform angle in degrees.
+    private int platformMaxAngle; // Platform maximum angle in degrees.
 
+
+    // Getters and setters
     public int getPlatformAngle()
     {
         return platformAngle;
@@ -18,6 +20,25 @@ public abstract class TransportVehicle extends Vehicle
         return platformActive;
     }
 
+    public void setMaxPlatformAngle(int angle)
+    {
+        platformMaxAngle = angle;
+    }
+    public int getMaxPlatformAngle()
+    {
+        return platformMaxAngle;
+    }
+
+    public void setPlatformActive(boolean active)
+    {
+        platformActive = active;
+    }
+
+    public void setPlatformAngle(int angle)
+    {
+        platformAngle = angle;
+    }
+    
     /**
      * @param angle
      * Sets the platform angle to the specified value.
@@ -68,12 +89,6 @@ public abstract class TransportVehicle extends Vehicle
     private boolean isPlatformLowered()
     {
         return platformAngle == 0;
-    }
-
-    // Check if allready platform raised
-    private boolean isPlatformRaised()
-    {
-        return platformAngle == platformMaxAngle;
     }
 
 

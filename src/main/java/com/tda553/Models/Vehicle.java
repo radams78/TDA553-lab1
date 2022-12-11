@@ -98,10 +98,6 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
         {
             throw new IllegalStateException("Cannot stop engine while moving");
         }
-        if (currentSpeed == 0)
-        {
-            throw new IllegalStateException("Engine is already stopped");
-        }
         currentSpeed = 0;
     }
 
@@ -125,7 +121,7 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
     public void brake(double amount) throws IllegalArgumentException
     {
         checkAmout(amount);
-        currentSpeed = checkNewSpeed(getCurrentSpeed() - speedFactor() * amount, false);
+        currentSpeed = getCurrentSpeed() * (1 - amount);
     }
 
     private void checkAmout(double amount) throws IllegalArgumentException

@@ -8,10 +8,7 @@ import com.tda553.VehicleTypes.Cars.Saab95;
 import com.tda553.VehicleTypes.Cars.Volvo240;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CarTest
@@ -42,7 +39,7 @@ public class CarTest
 
             // Has the car moved?
             assertArrayEquals(car.getPosition(), new int[] {1, 0});
-            
+
             car.brake(1);
             car.move();
             

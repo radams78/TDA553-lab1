@@ -9,13 +9,13 @@ public class CarTransport extends TransportVehicle implements ILoadable
 {
     public CarTransport()
     {
-        this.platformAngle = 0;
-        this.platformMaxAngle = 1;
-        nrDoors = 2;
-        color = Color.black;
-        enginePower = 200;
-        modelName = "CarTransport";
-        vehicleWeight = 4000;
+        setPlatformAngle(0);
+        setPlatformMaxAngle(1);
+        setNrDoors(2);
+        setColor(Color.black);
+        setEnginePower(200);
+        setModelName("CarTransport");
+        setVehicleWeight(4000);
         stopEngine();
     }
         
@@ -25,7 +25,7 @@ public class CarTransport extends TransportVehicle implements ILoadable
      */
     public void loadVehicle(Vehicle vehicle)
     {
-        if (!this.isPlatformActive())
+        if (!this.getPlatformActive())
         {   
             throw new IllegalStateException("Cannot load vehicle while moving");
         }
@@ -36,12 +36,11 @@ public class CarTransport extends TransportVehicle implements ILoadable
         int[] vehiclePosition = vehicle.getPosition();
         int[] thisPosition = this.getPosition();
         // Close enough to the platform
-        // TODO: Violates Law of Demeter, fix?
         if (Math.abs(vehiclePosition[0] - thisPosition[0]) > 2 || Math.abs(vehiclePosition[1] - thisPosition[1]) > 2)
         {
             throw new IllegalStateException("Vehicle is not close enough to the platform");
         }
-        loadedVehicles.add(vehicle);
+        addLoadedVehicle(vehicle);
     }
 
     /**
@@ -50,24 +49,19 @@ public class CarTransport extends TransportVehicle implements ILoadable
      */
     public Vehicle unloadVehicle(Vehicle vehicle)
     {
-        if (this.getPlatformAngle() != 0)
+        if (getPlatformAngle() != 0)
         {
             throw new IllegalStateException("Platform must be down to load vehicles!");
         }
-        Vehicle car = loadedVehicles.get(loadedVehicles.indexOf(vehicle));
-        loadedVehicles.remove(vehicle);
-        car.setPosition(this.pos.getX() + 1, this.pos.getY() + 1);
+        Vehicle car = getLoadedVehicles().get(getLoadedVehicles().indexOf(vehicle));
+        getLoadedVehicles().remove(vehicle);
+        car.setPosition(pos.getX() + 1, pos.getY() + 1);
         return car;
-    }
-    
-    public int getPlatformAngle()
-    {
-        return platformAngle;
     }
 
     @Override
     public double speedFactor() {
-        return enginePower * 0.05;
+        return getEnginePower() * 0.05;
     }
 
 }

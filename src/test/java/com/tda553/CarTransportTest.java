@@ -10,7 +10,7 @@ public class CarTransportTest {
     CarTransport euro_truck = new CarTransport();
 
     @Test(expected = IllegalArgumentException.class)
-    public void  PlatformAngleTest() {
+    public void PlatformAngleTest() {
         // Raise the platform more that the maximum angle
         euro_truck.raisePlatform(2);
         euro_truck.lowerPlatform(-2);

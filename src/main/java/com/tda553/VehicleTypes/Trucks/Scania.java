@@ -6,26 +6,20 @@ import com.tda553.Models.TransportVehicle;
 
 public class Scania extends TransportVehicle
 {
-
     public Scania()
     {
-        this.platformMaxAngle = 70;
-        nrDoors = 2;
-        color = Color.black;
-        enginePower = 200;
-        modelName = "Scania";
-        vehicleWeight = 4000;
+        setPlatformMaxAngle(70);
+        setNrDoors(2);
+        setColor(Color.black);
+        setEnginePower(200);
+        setModelName("Scania");
+        setVehicleWeight(4000);
         stopEngine();
-    }
-    
-    public int getPlatformAngle()
-    {
-        return platformAngle;
     }
 
     @Override
     public double speedFactor() {
-        return enginePower * 0.05;
+        return getEnginePower() * 0.05;
     }
 
 }

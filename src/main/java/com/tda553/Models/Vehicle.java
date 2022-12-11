@@ -7,15 +7,14 @@ import com.tda553.Interfaces.ITransportable;
 
 public abstract class Vehicle extends Entity implements IVehicle, ITransportable
 {
-    protected int direction = 1;
-
-    protected int nrDoors; // Number of doors on the vehicle
-    protected double enginePower; // Engine power of the vehicle
-    protected double currentSpeed; // The current speed of the vehicle
-    protected Color color; // Color of the vehicle
-    protected String modelName; // The vehicle model name
-    protected boolean beingTransported = false;
-    protected int vehicleWeight;
+    private int direction = 1;
+    private int nrDoors; // Number of doors on the vehicle
+    private int vehicleWeight;
+    private double enginePower; // Engine power of the vehicle
+    private double currentSpeed; // The current speed of the vehicle
+    private boolean beingTransported = false;
+    private Color color; // Color of the vehicle
+    private String modelName; // The vehicle model name
 
     private int[][] directionTable =
     {
@@ -30,9 +29,19 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
         return nrDoors;
     }
 
+    public void setNrDoors(int nr)
+    {
+        nrDoors = nr;
+    }
+
     public String getModelName()
     {
         return modelName;
+    }
+
+    public void setModelName(String name)
+    {
+        modelName = name;
     }
 
     public double getEnginePower()
@@ -40,21 +49,39 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
         return enginePower;
     }
 
-    public boolean isBeingTransported(){
+    public void setEnginePower(int power)
+    {
+        enginePower = power;
+    }
+
+    public boolean isBeingTransported()
+    {
         return beingTransported;
     }
 
-    public void setBeingTransported(boolean bt){
+    public void setBeingTransported(boolean bt)
+    {
         beingTransported = bt;
     }
 
-    public int getVehicleWeight(){
+    public int getVehicleWeight()
+    {
         return vehicleWeight;
+    }
+
+    public void setVehicleWeight(int weight)
+    {
+        vehicleWeight = weight;
     }
     
     public double getCurrentSpeed()
     {
 		return currentSpeed;
+    }
+    
+    public void setCurrentSpeed(int speed)
+    {
+		currentSpeed = speed;
     }
 
     public Color getColor()
@@ -106,8 +133,9 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
     {
         int temp_direction = (direction - 1) % 4;
         if (temp_direction < 0)
+        {
             temp_direction = 3;
-
+        }
         direction = temp_direction;
     }
 

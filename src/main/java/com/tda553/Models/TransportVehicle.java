@@ -5,24 +5,68 @@ import java.util.List;
 
 public abstract class TransportVehicle extends Vehicle
 {
-    protected boolean platformActive; // True if the platform is active.
-    protected int platformAngle = 0; // Platform angle in degrees.
-    protected int platformMaxAngle; // Platform maximum angle in degrees.
-    protected int maxCars = 0; // Maximum number of cars that can be transported.
+    private boolean platformActive; // Is the platform active?
 
-    protected List<Vehicle> loadedVehicles = new ArrayList<>();
-    
+    private int platformAngle = 0; // Platform angle in degrees.
+    private int platformMaxAngle; // Platform maximum angle in degrees.
+    private int maxCars = 0; // Maximum number of cars that can be transported.
+
+    private List<Vehicle> loadedVehicles = new ArrayList<>();
 
     public int getPlatformAngle()
     {
         return platformAngle;
     }
 
-    public boolean isPlatformActive()
+    public void setPlatformAngle(int angle)
+    {
+        platformAngle = angle;
+    }
+
+    public int getPlatformMaxAngle()
+    {
+        return platformMaxAngle;
+    }
+
+    public void setPlatformMaxAngle(int angle)
+    {
+        platformMaxAngle = angle;
+    }
+
+    public int getMaxCars()
+    {
+        return maxCars;
+    }
+
+    public void setMaxCars(int cars)
+    {
+        maxCars = cars;
+    }
+
+    public List<Vehicle> getLoadedVehicles()
+    {
+        return loadedVehicles;
+    }
+
+    public void addLoadedVehicle(Vehicle vehicle)
+    {
+        loadedVehicles.add(vehicle);
+    }
+
+    public void setLoadedVehicles(List<Vehicle> vehicles)
+    {
+        loadedVehicles = vehicles;
+    }
+
+    public Boolean getPlatformActive()
     {
         return platformActive;
     }
 
+    public void setPlatformActive(Boolean active)
+    {
+        platformActive = active;
+    }
 
     /**
      * @param angle
@@ -31,16 +75,16 @@ public abstract class TransportVehicle extends Vehicle
      */
     public void raisePlatform(int angle)
     {
-        if (!this.isPlatformActive()) 
+        if (!getPlatformActive()) 
         {
             throw new IllegalStateException("Cannot raise platform while moving");
         }
         
-        if (platformAngle + angle >= platformMaxAngle) {
+        if (getPlatformAngle() + angle >= getPlatformMaxAngle()) {
             throw new IllegalArgumentException("The platform's angle cannot be raised higher!");
         }
         
-        platformAngle += angle;        
+        setPlatformAngle(getPlatformAngle() + angle);        
     }
 
     /**
@@ -50,14 +94,14 @@ public abstract class TransportVehicle extends Vehicle
      */ 
     public void lowerPlatform(int angle)
     {
-        if (!platformActive) 
+        if (!getPlatformActive()) 
         {
             throw new IllegalStateException("Cannot raise platform while moving");
         }
 
-        if (platformAngle - angle >= 0)
+        if (getPlatformAngle() - angle >= 0)
         {
-            platformAngle -= angle;
+            setPlatformAngle(getPlatformAngle() - angle);
         }
         throw new IllegalArgumentException("The platform cannot be lowered any further!");
     }
@@ -65,18 +109,18 @@ public abstract class TransportVehicle extends Vehicle
     @Override
     public void startEngine()
     {
-        if (this.getPlatformAngle() != 0)
+        if (getPlatformAngle() != 0)
         {
             throw new IllegalStateException("Cannot start engine while platform is raised!");
         };
-        platformActive = false;
-        currentSpeed = 0.1;
+        setPlatformActive(false);
+        setCurrentSpeed(1);
     }
 
     @Override
     public void stopEngine()
     {
-        currentSpeed = 0;
-        platformActive = true;
+        setCurrentSpeed(0);
+        setPlatformActive(true);
     }
 }

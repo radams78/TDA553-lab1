@@ -25,7 +25,6 @@ public class RepairShop extends Entity implements ILoadable
         int[] vehiclePosition = vehicle.getPosition();
         int[] thisPosition = this.getPosition();
         // Close enough to the shop
-        // TODO: Violates Law of Demeter, fix?
         if (Math.abs(vehiclePosition[0] - thisPosition[0]) > 2 || Math.abs(vehiclePosition[1] - thisPosition[1]) > 2)
         {
             throw new IllegalStateException("Vehicle is not close enough to the repair shop!");

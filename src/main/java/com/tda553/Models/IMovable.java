@@ -1,4 +1,4 @@
-package com.tda553.Interfaces;
+package com.tda553.Models;
 
 public interface IMovable
 {

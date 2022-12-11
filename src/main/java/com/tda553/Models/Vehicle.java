@@ -2,9 +2,6 @@ package com.tda553.Models;
 
 import java.awt.Color;
 
-import com.tda553.Interfaces.IVehicle;
-import com.tda553.Interfaces.ITransportable;
-
 public abstract class Vehicle extends Entity implements IVehicle, ITransportable
 {
     private int direction = 1;

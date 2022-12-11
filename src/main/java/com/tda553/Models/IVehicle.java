@@ -1,7 +1,8 @@
-package com.tda553.Interfaces;
+package com.tda553.Models;
 import java.awt.Color;
 
-public interface IVehicle extends IMovable {
+public interface IVehicle extends IMovable
+{
     int getNrDoors();
     
     double getEnginePower();

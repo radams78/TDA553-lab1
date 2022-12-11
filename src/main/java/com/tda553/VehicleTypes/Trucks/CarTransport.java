@@ -1,7 +1,7 @@
 package com.tda553.VehicleTypes.Trucks;
 import java.awt.Color;
 import com.tda553.VehicleLoadable;
-import com.tda553.Interfaces.ILoadable;
+import com.tda553.Models.ILoadable;
 import com.tda553.Models.TransportVehicle;
 import com.tda553.Models.Vehicle;
 

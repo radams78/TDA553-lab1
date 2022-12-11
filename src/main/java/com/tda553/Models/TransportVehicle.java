@@ -1,7 +1,5 @@
 package com.tda553.Models;
 
-
-
 public abstract class TransportVehicle extends Vehicle
 {
     private boolean platformActive; // Is the platform active?

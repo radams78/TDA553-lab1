@@ -33,11 +33,11 @@ public class CarTransport extends TransportVehicle implements ILoadable
         {
             throw new IllegalStateException("Platform must be down to load vehicles!");
         }
-        Position vehiclePosition = vehicle.getPosition();
-        Position thisPosition = this.getPosition();
+        int[] vehiclePosition = vehicle.getPosition();
+        int[] thisPosition = this.getPosition();
         // Close enough to the platform
         // TODO: Violates Law of Demeter, fix?
-        if (Math.abs(vehiclePosition.getX() - thisPosition.getX()) > 2 || Math.abs(vehiclePosition.getY() - thisPosition.getY()) > 2)
+        if (Math.abs(vehiclePosition[0] - thisPosition[0]) > 2 || Math.abs(vehiclePosition[1] - thisPosition[1]) > 2)
         {
             throw new IllegalStateException("Vehicle is not close enough to the platform");
         }

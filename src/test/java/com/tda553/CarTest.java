@@ -26,42 +26,40 @@ public class CarTest
         cars.add(new Saab95());
     }
 
-
-    @Test
-    public void StartCars()
-    {
-        System.out.println(
-                "Running test: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        for (Vehicle car : cars)
-        {
-            car.startEngine();
-            car.gas(1);
-            car.brake(1);
-            car.stopEngine();
-        }
-    }
-
-
     @Test
     public void MoveCars()
     {
-
-        int[] start_position =
-        {0, 0};
+        int[] start_position = {0, 0};
 
         for (Vehicle car : cars)
         {
             System.out.println(car.toString());
-            assertEquals(start_position[0], car.getPosition().getX());
-            assertEquals(start_position[1], car.getPosition().getY());
+            assertArrayEquals(start_position, car.getPosition());
 
             car.startEngine();
             car.gas(1);
             car.move();
 
-            assertFalse(car.getPosition().getX() == start_position[0] && car.getPosition().getY() == start_position[1]);
+            // Has the car moved?
+            assertArrayEquals(car.getPosition(), new int[] {1, 0});
+            
+            car.brake(1);
+            car.move();
+            
+            // Has the car stopped?
+            assertArrayEquals(car.getPosition(), new int[] {1, 0});
+
+            // Start the car again, try turning left.
+            car.startEngine();
+            car.turnLeft();
+            car.gas(1);
+            car.move();
+            assertArrayEquals(car.getPosition(), new int[] {1, 1});
+
+            // Turn right...
+            car.turnRight();
+            car.move();
+            assertArrayEquals(car.getPosition(), new int[] {2, 1});
         }
-
-
     }
 }

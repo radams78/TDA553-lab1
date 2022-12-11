@@ -19,7 +19,7 @@ public class RepairShop extends Entity implements ILoadable
      */
     public void loadVehicle(Vehicle vehicle) throws IllegalStateException
     {
-        this.vehicleLoadable.loadVehicle(vehicle, this.pos);
+        this.vehicleLoadable.loadVehicle(vehicle, this.getPosition());
     }
 
     /**
@@ -28,6 +28,6 @@ public class RepairShop extends Entity implements ILoadable
      */
     public Vehicle unloadVehicle(Vehicle vehicle) throws IllegalStateException
     {
-        return this.vehicleLoadable.unloadVehicle(vehicle, this.pos);
+        return this.vehicleLoadable.unloadVehicle(vehicle, this.getPosition());
     }
 }

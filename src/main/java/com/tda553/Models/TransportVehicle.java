@@ -4,18 +4,39 @@ package com.tda553.Models;
 
 public abstract class TransportVehicle extends Vehicle
 {
-    protected boolean platformActive; // True if the platform is active.
-    protected int platformAngle = 0; // Platform angle in degrees.
-    protected int platformMaxAngle; // Platform maximum angle in degrees.
+    private boolean platformActive; // Is the platform active?
+
+    private int platformAngle = 0; // Platform angle in degrees.
+    private int platformMaxAngle; // Platform maximum angle in degrees.
 
     public int getPlatformAngle()
     {
         return platformAngle;
     }
 
-    public boolean isPlatformActive()
+    public void setPlatformAngle(int angle)
+    {
+        platformAngle = angle;
+    }
+
+    public int getPlatformMaxAngle()
+    {
+        return platformMaxAngle;
+    }
+
+    public void setPlatformMaxAngle(int angle)
+    {
+        platformMaxAngle = angle;
+    }
+
+    public Boolean getPlatformActive()
     {
         return platformActive;
+    }
+
+    public void setPlatformActive(Boolean active)
+    {
+        platformActive = active;
     }
 
     /**
@@ -25,20 +46,20 @@ public abstract class TransportVehicle extends Vehicle
      */
     public void raisePlatform(int angle) throws IllegalStateException
     {
-        if (platformAngle == platformMaxAngle)
+        if (getPlatformAngle() == getPlatformMaxAngle())
         {
             return; // Platform is already raised
         }
-        if (!this.isPlatformActive()) 
+        if (!getPlatformActive()) 
         {
             throw new IllegalStateException("Cannot raise platform while moving");
         }
         
-        if (platformAngle + angle >= platformMaxAngle) {
+        if (getPlatformAngle() + angle >= getPlatformMaxAngle()) {
             throw new IllegalArgumentException("The platform's angle cannot be raised higher!");
         }
         
-        platformAngle += angle;        
+        setPlatformAngle(getPlatformAngle() + angle);        
     }
 
     /**
@@ -48,50 +69,37 @@ public abstract class TransportVehicle extends Vehicle
      */ 
     public void lowerPlatform(int angle) throws IllegalStateException
     {
-        if (isPlatformLowered())
+        if (getPlatformAngle() == 0)
         {
             return; // Platform is already lowered
         }
-        if (!platformActive) 
+        if (!getPlatformActive()) 
         {
             throw new IllegalStateException("Cannot raise platform while moving");
         }
 
-        if (platformAngle - angle >= 0)
+        if (getPlatformAngle() - angle >= 0)
         {
-            platformAngle -= angle;
+            setPlatformAngle(getPlatformAngle() - angle);
         }
         throw new IllegalArgumentException("The platform cannot be lowered any further!");
     }
 
-    // Check if allready platform lowered
-    private boolean isPlatformLowered()
-    {
-        return platformAngle == 0;
-    }
-
-    // Check if allready platform raised
-    private boolean isPlatformRaised()
-    {
-        return platformAngle == platformMaxAngle;
-    }
-
-
     @Override
     public void startEngine()
     {
-        if (this.getPlatformAngle() != 0)
+        if (getPlatformAngle() != 0)
         {
             throw new IllegalStateException("Cannot start engine while platform is raised!");
         };
-        platformActive = false;
-        currentSpeed = 0.1;
+        setPlatformActive(false);
+        setCurrentSpeed(1);
     }
 
     @Override
     public void stopEngine()
     {
-        currentSpeed = 0;
-        platformActive = true;
+        setCurrentSpeed(0);
+        setPlatformActive(true);
     }
 }

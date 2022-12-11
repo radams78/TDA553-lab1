@@ -12,19 +12,19 @@ public class CarTransport extends TransportVehicle implements ILoadable
     public CarTransport()
     {
         this.vehicleLoadable = new VehicleLoadable(5);
-        this.platformAngle = 0;
-        this.platformMaxAngle = 1;
-        nrDoors = 2;
-        color = Color.black;
-        enginePower = 200;
-        modelName = "CarTransport";
-        vehicleWeight = 4000;
+        setPlatformAngle(0);
+        setPlatformMaxAngle(1);
+        setNrDoors(2);
+        setColor(Color.black);
+        setEnginePower(200);
+        setModelName("CarTransport");
+        setVehicleWeight(4000);
         stopEngine();
     }
         
     @Override
     public double speedFactor() {
-        return enginePower * 0.05;
+        return getEnginePower() * 0.05;
     }
 
     /**
@@ -33,8 +33,8 @@ public class CarTransport extends TransportVehicle implements ILoadable
      */
     public void loadVehicle(Vehicle vehicle) throws IllegalStateException
     {
-        this.lowerPlatform(this.platformMaxAngle);
-        vehicleLoadable.loadVehicle(vehicle, this.pos);
+        this.lowerPlatform(getPlatformMaxAngle());
+        vehicleLoadable.loadVehicle(vehicle, getPosition());
     }
 
     /**
@@ -43,8 +43,8 @@ public class CarTransport extends TransportVehicle implements ILoadable
      */
     public Vehicle unloadVehicle(Vehicle vehicle) throws IllegalStateException
     {
-        this.lowerPlatform(this.platformMaxAngle);
-        return vehicleLoadable.unloadVehicle(vehicle, this.pos);
+        this.lowerPlatform(getPlatformMaxAngle());
+        return vehicleLoadable.unloadVehicle(vehicle, getPosition());
     }
 
 }

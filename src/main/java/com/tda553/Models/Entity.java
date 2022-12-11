@@ -2,11 +2,11 @@ package com.tda553.Models;
 
 public abstract class Entity
 {
-    protected Position pos = new Position(0, 0);
+    private Position pos = new Position(0, 0);
 
-    public Position getPosition()
+    public int[] getPosition()
     {
-        return this.pos;
+        return new int[] {pos.getX(), pos.getY()};
     }
 
     public void setPosition(int x, int y)

@@ -42,10 +42,10 @@ public class VehicleLoadable
      * @param vehicle
      *  Throws an IllegalStateException if the vehicle is not close enough to the loadable.
      */
-    public void checkPosition(Vehicle vehicle, Position loadablePostion) throws IllegalStateException {
-        Position vehiclePosition = vehicle.getPosition();
+    public void checkPosition(Vehicle vehicle, int[] loadablePostion) throws IllegalStateException {
+        int[] vehiclePosition = vehicle.getPosition();
         // Get the position of the loadable
-        if (Math.abs(vehiclePosition.getX() - loadablePostion.getX()) > 2 || Math.abs(vehiclePosition.getY() - loadablePostion.getY()) > 2)
+        if (Math.abs(vehiclePosition[0] - loadablePostion[0]) > 2 || Math.abs(vehiclePosition[1] - loadablePostion[1]) > 2)
         {
             throw new IllegalStateException("Vehicle is not close enough to the loadable");
         }
@@ -56,7 +56,7 @@ public class VehicleLoadable
      * @param vehicle
      *  Loads a vehicle onto the platform. 
      */
-    public void loadVehicle(Vehicle vehicle, Position loadablePosition) throws IllegalStateException
+    public void loadVehicle(Vehicle vehicle, int[] loadablePosition) throws IllegalStateException
     {
         checkBeforeLoad(vehicle);
         checkPosition(vehicle, loadablePosition);
@@ -68,13 +68,13 @@ public class VehicleLoadable
      *  Unloads a vehicle from the platform. The vehicle must be placed close to the transport vehicle.
      */
    
-    public Vehicle unloadVehicle(Vehicle vehicle, Position loadablePosition) throws IllegalStateException
+    public Vehicle unloadVehicle(Vehicle vehicle, int[] loadablePosition) throws IllegalStateException
     {
         this.checkBeforeUnload(vehicle);
         this.checkPosition(vehicle, loadablePosition);
         Vehicle car = this.loadedVehicles.get(this.loadedVehicles.indexOf(vehicle));
         this.loadedVehicles.remove(vehicle);
-        car.setPosition(loadablePosition.getX() + 1, loadablePosition.getY() + 1);
+        car.setPosition(loadablePosition[0] + 1, loadablePosition[1] + 1);
         return car;
     }
 

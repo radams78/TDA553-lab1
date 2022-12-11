@@ -2,7 +2,7 @@ package com.tda553.Models;
 
 public abstract class Entity
 {
-    protected Position pos = new Position(0, 0);
+    private Position pos = new Position(0, 0);
 
     public int[] getPosition()
     {

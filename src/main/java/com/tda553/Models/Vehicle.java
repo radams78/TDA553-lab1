@@ -126,7 +126,7 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
 
     public void move()
     {
-        setPosition((int)Math.round(pos.getX() + directionTable[direction][0] * currentSpeed), (int)Math.round(pos.getY() + directionTable[direction][1] * currentSpeed));
+        setPosition((int)Math.round(getPosition()[0] + directionTable[direction][0] * currentSpeed), (int)Math.round(getPosition()[1] + directionTable[direction][1] * currentSpeed));
     }
 
     public void turnLeft()

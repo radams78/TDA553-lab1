@@ -17,7 +17,7 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
     protected boolean beingTransported = false;
     protected int vehicleWeight;
 
-    private int[][] directionTable =
+    protected int[][] directionTable =
     {
         {0, 1},
         {1, 0},

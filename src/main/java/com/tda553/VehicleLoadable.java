@@ -77,5 +77,8 @@ public class VehicleLoadable
         car.setPosition(loadablePosition.getX() + 1, loadablePosition.getY() + 1);
         return car;
     }
+    public Vehicle[] getLoadedVehicles() {
+        return loadedVehicles.toArray(new Vehicle[loadedVehicles.size()]);
+    }
 
 }

@@ -59,7 +59,7 @@ public abstract class TransportVehicle extends Vehicle
             throw new IllegalArgumentException("The platform's angle cannot be raised higher!");
         }
         
-        platformAngle += angle;        
+        setPlatformAngle(platformAngle + angle);   
     }
 
     /**
@@ -80,7 +80,7 @@ public abstract class TransportVehicle extends Vehicle
 
         if (platformAngle - angle >= 0)
         {
-            platformAngle -= angle;
+            setPlatformAngle(platformAngle - angle);
         }
         throw new IllegalArgumentException("The platform cannot be lowered any further!");
     }

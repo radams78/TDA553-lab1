@@ -1,4 +1,4 @@
-package src;
+package Model;
 import java.awt.*;
 
 public class Scania extends Truck {
@@ -6,18 +6,18 @@ public class Scania extends Truck {
     private Platform platform = new Platform();
 
     public Scania(){
-        super(2, 500, Color.red, "Scania");
+        super(2, 500, Color.red, "Scania", "pics/Scania.jpg");
     }
 
     public void raisePlatform() {
-        if (getCurrentSpeed() != 0) {throw new IllegalArgumentException("Unable to raise platform while truck is moving");}
+        if (getCurrentSpeed() != 0) {throw new IllegalCallerException("Unable to raise platform while truck is moving");}
         else {
             platform.raisePlatform(1);
         }
     }
 
     public void lowerPlatform() {
-        if (getCurrentSpeed() != 0) {throw new IllegalArgumentException("Unable to lower platform while truck is moving");}
+        if (getCurrentSpeed() != 0) {throw new IllegalCallerException("Unable to lower platform while truck is moving");}
         else {
             platform.lowerPlatform(1);
         }

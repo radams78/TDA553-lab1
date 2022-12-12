@@ -1,4 +1,4 @@
-package src;
+package Model;
 
 import java.awt.*;
 
@@ -8,7 +8,7 @@ public class CarTransporter extends Truck {
     private Ramp ramp = new Ramp();
 
     public CarTransporter() {
-        super(2, 700, Color.gray, "Car Transporter");
+        super(2, 700, Color.gray, "Car Transporter", "fileDoesNotExist");
         loadedCars = new Loadable(7, 5);
     }
 
@@ -41,7 +41,6 @@ public class CarTransporter extends Truck {
     public void gas(double amount) {
         if (ramp.getState() == State.DOWN) {throw new IllegalCallerException("Unable to move while ramp is down");}
         super.gas(amount);
-
     }
 
     public Ramp getRamp() {

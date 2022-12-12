@@ -1,23 +1,24 @@
 package test;
 
-import src.Direction;
-import src.Saab95;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-public class TestCar {
+import Model.Direction;
+import Model.Volvo240;
+
+public class TestVolvo {
 
     @Test
     public void demoTestMethod() {
         assertTrue(true);
     }    
 
-    Saab95 car;
+    Volvo240 car;
      
     @BeforeEach
     public void reset() {
-        car = new Saab95();
+        car = new Volvo240();
     }
 
     @Test
@@ -51,7 +52,7 @@ public class TestCar {
         car.turnRight();
         assertEquals(Direction.UP, car.getDirection());
     }
-
+    
     @Test
     public void testValidGasInput() {
         // assertThrows(IllegalArgumentException.class, car.gas(20));

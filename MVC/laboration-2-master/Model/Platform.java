@@ -1,4 +1,4 @@
-package src;
+package Model;
 
 import static java.lang.Math.abs;
 

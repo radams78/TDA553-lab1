@@ -1,4 +1,4 @@
-package src;
+package Model;
 import java.awt.*;
 
 public abstract class Vehicle implements Movable {
@@ -7,19 +7,24 @@ public abstract class Vehicle implements Movable {
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
+    private String pictureFile;
     private double posx, posy;
     private Direction direction;
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName) {
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, String pictureFile) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.pictureFile = pictureFile;
         this.direction = Direction.RIGHT;
         this.posx = 0;
         this.posy = 0;
         stopEngine();
     }
+
+
+
     public void stopEngine(){
 	    currentSpeed = 0;
     }
@@ -49,11 +54,21 @@ public abstract class Vehicle implements Movable {
     public abstract void incrementSpeed(double amount);
     public abstract void decrementSpeed(double amount);
 
+    /*
+     * Takes a double amount between [0, 1]
+     * Throws IllegalArgumentException if amount < 0 or amount > 1
+     * Otherwise calls incrementSpeed(amount)
+     */
     public void gas(double amount) {
         if (amount < 0 || amount > 1) {throw new IllegalArgumentException("Gas only accepts values between [0, 1]");}
         incrementSpeed(amount);
     }
 
+    /*
+     * Takes a double amount between [0, 1]
+     * Throws IllegalArgumentException if amount < 0 or amount > 1
+     * Otherwise calls decrementSpeed(amount)
+     */
     public void brake(double amount) {
         if (amount < 0 || amount > 1) {throw new IllegalArgumentException("Brake only accepts values between [0, 1]");}
         decrementSpeed(amount);
@@ -85,6 +100,10 @@ public abstract class Vehicle implements Movable {
         return color;
     }
 
+    public String getPictureFile() {
+        return pictureFile;
+    }
+
     public double getX() {
         return posx;
     }
@@ -95,6 +114,10 @@ public abstract class Vehicle implements Movable {
 
     public Direction getDirection() {
         return direction;
+    }
+
+    public String getModelname() {
+        return modelName;
     }
 
     public void setColor(Color color) {

@@ -1,4 +1,4 @@
-package src;
+package Model;
 import java.util.Scanner;
 
 public class testing {
@@ -8,6 +8,7 @@ public class testing {
         car.lowerRamp();
         car.gas(1);
         sc.nextLine();
+        sc.close();
         // TA ljög >:(
     }
 }

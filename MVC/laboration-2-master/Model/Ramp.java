@@ -1,4 +1,4 @@
-package src;
+package Model;
 
 public class Ramp {
     private State state = State.UP;

@@ -47,4 +47,24 @@ public class CarTransport extends TransportVehicle implements ILoadable
         return vehicleLoadable.unloadVehicle(vehicle, getPosition());
     }
 
+
+    /*
+     * Moves the vehicle and all loaded vehicles.
+     */
+    @Override
+    public void move()
+    {   
+        // New position
+        int new_pos_x = (int)Math.round(getPosition()[0] + getDirectionTable()[getDirection()][0] * getCurrentSpeed());
+        int new_pos_y = (int)Math.round(getPosition()[1] + getDirectionTable()[getDirection()][1] * getCurrentSpeed());
+
+        setPosition(new_pos_x, new_pos_y);
+        for (Vehicle vehicle : vehicleLoadable.getLoadedVehicles())
+        {
+            vehicle.setPosition(new_pos_x, new_pos_y);
+        }
+
+    }
+    
+
 }

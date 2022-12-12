@@ -13,13 +13,33 @@ public interface IVehicle extends IMovable
 
     void setColor(Color clr);
 
-    void startEngine();
+    // Contract for the startEngine() method in the IVehicle interface.
+    // Behavior:
+    //   If the engine is already running it should not start the engine.
+    //   If the engine is not running, the method should start the engine.
+    public void startEngine() throws IllegalStateException;
 
-    void stopEngine();
+    // Contract for the stopEngine() method 
+    // Input: None. & Output: None.
+    // Behavior:
+    //   Stops the engine but it need to meet the following requirements:
+    //   - If the car is moving it should not stop the engine.
+    //   - If the engine is already stopped it should not stop the engine.
+    void stopEngine() throws IllegalStateException;
     
-    void gas(double amount);
+    // Contract for the gas() method
+    // Input:
+    //   amount: a double value  (0-1)
+    // Behavior:
+    //   Apply the gas to the vehicle by ammount.
+    public void gas(double amount) throws IllegalArgumentException;
 
-    void brake(double amount);
+    // Input:
+    //   amount : a double value (0-1)
+    // Behavior:
+    //   Brake the vehicle by amount.
+    void brake(double amount) throws IllegalArgumentException;
+
 
     abstract double speedFactor();
 }

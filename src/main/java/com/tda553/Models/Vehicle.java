@@ -76,7 +76,7 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
 		return currentSpeed;
     }
     
-    public void setCurrentSpeed(int speed)
+    public void setCurrentSpeed(double speed)
     {
 		currentSpeed = speed;
     }
@@ -86,41 +86,79 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
         return color;
     }
 
+    public boolean checkEngineRunning()  throws IllegalStateException
+    {
+        if (currentSpeed == 0)
+        {
+            throw new IllegalStateException("Engine is not running");
+        }
+        return true;
+    }
+
     public void setColor(Color clr)
     {
         color = clr;
     }
-
-    public void startEngine()
+    
+    /*
+     * Start the engine
+     * Throws an IllegalStateException if the engine is already running
+     */
+    public void startEngine() throws IllegalStateException
     {
+        if (currentSpeed > 0)
+        {
+            throw new IllegalStateException("Engine is already running");
+        }
         currentSpeed = 0.1;
     }
-
-    public void stopEngine()
+    /*
+     * Stop the engine
+     * Throws an IllegalStateException if the engine is already stopped or if the vehicle is moving
+     */
+    public void stopEngine() throws IllegalStateException
     {
+        if (currentSpeed > 0)
+        {
+            throw new IllegalStateException("Cannot stop engine while moving");
+        }
         currentSpeed = 0;
     }
 
-    public void gas(double amount)
+    /*
+     * Accelerate the vehicle by a certain amount
+     * @param amount The amount to accelerate by ( 0 - 1)
+     * @throws IllegalArgumentException if amount is not between 0 and 1
+     */
+    public void gas(double amount) throws IllegalArgumentException, IllegalStateException
     {
-        checkAcceleration(amount);
-        incrementSpeed(amount);
+        checkAmount(amount);
+        checkEngineRunning();
+        setCurrentSpeed(checkNewSpeed(getCurrentSpeed() + speedFactor() * amount, true));
+    }
+    
+    /*
+     * Brake the vehicle by a certain amount
+     * @param amount The amount to brake by ( 0 - 1)
+     * @throws IllegalArgumentException if amount is not between 0 and 1
+     */
+    public void brake(double amount) throws IllegalArgumentException
+    {
+        checkAmount(amount);
+        setCurrentSpeed(getCurrentSpeed() * (1 - amount));
     }
 
-    public void brake(double amount)
-    {
-        checkAcceleration(amount);
-        decrementSpeed(amount);
-    }
-
-    private void checkAcceleration(double amount)
+    private void checkAmount(double amount) throws IllegalArgumentException
     {
         if (amount < 0 || amount > 1)
         {
             throw new IllegalArgumentException("Amount must be between 0 and 1");
         }
     }
-
+  
+    /*
+     * Move the vehicle
+    */
     public void move()
     {
         setPosition((int)Math.round(getPosition()[0] + directionTable[direction][0] * currentSpeed), (int)Math.round(getPosition()[1] + directionTable[direction][1] * currentSpeed));
@@ -156,13 +194,4 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
         return newSpeed;
     }
 
-    private void incrementSpeed(double amount)
-    {
-        currentSpeed = checkNewSpeed(getCurrentSpeed() + speedFactor() * amount, true);
-    }
-
-    private void decrementSpeed(double amount)
-    {
-        currentSpeed = checkNewSpeed(getCurrentSpeed() - speedFactor() * amount, false);
-    }
 }

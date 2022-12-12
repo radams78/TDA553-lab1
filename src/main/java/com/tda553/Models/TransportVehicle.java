@@ -7,6 +7,8 @@ public abstract class TransportVehicle extends Vehicle
     private int platformAngle = 0; // Platform angle in degrees.
     private int platformMaxAngle; // Platform maximum angle in degrees.
 
+
+    // Getters and setters
     public int getPlatformAngle()
     {
         return platformAngle;
@@ -35,6 +37,11 @@ public abstract class TransportVehicle extends Vehicle
     public void setPlatformActive(Boolean active)
     {
         platformActive = active;
+    }
+
+    private boolean isPlatformLowered()
+    {
+        return platformAngle == 0;
     }
 
     /**

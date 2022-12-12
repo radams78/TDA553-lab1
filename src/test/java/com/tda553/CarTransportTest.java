@@ -58,14 +58,17 @@ public class CarTransportTest {
             euro_truck.brake(1);
             euro_truck.stopEngine();             
         }
-
-
     }    
 
-    @Test (expected = IllegalStateException.class)
+    @Test
     public void unloadVehicleTest(){
         this.loadVehicleTest();
         euro_truck.unloadVehicle(this.volvo);
     }
-    
+
+    @Test(expected = IllegalStateException.class)
+    public void loadDuplicateTest(){
+        this.loadVehicleTest();
+        euro_truck.loadVehicle(this.volvo);
+    }
 }

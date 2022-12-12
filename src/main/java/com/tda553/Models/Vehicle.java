@@ -13,13 +13,23 @@ public abstract class Vehicle extends Entity implements IVehicle, ITransportable
     private Color color; // Color of the vehicle
     private String modelName; // The vehicle model name
 
-    private int[][] directionTable =
+    private final int[][] directionTable =
     {
         {0, 1},
         {1, 0},
         {0, -1},
         {-1, 0}
     };
+
+    public int[][] getDirectionTable()
+    {
+        return directionTable;
+    }
+
+    public int getDirection()
+    {
+        return direction;
+    }
 
     public int getNrDoors()
     {

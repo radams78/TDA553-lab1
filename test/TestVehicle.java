@@ -32,7 +32,7 @@ public class TestVehicle {
     
     @Test
     public void brake(){
-        vehicle.brake(1);
+        vehicle.brake()
     }
 
         

@@ -2,12 +2,12 @@ package Model;
 import java.awt.Color;
 
 
-public abstract class Truck extends Vehicle{
+public abstract class Truck extends Vehicle implements PlatformType{
     
-    protected Platform platform;
+    protected PlatformType platform;
     private final static double slowFactor = 0.8;
 
-    public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y, Platform 
+    public Truck(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y, PlatformType 
     platformType) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, x, y);
         
@@ -50,19 +50,21 @@ public abstract class Truck extends Vehicle{
         }
     }
     
-
+    @Override
     public int getPlatformState(){
 
          return platform.getPlatformState();
     }
 
 
+    @Override
     public void setPlatformState(int platformState){
 
         platform.setPlatformState(platformState);
     }
 
 
+    @Override
     public void platformUp(int state) {
         if (this.getCurrentSpeed()==0){
             platform.platformUp(state);
@@ -71,6 +73,8 @@ public abstract class Truck extends Vehicle{
             System.out.println("Cant raise the platform while moving");
         }
     }
+
+    @Override
     public void platfromDown(int state) {
         if (this.getCurrentSpeed()==0){
         platform.platfromDown(state);

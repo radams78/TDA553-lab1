@@ -1,6 +1,6 @@
 package Model;
 
-public class AngledPlatform implements Platform{
+public class AngledPlatform implements PlatformType{
 
     private int maxPlatformAngle;
     private int platformState;

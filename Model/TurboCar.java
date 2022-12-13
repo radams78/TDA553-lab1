@@ -1,14 +1,15 @@
 package Model;
 
-import java.awt.*;
+import java.awt.Color;
 
-public class Saab95 extends TurboCar{
+public class TurboCar extends Vehicle implements TurboType {
+
 
     private TurboMode turbo;
+
+    public TurboCar(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int x, int y) {
+        super(nrDoors, enginePower, currentSpeed, color, modelName, x, y);
     
-    public Saab95(){
-        super(2, 125, 0, Color.red, "Saab95",0,0);
-        turbo = new TurboMode();
     }
 
     @Override

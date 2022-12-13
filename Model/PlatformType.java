@@ -1,5 +1,5 @@
 package Model;
-public interface Platform {
+public interface PlatformType {
 
     void platformUp(int state);
 

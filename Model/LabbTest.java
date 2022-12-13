@@ -14,7 +14,7 @@ public class LabbTest {
     @Test
     public void test_move_car_to_the_left(){
 
-        Car saab = new Saab95();
+        TurboCar saab = new Saab95();
         Car volvo = new Volvo240();
 
         saab.move();
@@ -26,7 +26,7 @@ public class LabbTest {
 
     @Test
     public void test_turn_car(){
-        Car saab = new Saab95();
+        TurboCar saab = new Saab95();
         Car volvo = new Volvo240();
 
         saab.turnLeft();
@@ -58,7 +58,7 @@ public class LabbTest {
     @Test
     public void test_brake_and_gas() throws Exception {
         
-        Car saab = new Saab95();
+        TurboCar saab = new Saab95();
         Car volvo = new Volvo240();
 
         saab.startEngine();
@@ -78,7 +78,7 @@ public class LabbTest {
 
     @Test
     public void test_illegal_arguments_for_brake_and_gas(){
-        Car saab = new Saab95();
+        TurboCar saab = new Saab95();
         Car volvo = new Volvo240();
 
         assertThrows(IllegalArgumentException.class, () -> {
@@ -119,14 +119,14 @@ public class LabbTest {
     public void test_load_function(){
 
         CarTransporter carTransporter = new CarTransporter();
-        Car saab = new Saab95();
+        TurboCar saab = new Saab95();
         Car volvo = new Volvo240();
         ArrayDeque<Car> cars = new ArrayDeque<>();
 
-        cars.add(volvo);
-        cars.add(saab);
-        carTransporter.load(volvo);
-        carTransporter.load(saab);
+        //cars.add(volvo);
+        //cars.add(saab);
+        //carTransporter.load(volvo);
+        //carTransporter.load(saab);
 
         assertEquals(cars, carTransporter.getCars());
     }   

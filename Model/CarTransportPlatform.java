@@ -1,6 +1,6 @@
 package Model;
 
-public class CarTransportPlatform implements Platform{
+public class CarTransportPlatform implements PlatformType{
 
     private int platformState;
     

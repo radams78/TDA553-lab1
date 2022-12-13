@@ -1,8 +1,11 @@
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -15,16 +18,16 @@ import Model.Vehicle;
 
 public class DrawPanel extends JPanel{
 
-    private ArrayList<Point> vehiclePoints = new ArrayList<>();
-    private ArrayList<BufferedImage> images = new ArrayList<>();
+    private List<Point> vehiclePoints = new ArrayList<>();
+    private List<BufferedImage> images = new ArrayList<>();
 
-    void moveit(int index, int x, int y){
+    public void moveit(int index, int x, int y){
        vehiclePoints.set(index, new Point(x, y));
        
     }
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y, ArrayList<Vehicle> vehicles) {
+    public DrawPanel(int x, int y, List<Vehicle> vehicles) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);

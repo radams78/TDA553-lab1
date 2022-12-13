@@ -51,9 +51,6 @@ public abstract class Vehicle implements Movable {
 
     public abstract double speedFactor();
 
-    public abstract void incrementSpeed(double amount);
-    public abstract void decrementSpeed(double amount);
-
     /*
      * Takes a double amount between [0, 1]
      * Throws IllegalArgumentException if amount < 0 or amount > 1
@@ -82,8 +79,20 @@ public abstract class Vehicle implements Movable {
         double distance = Math.sqrt(Math.pow((posx-x), 2)+Math.pow((posy-y), 2));
         return distance;
     }
+
+    public void incrementSpeed(double amount){
+        double newSpeed = getCurrentSpeed() + speedFactor() * amount;
+        if (newSpeed > getCurrentSpeed()) {setCurrentSpeed(newSpeed);}
+    }
+
+    public void decrementSpeed(double amount){
+        double newSpeed = getCurrentSpeed() - speedFactor() * amount;
+        if (newSpeed < getCurrentSpeed()) {setCurrentSpeed(newSpeed);}
+    }
     
-    //////////// GETTEEEERS AND SETTEEEERS ////////////
+    //? -----GETTEEEERS AND SETTEEEERS----- */
+    
+
     public int getNrDoors() {
         return nrDoors;
     }
@@ -141,4 +150,6 @@ public abstract class Vehicle implements Movable {
     public void setY(double y) {
         posy = y;
     }
+
+   
 }

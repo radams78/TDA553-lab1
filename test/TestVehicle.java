@@ -25,14 +25,22 @@ public class TestVehicle {
     }
 
     @Test   
-    public void gas() {
+    public void gasShouldIncreaseSpeedOfVehicle() {          
+        double goal = vehicle.getCurrentSpeed() + vehicle.speedFactor() * 1;
         vehicle.gas(1);
-        
+        assertEquals(goal, vehicle.getCurrentSpeed());
+        assertThrows(IllegalArgumentException.class, () -> {vehicle.gas(20);});
+        assertThrows(IllegalArgumentException.class, () -> {vehicle.gas(-4);});
     }
     
     @Test
-    public void brake(){
-        vehicle.brake()
+    public void breakShouldDecreaseSpeedOfVehicle(){
+        vehicle.setCurrentSpeed(5);
+        double goal = vehicle.getCurrentSpeed() - vehicle.speedFactor() * 1;
+        vehicle.brake(1);
+        assertEquals(goal, vehicle.getCurrentSpeed());
+        assertThrows(IllegalArgumentException.class, () -> {vehicle.gas(20);});
+        assertThrows(IllegalArgumentException.class, () -> {vehicle.gas(-20);});
     }
 
         

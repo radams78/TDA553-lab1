@@ -1,5 +1,5 @@
 package Model;
-import java.awt.*;
+import java.awt.Color;
 
 public class Volvo240 extends Car{
 
@@ -15,16 +15,6 @@ public class Volvo240 extends Car{
         return getEnginePower() * 0.01 * trimFactor;
     }
 
-    @Override
-    public void incrementSpeed(double amount){
-        double newSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
-	    if (newSpeed > getCurrentSpeed()) {setCurrentSpeed(newSpeed);}
-    }
 
-    @Override
-    public void decrementSpeed(double amount){
-        double newSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
-        if (newSpeed < getCurrentSpeed()) {setCurrentSpeed(newSpeed);}
-    }
 
 }

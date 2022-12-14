@@ -3,7 +3,6 @@ import java.awt.*;
 
 public abstract class Vehicle extends HasPosition implements Movable {
 
-    // KANSKE SKA TA BORT private Boolean isLoadable; // True if the vehicle can be loaded
 	private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed = 0; // The current speed of the car
@@ -39,7 +38,7 @@ public abstract class Vehicle extends HasPosition implements Movable {
 
     }
 
-    public void incrementSpeed(double amount){
+    private void incrementSpeed(double amount){
         if (getCurrentSpeed() < getEnginePower()) {
             setCurrentSpeed(getCurrentSpeed() + speedFactor() *amount);
             setCurrentDirection(getCurrentSpeed());
@@ -50,7 +49,7 @@ public abstract class Vehicle extends HasPosition implements Movable {
         }
     }
 
-    public void decrementSpeed(double amount) {
+    private void decrementSpeed(double amount) {
         if(getCurrentSpeed() >= 0){
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
         setCurrentDirection(getCurrentSpeed());

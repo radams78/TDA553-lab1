@@ -12,4 +12,8 @@ public class CarRepairShop {
         if (loadedCars.getAmount() >= loadedCars.getCapacity()) {throw new IllegalCallerException("Unable to load more cars!");}
         loadedCars.addCar(car);
     }
+
+    public Loadable getLoadedCars() {
+        return loadedCars;
+    }
 }

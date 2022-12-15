@@ -25,16 +25,13 @@ public class CarTransporter extends Truck {
     }
     
     public void loadCar(Car car) {
-        if (loadedCars.containsCar(car)) {throw new IllegalArgumentException("Car already loaded");}
         if (ramp.getState() != State.DOWN) {throw new IllegalCallerException("Ramp must be down to load cars");}
-        if (loadedCars.getAmount() >= loadedCars.getCapacity()) {throw new IllegalCallerException("Unable to load more cars!");}
         if (calculateDistance(car.getX(), car.getY()) > loadedCars.getMaxDistance()) {throw new IllegalCallerException("Car too far from transporter!");}
         loadedCars.loadCar(car);
     }
     
 
     public void unloadCar(Car car) {
-        if (!loadedCars.containsCar(car)) {throw new IllegalArgumentException("Car not in loaded");}
         if (ramp.getState() != State.DOWN) {throw new IllegalCallerException("Ramp must be down to unload cars");}
         loadedCars.unloadCar(car);
         car.setX(car.getX()+loadedCars.getMaxDistance());

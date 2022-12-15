@@ -8,9 +8,12 @@ public class CarRepairShop {
         loadedCars = new Loadable<Car>(12, 5);
     }
 
-    public void newCar(Car car) {
-        if (loadedCars.getAmount() >= loadedCars.getCapacity()) {throw new IllegalCallerException("Unable to load more cars!");}
+    public void loadCar(Car car) {
         loadedCars.loadCar(car);
+    }
+
+    public void unloadCar() {
+        loadedCars.unloadCar();
     }
 
     public Loadable<Car> getLoadedCars() {

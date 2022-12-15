@@ -26,10 +26,13 @@ public class Loadable<T extends Car> {
     }
 
     public void loadCar(T car) {
+        if (carsLoaded.contains(car)) {throw new IllegalArgumentException("Car already loaded");}
+        if (carsLoaded.size() >= CAPACITY) {throw new IllegalCallerException("Unable to load more cars!");}
         carsLoaded.add(car);
     }
 
     public void unloadCar(Car car) {
+        if (!carsLoaded.contains(car)) {throw new IllegalArgumentException("Car not loaded");}
         carsLoaded.remove(car);
     }
 

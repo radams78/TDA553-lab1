@@ -21,7 +21,7 @@ public class Scania extends Truck {
         platform.lowerPlatform(1);
     }
 
-    public Platform getPlatform() {
+    public MovablePlatform getPlatform() {
         return platform;
     }
 }

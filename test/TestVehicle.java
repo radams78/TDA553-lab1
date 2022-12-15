@@ -8,7 +8,6 @@ import Model.Direction;
 import Model.*;
 
 public class TestVehicle {
-    
 
     Vehicle vehicle;
 

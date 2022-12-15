@@ -3,7 +3,6 @@ import java.awt.*;
 
 public abstract class Truck extends Vehicle {
 
-    private boolean platformLowered = true;
     private Platform platform;
 
     public Truck(int nrDoors, double enginePower, Color color, String modelName, String pictureFile, Platform platform){
@@ -49,6 +48,5 @@ public abstract class Truck extends Vehicle {
             platform.unlock();
         }
     }
-    
 
 }

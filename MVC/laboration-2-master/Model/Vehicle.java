@@ -54,7 +54,7 @@ public abstract class Vehicle implements Movable {
     /*
      * Takes a double amount between [0, 1]
      * Throws IllegalArgumentException if amount < 0 or amount > 1
-     * Otherwise calls incrementSpeed(amount)
+     * Otherwise increments speed
      */
     public void gas(double amount) {
         if (amount < 0 || amount > 1) {throw new IllegalArgumentException("Gas only accepts values between [0, 1]");}
@@ -64,7 +64,7 @@ public abstract class Vehicle implements Movable {
     /*
      * Takes a double amount between [0, 1]
      * Throws IllegalArgumentException if amount < 0 or amount > 1
-     * Otherwise calls decrementSpeed(amount)
+     * Otherwise decrements speed
      */
     public void brake(double amount) {
         if (amount < 0 || amount > 1) {throw new IllegalArgumentException("Brake only accepts values between [0, 1]");}

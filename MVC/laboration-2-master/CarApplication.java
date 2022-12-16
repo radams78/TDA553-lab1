@@ -1,10 +1,13 @@
 import javax.swing.*;
 
 import Model.*;
+import controller.CarController;
+import controller.Timekeeper;
+import view.*;
 
 import java.awt.event.*;
 import java.util.ArrayList;
-
+import java.util.List;
 
 // DETTA ÄR FÖR FRAMTIDEN
 // INTE VIKTIGT NU
@@ -12,15 +15,28 @@ import java.util.ArrayList;
 
 public class CarApplication {
     public static void main(String[] args) {
-        ArrayList<Vehicle> cars = new ArrayList<>();
+        List<Vehicle> cars = new ArrayList<>();
 
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());
 
-        CarController cc = new CarController();
-        CarView view = new CarView("CarSim 1.0", cc);
+        int carIndex = 0;
+        for (Vehicle car : cars){
+            car.setY(carIndex*100);
+            carIndex++;
+        }
+        
+        CarController cc = new CarController(cars);
 
+        Timekeeper timer = new Timekeeper();
+        for (Vehicle car : cars) {timer.addObserver(car);}
 
+        DrawPanel view = new DrawPanel(cars);
+        timer.addObserver(view);
+
+        new CarView("CarSim 1.0", cc, view);
+
+        timer.start();        
     }
 }

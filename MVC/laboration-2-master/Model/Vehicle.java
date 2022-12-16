@@ -1,7 +1,8 @@
 package Model;
 import java.awt.*;
+import controller.Observer;
 
-public abstract class Vehicle implements Movable {
+public abstract class Vehicle implements Movable, Observer {
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
@@ -20,7 +21,7 @@ public abstract class Vehicle implements Movable {
         this.direction = Direction.RIGHT;
         this.posx = 0;
         this.posy = 0;
-        stopEngine();
+        this.currentSpeed = 0;
     }
 
 
@@ -89,6 +90,11 @@ public abstract class Vehicle implements Movable {
         double newSpeed = getCurrentSpeed() - speedFactor() * amount;
         if (newSpeed < getCurrentSpeed()) {setCurrentSpeed(newSpeed);}
     }
+
+    @Override
+    public void update(){
+     move();
+    }
     
     //? -----GETTEEEERS AND SETTEEEERS----- */
     
@@ -150,6 +156,4 @@ public abstract class Vehicle implements Movable {
     public void setY(double y) {
         posy = y;
     }
-
-   
 }

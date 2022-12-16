@@ -1,5 +1,6 @@
+package view;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.List;
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -8,22 +9,21 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Model.*;
+import controller.Observer;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel{
+public class DrawPanel extends JPanel implements Observer{
 
-    private ArrayList<Vehicle> sprites;
+    private List<Vehicle> sprites;
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
-        this.setDoubleBuffered(true);
-        this.setPreferredSize(new Dimension(x, y));
-        this.setBackground(Color.green);
-    }
-    public void carsToDraw(ArrayList<Vehicle> sprites) {
+    public DrawPanel(List<Vehicle> sprites) {
+        setDoubleBuffered(true);
+        setPreferredSize(new Dimension(800, 800-240));
+        setBackground(Color.green);
         this.sprites = sprites;
-    }   
+    }
 
     // This method is called each time the panel updates/refreshes/repaints itself
     // TODO: Change to suit your needs.
@@ -37,7 +37,9 @@ public class DrawPanel extends JPanel{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-       
+    }
 
+    public void update() {
+        repaint();
     }
 }

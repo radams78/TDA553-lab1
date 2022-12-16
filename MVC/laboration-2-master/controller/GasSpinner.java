@@ -8,6 +8,7 @@ public class GasSpinner extends JSpinner{
     }
 
     public double getGasAmount() {
-        return ((int)getValue() / 100);
+        double value = (int)getValue();
+        return value / 100;
     }
 }

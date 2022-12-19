@@ -10,7 +10,7 @@ public class StopButton extends JButton{
     private final int X = Config.getWidth();
 
     public StopButton(List<Vehicle> cars) {
-        super("Start all cars");
+        super("Stop all cars");
 
         setBackground(Color.red);
         setForeground(Color.black);

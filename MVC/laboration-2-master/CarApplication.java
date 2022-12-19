@@ -1,17 +1,10 @@
-import javax.swing.*;
-
 import Model.*;
 import controller.CarController;
 import controller.Timekeeper;
 import view.*;
 
-import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
-
-// DETTA ÄR FÖR FRAMTIDEN
-// INTE VIKTIGT NU
-
 
 public class CarApplication {
     public static void main(String[] args) {
@@ -26,7 +19,7 @@ public class CarApplication {
             car.setY(carIndex*100);
             carIndex++;
         }
-        
+
         CarController cc = new CarController(cars);
 
         Timekeeper timer = new Timekeeper();

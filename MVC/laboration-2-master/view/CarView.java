@@ -1,13 +1,9 @@
 package view;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import controller.CarController;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 /**
@@ -44,16 +40,6 @@ public class CarView extends JFrame{
 
         add(drawPanel);
         add(carC);
-
-        // This actionListener is for the gas button only
-        // TODO: Create more for each component as necessary
-        // gasButton.addActionListener(new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-        //         carC.gas(gasAmount);
-        //     }
-        // });
-
         // Make the frame pack all it's components by respecting the sizes if possible.
         pack();
 

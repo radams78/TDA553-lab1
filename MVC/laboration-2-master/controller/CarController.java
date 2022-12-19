@@ -2,13 +2,9 @@ package controller;
 import javax.swing.*;
 
 import Model.*;
-import view.CarView;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import java.util.List;
-import java.util.ArrayList;
 
 /*
 * This class represents the Controller part in the MVC pattern.

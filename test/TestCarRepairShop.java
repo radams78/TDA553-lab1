@@ -1,8 +1,7 @@
 package test;
 
-import Model.*;
-
 import static org.junit.jupiter.api.Assertions.*;
+import Model.*;
 
 import org.junit.jupiter.api.*;
 
@@ -22,7 +21,7 @@ public class TestCarRepairShop {
     @Test
     public void testNewCar() {
         Car car = new Saab95();
-        repairShop.newCar(car);
+        repairShop.loadCar(car);
         assertEquals(1, repairShop.getLoadedCars().getAmount());
     }
 }

@@ -1,0 +1,45 @@
+1. Your design probably has a type called something like Car or Vehicle that is a supertype to both Volvo and Scania. 
+   What is the contract for gas() and brake() in this type? 
+   Do the implementations of gas() and brake() in both Volvo and Scania follow this contract? 
+   Does your design follow the Liskov Substitution Principle?
+  
+The contract for gas() and brake() is:
+    /*
+     * Takes a double amount between [0, 1]
+     * Throws IllegalArgumentException if amount < 0 or amount > 1
+     * Otherwise calls incrementSpeed(amount)
+     */
+respectively:
+    /*
+     * Takes a double amount between [0, 1]
+     * Throws IllegalArgumentException if amount < 0 or amount > 1
+     * Otherwise calls decrementSpeed(amount)
+     */
+     .
+The implementations in Volvo and Scania follow this contract as both throw an exception when given illegal arguments.
+Both also otherwise call the adequate method if the given argument is correct.
+incrementSpeed() and decrementSpeed() can never decrease respectively increase the current speed of the Vehicle.
+But that is handled in their own methods with their own contracts.
+
+It follows the LSP as the preconditions are never weaker, the postconditions are never stronger and
+there is no invariance.
+
+2. How did you handle duplicated code between Scania, the car transporters and the repair shops? 
+   Explain how you decided when to use subclassing and when to use composition and delegation.
+   
+Scania together with carTransporter and carRepairShop are all subclasses of the superclass Truck.
+Truck extends Vehicle and has it's own versions of incrementSpeed(), decrementSpeed() and speedFactor().
+Having Truck as a superclass makes us able to remove duplicated code that is shared with all our trucks.
+carTransporter and carRepairShop each have the function to in some way load cars.
+carTransporter loads cars on it's "back" and carRepairShop "loads" cars inside the shop to repair them.
+To reduce the redundancy that arose a new type Loadable was born which contains the appropriate methods to
+load and unload cars and store them in a list, and get the amount of cars loaded.
+Here it's much simpler to make an object of type Loadable instead of subclassing the trucks to a "loadableTruck".
+Implementing the ability to load and unload cars could also be appropriate however that does not reduce any code duplication.
+
+3. Did you need to modify the design from lab 1 in order to make these extensions? 
+   If so, how could you have noticed that your design from Lab 1 did not follow the Open-Closed Principle before you started working on Lab 2?
+
+Yes, in order to seperate the Trucks from the Cars we had to make a new superclass for Car called Vehicle.
+It could've been prevented had we noticed that we might want to make vehicles other than cars which would share similiar vehicle qualities.
+We did actually notice it but didn't to go that direction as we didn't think we'd use it (didn't think the laboratories would extend each other).

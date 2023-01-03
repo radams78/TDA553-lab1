@@ -1,0 +1,14 @@
+1.  Our superclass is called Vehicle and our methods Gas() and break() is not overriden in the subclasses Volvo and Scania, therefore it follows the contract. 
+
+Both Break() and Gas() Throws IllegalArgumentException if amount || 1 or 0 
+Else The Contract for Gas() states that it will increment the speed for the Car with the incrementSpeed() method using the given argument (amount).
+The Contract for Break() states that it will decrement the speed for the Car with the decrementSpeed() method using the given argument (amount).
+
+This follows the Liskovs Substitution Principle since our subtypes have the exact same contracts as in our superclass Vehicle.
+
+2. We created a subclass Truck which extends Vehicle, then Scania and Cartransporter extends Truck so all the code that is incommon for them both is not duplicated.
+For our class CarRepairShop and CarTransporter we use composition and delegation so they have a CarLoad type. We also made a CarLoadable interface wich both CarTransporter
+and CarRepairShop implements. So we used composition intstead of sublcassing in this case.
+
+3. Yes we needed to modify quite a lot. We noticed that the model wasnt abstract enough for extension with just car as a superclass.
+To fix this we created one vehicle class that was as abstract as possible and then extended the model with more specific subclasses.

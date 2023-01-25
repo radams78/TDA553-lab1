@@ -39,7 +39,7 @@ public abstract class Vehicle extends HasPosition implements Movable {
     }
 
     private void incrementSpeed(double amount){
-        if (getCurrentSpeed() < getEnginePower()) {
+        if (getCurrentSpeed() < getEnginePower() && (0 <= amount && amount <= 1)) {
             setCurrentSpeed(getCurrentSpeed() + speedFactor() *amount);
             setCurrentDirection(getCurrentSpeed());
             }
@@ -50,7 +50,7 @@ public abstract class Vehicle extends HasPosition implements Movable {
     }
 
     private void decrementSpeed(double amount) {
-        if(getCurrentSpeed() >= 0){
+        if(getCurrentSpeed() >= 0 && (0 <= amount && amount <= 1)){
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
         setCurrentDirection(getCurrentSpeed());
 
@@ -66,7 +66,9 @@ public abstract class Vehicle extends HasPosition implements Movable {
     }
 
     public void setCurrentSpeed(double newSpeed){
+        if (0 <= newSpeed && newSpeed <= enginePower){
         this.currentSpeed = newSpeed;
+        }
     }
 
     public double getEnginePower() {

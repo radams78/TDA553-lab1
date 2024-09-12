@@ -1,0 +1,26 @@
+1. Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+
+Vi valde att skapa en abstrakt klass och namngav den "Car". Denna klass håller alla attribut och metoder som är gemensamma för alla våra subtyper av Car. 
+Subtyperna "Saab95" och "Volvo240" ärver av "Car". "Car" i sin tur ärver av klassen "HasPosition" som i sin tur implementerar "Movable", vilket är ett interface.
+
+Vi ska inte behöva utföra hjärnkirurgi för att sätta på en hatt. Att göra Car till en abstrakt klass och sedan låta denna ärva av HasPosition gör att vi bland annat inte kan 
+skapa ett object car, utan istället ett sub-object som ärver av och har egenskaper från car och därmed alla egenskaper för HasPosition.
+
+Vi var tidiga med att implementera vår superklass och interface och detta gjorde det väldigt lätt för oss att utöka koden efter hand som vi arbetat med den. 
+Ett exempel kan vara alla de tillfällen vi insett att vi behövde en getter för någon funktionalitet, då skrev vi bara snabbt in en rad i Car eller hasPosition
+och vips så var allt frid och fröjd!
+
+Vi har en "pending-change" som vi eventuellt vill implementera som har med increment-/decremetspeed och gas/brake där vi förminskar duplicering av kod. 
+Just för att vi valt vår superklass till car och hasPosition som interface kommer denna ändring gå att genomföra smidigt där ingenting av den övriga koden kommer att påverkas!
+
+2. Explain how you implemented each of the sanity checks in Task 4.
+
+Metoderna gas och brake accepterar bara värden mellan 0 och 1 med en if-sats.
+
+Metoden incrementSpeed begränsas med en if-sats så om currentSpeed överstiger enginePower sätts currentSpeed till enginePower.
+Metoden decremetspeed begränsas med en if-sats så om currentSpeed understiger 0 sätts currentSpeed till 0.
+
+Metoden gas har implementerats så att den kallar på incrementSpeed. Eftersom incrementSpeed inte kan vara negativ(0 <= currentSpeed <= enginePower), 
+kan således inte gas resultera i ett negativt värde.
+
+Metoden brake har implementerats så att den kallar på decremetSpeed. DecremetSpeed kommer alltid minska farten då speedFactor och amount endast kan anta positiva värden.
